@@ -1,0 +1,166 @@
+/*
+ * Marp Theme - CS 7180 Vibe Coding
+ * Centralized styling for all Marp presentations in aiCoding_spring2026
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #333333;
+  --color-accent: #2563EB;
+  --color-dark: #000000;
+  --color-gray: #666666;
+  --color-light-gray: #999999;
+  --color-bg-light: #f8f8f8;
+}
+
+section {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  line-height: 1.6;
+  padding: 60px 80px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: -0.05em;
+  color: var(--color-dark);
+}
+
+h1 {
+  font-size: 3.2em;
+  font-weight: 300;
+  margin-bottom: 0.3em;
+  color: var(--color-accent);
+}
+
+h2 {
+  font-size: 2.2em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.6em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.tiny {
+  font-size: 60%;
+}
+
+strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+em {
+  color: var(--color-gray);
+  font-style: italic;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background: var(--color-bg-light);
+  color: var(--color-accent);
+  font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85em;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--color-bg-light);
+  border-radius: 5px;
+  padding: 1.5em;
+  margin: 1em 0;
+  border: 1px solid #ddd;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.75em;
+  line-height: 1.5;
+  color: var(--color-dark);
+}
+
+blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding-left: 1.5em;
+  color: var(--color-gray);
+  font-style: italic;
+  font-size: 1.1em;
+  margin: 1.5em 0;
+}
+
+ul, ol {
+  text-align: left;
+}
+
+li {
+  margin-bottom: 0.4em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em auto;
+  font-size: 0.85em;
+}
+
+th {
+  background: var(--color-bg-light);
+  color: var(--color-dark);
+  font-weight: 700;
+  padding: 0.8em;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+td {
+  padding: 0.8em;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background: #fafafa;
+}
+
+img {
+  border: none;
+  box-shadow: none;
+}
+
+section::after {
+  color: var(--color-light-gray);
+  font-size: 0.6em;
+}
+
+/* Autoscaling for headers and code blocks */
+h1, h2, h3, h4, h5, h6 {
+  overflow: auto;
+}
+
+pre {
+  overflow: auto;
+}

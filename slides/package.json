@@ -1,0 +1,30 @@
+{
+  "name": "webDevelopment_fall2025",
+  "version": "1.0.0",
+  "description": "My slides for my web development course",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "marp --input-dir . --allow-local-files",
+    "build:watch": "marp --input-dir . --allow-local-files --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-guerra/webDevelopmentSlides.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/john-guerra/webDevelopmentSlides/issues"
+  },
+  "homepage": "https://github.com/john-guerra/webDevelopmentSlides#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.1.0"
+  }
+}

@@ -3,6 +3,7 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
+html: true
 style: |
   @import url('../css/marp-theme.css');
   section {
@@ -15,6 +16,54 @@ style: |
 ## Understanding How AI Code Generation Actually Works
 
 ### Week 2
+
+---
+
+# How to Use GenAI Effectively
+
+- You can quickly validate the output
+- You help it succeed by giving it clear instructions
+  - Make it harder for it to hallucinate
+  - Don't please me
+- Provide enough context
+- Ethical Use
+
+---
+
+# What's AI anyways?
+
+## AI vs. Machine Learning
+
+- **Artificial Intelligence (AI)**: The broad field of creating systems that mimic human intelligence (logic, reasoning, perception).
+- **Machine Learning (ML)**: A subset of AI where algorithms improve automatically through experience and data, rather than explicit programming.
+
+---
+
+## Where LLMs Fit In
+
+- **Deep Learning**: A subset of ML using multi-layered neural networks (the "brain" of modern AI).
+- **Large Language Models (LLMs)**: A specific application of Deep Learning trained on massive text datasets to understand and generate human language.
+- **The Hierarchy**: AI ⊃ Machine Learning ⊃ Deep Learning ⊃ LLMs.
+
+<div align="center">
+  <svg width="400" height="320" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+    <!-- AI -->
+    <rect x="10" y="10" width="380" height="300" rx="15" fill="#f8f9fa" stroke="#343a40" stroke-width="2"/>
+    <text x="200" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#343a40">Artificial Intelligence</text>
+    
+    <!-- ML -->
+    <rect x="30" y="50" width="340" height="240" rx="15" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+    <text x="200" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#495057">Machine Learning</text>
+    
+    <!-- Deep Learning -->
+    <rect x="50" y="90" width="300" height="180" rx="15" fill="#dee2e6" stroke="#6c757d" stroke-width="2"/>
+    <text x="200" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#6c757d">Deep Learning</text>
+    
+    <!-- LLMs -->
+    <rect x="70" y="130" width="260" height="120" rx="15" fill="#adb5bd" stroke="#212529" stroke-width="2"/>
+    <text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#212529">LLMs</text>
+  </svg>
+</div>
 
 ---
 
@@ -79,12 +128,12 @@ style: |
 
 # From Simple to Sophisticated
 
-| Model | Parameters | Comparison |
-|-------|-----------|------------|
-| Simple NN | ~1,000 | A calculator |
-| ResNet-50 | 25 million | Image recognition |
-| GPT-3 | 175 billion | Small city's population |
-| GPT-4 | ~1.7 trillion | Approaching brain synapses |
+| Model     | Parameters    | Comparison                 |
+| --------- | ------------- | -------------------------- |
+| Simple NN | ~1,000        | A calculator               |
+| ResNet-50 | 25 million    | Image recognition          |
+| GPT-3     | 175 billion   | Small city's population    |
+| GPT-4     | ~1.7 trillion | Approaching brain synapses |
 
 ---
 
@@ -139,11 +188,11 @@ Target: "\n    return a + b"
 
 # How LLMs Are Built
 
-| Stage | What Happens | Data |
-|-------|-------------|------|
-| Pre-training | Learn language patterns | Internet, books, code |
-| Fine-tuning | Learn to follow instructions | Curated Q&A pairs |
-| RLHF | Learn human preferences | Human feedback ratings |
+| Stage        | What Happens                 | Data                   |
+| ------------ | ---------------------------- | ---------------------- |
+| Pre-training | Learn language patterns      | Internet, books, code  |
+| Fine-tuning  | Learn to follow instructions | Curated Q&A pairs      |
+| RLHF         | Learn human preferences      | Human feedback ratings |
 
 ---
 
@@ -170,13 +219,13 @@ Target: "\n    return a + b"
 
 # Implications for AI-Assisted Development
 
-| LLMs Excel At | LLMs Struggle With |
-|--------------|-------------------|
-| Common patterns | Novel algorithms |
-| Boilerplate code | Complex business logic |
-| Syntax completion | Edge case reasoning |
-| Documentation | Security considerations |
-| Test generation | Architecture decisions |
+| LLMs Excel At     | LLMs Struggle With      |
+| ----------------- | ----------------------- |
+| Common patterns   | Novel algorithms        |
+| Boilerplate code  | Complex business logic  |
+| Syntax completion | Edge case reasoning     |
+| Documentation     | Security considerations |
+| Test generation   | Architecture decisions  |
 
 ---
 
@@ -196,6 +245,7 @@ Take 2 minutes with your neighbor.
 - Different for code!
 
 **Examples:**
+
 - "hello" = 1 token
 - "indentation" = 3 tokens (in, dent, ation)
 - Whitespace matters!
@@ -207,12 +257,14 @@ Take 2 minutes with your neighbor.
 **Tool:** https://tiktokenizer.vercel.app/
 
 **Try these examples:**
+
 1. "Hello, World!"
 2. `function add(a, b) { return a + b; }`
 3. Four spaces vs. tab character
 4. Python indentation blocks
 
 **Observations to make:**
+
 - Code tokenizes differently than prose
 - Whitespace handling varies
 - Special characters can be expensive
@@ -239,12 +291,12 @@ def greet(name):
 Given: "The capital of France is"
 
 | Next Token | Probability |
-|-----------|-------------|
-| Paris | 0.92 |
-| a | 0.03 |
-| the | 0.02 |
-| located | 0.01 |
-| ... | ... |
+| ---------- | ----------- |
+| Paris      | 0.92        |
+| a          | 0.03        |
+| the        | 0.02        |
+| located    | 0.01        |
+| ...        | ...         |
 
 Model predicts probability distribution over ALL possible tokens.
 
@@ -263,12 +315,12 @@ Model predicts probability distribution over ALL possible tokens.
 
 # Temperature Settings for Coding
 
-| Task | Recommended Temp | Why |
-|------|-----------------|-----|
-| Code completion | 0-0.2 | Deterministic, correct |
-| Bug fixes | 0-0.3 | Precision matters |
-| Brainstorming | 0.7-0.9 | Creative alternatives |
-| Documentation | 0.3-0.5 | Some variety, still accurate |
+| Task            | Recommended Temp | Why                          |
+| --------------- | ---------------- | ---------------------------- |
+| Code completion | 0-0.2            | Deterministic, correct       |
+| Bug fixes       | 0-0.3            | Precision matters            |
+| Brainstorming   | 0.7-0.9          | Creative alternatives        |
+| Documentation   | 0.3-0.5          | Some variety, still accurate |
 
 > For production code, lower is usually safer.
 
@@ -309,12 +361,12 @@ Model predicts probability distribution over ALL possible tokens.
 
 # Concrete Examples of Bias
 
-| Bias Type | Example |
-|-----------|---------|
-| Language popularity | Better at Python/JS than Rust/Haskell |
-| Framework familiarity | More React examples than Svelte |
-| Domain exposure | Better at web dev than embedded systems |
-| Documentation quality | Better at well-documented APIs |
+| Bias Type               | Example                                          |
+| ----------------------- | ------------------------------------------------ |
+| Language popularity     | Better at Python/JS than Rust/Haskell            |
+| Framework familiarity   | More React examples than Svelte                  |
+| Domain exposure         | Better at web dev than embedded systems          |
+| Documentation quality   | Better at well-documented APIs                   |
 | Stack Overflow patterns | May reproduce common (sometimes wrong) solutions |
 
 ---
@@ -326,6 +378,7 @@ Model predicts probability distribution over ALL possible tokens.
 - Outdated training data? May not know new APIs
 
 **Mitigations:**
+
 - Provide context files (.cursorrules)
 - Include documentation in prompts
 - Always verify unfamiliar APIs
@@ -339,6 +392,7 @@ Model predicts probability distribution over ALL possible tokens.
 - Deprecated patterns may be suggested
 
 **Example:**
+
 - Ask about React 19 features
 - Model trained on React 18 data
 - May confidently describe features that don't exist!
@@ -353,6 +407,7 @@ Model predicts probability distribution over ALL possible tokens.
 - Enables mathematical operations on meaning!
 
 **Example:**
+
 ```
 king - man + woman ≈ queen
 ```
@@ -364,11 +419,11 @@ king - man + woman ≈ queen
 - Close vectors = similar meaning
 - Far vectors = different meaning
 
-| Word Pair | Distance | Relationship |
-|-----------|----------|--------------|
-| cat, kitten | 0.15 | Very similar |
-| cat, dog | 0.35 | Related |
-| cat, database | 0.89 | Unrelated |
+| Word Pair     | Distance | Relationship |
+| ------------- | -------- | ------------ |
+| cat, kitten   | 0.15     | Very similar |
+| cat, dog      | 0.35     | Related      |
+| cat, database | 0.89     | Unrelated    |
 
 ---
 
@@ -377,6 +432,7 @@ king - man + woman ≈ queen
 **Tool:** https://projector.tensorflow.org/
 
 **What to explore:**
+
 1. Load Word2Vec pre-trained embeddings
 2. Search for "king" — see nearby words
 3. Try the analogy tool
@@ -392,6 +448,7 @@ king - man + woman ≈ queen
 - Enables semantic code search
 
 **Applications:**
+
 - "Find functions similar to this one"
 - "Search for authentication logic"
 - @codebase in Cursor uses this!
@@ -405,6 +462,7 @@ king - man + woman ≈ queen
 - Foundation for RAG (coming up!)
 
 **Process:**
+
 1. Embed your documents/code
 2. Store vectors in database
 3. Embed the query
@@ -465,14 +523,15 @@ The "memory" is just including conversation history in the prompt!
 
 # Context Windows: The Working Memory
 
-| Model | Context Window |
-|-------|---------------|
-| GPT-3.5 | 4K-16K tokens |
-| GPT-4 | 8K-128K tokens |
-| Claude 3.5 | 200K tokens |
-| Gemini 1.5 | 1M-2M tokens |
+| Model      | Context Window |
+| ---------- | -------------- |
+| GPT-3.5    | 4K-16K tokens  |
+| GPT-4      | 8K-128K tokens |
+| Claude 3.5 | 200K tokens    |
+| Gemini 1.5 | 1M-2M tokens   |
 
 **What fits in 200K tokens?**
+
 - ~150,000 words
 - A medium-sized codebase
 - Several hours of conversation
@@ -494,6 +553,7 @@ The "memory" is just including conversation history in the prompt!
 # Giving LLMs Access to Your Data
 
 **Problem:**
+
 - LLMs only know their training data
 - They don't know your codebase
 - They don't have current information
@@ -545,6 +605,7 @@ Here are the user's preferences from .cursorrules:
 - These work by adding text to the prompt!
 
 **Example .cursorrules:**
+
 ```
 Use TypeScript with strict mode
 Prefer functional components
@@ -562,6 +623,7 @@ Write tests for new functions
 - Context window still limits total input
 
 **Best practices:**
+
 - Keep context focused and relevant
 - Use specific file references when possible
 - Update .cursorrules as patterns emerge
@@ -592,13 +654,13 @@ Write tests for new functions
 
 # Common Hallucination Patterns
 
-| Type | Example |
-|------|---------|
-| Fake APIs | `response.data.items` when API returns `response.results` |
-| Non-existent packages | `npm install fake-helper-lib` |
-| Wrong signatures | `Math.round(num, decimals)` (wrong params) |
-| Deprecated patterns | Using callbacks when library now uses promises |
-| Invented features | Describing config options that don't exist |
+| Type                  | Example                                                   |
+| --------------------- | --------------------------------------------------------- |
+| Fake APIs             | `response.data.items` when API returns `response.results` |
+| Non-existent packages | `npm install fake-helper-lib`                             |
+| Wrong signatures      | `Math.round(num, decimals)` (wrong params)                |
+| Deprecated patterns   | Using callbacks when library now uses promises            |
+| Invented features     | Describing config options that don't exist                |
 
 ---
 
@@ -621,6 +683,7 @@ Write tests for new functions
 > "When should you trust AI-generated code? When should you be skeptical?"
 
 **Think about:**
+
 - Code complexity
 - Your familiarity with the domain
 - Consequences of bugs
@@ -635,13 +698,13 @@ Write tests for new functions
 
 # Practical Implications
 
-| The Problem | The Solution |
-|-------------|--------------|
-| Takes shortcuts | Be specific about requirements |
-| Doesn't verify | Write tests first (TDD) |
-| Assumes intent | State expectations explicitly |
-| Skips edge cases | Ask about edge cases |
-| Produces "good enough" | Set clear quality standards |
+| The Problem            | The Solution                   |
+| ---------------------- | ------------------------------ |
+| Takes shortcuts        | Be specific about requirements |
+| Doesn't verify         | Write tests first (TDD)        |
+| Assumes intent         | State expectations explicitly  |
+| Skips edge cases       | Ask about edge cases           |
+| Produces "good enough" | Set clear quality standards    |
 
 ---
 
@@ -656,6 +719,7 @@ Write tests for new functions
 ```
 
 **Why this works:**
+
 - Clear success criteria
 - Automatic verification
 - Can't fake passing tests
@@ -677,28 +741,31 @@ Write tests for new functions
 
 # How This Connects Forward
 
-| Today's Concept | Later Application |
-|-----------------|-------------------|
-| Everything is text | Prompt engineering (Week 3) |
-| Context matters | Context engineering (Week 8) |
-| RAG basics | .cursorrules, @codebase (Week 4-5) |
-| Hallucinations | Evaluation systems (Week 9-10) |
-| Testing as verification | TDD with AI (Week 4-5) |
-| Lazy teenager model | Why evals matter (Week 9) |
+| Today's Concept         | Later Application                  |
+| ----------------------- | ---------------------------------- |
+| Everything is text      | Prompt engineering (Week 3)        |
+| Context matters         | Context engineering (Week 8)       |
+| RAG basics              | .cursorrules, @codebase (Week 4-5) |
+| Hallucinations          | Evaluation systems (Week 9-10)     |
+| Testing as verification | TDD with AI (Week 4-5)             |
+| Lazy teenager model     | Why evals matter (Week 9)          |
 
 ---
 
 # Go Deeper
 
 **Optional Deep Dives:**
+
 - Karpathy: "Let's Build GPT" — https://karpathy.ai/zero-to-hero.html
 - Jay Alammar: "The Illustrated Transformer"
 
 **Academic:**
+
 - "LLM Hallucinations in Practical Code Generation"
 - "Why Language Models Hallucinate"
 
 **Tools to Explore:**
+
 - Tiktokenizer: https://tiktokenizer.vercel.app/
 - Embedding Projector: https://projector.tensorflow.org/
 

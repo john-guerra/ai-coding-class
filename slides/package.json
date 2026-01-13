@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "marp --input-dir . --allow-local-files",
-    "build:watch": "marp --input-dir . --allow-local-files --watch"
+    "build": "marp --input-dir . --allow-local-files --html",
+    "build:watch": "marp --input-dir . --allow-local-files --html --watch"
   },
   "repository": {
     "type": "git",

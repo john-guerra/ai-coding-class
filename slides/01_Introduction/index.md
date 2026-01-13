@@ -3,6 +3,7 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
+html: true
 style: |
   @import url('../css/marp-theme.css');
   section {

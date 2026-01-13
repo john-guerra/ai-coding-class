@@ -1,5 +1,7 @@
 {
   "title": "CS 7180: Vibe Coding",
+  "separator": "^---$",
+  "verticalSeparator": "^<!-- vertical -->$",
   "theme": "white",
   "highlightTheme": "monokai",
   "revealOptions": {

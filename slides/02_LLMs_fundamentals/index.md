@@ -42,28 +42,35 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # What We'll Cover Today
 
-1. Neural Network Foundations (quick refresher)
-2. LLM Training: "Sophisticated Autocomplete"
-3. Tokens, Temperature, and Probability
-4. Knowledge in Weights & The Bias Problem
-5. Embeddings and Semantic Space
-6. Context Windows & How Chatbots Work
-7. RAG and Context Files
-8. Hallucinations: Why AI Lies Confidently
-9. The "Lazy Teenager" Mental Model
+**Part 1: The Big Picture**
+
+1. What's AI? Where LLMs Fit In
+2. Software Evolution (Karpathy's 1.0/2.0/3.0)
+
+**Part 2: How LLMs Work**
+
+3. Neural Network Foundations
+4. LLM Training: "Sophisticated Autocomplete"
+5. Tokens, Temperature, and Probability
+6. Knowledge in Weights & The Bias Problem
+7. Embeddings and Semantic Space
+8. Context Windows & How Chatbots Work
+9. RAG and Context Files
+10. Hallucinations: Why AI Lies Confidently
+11. The "Lazy Teenager" Mental Model
 
 ---
 
 # What's AI anyways?
 
----
+<!-- vertical -->
 
 ## AI vs. Machine Learning
 
 - **Artificial Intelligence (AI)**: The broad field of creating systems that mimic human intelligence (logic, reasoning, perception).
 - **Machine Learning (ML)**: A subset of AI where algorithms improve automatically through experience and data, rather than explicit programming.
 
----
+<!-- vertical -->
 
 ## Where LLMs Fit In
 
@@ -73,7 +80,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 ![AI Hierarchy](images/ai-hierarchy.svg)
 
----
+<!-- vertical -->
 
 ## Software Evolution by Karpathy
 
@@ -82,7 +89,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 Watch: [Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ)
 
----
+<!-- vertical -->
 
 ## Software 1.0: Explicit Instructions
 
@@ -97,7 +104,7 @@ def add(a, b):
     return a + b  # Human writes EVERY instruction
 ```
 
----
+<!-- vertical -->
 
 ## Software 2.0: Neural Networks
 
@@ -113,7 +120,7 @@ def add(a, b):
 | Explicit logic | Learned patterns    |
 | GitHub repos   | Hugging Face models |
 
----
+<!-- vertical -->
 
 ## Software 3.0: LLMs as Computers
 
@@ -129,7 +136,7 @@ Software 2.0: Show machine WHAT to do (examples)
 Software 3.0: Tell machine WHAT you want (English)
 ```
 
----
+<!-- vertical -->
 
 ## LLMs as Operating Systems
 
@@ -144,7 +151,7 @@ Karpathy's analogy: LLMs are emerging as new OS
 
 We're in the "mainframe era" — expensive, centralized, time-shared access via terminals (chat interfaces).
 
----
+<!-- vertical -->
 
 ## The Recursive Loop
 
@@ -158,7 +165,11 @@ This is why we're learning **all three modalities** in this course!
 
 ---
 
-# Why Understand LLMs?
+# How LLMs Work
+
+<!-- vertical -->
+
+## Why Understand LLMs?
 
 > "If you can't explain why the AI gave that answer, you can't debug it when it's wrong."
 
@@ -167,9 +178,9 @@ This is why we're learning **all three modalities** in this course!
 - Set realistic expectations
 - Choose the right tool for the job
 
----
+<!-- vertical -->
 
-# Neural Networks: The 30-Second Version
+## Neural Networks: The 30-Second Version
 
 - Inspired by biological neurons (loosely)
 - Inputs → weighted connections → outputs
@@ -178,9 +189,9 @@ This is why we're learning **all three modalities** in this course!
 
 <!-- TODO: add image neural-network-basics.png -->
 
----
+<!-- vertical -->
 
-# Training: Adjusting Weights
+## Training: Adjusting Weights
 
 1. Make a prediction
 2. Compare to correct answer (error/loss)
@@ -189,9 +200,9 @@ This is why we're learning **all three modalities** in this course!
 
 > "Training is like tuning millions of knobs until the output matches what you want."
 
----
+<!-- vertical -->
 
-# Gradient Descent: Finding the Bottom
+## Gradient Descent: Finding the Bottom
 
 - Imagine a hilly landscape (error surface)
 - You're blindfolded, trying to find the lowest point
@@ -201,9 +212,9 @@ This is why we're learning **all three modalities** in this course!
 
 <!-- TODO: add image gradient-descent.png -->
 
----
+<!-- vertical -->
 
-# From Simple to Sophisticated
+## From Simple to Sophisticated
 
 | Model     | Parameters    | Comparison                 |
 | --------- | ------------- | -------------------------- |
@@ -212,9 +223,9 @@ This is why we're learning **all three modalities** in this course!
 | GPT-3     | 175 billion   | Small city's population    |
 | GPT-4     | ~1.7 trillion | Approaching brain synapses |
 
----
+<!-- vertical -->
 
-# Transformers: The Architecture Behind LLMs
+## Transformers: The Architecture Behind LLMs
 
 - 2017: "Attention Is All You Need" paper
 - Key innovation: **Attention mechanism**
@@ -222,7 +233,7 @@ This is why we're learning **all three modalities** in this course!
 - Enables understanding of relationships between words
 - Foundation for GPT, Claude, Gemini
 
----
+<!-- vertical -->
 
 # Required Viewing (Did You Watch?)
 
@@ -245,7 +256,7 @@ This is why we're learning **all three modalities** in this course!
 - Given context, predict the next token
 - That's it. That's the whole trick.
 
----
+<!-- vertical -->
 
 # Training Objective: Predict the Next Token
 
@@ -261,7 +272,7 @@ Target: "\n    return a + b"
 - Learns patterns, syntax, idioms
 - Becomes very good at "what typically comes next"
 
----
+<!-- vertical -->
 
 # How LLMs Are Built
 
@@ -271,7 +282,7 @@ Target: "\n    return a + b"
 | Fine-tuning  | Learn to follow instructions | Curated Q&A pairs      |
 | RLHF         | Learn human preferences      | Human feedback ratings |
 
----
+<!-- vertical -->
 
 # The Crucial Distinction
 
@@ -281,7 +292,7 @@ Target: "\n    return a + b"
 
 "LLMs are like someone who has read every book about swimming but has never been in water. They can describe swimming perfectly but might drown."
 
----
+<!-- vertical -->
 
 # Stochastic Parrots
 
@@ -292,7 +303,7 @@ Target: "\n    return a + b"
 - Mimics patterns from training data
 - Optimizes for **plausible**, not **correct**
 
----
+<!-- vertical -->
 
 # Implications for AI-Assisted Development
 
@@ -304,7 +315,7 @@ Target: "\n    return a + b"
 | Documentation     | Security considerations |
 | Test generation   | Architecture decisions  |
 
----
+<!-- vertical -->
 
 # Discussion Question
 
@@ -312,7 +323,7 @@ Target: "\n    return a + b"
 
 Take 2 minutes with your neighbor.
 
----
+<!-- vertical -->
 
 # Tokens: The Atoms of LLM Input
 
@@ -327,7 +338,7 @@ Take 2 minutes with your neighbor.
 - "indentation" = 3 tokens (in, dent, ation)
 - Whitespace matters!
 
----
+<!-- vertical -->
 
 # DEMO: Tokenization in Action
 
@@ -346,7 +357,7 @@ Take 2 minutes with your neighbor.
 - Whitespace handling varies
 - Special characters can be expensive
 
----
+<!-- vertical -->
 
 # Tokenization Gotchas for Developers
 
@@ -361,7 +372,7 @@ def greet(name):
 - Uncommon names = more tokens = higher cost
 - Context window is measured in tokens!
 
----
+<!-- vertical -->
 
 # How Token Selection Works
 

@@ -1,0 +1,2 @@
+# Ignore reveal-md slides to preserve vertical slide separators
+*.md

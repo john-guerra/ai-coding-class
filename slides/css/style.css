@@ -24,6 +24,11 @@
   text-transform: none;
 }
 
+/* Default h1 20% smaller */
+.reveal h1 {
+  font-size: 2em;
+}
+
 /* Links */
 .reveal a {
   color: var(--link-blue);

@@ -25,10 +25,6 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # How to Use GenAI Effectively
 
----
-
-## Validation & Instructions
-
 - You can quickly validate the output
   - You know the answer
   - Read everything it does
@@ -42,13 +38,9 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # What We'll Cover Today
 
-**Part 1: The Big Picture**
 
 1. What's AI? Where LLMs Fit In
 2. Software Evolution (Karpathy's 1.0/2.0/3.0)
-
-**Part 2: How LLMs Work**
-
 3. Neural Network Foundations
 4. LLM Training: "Sophisticated Autocomplete"
 5. Tokens, Temperature, and Probability
@@ -72,13 +64,24 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Where LLMs Fit In
 
-- **Deep Learning**: A subset of ML using multi-layered neural networks (the "brain" of modern AI).
-- **Large Language Models (LLMs)**: A specific application of Deep Learning trained on massive text datasets to understand and generate human language.
-- **The Hierarchy**: AI ⊃ Machine Learning ⊃ Deep Learning ⊃ LLMs.
+<div class="columns">
+<div class="column">
+
+- **Deep Learning**: Multi-layered neural networks
+- **LLMs**: Deep Learning trained on massive text to understand and generate language
+- **Hierarchy**: AI ⊃ ML ⊃ DL ⊃ LLMs
+
+</div>
+<div class="column">
 
 ![AI Hierarchy](images/ai-hierarchy.svg)
+
+</div>
+</div>
 
 <!-- vertical -->
 
@@ -106,19 +109,30 @@ def add(a, b):
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Software 2.0: Neural Networks
+
+<div class="columns">
+<div class="column">
 
 **Machine Learning Era (2010s-present)**
 
-- Instead of hand-coding rules, specify objectives + provide data
-- The "code" is learned weights in neural networks
+- Specify objectives + provide data
+- "Code" = learned weights in neural networks
 - Karpathy coined this in 2017
+
+</div>
+<div class="column">
 
 | Software 1.0 | Software 2.0 |
 | --- | --- |
 | Write rules | Train on data |
 | Explicit logic | Learned patterns |
 | GitHub repos | Hugging Face models |
+
+</div>
+</div>
 
 <!-- vertical -->
 
@@ -214,6 +228,8 @@ This is why we're learning **all three modalities** in this course!
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## From Simple to Sophisticated
 
 - Scale matters in neural networks
@@ -239,6 +255,8 @@ This is why we're learning **all three modalities** in this course!
 
 # Required Viewing (Did You Watch?)
 
+<!-- .slide: class="dense" -->
+
 **3Blue1Brown Videos:**
 
 - "But what is a Neural Network?" (19 min)
@@ -252,6 +270,8 @@ This is why we're learning **all three modalities** in this course!
 
 # LLMs = Autocomplete on Steroids
 
+<!-- .slide: class="dense" --> 
+
 > "Your phone's keyboard suggestions, but trained on the entire internet and capable of completing not just words but entire programs."
 
 - Trained to predict "what comes next"
@@ -261,6 +281,8 @@ This is why we're learning **all three modalities** in this course!
 <!-- vertical -->
 
 # Training: Predict Next Token
+
+<!-- .slide: class="dense" -->
 
 ```
 Input:  "The quick brown fox"
@@ -278,6 +300,8 @@ Target: "\n    return a + b"
 
 # How LLMs Are Built
 
+<!-- .slide: class="dense" -->
+
 Three phases of training:
 
 | Stage | What Happens | Data |
@@ -289,6 +313,8 @@ Three phases of training:
 <!-- vertical -->
 
 # The Crucial Distinction
+
+<!-- .slide: class="dense" -->
 
 > "LLMs simulate understanding. They don't possess it."
 
@@ -348,6 +374,8 @@ Take 2 minutes with your neighbor.
 
 # DEMO: Tokenization in Action
 
+<!-- .slide: class="dense" -->
+
 **Tool:** https://tiktokenizer.vercel.app/
 
 **Try these examples:**
@@ -382,6 +410,8 @@ def greet(name):
 
 # How Token Selection Works
 
+<!-- .slide: class="dense" -->
+
 Given: "The capital of France is"
 
 | Next Token | Probability |
@@ -408,6 +438,8 @@ Model predicts probability distribution over ALL possible tokens.
 <!-- vertical -->
 # Temperature Settings for Coding
 
+<!-- .slide: class="dense" -->
+
 Best practices for different tasks:
 
 | Task | Recommended Temp | Why |
@@ -432,6 +464,8 @@ Best practices for different tasks:
 
 <!-- vertical -->
 # Weights = Compressed Knowledge
+
+<!-- .slide: class="dense" -->
 
 > "Imagine compressing Wikipedia, all of GitHub, and every programming book into a neural network's weights. The knowledge is there, but it's fuzzy, incomplete, and sometimes wrong — like memories."
 
@@ -623,6 +657,8 @@ The "memory" is just including conversation history in the prompt!
 
 # Context Windows
 
+<!-- .slide: class="dense" -->
+
 How much can models "remember"?
 
 | Model | Context Window |
@@ -802,7 +838,7 @@ Write tests for new functions
 
 > "LLMs are like brilliant but lazy teenagers who want to do the minimum work to seem like they completed the task. If you don't check their work, they'll cut corners. If you give them clear expectations and test their outputs, they do much better."
 
----
+<!-- vertical -->
 
 <!-- .slide: class="dense" -->
 
@@ -816,19 +852,6 @@ Write tests for new functions
 | Skips edge cases | Ask about edge cases |
 | Produces "good enough" | Set clear quality standards |
 
----
-
-# TDD with AI
-
-```
-1. You write test (defines "correct")
-2. AI generates implementation
-3. Test runs → Pass or Fail
-4. If fail → AI sees error, tries again
-5. Iterate until tests pass
-```
-
-**Why:** Clear criteria, automatic verification, catches shortcuts
 
 ---
 
@@ -860,6 +883,8 @@ Write tests for new functions
 ---
 
 # Go Deeper
+
+<!-- .slide: class="dense" -->
 
 **Optional Deep Dives:**
 

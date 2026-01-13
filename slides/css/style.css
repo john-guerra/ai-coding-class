@@ -103,3 +103,46 @@
 .smaller {
   font-size: 0.5em;
 }
+
+/* Two-column layout */
+.columns {
+  display: flex;
+  gap: 2em;
+}
+
+.columns .column {
+  flex: 1;
+}
+
+.columns .column:first-child {
+  text-align: left;
+}
+
+.columns .column:last-child {
+  text-align: left;
+}
+
+/* Compact tables for dense content */
+.reveal table.compact {
+  font-size: 0.65em;
+}
+
+.reveal table.compact th,
+.reveal table.compact td {
+  padding: 0.2em 0.5em;
+}
+
+/* Smaller h1 for slides with lots of content */
+.reveal section.dense h1 {
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+.reveal section.dense p,
+.reveal section.dense li {
+  font-size: 0.75em;
+}
+
+.reveal section.dense table {
+  font-size: 0.6em;
+}

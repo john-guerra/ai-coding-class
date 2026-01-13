@@ -1,0 +1,2 @@
+# Ignore reveal-md slides to preserve table formatting and vertical slide separators
+slides/**/*.md

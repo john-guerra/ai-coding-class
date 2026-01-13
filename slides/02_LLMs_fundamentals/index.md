@@ -114,11 +114,11 @@ def add(a, b):
 - The "code" is learned weights in neural networks
 - Karpathy coined this in 2017
 
-| Software 1.0   | Software 2.0        |
-| -------------- | ------------------- |
-| Write rules    | Train on data       |
-| Explicit logic | Learned patterns    |
-| GitHub repos   | Hugging Face models |
+| Software 1.0 | Software 2.0 |
+| --- | --- |
+| Write rules | Train on data |
+| Explicit logic | Learned patterns |
+| GitHub repos | Hugging Face models |
 
 <!-- vertical -->
 
@@ -138,16 +138,16 @@ Software 3.0: Tell machine WHAT you want (English)
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## LLMs as Operating Systems
 
-Karpathy's analogy: LLMs are emerging as new OS
-
-| Traditional OS | LLM "OS"                 |
-| -------------- | ------------------------ |
-| CPU            | Reasoning capabilities   |
-| RAM            | Context window           |
-| File system    | Knowledge (RAG, weights) |
-| Programs       | Prompts                  |
+| Traditional OS | LLM "OS" |
+| --- | --- |
+| CPU | Reasoning capabilities |
+| RAM | Context window |
+| File system | Knowledge (RAG) |
+| Programs | Prompts |
 
 We're in the "mainframe era" — expensive, centralized, time-shared access via terminals (chat interfaces).
 
@@ -216,12 +216,14 @@ This is why we're learning **all three modalities** in this course!
 
 ## From Simple to Sophisticated
 
-| Model     | Parameters    | Comparison                 |
-| --------- | ------------- | -------------------------- |
-| Simple NN | ~1,000        | A calculator               |
-| ResNet-50 | 25 million    | Image recognition          |
-| GPT-3     | 175 billion   | Small city's population    |
-| GPT-4     | ~1.7 trillion | Approaching brain synapses |
+- Scale matters in neural networks
+
+| Model | Parameters | Comparison |
+| --- | --- | --- |
+| Simple NN | ~1,000 | A calculator |
+| ResNet-50 | 25 million | Image recognition |
+| GPT-3 | 175 billion | Small city's population |
+| GPT-4 | ~1.7 trillion | Approaching brain synapses |
 
 <!-- vertical -->
 
@@ -248,7 +250,7 @@ This is why we're learning **all three modalities** in this course!
 
 ---
 
-# LLMs Are Autocomplete on Steroids
+# LLMs = Autocomplete on Steroids
 
 > "Your phone's keyboard suggestions, but trained on the entire internet and capable of completing not just words but entire programs."
 
@@ -258,7 +260,7 @@ This is why we're learning **all three modalities** in this course!
 
 <!-- vertical -->
 
-# Training Objective: Predict the Next Token
+# Training: Predict Next Token
 
 ```
 Input:  "The quick brown fox"
@@ -276,11 +278,13 @@ Target: "\n    return a + b"
 
 # How LLMs Are Built
 
-| Stage        | What Happens                 | Data                   |
-| ------------ | ---------------------------- | ---------------------- |
-| Pre-training | Learn language patterns      | Internet, books, code  |
-| Fine-tuning  | Learn to follow instructions | Curated Q&A pairs      |
-| RLHF         | Learn human preferences      | Human feedback ratings |
+Three phases of training:
+
+| Stage | What Happens | Data |
+| --- | --- | --- |
+| Pre-training | Learn language patterns | Internet, books, code |
+| Fine-tuning | Learn to follow instructions | Curated Q&A pairs |
+| RLHF | Learn human preferences | Human feedback ratings |
 
 <!-- vertical -->
 
@@ -305,15 +309,17 @@ Target: "\n    return a + b"
 
 <!-- vertical -->
 
-# Implications for AI-Assisted Development
+<!-- .slide: class="dense" -->
 
-| LLMs Excel At     | LLMs Struggle With      |
-| ----------------- | ----------------------- |
-| Common patterns   | Novel algorithms        |
-| Boilerplate code  | Complex business logic  |
-| Syntax completion | Edge case reasoning     |
-| Documentation     | Security considerations |
-| Test generation   | Architecture decisions  |
+# When to Trust AI
+
+| LLMs Excel At | LLMs Struggle With |
+| --- | --- |
+| Common patterns | Novel algorithms |
+| Boilerplate code | Complex business logic |
+| Syntax completion | Edge case reasoning |
+| Documentation | Security considerations |
+| Test generation | Architecture decisions |
 
 <!-- vertical -->
 
@@ -359,7 +365,7 @@ Take 2 minutes with your neighbor.
 
 <!-- vertical -->
 
-# Tokenization Gotchas for Developers
+# Tokenization Gotchas
 
 ```python
 # This simple function
@@ -379,18 +385,18 @@ def greet(name):
 Given: "The capital of France is"
 
 | Next Token | Probability |
-| ---------- | ----------- |
-| Paris      | 0.92        |
-| a          | 0.03        |
-| the        | 0.02        |
-| located    | 0.01        |
-| ...        | ...         |
+| --- | --- |
+| Paris | 0.92 |
+| a | 0.03 |
+| the | 0.02 |
+| located | 0.01 |
+| ... | ... |
 
 Model predicts probability distribution over ALL possible tokens.
 
 ---
 
-# Temperature: Controlling Randomness
+# Temperature: Randomness
 
 - Temperature = how "creative" vs. "deterministic"
 - **Temperature 0**: Always pick highest probability
@@ -399,20 +405,21 @@ Model predicts probability distribution over ALL possible tokens.
 
 <!-- TODO: add image temperature-distributions.png -->
 
----
-
+<!-- vertical -->
 # Temperature Settings for Coding
 
-| Task            | Recommended Temp | Why                          |
-| --------------- | ---------------- | ---------------------------- |
-| Code completion | 0-0.2            | Deterministic, correct       |
-| Bug fixes       | 0-0.3            | Precision matters            |
-| Brainstorming   | 0.7-0.9          | Creative alternatives        |
-| Documentation   | 0.3-0.5          | Some variety, still accurate |
+Best practices for different tasks:
+
+| Task | Recommended Temp | Why |
+| --- | --- | --- |
+| Code completion | 0-0.2 | Deterministic, correct |
+| Bug fixes | 0-0.3 | Precision matters |
+| Brainstorming | 0.7-0.9 | Creative alternatives |
+| Documentation | 0.3-0.5 | Some variety, still accurate |
 
 > For production code, lower is usually safer.
 
----
+<!-- vertical -->
 
 # Other Sampling Parameters
 
@@ -423,9 +430,8 @@ Model predicts probability distribution over ALL possible tokens.
 
 **Most important for coding:** Temperature and top-p
 
----
-
-# Weights as Compressed Knowledge
+<!-- vertical -->
+# Weights = Compressed Knowledge
 
 > "Imagine compressing Wikipedia, all of GitHub, and every programming book into a neural network's weights. The knowledge is there, but it's fuzzy, incomplete, and sometimes wrong — like memories."
 
@@ -434,8 +440,7 @@ Model predicts probability distribution over ALL possible tokens.
 - Knowledge is **distributed** across billions of weights
 - Retrieval is **reconstruction**, not recall
 
----
-
+<!-- vertical -->
 # You Are What You Eat
 
 - LLMs learn patterns from training data
@@ -445,35 +450,33 @@ Model predicts probability distribution over ALL possible tokens.
 
 **Garbage in → Garbage out**
 
----
+<!-- vertical -->
+<!-- .slide: class="dense" -->
 
-# Concrete Examples of Bias
+# Examples of Bias
 
-| Bias Type               | Example                                          |
-| ----------------------- | ------------------------------------------------ |
-| Language popularity     | Better at Python/JS than Rust/Haskell            |
-| Framework familiarity   | More React examples than Svelte                  |
-| Domain exposure         | Better at web dev than embedded systems          |
-| Documentation quality   | Better at well-documented APIs                   |
-| Stack Overflow patterns | May reproduce common (sometimes wrong) solutions |
+| Bias Type | Example |
+| --- | --- |
+| Language popularity | Better at Python/JS than Rust/Haskell |
+| Framework familiarity | More React examples than Svelte |
+| Domain exposure | Better at web dev than embedded systems |
+| Documentation quality | Better at well-documented APIs |
+| Stack Overflow patterns | May reproduce common (wrong) solutions |
 
----
+<!-- vertical -->
+<!-- .slide: class="dense" -->
 
-# Implications for Vibe Coding
+# Vibe Coding Implications
 
-- Working in less popular language/framework? Expect more errors
+- Less popular language/framework? Expect more errors
 - Niche domain? Model may be guessing
 - Outdated training data? May not know new APIs
 
-**Mitigations:**
+**Mitigations:** Provide context files, include docs, always verify APIs
 
-- Provide context files (.cursorrules)
-- Include documentation in prompts
-- Always verify unfamiliar APIs
+<!-- vertical -->
 
----
-
-# Training Data Has a Cutoff Date
+# Training Data Cutoff
 
 - Models are trained on data up to a certain date
 - New libraries, APIs, frameworks = unknown
@@ -486,6 +489,10 @@ Model predicts probability distribution over ALL possible tokens.
 - May confidently describe features that don't exist!
 
 ---
+
+# Embeddings
+
+<!-- vertical -->
 
 # Embeddings: Meaning as Math
 
@@ -500,22 +507,22 @@ Model predicts probability distribution over ALL possible tokens.
 king - man + woman ≈ queen
 ```
 
----
+<!-- vertical -->
 
 # Distance = Similarity
 
 - Close vectors = similar meaning
 - Far vectors = different meaning
 
-| Word Pair     | Distance | Relationship |
-| ------------- | -------- | ------------ |
-| cat, kitten   | 0.15     | Very similar |
-| cat, dog      | 0.35     | Related      |
-| cat, database | 0.89     | Unrelated    |
+| Word Pair | Distance | Relationship |
+| --- | --- | --- |
+| cat, kitten | 0.15 | Very similar |
+| cat, dog | 0.35 | Related |
+| cat, database | 0.89 | Unrelated |
 
----
+<!-- vertical -->
 
-# DEMO: TensorFlow Embedding Projector
+# DEMO: Embedding Projector
 
 **Tool:** https://projector.tensorflow.org/
 
@@ -527,7 +534,7 @@ king - man + woman ≈ queen
 4. Visualize clustering of related concepts
 5. Notice how technical terms cluster
 
----
+<!-- vertical -->
 
 # Code Embeddings
 
@@ -541,9 +548,9 @@ king - man + woman ≈ queen
 - "Search for authentication logic"
 - @codebase in Cursor uses this!
 
----
+<!-- vertical -->
 
-# Storing and Searching Embeddings
+# Storing Embeddings
 
 - Vector databases: Pinecone, Weaviate, Chroma
 - Store embeddings for fast similarity search
@@ -557,9 +564,9 @@ king - man + woman ≈ queen
 4. Find nearest neighbors
 5. Return similar content
 
----
+<!-- vertical -->
 
-# Embeddings Enable Understanding
+# How Embeddings Work
 
 - LLMs use embeddings internally
 - Every token becomes a vector
@@ -568,7 +575,12 @@ king - man + woman ≈ queen
 
 > The model doesn't "read" — it navigates high-dimensional space.
 
+
 ---
+
+# Memory
+
+<!-- vertical -->
 
 # The Memory Illusion
 
@@ -579,9 +591,9 @@ king - man + woman ≈ queen
 - Each call is independent
 - So how do chatbots "remember"?
 
----
+<!-- vertical -->
 
-# The Key Insight: Everything is Text
+# Key Insight: Everything is Text
 
 - Your prompt = text
 - Conversation history = text
@@ -591,7 +603,7 @@ king - man + woman ≈ queen
 
 This is crucial for understanding how AI coding tools work.
 
----
+<!-- vertical -->
 
 # Chatbots: Faking Memory
 
@@ -607,16 +619,18 @@ Assistant: [sees full history] 4 times 3 is 12
 
 The "memory" is just including conversation history in the prompt!
 
----
+<!-- vertical -->
 
-# Context Windows: The Working Memory
+# Context Windows
 
-| Model      | Context Window |
-| ---------- | -------------- |
-| GPT-3.5    | 4K-16K tokens  |
-| GPT-4      | 8K-128K tokens |
-| Claude 3.5 | 200K tokens    |
-| Gemini 1.5 | 1M-2M tokens   |
+How much can models "remember"?
+
+| Model | Context Window |
+| --- | --- |
+| GPT-3.5 | 4K-16K tokens |
+| GPT-4 | 8K-128K tokens |
+| Claude 3.5 | 200K tokens |
+| Gemini 1.5 | 1M-2M tokens |
 
 **What fits in 200K tokens?**
 
@@ -624,9 +638,9 @@ The "memory" is just including conversation history in the prompt!
 - A medium-sized codebase
 - Several hours of conversation
 
----
+<!-- vertical -->
 
-# The "Lost in the Middle" Problem
+# "Lost in the Middle"
 
 - LLMs pay more attention to beginning and end
 - Information in the middle may be "forgotten"
@@ -636,9 +650,9 @@ The "memory" is just including conversation history in the prompt!
 
 <!-- TODO: add image lost-in-middle.png -->
 
----
+<!-- vertical -->
 
-# Giving LLMs Access to Your Data
+# LLMs + Your Data
 
 **Problem:**
 
@@ -648,7 +662,7 @@ The "memory" is just including conversation history in the prompt!
 
 **Solution:** Retrieval-Augmented Generation (RAG)
 
----
+<!-- vertical -->
 
 # RAG: The Concept
 
@@ -663,7 +677,11 @@ The "memory" is just including conversation history in the prompt!
 
 ---
 
-# Under the Hood: What Cursor Actually Sends
+# LLM Applications
+
+<!-- vertical -->
+
+# Under the Hood: Cursor
 
 ```
 [System Prompt]
@@ -683,9 +701,9 @@ Here are the user's preferences from .cursorrules:
 "Help me add error handling"
 ```
 
----
+<!-- vertical -->
 
-# .cursorrules and Context Engineering
+# .cursorrules & Context
 
 - `.cursorrules` = always-included instructions
 - `@file` = explicitly include specific files
@@ -716,9 +734,9 @@ Write tests for new functions
 - Use specific file references when possible
 - Update .cursorrules as patterns emerge
 
----
+<!-- vertical -->
 
-# Hallucinations: The Confidence Problem
+# Hallucinations
 
 > "LLMs are trained to sound confident, not to be correct. They will confidently describe API functions that don't exist."
 
@@ -726,7 +744,7 @@ Write tests for new functions
 - No penalty for being wrong, only for being incoherent
 - Pattern completion doesn't verify truth
 
----
+<!-- vertical -->
 
 # The Numbers Are Sobering
 
@@ -738,19 +756,21 @@ Write tests for new functions
 
 **Source:** "LLM Hallucinations in Practical Code Generation" (ACM, 2024)
 
----
+<!-- vertical -->
 
-# Common Hallucination Patterns
+<!-- .slide: class="dense" -->
 
-| Type                  | Example                                                   |
-| --------------------- | --------------------------------------------------------- |
-| Fake APIs             | `response.data.items` when API returns `response.results` |
-| Non-existent packages | `npm install fake-helper-lib`                             |
-| Wrong signatures      | `Math.round(num, decimals)` (wrong params)                |
-| Deprecated patterns   | Using callbacks when library now uses promises            |
-| Invented features     | Describing config options that don't exist                |
+# Hallucination Patterns
 
----
+| Type | Example |
+| --- | --- |
+| Fake APIs | `response.data.items` when API returns `response.results` |
+| Non-existent packages | `npm install fake-helper-lib` |
+| Wrong signatures | `Math.round(num, decimals)` (wrong params) |
+| Deprecated patterns | Callbacks when library uses promises |
+| Invented features | Config options that don't exist |
+
+<!-- vertical -->
 
 # How to Catch AI Lies
 
@@ -764,7 +784,7 @@ Write tests for new functions
 
 > "Trust, but verify. Actually, just verify."
 
----
+<!-- vertical -->
 
 # Discussion Question
 
@@ -778,25 +798,27 @@ Write tests for new functions
 
 ---
 
-# The "Lazy Genius Teenager"
+# The "Lazy Genius"
 
 > "LLMs are like brilliant but lazy teenagers who want to do the minimum work to seem like they completed the task. If you don't check their work, they'll cut corners. If you give them clear expectations and test their outputs, they do much better."
 
 ---
 
-# Practical Implications
+<!-- .slide: class="dense" -->
 
-| The Problem            | The Solution                   |
-| ---------------------- | ------------------------------ |
-| Takes shortcuts        | Be specific about requirements |
-| Doesn't verify         | Write tests first (TDD)        |
-| Assumes intent         | State expectations explicitly  |
-| Skips edge cases       | Ask about edge cases           |
-| Produces "good enough" | Set clear quality standards    |
+# Working with AI
+
+| The Problem | The Solution |
+| --- | --- |
+| Takes shortcuts | Be specific about requirements |
+| Doesn't verify | Write tests first (TDD) |
+| Assumes intent | State expectations explicitly |
+| Skips edge cases | Ask about edge cases |
+| Produces "good enough" | Set clear quality standards |
 
 ---
 
-# Tests Keep the Teenager Honest
+# TDD with AI
 
 ```
 1. You write test (defines "correct")
@@ -806,12 +828,7 @@ Write tests for new functions
 5. Iterate until tests pass
 ```
 
-**Why this works:**
-
-- Clear success criteria
-- Automatic verification
-- Can't fake passing tests
-- Catches shortcuts
+**Why:** Clear criteria, automatic verification, catches shortcuts
 
 ---
 
@@ -827,16 +844,18 @@ Write tests for new functions
 
 ---
 
-# How This Connects Forward
+<!-- .slide: class="dense" -->
 
-| Today's Concept         | Later Application                  |
-| ----------------------- | ---------------------------------- |
-| Everything is text      | Prompt engineering (Week 3)        |
-| Context matters         | Context engineering (Week 8)       |
-| RAG basics              | .cursorrules, @codebase (Week 4-5) |
-| Hallucinations          | Evaluation systems (Week 9-10)     |
-| Testing as verification | TDD with AI (Week 4-5)             |
-| Lazy teenager model     | Why evals matter (Week 9)          |
+# Looking Ahead
+
+| Today's Concept | Later Application |
+| --- | --- |
+| Everything is text | Prompt engineering (Week 3) |
+| Context matters | Context engineering (Week 8) |
+| RAG basics | .cursorrules, @codebase (Week 4-5) |
+| Hallucinations | Evaluation systems (Week 9-10) |
+| Testing as verification | TDD with AI (Week 4-5) |
+| Lazy teenager model | Why evals matter (Week 9) |
 
 ---
 
@@ -859,7 +878,7 @@ Write tests for new functions
 
 ---
 
-# Coming Up: Modality 1 — Claude Web
+# Next: Claude Web
 
 - Hands-on with Claude Projects
 - Artifacts for prototyping

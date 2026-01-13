@@ -329,12 +329,12 @@ If you can't code without AI, you can't:
 
 6 assignments building toward projects:
 
-1. Mom Test Interviews + User Stories
-2. Prompt Engineering Battle
-3. Context Engineering Lab
-4. TDD + CI/CD + Evals Suite
-5. Parallel Agent Orchestration
-6. Production Readiness Checklist
+1. Mom Test Interviews + User Stories (Week 3)
+2. Prompt Engineering Battle (Week 4)
+3. Context Engineering Lab (Week 8)
+4. TDD + CI/CD + Evals Suite (Week 11)
+5. Parallel Agent Orchestration (Week 13)
+6. Production Readiness Checklist (Week 14)
 
 ---
 

@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #2c3e50;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #d41b2c;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-weight: 300;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.control-group label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.95rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.hierarchy-btn {
+    padding: 10px 20px;
+    border: 2px solid #d41b2c;
+    background: white;
+    color: #d41b2c;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.hierarchy-btn:hover {
+    background: #fff5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 27, 44, 0.2);
+}
+
+.hierarchy-btn.active {
+    background: #d41b2c;
+    color: white;
+}
+
+.stats-display {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+#treemap-container {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fafafa;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#treemap {
+    width: 100%;
+    height: 100%;
+}
+
+.tooltip {
+    position: absolute;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 250px;
+    z-index: 1000;
+}
+
+.tooltip.visible {
+    opacity: 1;
+}
+
+.tooltip-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #d41b2c;
+}
+
+.tooltip-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tooltip-label {
+    color: #bdc3c7;
+}
+
+.tooltip-value {
+    font-weight: 600;
+}
+
+.legend {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.legend-title {
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.legend-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Treemap specific styles */
+.node {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.node:hover {
+    opacity: 0.85;
+}
+
+.node-rect {
+    stroke: white;
+    stroke-width: 2;
+    shape-rendering: crispEdges;
+}
+
+.node-label {
+    pointer-events: none;
+    user-select: none;
+    font-weight: 600;
+    fill: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.node-value {
+    pointer-events: none;
+    user-select: none;
+    font-size: 0.85em;
+    fill: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .hierarchy-btn {
+        width: 100%;
+    }
+
+    .stats-display {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    #treemap-container {
+        height: 400px;
+    }
+}

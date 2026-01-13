@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU Students Distribution - Interactive Treemap</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Northeastern University Student Distribution</h1>
+            <p class="subtitle">Explore campus and program enrollment patterns</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Hierarchy View:</label>
+                <div class="button-group">
+                    <button id="campusFirst" class="hierarchy-btn active">Campus → Program</button>
+                    <button id="programFirst" class="hierarchy-btn">Program → Campus</button>
+                </div>
+            </div>
+            <div class="stats-display">
+                <div class="stat-item">
+                    <span class="stat-label">Total Students:</span>
+                    <span class="stat-value" id="totalStudents">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Selected:</span>
+                    <span class="stat-value" id="selectedInfo">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="treemap-container">
+            <svg id="treemap"></svg>
+        </div>
+
+        <div id="tooltip" class="tooltip"></div>
+
+        <div class="legend">
+            <div class="legend-title">Program Types</div>
+            <div class="legend-items" id="legendItems"></div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

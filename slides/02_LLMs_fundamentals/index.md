@@ -40,6 +40,20 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 ---
 
+# What We'll Cover Today
+
+1. Neural Network Foundations (quick refresher)
+2. LLM Training: "Sophisticated Autocomplete"
+3. Tokens, Temperature, and Probability
+4. Knowledge in Weights & The Bias Problem
+5. Embeddings and Semantic Space
+6. Context Windows & How Chatbots Work
+7. RAG and Context Files
+8. Hallucinations: Why AI Lies Confidently
+9. The "Lazy Teenager" Mental Model
+
+---
+
 # What's AI anyways?
 
 ---
@@ -61,17 +75,86 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 ---
 
-# What We'll Cover Today
+## Software Evolution by Karpathy
 
-1. Neural Network Foundations (quick refresher)
-2. LLM Training: "Sophisticated Autocomplete"
-3. Tokens, Temperature, and Probability
-4. Knowledge in Weights & The Bias Problem
-5. Embeddings and Semantic Space
-6. Context Windows & How Chatbots Work
-7. RAG and Context Files
-8. Hallucinations: Why AI Lies Confidently
-9. The "Lazy Teenager" Mental Model
+> "The hottest new programming language is English."
+> — Andrej Karpathy
+
+Watch: [Software Is Changing (Again)](https://www.youtube.com/watch?v=LCEmiRjPEtQ)
+
+---
+
+## Software 1.0: Explicit Instructions
+
+**Traditional Programming (1950s-present)**
+
+- Developers write explicit code (C++, Python, Java)
+- Every behavior is designed, debugged, maintained by humans
+- Clear, deterministic: input → algorithm → output
+
+```python
+def add(a, b):
+    return a + b  # Human writes EVERY instruction
+```
+
+---
+
+## Software 2.0: Neural Networks
+
+**Machine Learning Era (2010s-present)**
+
+- Instead of hand-coding rules, specify objectives + provide data
+- The "code" is learned weights in neural networks
+- Karpathy coined this in 2017
+
+| Software 1.0   | Software 2.0        |
+| -------------- | ------------------- |
+| Write rules    | Train on data       |
+| Explicit logic | Learned patterns    |
+| GitHub repos   | Hugging Face models |
+
+---
+
+## Software 3.0: LLMs as Computers
+
+**Natural Language Programming (2022-present)**
+
+- LLMs are programmable via human language
+- Prompts ARE the new code
+- The model "executes" your English instructions
+
+```
+Software 1.0: Tell machine HOW to do it
+Software 2.0: Show machine WHAT to do (examples)
+Software 3.0: Tell machine WHAT you want (English)
+```
+
+---
+
+## LLMs as Operating Systems
+
+Karpathy's analogy: LLMs are emerging as new OS
+
+| Traditional OS | LLM "OS"                 |
+| -------------- | ------------------------ |
+| CPU            | Reasoning capabilities   |
+| RAM            | Context window           |
+| File system    | Knowledge (RAG, weights) |
+| Programs       | Prompts                  |
+
+We're in the "mainframe era" — expensive, centralized, time-shared access via terminals (chat interfaces).
+
+---
+
+## The Recursive Loop
+
+**Software eating software eating software:**
+
+- Software 3.0 (LLM) can generate Software 1.0 (code)
+- Software 3.0 can configure Software 2.0 (ML models)
+- Each layer subsumes the previous
+
+This is why we're learning **all three modalities** in this course!
 
 ---
 

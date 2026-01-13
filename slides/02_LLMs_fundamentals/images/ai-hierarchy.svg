@@ -1,0 +1,17 @@
+<svg width="400" height="320" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- AI -->
+  <rect x="10" y="10" width="380" height="300" rx="15" fill="#f8f9fa" stroke="#343a40" stroke-width="2"/>
+  <text x="200" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#343a40">Artificial Intelligence</text>
+
+  <!-- ML -->
+  <rect x="30" y="50" width="340" height="240" rx="15" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+  <text x="200" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#495057">Machine Learning</text>
+
+  <!-- Deep Learning -->
+  <rect x="50" y="90" width="300" height="180" rx="15" fill="#dee2e6" stroke="#6c757d" stroke-width="2"/>
+  <text x="200" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#6c757d">Deep Learning</text>
+
+  <!-- LLMs -->
+  <rect x="70" y="130" width="260" height="120" rx="15" fill="#adb5bd" stroke="#212529" stroke-width="2"/>
+  <text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#212529">LLMs</text>
+</svg>

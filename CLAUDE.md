@@ -14,11 +14,11 @@ All commands run from the `slides/` directory:
 # Install dependencies
 cd slides && npm install
 
+# Development server (live reload)
+npm run serve
+
 # Build all slides to dist/
 npm run build
-
-# Watch mode (auto-rebuild on changes)
-npm run build:watch
 ```
 
 ## Repository Structure
@@ -42,12 +42,13 @@ aiCoding_Course/
 │       ├── hw5-parallel-agents.md
 │       └── hw6-production-readiness.md
 │
-├── slides/                        # Lecture slides (Marp)
+├── slides/                        # Lecture slides (reveal-md)
 │   ├── 01_Introduction/          # Week 1 slides
 │   ├── 02_LLMs_fundamentals/     # Week 2 slides
-│   ├── css/marp-theme.css        # Northeastern-branded theme
+│   ├── css/style.css             # Custom branding (Northeastern red)
+│   ├── reveal-md.json            # Reveal.js configuration
 │   ├── dist/                     # Compiled HTML output
-│   └── package.json              # Marp CLI config
+│   └── package.json              # reveal-md config
 │
 ├── examples/                      # Example projects for class
 ├── docs/                          # Supporting documentation
@@ -66,32 +67,44 @@ aiCoding_Course/
 | `course/schedule.md` | 15-week schedule with deliverables |
 | `course/readings.md` | Required readings by week |
 
-## Creating Slides (Marp Format)
+## Creating Slides (reveal-md Format)
 
 Each lecture folder contains:
-- `index.md` - Marp source with YAML frontmatter
+- `index.md` - Reveal.js markdown with YAML frontmatter
 - `images/` - Lecture-specific images
 
-Marp slide template:
+Slide template:
 ```markdown
 ---
-marp: true
-theme: default
-paginate: true
+title: "Lecture Title"
+theme: white
+revealOptions:
+  transition: convex
+  hash: true
+  history: true
 ---
 
-<style>
-@import '../css/marp-theme.css';
-</style>
-
-# Slide Title
+## Slide Title
 
 Content here
 
 ---
 
-# Next Slide
+# New Section (horizontal)
+
+----
+
+## Sub-slide (vertical)
 ```
+
+**Slide separators:**
+- `---` creates a new horizontal slide (new topic)
+- `----` creates a vertical slide (subtopic under current section)
+
+**Reveal.js built-in classes:**
+- `r-fit-text` - Auto-scales text to fit slide
+- `r-stretch` - Makes element fill remaining vertical space
+- `r-stack` - Centers/layers elements for progressive disclosure
 
 ## Course Context
 

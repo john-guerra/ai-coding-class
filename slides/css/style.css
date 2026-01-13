@@ -1,0 +1,105 @@
+/* Custom styles for CS 7180 Vibe Coding slides */
+/* Based on johnguerra.co web development slides */
+/* Uses Reveal.js built-in layout features: r-fit-text, r-stretch, r-stack */
+
+:root {
+  --neu-red: #c8102e;
+  --link-blue: #4a90e2;
+  --text-dark: #333;
+  --text-gray: #666;
+}
+
+/* Typography */
+.reveal {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+/* Links */
+.reveal a {
+  color: var(--link-blue);
+}
+
+.reveal a:hover {
+  color: #2a70c2;
+}
+
+/* Strong/bold text - Northeastern red */
+.reveal strong {
+  color: var(--neu-red);
+}
+
+/* Code blocks */
+.reveal pre {
+  box-shadow: none;
+  font-size: 0.55em;
+}
+
+.reveal code {
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+  background: #f9f9f9;
+  border-left: 4px solid var(--neu-red);
+  padding: 0.5em 1em;
+  font-style: italic;
+  width: 90%;
+  box-shadow: none;
+}
+
+/* Tables */
+.reveal table {
+  margin: 1em auto;
+}
+
+.reveal table th {
+  background: #eee;
+  font-weight: 700;
+}
+
+.reveal table th,
+.reveal table td {
+  border: 1px solid #ddd;
+  padding: 0.4em 0.8em;
+}
+
+.reveal table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Images */
+.reveal section img {
+  border: none;
+  box-shadow: none;
+}
+
+/* Lists */
+.reveal ul,
+.reveal ol {
+  text-align: left;
+}
+
+/* Progress bar color */
+.reveal .progress {
+  color: var(--neu-red);
+}
+
+/* Utility classes */
+.small {
+  font-size: 0.7em;
+}
+
+.smaller {
+  font-size: 0.5em;
+}

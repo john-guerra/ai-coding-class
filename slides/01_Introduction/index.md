@@ -1,14 +1,10 @@
 ---
-marp: true
-theme: default
-paginate: true
-size: 16:9
-html: true
-style: |
-  @import url('../css/marp-theme.css');
-  section {
-    --auto-scaling: true;
-  }
+title: "CS 7180: Introduction to Vibe Coding"
+theme: white
+revealOptions:
+  transition: slide
+  slideNumber: true
+  hash: true
 ---
 
 # CS 7180: Special Topics in AI

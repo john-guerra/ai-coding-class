@@ -1,0 +1,17 @@
+{
+  "title": "CS 7180: Vibe Coding",
+  "theme": "white",
+  "highlightTheme": "monokai",
+  "revealOptions": {
+    "transition": "convex",
+    "slideNumber": false,
+    "hash": true,
+    "history": true,
+    "overview": true,
+    "center": true,
+    "controls": true,
+    "progress": true
+  },
+  "css": ["css/style.css"],
+  "scripts": ["js/fragments.js"]
+}

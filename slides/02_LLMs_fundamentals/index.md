@@ -1,30 +1,45 @@
 ---
-marp: true
-theme: default
-paginate: true
-size: 16:9
-html: true
-style: |
-  @import url('../css/marp-theme.css');
-  section {
-    --auto-scaling: true;
-  }
+title: "CS 7180: LLM Fundamentals"
+theme: white
+revealOptions:
+  transition: convex
+  hash: true
+  history: true
 ---
 
-# CS 7180: LLM Fundamentals
+<!-- .slide: id="title" -->
 
-## Understanding How AI Code Generation Actually Works
+## CS 7180: LLM Fundamentals
 
-### Week 2
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
+
+[**John Alexis Guerra Gómez**](http://johnguerra.co/)
+
+jguerra at northeastern.edu
+
+Class: [johnguerra.co/classes/aiCoding_spring_2026](https://johnguerra.co/classes/aiCoding_spring_2026/)
+
+Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lectures/ai_assisted_coding/02_LLMs_fundamentals/)
 
 ---
 
 # How to Use GenAI Effectively
 
+----
+
+## Validation & Instructions
+
 - You can quickly validate the output
+  - You know the answer
+  - Read everything it does
 - You help it succeed by giving it clear instructions
   - Make it harder for it to hallucinate
   - Don't please me
+
+----
+
+## Context & Ethics
+
 - Provide enough context
 - Ethical Use
 
@@ -32,12 +47,14 @@ style: |
 
 # What's AI anyways?
 
+----
+
 ## AI vs. Machine Learning
 
 - **Artificial Intelligence (AI)**: The broad field of creating systems that mimic human intelligence (logic, reasoning, perception).
 - **Machine Learning (ML)**: A subset of AI where algorithms improve automatically through experience and data, rather than explicit programming.
 
----
+----
 
 ## Where LLMs Fit In
 
@@ -45,25 +62,7 @@ style: |
 - **Large Language Models (LLMs)**: A specific application of Deep Learning trained on massive text datasets to understand and generate human language.
 - **The Hierarchy**: AI ⊃ Machine Learning ⊃ Deep Learning ⊃ LLMs.
 
-<div align="center">
-  <svg width="400" height="320" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
-    <!-- AI -->
-    <rect x="10" y="10" width="380" height="300" rx="15" fill="#f8f9fa" stroke="#343a40" stroke-width="2"/>
-    <text x="200" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#343a40">Artificial Intelligence</text>
-    
-    <!-- ML -->
-    <rect x="30" y="50" width="340" height="240" rx="15" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
-    <text x="200" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#495057">Machine Learning</text>
-    
-    <!-- Deep Learning -->
-    <rect x="50" y="90" width="300" height="180" rx="15" fill="#dee2e6" stroke="#6c757d" stroke-width="2"/>
-    <text x="200" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#6c757d">Deep Learning</text>
-    
-    <!-- LLMs -->
-    <rect x="70" y="130" width="260" height="120" rx="15" fill="#adb5bd" stroke="#212529" stroke-width="2"/>
-    <text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#212529">LLMs</text>
-  </svg>
-</div>
+![AI Hierarchy](images/ai-hierarchy.svg)
 
 ---
 

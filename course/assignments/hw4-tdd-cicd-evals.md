@@ -1,7 +1,7 @@
 # HW4: TDD + CI/CD + Evals Suite
 
 **Weight:** 5% of final grade
-**Due:** Week 10
+**Due:** Week 11
 
 ## Objective
 

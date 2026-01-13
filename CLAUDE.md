@@ -112,7 +112,7 @@ Content here
 
 **Three AI Modalities:**
 1. Claude Web (Week 2) - Architecture, learning, brainstorming
-2. Cursor IDE (Weeks 4-5) - Production code, daily workflow
+2. Antigravity (Weeks 4-5) - Production code, daily workflow
 3. Claude Code (Week 6+) - Automation, multi-file refactoring
 
 **Key Elements:**

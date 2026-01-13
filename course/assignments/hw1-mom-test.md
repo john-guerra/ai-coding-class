@@ -1,7 +1,7 @@
 # HW1: Mom Test Interviews + User Stories
 
 **Weight:** 4% of final grade
-**Due:** Week 2
+**Due:** Week 3
 
 ## Objective
 

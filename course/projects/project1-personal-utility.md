@@ -16,7 +16,7 @@ Master one AI modality while building a real solution to a validated problem.
 - Responsive design (mobile + desktop)
 
 ### Technical Requirements
-- **ONE primary modality focus** (Claude Web, Cursor, or Claude Code)
+- **ONE primary modality focus** (Claude Web, Antigravity, or Claude Code)
 - JavaScript/TypeScript
 - Simple tech stack (vanilla JS or React)
 - 50%+ test coverage

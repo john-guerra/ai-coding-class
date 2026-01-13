@@ -97,11 +97,11 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **1** | **Foundations** | • Course intro & portfolio planning<br>• Mom Test introduction<br>• Design Thinking basics<br>• **LLM Fundamentals (2 hours)**<br>&nbsp;&nbsp;- Transformers, tokens, context windows<br>&nbsp;&nbsp;- Hallucinations, temperature<br>&nbsp;&nbsp;- Model comparison (GPT/Claude/Gemini) | Weekly Quiz 1<br>Pre-class questions | **P1:** Ideation<br>Problem identification |
 | **2** | **Modality 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | **HW1 DUE:** Mom Test<br>Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
 | **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | **HW2 DUE:** Prompts<br>Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
-| **4** | **Modality 2 (Part 1)** | • Cursor installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .cursorrules<br>• **TDD Introduction** | Weekly Quiz 4 | **P1:** Sprint 1<br>Implementation begins |
-| **5** | **Cursor + CI/CD** | • Composer (multi-file)<br>• Advanced .cursorrules<br>• **CI/CD Fundamentals**<br>&nbsp;&nbsp;- GitHub Actions basics<br>&nbsp;&nbsp;- Test automation<br>• Setting up first pipeline | Weekly Quiz 5 | **P1:** Sprint 2<br>Add CI pipeline |
+| **4** | **Modality 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | Weekly Quiz 4 | **P1:** Sprint 1<br>Implementation begins |
+| **5** | **Antigravity + CI/CD** | • Composer (multi-file)<br>• Advanced .antigravityrules<br>• **CI/CD Fundamentals**<br>&nbsp;&nbsp;- GitHub Actions basics<br>&nbsp;&nbsp;- Test automation<br>• Setting up first pipeline | Weekly Quiz 5 | **P1:** Sprint 2<br>Add CI pipeline |
 | **6** | **Project 1 + Modality 3** | • **PROJECT 1 PRESENTATIONS**<br>• Claude Code & Terminal AI<br>• Agentic coding intro<br>• Terminal workflows<br>• Automation & scripts | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final submission<br>**P2:** Planning begins |
 | **7** | **Advanced Prompting** | • Chain-of-thought<br>• Meta-prompting<br>• Prompt chaining<br>• Structured prompts (XML/JSON)<br>• Cost optimization<br>• Building prompt libraries | **HW3 DUE:** Context<br>Weekly Quiz 7 | **P2:** Sprint 1<br>Architecture & setup |
-| **8** | **Context Engineering** | • Context windows<br>• Context sources & optimization<br>• RAG for code<br>• Token management<br>• .cursorrules best practices<br>• MCPs (Model Control Protocols) | Weekly Quiz 8 | **P2:** Sprint 2<br>Core features |
+| **8** | **Context Engineering** | • Context windows<br>• Context sources & optimization<br>• RAG for code<br>• Token management<br>• .antigravityrules best practices<br>• MCPs (Model Control Protocols) | Weekly Quiz 8 | **P2:** Sprint 2<br>Core features |
 | **9** | **Evals Part 1** | • What are evals & why they matter<br>• Types of evals:<br>&nbsp;&nbsp;- Correctness<br>&nbsp;&nbsp;- Quality<br>&nbsp;&nbsp;- Semantic<br>• Building eval frameworks<br>• Golden dataset creation | Weekly Quiz 9 | **P2:** Sprint 3<br>Testing & quality |
 | **10** | **TDD + CI/CD + Evals** | • Advanced TDD with AI<br>• Multi-stage CI/CD pipelines<br>• Deploy previews<br>• Coverage reporting<br>• Security scanning<br>• **Evals Part 2:**<br>&nbsp;&nbsp;- LLM-as-judge<br>&nbsp;&nbsp;- Automated dashboards | **HW4 DUE:** TDD+CI/CD<br>**MIDTERM:** No-AI Challenge<br>Weekly Quiz 10 | **P2:** Final polish<br>Complete eval suite |
 | **11** | **Project 2 + Agile** | • **PROJECT 2 PRESENTATIONS**<br>• Agile workflows with AI<br>• Scrum ceremonies<br>• Sprint planning with AI<br>• Team velocity & estimation<br>• **Team Formation Workshop** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 11 | **P2:** Final submission<br>**P3:** Team formation |
@@ -135,7 +135,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 2: Cursor IDE (Weeks 4-5)
+### Modality 2: Antigravity IDE (Weeks 4-5)
 **Best for:** Professional development, production code, daily coding workflow
 
 **Skills Covered:**
@@ -143,11 +143,11 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 - Inline chat (Cmd+K)
 - Composer for multi-file changes
 - @ context references (@file, @docs, @codebase)
-- .cursorrules configuration
+- .antigravityrules configuration
 - YOLO mode for autonomous testing
 - Diff review and acceptance
 
-**Lab Exercise:** Contribute to existing codebase using Cursor
+**Lab Exercise:** Contribute to existing codebase using Antigravity
 
 **When to Use:**
 - Daily development work
@@ -465,7 +465,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
    - Document architecture decisions
    - Note inconsistencies
 
-2. **Create `.cursorrules` file:**
+2. **Create `.antigravityrules` file:**
    - Coding standards
    - Architecture patterns
    - Naming conventions
@@ -484,14 +484,14 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 **Deliverables:**
 - Codebase analysis document
-- `.cursorrules` file (well-commented)
+- `.antigravityrules` file (well-commented)
 - Before/after code comparison
 - 2-3 page report: "How context engineering improved results"
 - Best practices guide for context optimization
 
 **Rubric (40 points):**
 - Analysis quality: 25%
-- .cursorrules effectiveness: 35%
+- .antigravityrules effectiveness: 35%
 - Before/after comparison: 25%
 - Documentation: 15%
 
@@ -573,7 +573,7 @@ Create dashboard showing:
 - Agent D: Comprehensive test suite
 
 Run agents simultaneously using:
-- Multiple Cursor sessions, OR
+- Multiple Antigravity sessions, OR
 - Multiple Claude Code instances, OR
 - Different tools for different agents
 
@@ -877,12 +877,12 @@ const DataList: React.FC<Props> = () => {
 
 ### Online Documentation (Required)
 - Anthropic Claude Documentation: https://docs.anthropic.com
-- Cursor Documentation: https://cursor.sh/docs
+- Antigravity Documentation: https://antigravity.dev/docs
 - GitHub Copilot Guide: https://docs.github.com/copilot
 
 ### Tools (Required)
 **Paid Subscriptions (~$40/month total):**
-- Cursor IDE: ~$20/month
+- Antigravity IDE: ~$20/month
 - Claude.ai Pro: $20/month
 
 **Free Tools:**
@@ -1094,7 +1094,7 @@ By course end, students will have:
 
 **AI Mastery:**
 - Expert Claude Web usage
-- Professional Cursor workflows
+- Professional Antigravity workflows
 - Autonomous agent orchestration
 - Advanced prompt engineering
 - Context optimization
@@ -1537,7 +1537,7 @@ By course end, students will have:
 **For Instructor:**
 - "Attention Is All You Need" (Transformer paper)
 - Anthropic's prompt engineering guide
-- Cursor best practices documentation
+- Antigravity best practices documentation
 - Research on AI in education
 - Agile methodology references
 
@@ -1551,7 +1551,7 @@ By course end, students will have:
 ### Community Resources
 
 **External Communities:**
-- Cursor Community Discord
+- Antigravity Community Discord
 - Anthropic Claude community
 - r/ChatGPT, r/ClaudeAI
 - AI coding Twitter/X

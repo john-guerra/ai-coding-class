@@ -1,7 +1,7 @@
 # HW2: Prompt Engineering Battle
 
 **Weight:** 4% of final grade
-**Due:** Week 3
+**Due:** Week 4
 
 ## Objective
 

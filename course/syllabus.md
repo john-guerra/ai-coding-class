@@ -88,8 +88,8 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 2. **Designing for Growth** by Jeanne Liedtka & Tim Ogilvie (ISBN: 978-0231158930)
 3. **Scrum** by Jeff Sutherland (ISBN: 978-0385346450)
 
-### Tools (Paid Subscriptions ~$40/month)
-- Cursor IDE: ~$20/month
+### Tools (Paid Subscriptions ~$20/month)
+- Antigravity: Free
 - Claude.ai Pro: $20/month
 
 ### Free Tools

@@ -1,11 +1,11 @@
 # HW3: Context Engineering Lab
 
 **Weight:** 4% of final grade
-**Due:** Week 7
+**Due:** Week 8
 
 ## Objective
 
-Learn to optimize AI context for better code generation through `.cursorrules` and context management.
+Learn to optimize AI context for better code generation through `.antigravityrules` and context management.
 
 ## Setup
 
@@ -25,7 +25,7 @@ The codebase will have:
 - Note inconsistencies and technical debt
 - Understand the existing structure
 
-### 2. Create `.cursorrules` File (35%)
+### 2. Create `.antigravityrules` File (35%)
 Build a comprehensive rules file including:
 - Coding standards
 - Architecture patterns
@@ -49,7 +49,7 @@ Build a comprehensive rules file including:
 ## Deliverables
 
 1. **Codebase analysis document** - Patterns, issues, architecture
-2. **`.cursorrules` file** - Well-commented, comprehensive
+2. **`.antigravityrules` file** - Well-commented, comprehensive
 3. **Before/after code comparison** - Same feature, different contexts
 4. **2-3 page report** - "How context engineering improved results"
 5. **Best practices guide** - For context optimization
@@ -59,7 +59,7 @@ Build a comprehensive rules file including:
 | Category | Weight | Description |
 |----------|--------|-------------|
 | **Analysis Quality** | 25% | Thorough understanding of codebase |
-| **`.cursorrules` Effectiveness** | 35% | Rules are comprehensive and effective |
+| **`.antigravityrules` Effectiveness** | 35% | Rules are comprehensive and effective |
 | **Before/After Comparison** | 25% | Clear demonstration of improvement |
 | **Documentation** | 15% | Report and guide quality |
 
@@ -68,7 +68,7 @@ Build a comprehensive rules file including:
 - Issues documented: 3 pts
 - Architecture understood: 3 pts
 
-### `.cursorrules` (14 pts)
+### `.antigravityrules` (14 pts)
 - Comprehensive coverage: 5 pts
 - Well-organized: 4 pts
 - Effective at guiding AI: 5 pts

@@ -109,15 +109,15 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 4-5: Cursor IDE & TDD
+## Week 4-5: Antigravity IDE & TDD
 
 ### 📚 Required
 
-**Cursor Documentation**
+**Antigravity Documentation**
 | Topic | URL |
 |-------|-----|
-| Cursor Docs (Official) | https://docs.cursor.com/ |
-| Getting Started | https://docs.cursor.com/get-started/migrate-from-vscode |
+| Antigravity Docs (Official) | https://docs.antigravity.dev/ |
+| Getting Started | https://docs.antigravity.dev/get-started/migrate-from-vscode |
 
 **Test-Driven Development**
 | Resource | URL |
@@ -232,7 +232,7 @@ All URLs have been verified as of January 2026.
 | Tool | URL |
 |------|-----|
 | Anthropic Claude Docs | https://docs.anthropic.com |
-| Cursor Docs | https://docs.cursor.com |
+| Antigravity Docs | https://docs.antigravity.dev |
 | GitHub Copilot Guide | https://docs.github.com/copilot |
 | Next.js Documentation | https://nextjs.org/docs |
 | React Documentation | https://react.dev |
@@ -270,7 +270,7 @@ All URLs have been verified as of January 2026.
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
 | 3 | Prompt Engineering | Anthropic courses, documentation |
-| 4-5 | Cursor & TDD | Cursor docs, testing frameworks |
+| 4-5 | Antigravity & TDD | Antigravity docs, testing frameworks |
 | 6 | Claude Code | Tool use documentation |
 | 7-8 | Context Engineering | Advanced prompting, Anthropic research |
 | 9-10 | Evaluations | Eval courses, benchmark papers |
@@ -282,7 +282,7 @@ All URLs have been verified as of January 2026.
 ## Notes on Resource Quality
 
 ### Tier 1: Primary Sources (Most Reliable)
-- Official documentation (Anthropic, Cursor, GitHub)
+- Official documentation (Anthropic, Antigravity, GitHub)
 - Peer-reviewed papers (arXiv, ACL, USENIX)
 - Educational content from recognized experts (Karpathy, 3Blue1Brown)
 

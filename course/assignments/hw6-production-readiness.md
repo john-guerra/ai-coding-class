@@ -1,7 +1,7 @@
 # HW6: Production Readiness Checklist
 
 **Weight:** 4% of final grade
-**Due:** Week 13
+**Due:** Week 14
 
 ## Objective
 

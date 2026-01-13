@@ -1,7 +1,7 @@
 # HW5: Parallel Agent Orchestration
 
 **Weight:** 4% of final grade
-**Due:** Week 12
+**Due:** Week 13
 
 ## Objective
 
@@ -29,7 +29,7 @@ Master coordinating multiple AI agents for complex tasks through parallel execut
 ## Phase 2: Parallel Execution (40%)
 
 Run agents simultaneously using:
-- Multiple Cursor sessions, OR
+- Multiple Antigravity sessions, OR
 - Multiple Claude Code instances, OR
 - Different tools for different agents
 

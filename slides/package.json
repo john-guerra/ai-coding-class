@@ -1,27 +1,25 @@
 {
-  "name": "webDevelopment_fall2025",
+  "name": "ai-coding-spring2026-slides",
   "version": "1.0.0",
-  "description": "My slides for my web development course",
+  "description": "Slides for CS 7180: Vibe Coding - AI-Assisted Software Engineering",
   "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "reveal-md . --watch",
-    "build": "reveal-md . --static dist"
+    "build": "reveal-md . --static dist",
+    "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_spring2026/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/john-guerra/webDevelopmentSlides.git"
+    "url": "git+https://github.com/john-guerra/ai-coding-class.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["slides", "reveal.js", "ai-coding", "northeastern"],
+  "author": "John Alexis Guerra Gómez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/john-guerra/webDevelopmentSlides/issues"
+    "url": "https://github.com/john-guerra/ai-coding-class/issues"
   },
-  "homepage": "https://github.com/john-guerra/webDevelopmentSlides#readme",
+  "homepage": "https://johnguerra.co/classes/aiCoding_spring_2026/",
   "devDependencies": {
     "reveal-md": "^6.1.4"
   }

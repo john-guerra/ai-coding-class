@@ -14,8 +14,8 @@
 
 | Week | Module | Topics | Deliverables | Project Status |
 |------|--------|--------|--------------|----------------|
-| **1** | **Foundations** | Course intro & portfolio planning, Mom Test introduction, Design Thinking basics, **LLM Fundamentals (2 hours)**: Transformers, tokens, context windows, hallucinations, temperature, model comparison | Weekly Quiz 1, Pre-class questions | **P1:** Ideation, Problem identification |
-| **2** | **Modality 1** | Claude Web & Projects, Artifacts & conversational coding, Architecture planning with AI, Requirements gathering workshop, User story writing | **HW1 DUE:** Mom Test, Weekly Quiz 2 | **P1:** User research, PRD & user stories |
+| **1** | **Foundations** | Course intro & portfolio planning, Mom Test introduction, Design Thinking basics | Weekly Quiz 1, Pre-class questions | **P1:** Ideation, Problem identification |
+| **2** | **LLM Fundamentals + Modality 1** | **LLM Fundamentals**: Transformers, tokens, context windows, hallucinations, temperature, model comparison; Claude Web & Projects, Artifacts & conversational coding | **HW1 DUE:** Mom Test, Weekly Quiz 2 | **P1:** User research, PRD & user stories |
 | **3** | **Prompt Engineering** | Effective prompt structure, Few-shot learning, System vs user prompts, Iteration strategies, Hands-on workshop | **HW2 DUE:** Prompts, Weekly Quiz 3 | **P1:** Architecture, Begin prototyping |
 | **4** | **Modality 2 (Part 1)** | Cursor installation & setup, Tab autocomplete, Inline chat (Cmd+K), @ context references, Basic .cursorrules, **TDD Introduction** | Weekly Quiz 4 | **P1:** Sprint 1, Implementation begins |
 | **5** | **Cursor + CI/CD** | Composer (multi-file), Advanced .cursorrules, **CI/CD Fundamentals**: GitHub Actions basics, Test automation, Setting up first pipeline | Weekly Quiz 5 | **P1:** Sprint 2, Add CI pipeline |

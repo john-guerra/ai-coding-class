@@ -99,4 +99,4 @@ Apache 2.0
 
 ---
 
-*For questions, reach out on Slack or during office hours (Tuesdays 2-4PM)*
+*For questions, reach out on Slack (office hours by appointment)*

@@ -8,12 +8,14 @@
 - **Campus:** Oakland, California
 - **Semester:** Spring 2026 (Inaugural Offering)
 - **Schedule:** Tuesday/Thursday, 3:00PM-4:40PM PST
+- **Location:** Lucie Stern 27, Oakland Campus
+- **Prerequisites:** CS 5010 (min D) or CS 5004 (min C)
 
 ## Instructor
 
 - **Name:** John Alexis Guerra Gomez
 - **Email:** jguerra@northeastern.edu
-- **Office Hours:** Tuesdays 2-4PM (Carnegie 201 or by appointment via Slack)
+- **Office Hours:** By appointment via Slack
 
 ## Course Mission
 

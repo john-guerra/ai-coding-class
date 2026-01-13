@@ -138,3 +138,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .DS_Store
+
+# Slides deployment (sensitive - contains SSH key paths)
+slides/update.sh
+
+# Playwright MCP screenshots
+.playwright-mcp/
+website

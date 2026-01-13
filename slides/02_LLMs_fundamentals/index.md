@@ -25,7 +25,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # How to Use GenAI Effectively
 
-----
+---
 
 ## Validation & Instructions
 
@@ -35,11 +35,6 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 - You help it succeed by giving it clear instructions
   - Make it harder for it to hallucinate
   - Don't please me
-
-----
-
-## Context & Ethics
-
 - Provide enough context
 - Ethical Use
 
@@ -47,14 +42,14 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # What's AI anyways?
 
-----
+---
 
 ## AI vs. Machine Learning
 
 - **Artificial Intelligence (AI)**: The broad field of creating systems that mimic human intelligence (logic, reasoning, perception).
 - **Machine Learning (ML)**: A subset of AI where algorithms improve automatically through experience and data, rather than explicit programming.
 
-----
+---
 
 ## Where LLMs Fit In
 

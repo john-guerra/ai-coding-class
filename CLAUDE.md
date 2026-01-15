@@ -121,3 +121,14 @@ Content here
 - 3 portfolio-worthy projects with increasing complexity
 
 **Tech Stack (for student projects):** React/Next.js, Node.js/Express, PostgreSQL/MongoDB, Jest/Vitest, Playwright, GitHub Actions
+
+## Canvas LMS Integration
+
+**Course ID:** 246270 (Spring 2026 AI Coding CS7180)
+**Canvas Domain:** northeastern.instructure.com
+
+MCP server `mcp-canvas-lms` is configured globally at `~/.claude/mcp.json` to manage:
+- Assignments and quizzes
+- Modules and pages
+- Announcements and discussions
+- Grades and rubrics

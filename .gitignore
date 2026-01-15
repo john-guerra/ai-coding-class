@@ -145,3 +145,6 @@ slides/update.sh
 # Playwright MCP screenshots
 .playwright-mcp/
 website
+
+# Assessment answer keys (instructor only)
+course/assessments/*-answer-key.md

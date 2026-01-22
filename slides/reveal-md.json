@@ -12,7 +12,8 @@
     "overview": true,
     "center": true,
     "controls": true,
-    "progress": true
+    "progress": true,
+    "pdfSeparateFragments": false
   },
   "css": ["css/style.css"],
   "scripts": ["js/fragments.js"]

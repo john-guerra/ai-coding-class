@@ -87,25 +87,34 @@ All URLs have been verified as of January 2026.
 
 ### 📚 Required
 
+**Claude Web & Artifacts**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Claude Artifacts Guide | Creating & iterating AI apps without code | https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
+
+> **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
+
+**Anthropic Documentation**
+| Topic | Description | URL |
+|-------|-------------|-----|
+| Prompt Engineering Overview | Comprehensive guide to prompting techniques | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview |
+| Claude 4 Prompting Best Practices | Specific guidance for Claude 4.x models | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices |
+| Prompt Library | Example prompts for common tasks | https://docs.anthropic.com/en/resources/prompt-library/library |
+| System Prompts | Understanding Claude's system prompts | https://docs.anthropic.com/en/release-notes/system-prompts |
+
 **Anthropic Courses (GitHub)**
 | Course | Description | URL |
 |--------|-------------|-----|
 | Prompt Engineering Interactive Tutorial | 9-chapter comprehensive guide | https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial |
 | API Fundamentals | Working with Claude SDK | https://github.com/anthropics/courses |
 
-**Anthropic Documentation**
-| Topic | URL |
-|-------|-----|
-| Prompt Engineering Overview | https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview |
-| Prompt Library | https://docs.anthropic.com/en/resources/prompt-library/library |
-| System Prompts | https://docs.anthropic.com/en/release-notes/system-prompts |
-
 #### 📖 Recommended
 
-| Resource | URL |
-|----------|-----|
-| Real World Prompting Course | https://github.com/anthropics/courses/tree/master/real_world_prompting |
-| Prompt Evaluations Course | https://github.com/anthropics/courses |
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Managing Context Windows | Understanding Claude's working memory | https://platform.claude.com/docs/en/build-with-claude/context-windows |
+| Real World Prompting Course | Practical prompting patterns | https://github.com/anthropics/courses/tree/master/real_world_prompting |
+| Prompt Evaluations Course | Testing and evaluating prompts | https://github.com/anthropics/courses |
 
 ---
 
@@ -164,12 +173,20 @@ All URLs have been verified as of January 2026.
 
 ### 📚 Required
 
-| Resource | URL |
-|----------|-----|
-| Anthropic Prompt Evaluations Course | https://github.com/anthropics/courses |
-| HumanEval Benchmark | https://github.com/openai/human-eval |
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Define Success Criteria | Building measurable success metrics | https://platform.claude.com/docs/en/test-and-evaluate/define-success |
+| Anthropic Prompt Evaluations Course | Systematic prompt testing | https://github.com/anthropics/courses |
+| HumanEval Benchmark | Code generation evaluation | https://github.com/openai/human-eval |
+
+> **Why Success Criteria First?** Before building evals, you need clear, measurable definitions of what "good" looks like. This documentation covers quantitative metrics, qualitative scales, and multi-dimensional evaluation.
 
 #### 📄 Reference
+
+**Guardrails & Quality**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Reduce Hallucinations | Verification strategies and guardrails | https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations |
 
 **Benchmark Research**
 | Paper | URL |
@@ -269,11 +286,11 @@ All URLs have been verified as of January 2026.
 | Week | Primary Focus | Key Readings |
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
-| 3 | Prompt Engineering | Anthropic courses, documentation |
+| 3 | Prompt Engineering | Artifacts guide, Claude 4 best practices, prompt engineering docs |
 | 4-5 | Antigravity & TDD | Antigravity docs, testing frameworks |
 | 6 | Claude Code | Tool use documentation |
 | 7-8 | Context Engineering | Advanced prompting, Anthropic research |
-| 9-10 | Evaluations | Eval courses, benchmark papers |
+| 9-10 | Evaluations | Success criteria, eval courses, hallucination reduction |
 | 11-12 | Agile + Agents | Required books, LangChain tutorials |
 | 13-14 | Production | CI/CD docs, security guides |
 

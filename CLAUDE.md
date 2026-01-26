@@ -19,6 +19,9 @@ npm run serve
 
 # Build all slides to dist/
 npm run build
+
+# Deploy slides to production server
+npm run deploy
 ```
 
 ## Repository Structure
@@ -116,11 +119,19 @@ Content here
 3. Claude Code (Week 6+) - Automation, multi-file refactoring
 
 **Key Elements:**
-- No-AI Challenge (Week 10): 90-min coding exam without AI, must pass 60%+
+- Weekly Quizzes: 10% of grade, concept-focused assessments
 - Evals: Systematic quality measurement for AI-generated code
 - 3 portfolio-worthy projects with increasing complexity
 
 **Tech Stack (for student projects):** React/Next.js, Node.js/Express, PostgreSQL/MongoDB, Jest/Vitest, Playwright, GitHub Actions
+
+## Course Website
+
+The course website is in `website/` (symlink to external repo).
+
+**Important:** Don't modify `website/index.html` directly. Instead:
+1. Edit `website/index.pug`
+2. Regenerate HTML: `npx pug website/index.pug --out website/ --pretty`
 
 ## Canvas LMS Integration
 

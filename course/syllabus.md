@@ -26,36 +26,40 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 - **Only** graduate course teaching professional AI-assisted development workflows
 - **Balances** AI speed with engineering quality (TDD, CI/CD, evals)
 - **Portfolio-focused** - 3 production-ready applications
-- **Validates fundamentals** - No-AI Challenge ensures understanding
+- **Validates fundamentals** - Weekly quizzes ensure understanding
 - **Cutting-edge** - Covers parallel agentic programming, evals, advanced prompting
 
 ## Assessment Breakdown
 
 | Component | Weight | Details |
 |-----------|--------|---------|
-| **Participation** | 20% | 10% pre-class questions + 10% lottery points |
+| **Participation** | 15% | 7% pre-class questions + 8% lottery points |
+| **Weekly Quizzes** | 10% | Concept quizzes on Canvas (2 lowest dropped) |
 | **Homeworks** | 25% | 6 scaffolding assignments (4-5% each) |
-| **Projects** | 55% | P1: 15%, P2: 20%, P3: 20% |
-| **TOTAL** | 100% | Midterm No-AI Challenge (pass/fail, 60% required) |
+| **Projects** | 50% | P1: 13%, P2: 18%, P3: 19% |
+| **TOTAL** | 100% | |
 
-### Participation Details
+### Participation Details (15%)
 
-**Pre-class Questions (10%):**
+**Pre-class Questions (7%):**
 - Submit question + answer 2 peers before each class
 - 2 pts: Original, insightful question
 - 1 pt: Good question but duplicate
 - 0 pts: Low-effort question
 - Max 4 points per class (2 for question, 2 for answers)
 
-**Lottery (10%):** Random cold-calling in class
+**Lottery (8%):** Random cold-calling in class
 - -1 pt: Absent or not paying attention
 - 0 pts: Wrong answer
 - 1 pt: Correct answer
 - 2 pts: Exceptional answer
 - Graded against class median
 
-**Weekly Concept Checks:**
-- Auto-graded Canvas quizzes (5-10 questions, 10 minutes)
+### Weekly Quizzes (10%)
+
+- Auto-graded Canvas quizzes covering course concepts
+- Topics: LLM fundamentals, prompt engineering, TDD, CI/CD, evals, etc.
+- 5-10 questions per quiz, 10 minutes
 - Open 48 hours after lecture
 - Can take twice (higher score counts)
 - 14 total, drop lowest 2
@@ -105,7 +109,6 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 - Document all AI tool usage
 - Understand all code submitted
 - Attribute AI-generated code (>3 lines)
-- Pass No-AI Challenge (proves understanding)
 
 **Cannot Do:**
 - Submit code you don't understand

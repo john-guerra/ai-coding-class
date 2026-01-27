@@ -1,7 +1,7 @@
 # HW3: Context Engineering Lab
 
 **Weight:** 4% of final grade
-**Due:** Week 8
+**Due:** Week 9
 
 ## Objective
 

@@ -256,11 +256,11 @@ This is why TDD + AI is so powerful:
 | This Class Concept | Later Application |
 |-------------------|-------------------|
 | Everything is text | Prompt engineering (Week 3) |
-| Context matters | Context engineering (Week 8) |
-| RAG basics | .cursorrules, @codebase (Week 4-5) |
-| Hallucinations | Evaluation systems (Week 9-10) |
-| Testing as verification | TDD with AI (Week 4-5) |
-| Lazy teenager model | Why evals matter (Week 9) |
+| Context matters | Context engineering (Week 9) |
+| RAG basics | .cursorrules, @codebase (Week 5-6) |
+| Hallucinations | Evaluation systems (Week 10-11) |
+| Testing as verification | TDD with AI (Week 5-6) |
+| Lazy teenager model | Why evals matter (Week 10) |
 
 ---
 

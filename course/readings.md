@@ -87,13 +87,6 @@ All URLs have been verified as of January 2026.
 
 ### 📚 Required
 
-**Claude Web & Artifacts**
-| Resource | Description | URL |
-|----------|-------------|-----|
-| Claude Artifacts Guide | Creating & iterating AI apps without code | https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
-
-> **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
-
 **Anthropic Documentation**
 | Topic | Description | URL |
 |-------|-------------|-----|
@@ -118,7 +111,26 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 4-5: Antigravity IDE & TDD
+## Week 4: User Research & Prototyping
+
+### 📚 Required
+
+**Claude Web & Artifacts**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Claude Artifacts Guide | Creating & iterating AI apps without code | https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
+
+> **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
+
+**Books**
+| Book | Author | Focus |
+|------|--------|-------|
+| The Mom Test | Rob Fitzpatrick | Customer validation, requirements gathering |
+| Designing for Growth | Liedtka & Ogilvie | Design thinking toolkit |
+
+---
+
+## Week 5-6: Antigravity IDE & TDD
 
 ### 📚 Required
 
@@ -137,7 +149,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 6: Claude Code & Terminal AI
+## Week 7: Claude Code & Terminal AI
 
 ### 📚 Required
 
@@ -148,7 +160,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 7-8: Advanced Prompting & Context Engineering
+## Week 8-9: Advanced Prompting & Context Engineering
 
 ### 📚 Required
 
@@ -169,7 +181,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 9-10: Evaluations (Evals)
+## Week 10-11: Evaluations (Evals)
 
 ### 📚 Required
 
@@ -196,14 +208,12 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 11-12: Agile & Parallel Agents
+## Week 12-13: Agile & Parallel Agents
 
 ### 📚 Required Books
 
 | Book | Author | Focus |
 |------|--------|-------|
-| The Mom Test | Rob Fitzpatrick | Customer validation |
-| Designing for Growth | Liedtka & Ogilvie | Design thinking toolkit |
 | Scrum | Jeff Sutherland | Agile methodology |
 
 ### 📖 Recommended
@@ -215,7 +225,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 13-14: Production & CI/CD
+## Week 14: Production & CI/CD
 
 ### 📚 Required
 
@@ -286,13 +296,14 @@ All URLs have been verified as of January 2026.
 | Week | Primary Focus | Key Readings |
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
-| 3 | Prompt Engineering | Artifacts guide, Claude 4 best practices, prompt engineering docs |
-| 4-5 | Antigravity & TDD | Antigravity docs, testing frameworks |
-| 6 | Claude Code | Tool use documentation |
-| 7-8 | Context Engineering | Advanced prompting, Anthropic research |
-| 9-10 | Evaluations | Success criteria, eval courses, hallucination reduction |
-| 11-12 | Agile + Agents | Required books, LangChain tutorials |
-| 13-14 | Production | CI/CD docs, security guides |
+| 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs |
+| 4 | User Research & Prototyping | Artifacts guide, Mom Test, Designing for Growth |
+| 5-6 | Antigravity & TDD | Antigravity docs, testing frameworks |
+| 7 | Claude Code | Tool use documentation |
+| 8-9 | Context Engineering | Advanced prompting, Anthropic research |
+| 10-11 | Evaluations | Success criteria, eval courses, hallucination reduction |
+| 12-13 | Agile + Agents | Required books, LangChain tutorials |
+| 14 | Production | CI/CD docs, security guides |
 
 ---
 

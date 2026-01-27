@@ -30,7 +30,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 - **Only** graduate course teaching professional AI-assisted development workflows
 - **Balances** AI speed with engineering quality (TDD, CI/CD, evals)
 - **Portfolio-focused** - 3 production-ready applications
-- **Validates fundamentals** - No-AI Challenge ensures understanding
+- **Validates fundamentals** - Weekly quizzes ensure understanding
 - **Cutting-edge** - Covers parallel agentic programming, evals, advanced prompting
 
 ### Marketing Resources
@@ -45,19 +45,20 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 ### Assessment Breakdown
 | Component | Weight | Details |
 |-----------|--------|---------|
-| **Participation** | 20% | 10% pre-class questions + 10% lottery points |
+| **Participation** | 15% | 7% pre-class questions + 8% lottery points |
+| **Weekly Quizzes** | 10% | Concept quizzes on Canvas (2 lowest dropped) |
 | **Homeworks** | 25% | 6 scaffolding assignments (4-5% each) |
-| **Projects** | 55% | P1: 15%, P2: 20%, P3: 20% |
-| **TOTAL** | 100% | Midterm No-AI Challenge (pass/fail, 60% required) |
+| **Projects** | 50% | P1: 13%, P2: 18%, P3: 19% |
+| **TOTAL** | 100% | |
 
-### Participation Details
-- **Pre-class Questions (10%):** Submit question + answer 2 peers before each class
+### Participation Details (15%)
+- **Pre-class Questions (7%):** Submit question + answer 2 peers before each class
   - 2 pts: Original, insightful question
   - 1 pt: Good question but duplicate
   - 0 pts: Low-effort question
   - Max 4 points per class (2 for question, 2 for answers)
-  
-- **Lottery (10%):** Random cold-calling in class
+
+- **Lottery (8%):** Random cold-calling in class
   - -1 pt: Absent or not paying attention
   - 0 pts: Wrong answer
   - 1 pt: Correct answer
@@ -95,19 +96,19 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | Week | Module | Topics | Deliverables | Project Status |
 |------|--------|--------|--------------|----------------|
 | **1** | **Foundations** | • Course intro & portfolio planning<br>• Mom Test introduction<br>• Design Thinking basics<br>• **LLM Fundamentals (2 hours)**<br>&nbsp;&nbsp;- Transformers, tokens, context windows<br>&nbsp;&nbsp;- Hallucinations, temperature<br>&nbsp;&nbsp;- Model comparison (GPT/Claude/Gemini) | Weekly Quiz 1<br>Pre-class questions | **P1:** Ideation<br>Problem identification |
-| **2** | **Modality 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | **HW1 DUE:** Mom Test<br>Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
-| **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | **HW2 DUE:** Prompts<br>Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
-| **4** | **Modality 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | Weekly Quiz 4 | **P1:** Sprint 1<br>Implementation begins |
-| **5** | **Antigravity + CI/CD** | • Composer (multi-file)<br>• Advanced .antigravityrules<br>• **CI/CD Fundamentals**<br>&nbsp;&nbsp;- GitHub Actions basics<br>&nbsp;&nbsp;- Test automation<br>• Setting up first pipeline | Weekly Quiz 5 | **P1:** Sprint 2<br>Add CI pipeline |
-| **6** | **Project 1 + Modality 3** | • **PROJECT 1 PRESENTATIONS**<br>• Claude Code & Terminal AI<br>• Agentic coding intro<br>• Terminal workflows<br>• Automation & scripts | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final submission<br>**P2:** Planning begins |
-| **7** | **Advanced Prompting** | • Chain-of-thought<br>• Meta-prompting<br>• Prompt chaining<br>• Structured prompts (XML/JSON)<br>• Cost optimization<br>• Building prompt libraries | **HW3 DUE:** Context<br>Weekly Quiz 7 | **P2:** Sprint 1<br>Architecture & setup |
-| **8** | **Context Engineering** | • Context windows<br>• Context sources & optimization<br>• RAG for code<br>• Token management<br>• .antigravityrules best practices<br>• MCPs (Model Control Protocols) | Weekly Quiz 8 | **P2:** Sprint 2<br>Core features |
-| **9** | **Evals Part 1** | • What are evals & why they matter<br>• Types of evals:<br>&nbsp;&nbsp;- Correctness<br>&nbsp;&nbsp;- Quality<br>&nbsp;&nbsp;- Semantic<br>• Building eval frameworks<br>• Golden dataset creation | Weekly Quiz 9 | **P2:** Sprint 3<br>Testing & quality |
-| **10** | **TDD + CI/CD + Evals** | • Advanced TDD with AI<br>• Multi-stage CI/CD pipelines<br>• Deploy previews<br>• Coverage reporting<br>• Security scanning<br>• **Evals Part 2:**<br>&nbsp;&nbsp;- LLM-as-judge<br>&nbsp;&nbsp;- Automated dashboards | **HW4 DUE:** TDD+CI/CD<br>**MIDTERM:** No-AI Challenge<br>Weekly Quiz 10 | **P2:** Final polish<br>Complete eval suite |
-| **11** | **Project 2 + Agile** | • **PROJECT 2 PRESENTATIONS**<br>• Agile workflows with AI<br>• Scrum ceremonies<br>• Sprint planning with AI<br>• Team velocity & estimation<br>• **Team Formation Workshop** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 11 | **P2:** Final submission<br>**P3:** Team formation |
-| **12** | **Parallel Agents** | • Agent fundamentals<br>&nbsp;&nbsp;- ReAct, Plan-and-Execute<br>&nbsp;&nbsp;- Agent architectures<br>• Single agent workflows<br>• Multi-agent coordination<br>• Agent safety & debugging<br>• Cost control for agents | **HW5 DUE:** Parallel agents<br>Weekly Quiz 12 | **P3:** Sprint 1<br>Parallel development |
-| **13** | **Advanced Patterns** | • System design with AI<br>• Advanced CI/CD:<br>&nbsp;&nbsp;- Multi-environment<br>&nbsp;&nbsp;- Canary deployments<br>&nbsp;&nbsp;- Blue-green deployments<br>• Performance gates<br>• Database optimization<br>• API design best practices | **HW6 DUE:** Production<br>Weekly Quiz 13 | **P3:** Sprint 2<br>Advanced features |
-| **14** | **Production** | • Monitoring & observability<br>• Error tracking & logging<br>• Performance optimization<br>• Security best practices<br>• Accessibility (WCAG basics)<br>• Professional documentation<br>• Portfolio building tips | Weekly Quiz 14 | **P3:** Sprint 3<br>Polish & deploy |
+| **2** | **Modality 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
+| **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
+| **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | **HW1 DUE:** Prompt Eng<br>Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
+| **5** | **Modality 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
+| **6** | **Antigravity + CI/CD** | • Composer (multi-file)<br>• Advanced .antigravityrules<br>• **CI/CD Fundamentals**<br>&nbsp;&nbsp;- GitHub Actions basics<br>&nbsp;&nbsp;- Test automation<br>• Setting up first pipeline | Weekly Quiz 6 | **P1:** Sprint 2<br>Add CI pipeline |
+| **7** | **Project 1 + Modality 3** | • **PROJECT 1 PRESENTATIONS**<br>• Claude Code & Terminal AI<br>• Agentic coding intro<br>• Terminal workflows<br>• Automation & scripts | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 7 | **P1:** Final submission<br>**P2:** Planning begins |
+| **8** | **Advanced Prompting** | • Chain-of-thought<br>• Meta-prompting<br>• Prompt chaining<br>• Structured prompts (XML/JSON)<br>• Cost optimization<br>• Building prompt libraries | Weekly Quiz 8 | **P2:** Sprint 1<br>Architecture & setup |
+| **9** | **Context Engineering** | • Context windows<br>• Context sources & optimization<br>• RAG for code<br>• Token management<br>• .antigravityrules best practices<br>• MCPs (Model Control Protocols) | **HW3 DUE:** Context<br>Weekly Quiz 9 | **P2:** Sprint 2<br>Core features |
+| **10** | **Evals Part 1** | • What are evals & why they matter<br>• Types of evals:<br>&nbsp;&nbsp;- Correctness<br>&nbsp;&nbsp;- Quality<br>&nbsp;&nbsp;- Semantic<br>• Building eval frameworks<br>• Golden dataset creation | Weekly Quiz 10 | **P2:** Sprint 3<br>Testing & quality |
+| **11** | **TDD + CI/CD + Evals** | • Advanced TDD with AI<br>• Multi-stage CI/CD pipelines<br>• Deploy previews<br>• Coverage reporting<br>• Security scanning<br>• **Evals Part 2:**<br>&nbsp;&nbsp;- LLM-as-judge<br>&nbsp;&nbsp;- Automated dashboards | **HW4 DUE:** TDD+CI/CD<br>Weekly Quiz 11 | **P2:** Final polish<br>Complete eval suite |
+| **12** | **Project 2 + Agile** | • **PROJECT 2 PRESENTATIONS**<br>• Agile workflows with AI<br>• Scrum ceremonies<br>• Sprint planning with AI<br>• Team velocity & estimation<br>• **Team Formation Workshop** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 12 | **P2:** Final submission<br>**P3:** Team formation |
+| **13** | **Parallel Agents** | • Agent fundamentals<br>&nbsp;&nbsp;- ReAct, Plan-and-Execute<br>&nbsp;&nbsp;- Agent architectures<br>• Single agent workflows<br>• Multi-agent coordination<br>• Agent safety & debugging<br>• Cost control for agents | Weekly Quiz 13 | **P3:** Sprint 1<br>Parallel development |
+| **14** | **Advanced Patterns + Production** | • System design with AI<br>• Advanced CI/CD:<br>&nbsp;&nbsp;- Multi-environment<br>&nbsp;&nbsp;- Canary/blue-green deployments<br>• Performance gates<br>• Monitoring & observability<br>• Error tracking & logging<br>• Security best practices<br>• Accessibility (WCAG basics)<br>• Portfolio building tips | **HW5 DUE:** Parallel agents<br>**HW6 DUE:** Production<br>Weekly Quiz 14 | **P3:** Sprint 2-3<br>Advanced features & deploy |
 | **15** | **Demo Day** | • **FINAL PRESENTATIONS**<br>• Portfolio showcase<br>• Course retrospective<br>• Industry panel (optional)<br>• Career prep discussion | **PROJECT 3 DUE** 🎯 | **P3:** Final demos<br>Portfolio complete |
 
 ---
@@ -135,7 +136,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 2: Antigravity IDE (Weeks 4-5)
+### Modality 2: Antigravity IDE (Weeks 5-6)
 **Best for:** Professional development, production code, daily coding workflow
 
 **Skills Covered:**
@@ -158,7 +159,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 3: Claude Code / Terminal AI (Week 6)
+### Modality 3: Claude Code / Terminal AI (Week 7)
 **Best for:** Automation, multi-file refactoring, DevOps, complex migrations
 
 **Skills Covered:**
@@ -182,7 +183,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ## 5. PROJECTS (55% of Grade)
 
-### Project 1: Personal Utility App (15%) - Due Week 6
+### Project 1: Personal Utility App (15%) - Due Week 7
 
 **Objective:** Master one AI modality while building a real solution
 
@@ -222,7 +223,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Project 2: Full-Stack Application (20%) - Due Week 11
+### Project 2: Full-Stack Application (20%) - Due Week 12
 
 **Objective:** Integrate multiple modalities with professional practices
 
@@ -396,33 +397,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ## 6. HOMEWORK ASSIGNMENTS (25% of Grade)
 
-### HW1: Mom Test Interviews + User Stories (Week 2) - 4%
-
-**Objective:** Learn to validate ideas through proper user research
-
-**Tasks:**
-1. Identify personal problem worth solving (for Project 1)
-2. Conduct 3 "Mom Test" interviews with potential users
-3. Write interview summaries (anonymized)
-4. Create 5-8 user stories based on findings
-5. Prioritize using MoSCoW method
-6. Write initial PRD (1-2 pages)
-
-**Deliverables:**
-- Interview notes document
-- User stories (proper format)
-- Prioritization with justification
-- PRD draft
-
-**Rubric (40 points):**
-- Interview quality: 40%
-- User stories: 30%
-- PRD quality: 20%
-- Reflection: 10%
-
----
-
-### HW2: Prompt Engineering Battle (Week 3) - 4%
+### HW1: Prompt Engineering Battle (Week 4) - 4%
 
 **Objective:** Master effective prompting through iteration
 
@@ -453,7 +428,33 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### HW3: Context Engineering Lab (Week 7) - 4%
+### HW2: Mom Test Interviews + User Stories (Week 5) - 4%
+
+**Objective:** Learn to validate ideas through proper user research
+
+**Tasks:**
+1. Identify personal problem worth solving (for Project 1)
+2. Conduct 3 "Mom Test" interviews with potential users
+3. Write interview summaries (anonymized)
+4. Create 5-8 user stories based on findings
+5. Prioritize using MoSCoW method
+6. Write initial PRD (1-2 pages)
+
+**Deliverables:**
+- Interview notes document
+- User stories (proper format)
+- Prioritization with justification
+- PRD draft
+
+**Rubric (40 points):**
+- Interview quality: 40%
+- User stories: 30%
+- PRD quality: 20%
+- Reflection: 10%
+
+---
+
+### HW3: Context Engineering Lab (Week 9) - 4%
 
 **Objective:** Learn to optimize AI context for better code generation
 
@@ -497,7 +498,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### HW4: TDD + CI/CD + Evals Suite (Week 9-10) - 5%
+### HW4: TDD + CI/CD + Evals Suite (Week 10-11) - 5%
 
 **Objective:** Build comprehensive quality assurance system
 
@@ -554,7 +555,7 @@ Create dashboard showing:
 
 ---
 
-### HW5: Parallel Agent Orchestration (Week 12) - 4%
+### HW5: Parallel Agent Orchestration (Week 14) - 4%
 
 **Objective:** Master coordinating multiple AI agents for complex tasks
 
@@ -604,7 +605,7 @@ Run agents simultaneously using:
 
 ---
 
-### HW6: Production Readiness Checklist (Week 13) - 4%
+### HW6: Production Readiness Checklist (Week 14) - 4%
 
 **Objective:** Transform any app into production-grade software
 
@@ -713,78 +714,37 @@ Run agents simultaneously using:
 
 ---
 
-### Midterm: No-AI Challenge (Week 10)
-**Duration:** 90 minutes in-class  
-**Format:** Coding exam without ANY AI tools
+### Weekly Quizzes (10%)
+**Format:** Auto-graded Canvas quizzes covering course concepts
+**Frequency:** Weekly (14 total, drop lowest 2)
 
 **Purpose:**
-- Ensure students can code independently
-- Validate understanding of fundamentals
-- Prevent over-reliance on AI
-- Build confidence
+- Validate understanding of course concepts
+- Encourage consistent engagement with material
+- Provide formative feedback
+- Assess conceptual knowledge separate from coding projects
 
-**Rules:**
-- No AI tools (Copilot, Claude, ChatGPT, etc.)
-- Can use documentation (MDN, official docs)
-- Can use Stack Overflow for reference
-- Must write code from scratch
+**Topics Covered:**
+- LLM fundamentals (architecture, tokenization, limitations)
+- Prompt engineering techniques
+- TDD principles and practices
+- CI/CD concepts and workflows
+- Evaluation (evals) methodology
+- Context engineering
+- Agile/Scrum practices
+- Security best practices
 
-**Content:** 3-4 coding problems testing:
-- JavaScript/TypeScript fundamentals
-- Data structures & algorithms (basic)
-- Async programming (promises, async/await)
-- DOM manipulation OR React basics
-- API calls
-- Error handling
-
-**Example Problems:**
-
-**Problem 1 (Easy - 25%):**
-```javascript
-// Fetch user data from API and return only admin users
-// Handle errors appropriately
-async function getAdminUsers(apiUrl) {
-  // Your code here
-}
-```
-
-**Problem 2 (Medium - 35%):**
-```javascript
-// Implement debounce function
-// Delays execution until wait time elapsed since last call
-function debounce(func, wait) {
-  // Your code here
-}
-```
-
-**Problem 3 (Medium-Hard - 40%):**
-```javascript
-// Build React component that:
-// 1. Fetches data from API
-// 2. Displays in list with filtering
-// 3. Handles loading/error states
-// 4. Proper TypeScript types
-const DataList: React.FC<Props> = () => {
-  // Your code here
-}
-```
-
-**Grading:**
-- Functionality: 60%
-- Code quality: 25%
-- Error handling: 15%
+**Format:**
+- 5-10 questions per quiz
+- 10 minutes to complete
+- Open 48 hours after lecture
+- Can take twice (higher score counts)
+- Mix of multiple choice, true/false, and short answer
 
 **Scoring:**
-- Not part of 100% (doesn't affect letter grade)
-- Must score 60%+ to pass
-- Fail → meeting with instructor, possible grade cap
-- Results factor into participation score
-
-**Preparation:**
-- Practice problems posted 2 weeks before
-- Review session offered
-- Office hours available
-- Study guide provided
+- All quizzes equally weighted
+- Drop lowest 2 scores
+- Total quiz grade = 10% of final grade
 
 ---
 
@@ -862,17 +822,17 @@ const DataList: React.FC<Props> = () => {
 ### Books (Required)
 1. **The Mom Test** by Rob Fitzpatrick
    - ISBN: 978-1492180746
-   - Used: Weeks 1-2
+   - Used: Weeks 1-4
    - Focus: Customer validation, requirements gathering
 
 2. **Designing for Growth** by Jeanne Liedtka & Tim Ogilvie
    - ISBN: 978-0231158930
-   - Used: Weeks 1-3
+   - Used: Weeks 1-4
    - Focus: Design thinking toolkit
 
 3. **Scrum** by Jeff Sutherland
    - ISBN: 978-0385346450
-   - Used: Weeks 10-12
+   - Used: Weeks 11-13
    - Focus: Agile methodologies
 
 ### Online Documentation (Required)
@@ -1000,7 +960,6 @@ Channels:
 - Document all AI tool usage
 - Understand all code submitted
 - Attribute AI-generated code (>3 lines)
-- Pass No-AI Challenge (proves understanding)
 
 **Cannot Do:**
 - Submit code you don't understand
@@ -1231,28 +1190,28 @@ By course end, students will have:
 
 ### Cognitive Load Management
 
-**Week 1-5:**
+**Week 1-6:**
 - Foundations & single concepts
 - One modality at a time
 - Simple projects
 - Clear expectations
 
-**Week 6-10:**
+**Week 7-11:**
 - Integration of concepts
 - Multiple modalities
 - Moderate complexity
 - Increased autonomy
 
-**Week 11-15:**
+**Week 12-15:**
 - Advanced techniques
 - Team collaboration
 - Production practices
 - Independence
 
 **Red Flags Addressed:**
-- Week 4-5: Spread TDD + CI/CD across two weeks
-- Week 9-10: Split evals into two parts
-- Week 11: Dedicated team formation
+- Week 5-6: Spread TDD + CI/CD across two weeks
+- Week 10-11: Split evals into two parts
+- Week 12: Dedicated team formation
 - Throughout: Weekly quizzes for spaced repetition
 
 ---
@@ -1349,8 +1308,8 @@ By course end, students will have:
 **Issue:** "Team conflict"
 **Response:** Mediate discussion, refer to team contract, adjust roles if necessary, peer eval consequences
 
-**Issue:** "Failed No-AI Challenge"
-**Response:** Meeting required, remediation plan, study resources, retake possibility, grade cap
+**Issue:** "Struggling with quiz concepts"
+**Response:** Review session, additional resources, office hours, concept explanations
 
 ### Teaching Challenges
 
@@ -1422,7 +1381,7 @@ By course end, students will have:
 - Evaluation of evals effectiveness
 - Student outcomes in AI courses
 - Best practices for teaching with AI
-- No-AI Challenge results analysis
+- Weekly quiz effectiveness analysis
 
 **Data Collection:**
 - Project quality metrics
@@ -1521,7 +1480,7 @@ By course end, students will have:
 2. Reduced cognitive overload (spread content)
 3. Added formative assessments (weekly quizzes)
 4. Created detailed project rubrics
-5. Added No-AI Challenge
+5. Added weekly concept quizzes
 6. Improved scaffolding (early weeks)
 7. Expanded evals methodology
 
@@ -1575,7 +1534,7 @@ By course end, students will have:
 - All rubrics created
 - Weekly schedule finalized
 - Expert feedback incorporated
-- No-AI Challenge added
+- Weekly quizzes (10% of grade) added
 - LLM Fundamentals module added
 - Reduced from 4 to 3 modalities
 - Lottery changed to 10%
@@ -1601,23 +1560,22 @@ Track changes semester-to-semester:
 
 ### Key Dates (Spring 2026)
 - **Week 1:** Course start, LLM Fundamentals
-- **Week 2:** HW1 due (Mom Test)
-- **Week 3:** HW2 due (Prompt Engineering)
-- **Week 6:** Project 1 due + demos
-- **Week 7:** HW3 due (Context Engineering)
-- **Week 10:** HW4 due + No-AI Challenge + Project 2 almost due
-- **Week 11:** Project 2 due + demos
-- **Week 12:** HW5 due (Parallel Agents)
-- **Week 13:** HW6 due (Production Readiness)
+- **Week 4:** HW1 due (Prompt Engineering)
+- **Week 5:** HW2 due (Mom Test)
+- **Week 7:** Project 1 due + demos
+- **Week 9:** HW3 due (Context Engineering)
+- **Week 11:** HW4 due (TDD+CI/CD)
+- **Week 12:** Project 2 due + demos
+- **Week 14:** HW5 due (Parallel Agents) + HW6 due (Production Readiness)
 - **Week 15:** Project 3 due + Demo Day
 
 ### Assessment Summary
 | Component | Weight | Count |
 |-----------|--------|-------|
-| Participation | 20% | Weekly (pre-class + lottery + quizzes) |
+| Participation | 15% | Weekly (pre-class + lottery) |
+| Weekly Quizzes | 10% | 14 quizzes (drop lowest 2) |
 | Homeworks | 25% | 6 assignments |
-| Projects | 55% | 3 projects |
-| No-AI Challenge | Pass/Fail | 1 midterm (must pass 60%) |
+| Projects | 50% | 3 projects |
 
 ### Contact Methods
 1. **Slack** - Quick questions, community
@@ -1642,7 +1600,7 @@ Track changes semester-to-semester:
 **Key Performance Indicators:**
 - All projects deployed
 - 80%+ test coverage (P2, P3)
-- Pass No-AI Challenge
+- Strong quiz performance
 - Active Slack participation
 - Consistent homework completion
 
@@ -1657,7 +1615,7 @@ Track changes semester-to-semester:
 
 **Assessment Data:**
 - Average project grades
-- No-AI Challenge pass rate
+- Quiz average scores
 - Homework completion rate
 - Participation levels
 - Tool adoption

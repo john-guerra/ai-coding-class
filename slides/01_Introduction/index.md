@@ -251,15 +251,15 @@ _Use when you need to change many files_
 
 You will build **3 portfolio-worthy applications**:
 
-1. **Personal Utility App** (Week 6)
-2. **Full-Stack Application** (Week 11)
+1. **Personal Utility App** (Week 7)
+2. **Full-Stack Application** (Week 12)
 3. **Team Application** (Week 15)
 
 ---
 
 # Project 1: Personal Utility App
 
-**Due Week 6 • 15%**
+**Due Week 7 • 15%**
 
 - Solve a real problem (validated!)
 - 5+ user stories with CRUD
@@ -272,7 +272,7 @@ You will build **3 portfolio-worthy applications**:
 
 # Project 2: Full-Stack Application
 
-**Due Week 11 • 20%**
+**Due Week 12 • 20%**
 
 - Frontend + Backend + Database
 - User authentication
@@ -296,29 +296,29 @@ You will build **3 portfolio-worthy applications**:
 
 ---
 
-# The No-AI Challenge
+# Weekly Concept Quizzes
 
-![bg left:35% fit](images/no-ai-challenge.png)
+## 10% of Your Grade
 
-## Week 10: Midterm Exam
+Weekly quizzes covering course concepts:
 
-90 minutes. No AI tools. Just you and the code.
+- LLM fundamentals & limitations
+- Prompt engineering techniques
+- TDD principles
+- CI/CD workflows
+- Evaluation methodology
 
-**Must score 60%+ to pass.**
-
-This ensures you _actually understand_ what you're building.
-
-<small title="Prompt: A dramatic, moody illustration of a software developer working at a desk with NO computer screen, just pen and paper or a very basic old-school terminal. A 'No AI' symbol (circle with line through it over a robot) is subtly integrated into the background. Focus on deep concentration and human intellect. Cinematic lighting.">_Image generated with Nano Banana_ ℹ️</small>
+**2 lowest scores dropped.**
 
 ---
 
-# Why the No-AI Challenge?
+# Why Concept Quizzes?
 
-If you can't code without AI, you can't:
+Understanding the "why" matters:
 
-- Debug AI-generated code
+- Debug AI-generated code effectively
 - Know when AI is wrong
-- Pass technical interviews
+- Make informed architecture decisions
 - Be trusted with production systems
 
 **AI assists. It doesn't replace understanding.**
@@ -329,11 +329,11 @@ If you can't code without AI, you can't:
 
 6 assignments building toward projects:
 
-1. Mom Test Interviews + User Stories (Week 3)
-2. Prompt Engineering Battle (Week 4)
-3. Context Engineering Lab (Week 8)
+1. Prompt Engineering Battle (Week 4)
+2. Mom Test Interviews + User Stories (Week 5)
+3. Context Engineering Lab (Week 9)
 4. TDD + CI/CD + Evals Suite (Week 11)
-5. Parallel Agent Orchestration (Week 13)
+5. Parallel Agent Orchestration (Week 14)
 6. Production Readiness Checklist (Week 14)
 
 ---
@@ -381,7 +381,7 @@ But:
 - Document all AI usage
 - Understand all code you submit
 - Never commit code you can't explain
-- Pass the No-AI Challenge
+- Master the concepts (weekly quizzes)
 
 ---
 

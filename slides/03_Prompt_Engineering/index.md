@@ -25,20 +25,11 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # What We'll Cover Today
 
-**Part 1: Prompt Engineering**
-
 1. Why Prompts Matter
 2. Anatomy of a Good Prompt
 3. Prompt Patterns & Techniques
 4. Artifacts in Claude Web
 5. Hands-On Lab
-
-**Part 2: User Research Workshop**
-
-6. Mom Test Principles
-7. Design Thinking Basics
-
-**HW1 Due This Week!**
 
 ---
 
@@ -448,168 +439,6 @@ Time to practice!
 - What surprised you?
 - What's still hard?
 
----
-
-# Mom Test Workshop
-
-> "The measure of usefulness of an early customer conversation is whether it gives us concrete facts about our customers' lives and world views."
-> — Rob Fitzpatrick
-
-<!-- vertical -->
-
-# The Mom Test Principles
-
-**Three rules for getting honest feedback:**
-
-1. Talk about **their life**, not your idea
-2. Ask about **specifics in the past**, not generics about the future
-3. **Talk less**, listen more
-
-> Your mom will lie to you. Not because she's evil, but because she loves you.
-
-<!-- vertical -->
-
-# Why People Lie
-
-- They want to be **supportive**
-- They don't want to **hurt your feelings**
-- They **imagine** a better version of themselves
-- Hypothetical questions get **hypothetical answers**
-
-**The fix:** Ask about what they've actually done, not what they would do.
-
-<!-- vertical -->
-
-<!-- .slide: class="dense" -->
-
-# Bad vs Good Questions
-
-| Bad Question | Why It's Bad | Good Alternative |
-| --- | --- | --- |
-| "Would you use this app?" | Hypothetical, easy to say yes | "How do you currently solve this?" |
-| "Is this a good idea?" | Opinion, not behavior | "Tell me about the last time..." |
-| "Would you pay $10/month?" | Future promise, meaningless | "What have you paid for before?" |
-| "Do you have this problem?" | Leading question | "Walk me through your workflow" |
-
-<!-- vertical -->
-
-# The Golden Questions
-
-**Ask these in every interview:**
-
-1. "Tell me about the last time you [had this problem]..."
-2. "What did you do to solve it?"
-3. "What else have you tried?"
-4. "How much did that cost you (time/money/frustration)?"
-5. "What's the hardest part about [doing this thing]?"
-
-<!-- vertical -->
-
-# Workshop Exercise
-
-**Pair up and practice!**
-
-**Scenario:** Your partner has an app idea. Interview them using Mom Test principles.
-
-**Rules:**
-- 5 minutes per person
-- No hypotheticals allowed
-- Focus on past behavior
-- Write down concrete facts
-
-**Debrief:** What facts did you learn? What would you build?
-
-<!-- vertical -->
-
-# From Interviews to User Stories
-
-**Interview insight:**
-> "I spend 30 minutes every morning checking three different apps for my schedule."
-
-**Becomes user story:**
-> "As a busy professional, I want to see all my schedules in one place, so that I don't waste time switching between apps."
-
-**Key:** User stories come from real problems, not imagined features.
-
----
-
-# Design Thinking
-
-> "Design thinking is a human-centered approach to innovation that draws from the designer's toolkit."
-> — IDEO
-
-<!-- vertical -->
-
-# The 5 Phases
-
-```
-Empathize → Define → Ideate → Prototype → Test
-    ↑                                        |
-    └────────────────────────────────────────┘
-                    (Iterate)
-```
-
-**Not linear!** You'll loop back often.
-
-<!-- vertical -->
-
-# Empathize & Define
-
-**Empathize:**
-- Mom Test interviews
-- Observation
-- Immersion in user context
-
-**Define:**
-- Synthesize findings
-- Create problem statement
-- "How might we..." questions
-
-> "How might we help busy professionals manage multiple schedules?"
-
-<!-- vertical -->
-
-# Ideate & Prototype
-
-**Ideate:**
-- Brainstorm solutions (quantity over quality)
-- No judgment during ideation
-- Build on others' ideas
-
-**Prototype:**
-- Quick, cheap, disposable
-- Test the concept, not the polish
-- "Fail fast, learn faster"
-
-<!-- vertical -->
-
-# Test & Iterate
-
-**Test:**
-- Put prototypes in front of users
-- Watch what they do (not just what they say)
-- Gather feedback
-
-**Iterate:**
-- What worked? Keep it.
-- What didn't? Change it.
-- Return to any phase as needed.
-
-> "Your first idea is rarely your best idea."
-
-<!-- vertical -->
-
-# Design Thinking + AI
-
-**How AI accelerates the cycle:**
-
-- **Empathize:** AI can summarize interview notes
-- **Define:** AI helps articulate problem statements
-- **Ideate:** AI generates many ideas quickly
-- **Prototype:** AI builds working prototypes fast
-- **Test:** Still need real users!
-
-**Warning:** AI can't replace empathy. It can't do user interviews for you.
 
 ---
 
@@ -621,35 +450,17 @@ Empathize → Define → Ideate → Prototype → Test
 2. **Patterns:** Few-shot, chain-of-thought, role prompting, structured output
 3. **Iterate:** Expect 2-5 rounds for complex prompts
 4. **Verify:** AI output needs human validation
-5. **Mom Test:** Ask about past behavior, not future promises
-6. **Design Thinking:** Empathize → Define → Ideate → Prototype → Test
 
 ---
 
 # Looking Ahead
 
-**Next class:**
-- Antigravity IDE setup
-- Tab autocomplete & inline chat
-- `.antigravityrules` configuration
-- TDD Introduction
+**Next class: User Research & Prototyping**
+- Mom Test & Design Thinking workshop
+- Claude Web Artifacts for rapid prototyping
+- User story writing & PRD refinement
 
-**HW2 Preview:** Prompt Engineering Battle
-- Three challenges (easy, medium, hard)
-- Document your iterations
-- Build your personal prompt templates
-
----
-
-# HW1 Due This Week!
-
-**Deliverables:**
-- 3 Mom Test interview notes
-- 5-8 user stories
-- MoSCoW prioritization
-- Initial PRD (1-2 pages)
-
-**Submit on Canvas**
+**HW1 Due Next Week:** Prompt Engineering Battle
 
 ---
 
@@ -662,10 +473,6 @@ Empathize → Define → Ideate → Prototype → Test
 - [Prompt Engineering Overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
 - [Claude 4 Best Practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices)
 - [Anthropic Prompt Engineering Tutorial](https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial)
-
-**Books:**
-- "The Mom Test" by Rob Fitzpatrick
-- "Designing for Growth" by Liedtka & Ogilvie
 
 ---
 

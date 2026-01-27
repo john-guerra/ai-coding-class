@@ -425,8 +425,10 @@ After building your prototype:
 
 # Resources
 
-**Books:**
+**Required Book:**
 - [The Mom Test](https://www.momtestbook.com/) - Rob Fitzpatrick
+
+**Recommended:**
 - [Designing for Growth](https://designingforgrowth.com/) - Liedtka & Ogilvie
 
 **Claude Web & Artifacts:**

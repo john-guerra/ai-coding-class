@@ -126,6 +126,11 @@ All URLs have been verified as of January 2026.
 | Book | Author | Focus |
 |------|--------|-------|
 | The Mom Test | Rob Fitzpatrick | Customer validation, requirements gathering |
+
+#### 📖 Recommended
+
+| Book | Author | Focus |
+|------|--------|-------|
 | Designing for Growth | Liedtka & Ogilvie | Design thinking toolkit |
 
 ---

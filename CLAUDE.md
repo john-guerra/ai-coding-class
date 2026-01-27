@@ -153,7 +153,13 @@ Two MCP servers are configured globally at `~/.claude.json`:
 - `canvas_list_quiz_questions` — list questions in a quiz
 - `canvas_list_quizzes` — list all quizzes in a course
 - `canvas_update_quiz_question` — update existing quiz questions
+- `canvas_create_rubric` — create a rubric and associate it with an assignment for grading
+- `canvas_update_assignment` — update assignment fields not supported by `canvas-lms` (e.g. `assignment_group_id`, `position`)
 
 **Quiz creation workflow:** Use `canvas-extras` (not `canvas-lms`) for creating quizzes and adding questions. The `canvas-extras` server provides the full quiz creation pipeline: `canvas_create_quiz` → `canvas_create_quiz_question` (repeat) → `canvas_list_quiz_questions` (verify). Note: `canvas_list_quiz_questions` paginates at 10 results by default.
 
 All tools default to `course_id = 246270`.
+
+**Safety rule:** Never delete or modify Canvas content (assignments, quizzes, discussions) that already has student submissions.
+
+**Canvas API gap policy:** When `canvas-lms` does not support a needed Canvas API feature (missing parameters, endpoints, etc.), implement the missing functionality as a new tool in `canvas-extras` (`tools/canvas-extras-mcp/index.js`). Never call the Canvas API directly via `fetch`/`node` scripts — always go through an MCP tool.

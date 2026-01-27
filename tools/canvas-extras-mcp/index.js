@@ -21,7 +21,7 @@ async function canvas(method, path, body) {
   const res = await fetch(url, opts);
   const text = await res.text();
   if (!res.ok) throw new Error(`Canvas ${res.status}: ${text}`);
-  return JSON.parse(text);
+  return text ? JSON.parse(text) : {};
 }
 
 const server = new McpServer({
@@ -41,16 +41,37 @@ server.tool(
     published: z.boolean().default(false).describe("Whether to publish immediately"),
     allow_rating: z.boolean().default(false).describe("Allow liking/rating of entries"),
     require_initial_post: z.boolean().default(false).describe("Require students to post before seeing others"),
+    assignment: z.object({
+      points_possible: z.number().optional().describe("Point value for the graded discussion"),
+      grading_type: z.string().optional().describe("Grading type (e.g. points, letter_grade)"),
+      assignment_group_id: z.number().optional().describe("Assignment group ID"),
+    }).optional().describe("Assignment settings to create a graded discussion"),
   },
-  async ({ course_id, title, message, discussion_type, published, allow_rating, require_initial_post }) => {
-    const result = await canvas("POST", `/courses/${course_id}/discussion_topics`, {
+  async ({ course_id, title, message, discussion_type, published, allow_rating, require_initial_post, assignment }) => {
+    const body = {
       title,
       message,
       discussion_type,
       published,
       allow_rating,
       require_initial_post,
-    });
+    };
+    if (assignment) body.assignment = assignment;
+    const result = await canvas("POST", `/courses/${course_id}/discussion_topics`, body);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Delete Discussion Topic ---
+server.tool(
+  "canvas_delete_discussion_topic",
+  "Delete a discussion topic from a Canvas course",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    topic_id: z.string().describe("Discussion topic ID to delete"),
+  },
+  async ({ course_id, topic_id }) => {
+    const result = await canvas("DELETE", `/courses/${course_id}/discussion_topics/${topic_id}`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );
@@ -152,6 +173,114 @@ server.tool(
   }
 );
 
+// --- Tool: List Discussion Topics ---
+server.tool(
+  "canvas_list_discussion_topics",
+  "List all discussion topics in a Canvas course",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+  },
+  async ({ course_id }) => {
+    const result = await canvas("GET", `/courses/${course_id}/discussion_topics?per_page=50`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Get Discussion Topic ---
+server.tool(
+  "canvas_get_discussion_topic",
+  "Get a specific discussion topic by ID",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    topic_id: z.string().describe("Discussion topic ID"),
+  },
+  async ({ course_id, topic_id }) => {
+    const result = await canvas("GET", `/courses/${course_id}/discussion_topics/${topic_id}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Update Discussion Topic ---
+server.tool(
+  "canvas_update_discussion_topic",
+  "Update an existing discussion topic in a Canvas course",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    topic_id: z.string().describe("Discussion topic ID to update"),
+    title: z.string().optional().describe("New title for the discussion topic"),
+    message: z.string().optional().describe("New body/message (HTML) for the discussion topic"),
+    published: z.boolean().optional().describe("Whether the discussion is published"),
+  },
+  async ({ course_id, topic_id, title, message, published }) => {
+    const body = {};
+    if (title != null) body.title = title;
+    if (message != null) body.message = message;
+    if (published != null) body.published = published;
+    const result = await canvas("PUT", `/courses/${course_id}/discussion_topics/${topic_id}`, body);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Create Rubric ---
+server.tool(
+  "canvas_create_rubric",
+  "Create a rubric and optionally associate it with an assignment for grading",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    title: z.string().describe("Rubric title"),
+    criteria: z
+      .array(
+        z.object({
+          description: z.string().describe("Criterion name/description"),
+          points: z.number().describe("Maximum points for this criterion"),
+          ratings: z
+            .array(
+              z.object({
+                description: z.string().describe("Rating level name"),
+                points: z.number().describe("Points for this rating level"),
+              })
+            )
+            .describe("Rating levels from best to worst"),
+        })
+      )
+      .describe("Rubric criteria with rating scales"),
+    association_id: z.number().optional().describe("Assignment ID to associate the rubric with"),
+    association_type: z.enum(["Assignment", "Course"]).default("Assignment").describe("Type of association"),
+    use_for_grading: z.boolean().default(true).describe("Whether to use this rubric for grading"),
+  },
+  async ({ course_id, title, criteria, association_id, association_type, use_for_grading }) => {
+    // Convert array-based criteria to Canvas indexed-hash format
+    const criteriaHash = {};
+    criteria.forEach((c, i) => {
+      const ratingsHash = {};
+      c.ratings.forEach((r, j) => {
+        ratingsHash[String(j)] = { description: r.description, points: r.points };
+      });
+      criteriaHash[String(i)] = {
+        description: c.description,
+        points: c.points,
+        ratings: ratingsHash,
+      };
+    });
+
+    const body = {
+      rubric: { title, criteria: criteriaHash },
+    };
+
+    if (association_id != null) {
+      body.rubric_association = {
+        association_id,
+        association_type,
+        use_for_grading,
+        purpose: "grading",
+      };
+    }
+
+    const result = await canvas("POST", `/courses/${course_id}/rubrics`, body);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
 // --- Tool: Update Quiz Question ---
 server.tool(
   "canvas_update_quiz_question",
@@ -199,6 +328,27 @@ server.tool(
     if (position != null) question.position = position;
     if (answers) question.answers = answers;
     const result = await canvas("PUT", `/courses/${course_id}/quizzes/${quiz_id}/questions/${question_id}`, { question });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Update Assignment (extras) ---
+server.tool(
+  "canvas_update_assignment",
+  "Update an existing assignment with fields not supported by canvas-lms (e.g. assignment_group_id)",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    assignment_id: z.string().describe("Assignment ID to update"),
+    assignment_group_id: z.number().optional().describe("Assignment group ID to move the assignment into"),
+    name: z.string().optional().describe("Assignment name"),
+    position: z.number().optional().describe("Position within the assignment group"),
+  },
+  async ({ course_id, assignment_id, assignment_group_id, name, position }) => {
+    const assignment = {};
+    if (assignment_group_id != null) assignment.assignment_group_id = assignment_group_id;
+    if (name != null) assignment.name = name;
+    if (position != null) assignment.position = position;
+    const result = await canvas("PUT", `/courses/${course_id}/assignments/${assignment_id}`, { assignment });
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );

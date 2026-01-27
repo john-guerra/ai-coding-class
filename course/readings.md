@@ -105,7 +105,6 @@ All URLs have been verified as of January 2026.
 
 | Resource | Description | URL |
 |----------|-------------|-----|
-| Managing Context Windows | Understanding Claude's working memory | https://platform.claude.com/docs/en/build-with-claude/context-windows |
 | Real World Prompting Course | Practical prompting patterns | https://github.com/anthropics/courses/tree/master/real_world_prompting |
 | Prompt Evaluations Course | Testing and evaluating prompts | https://github.com/anthropics/courses |
 
@@ -122,12 +121,24 @@ All URLs have been verified as of January 2026.
 
 > **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
 
+**Context & Memory**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Context Windows | How Claude's working memory works and how to manage it | https://platform.claude.com/docs/en/build-with-claude/context-windows |
+| What Are Projects? | Persistent knowledge bases for Claude Web conversations | https://support.claude.com/en/articles/9517075-what-are-projects |
+
 **Books**
 | Book | Author | Focus |
 |------|--------|-------|
 | The Mom Test | Rob Fitzpatrick | Customer validation, requirements gathering |
 
 #### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| How to Create and Manage Projects | Step-by-step guide to Claude Projects | https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects |
+| RAG for Projects | How retrieval-augmented generation works in Claude Projects | https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects |
+| Personalization Features | Profile, instructions, and styles in Claude Web | https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features |
 
 | Book | Author | Focus |
 |------|--------|-------|
@@ -302,7 +313,7 @@ All URLs have been verified as of January 2026.
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
 | 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs |
-| 4 | User Research & Prototyping | Artifacts guide, Mom Test, Designing for Growth |
+| 4 | User Research & Prototyping | Artifacts guide, context windows, Projects, Mom Test |
 | 5-6 | Antigravity & TDD | Antigravity docs, testing frameworks |
 | 7 | Claude Code | Tool use documentation |
 | 8-9 | Context Engineering | Advanced prompting, Anthropic research |

@@ -25,11 +25,48 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 # What We'll Cover Today
 
-1. The Mom Test -- Customer Interviews Done Right
-2. Design Thinking for Software Engineers
-3. Claude Web Artifacts for Rapid Prototyping
-4. User Stories & PRDs
-5. Hands-On Lab
+1. AI Coding Modalities -- Your Semester Roadmap
+2. The Mom Test -- Customer Interviews Done Right
+3. Design Thinking for Software Engineers
+4. Context & Memory in Claude Web
+5. Claude Web Artifacts for Rapid Prototyping
+6. User Stories & PRDs
+7. Hands-On Lab
+
+---
+
+# AI Coding Modalities
+
+> Three tools, three superpowers, one semester.
+
+<!-- vertical -->
+
+## The Three Modalities
+
+<!-- .slide: class="dense" -->
+
+| | **Claude Web** | **Antigravity** | **Claude Code** |
+|---|---|---|---|
+| **When** | Weeks 2-4 | Weeks 5-6 | Week 7+ |
+| **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
+| **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
+
+Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
+
+<!-- vertical -->
+
+## Where We Are Now
+
+**Week 4 -- Claude Web phase**
+
+- You've learned how LLMs work (Week 2)
+- You've practiced prompt engineering (Week 3)
+- **Today:** Research, prototyping, and context management
+
+**Coming up:**
+
+- **Week 5:** Antigravity -- AI moves into your editor
+- **Week 7:** Claude Code -- AI works autonomously in your terminal
 
 ---
 
@@ -108,18 +145,13 @@ People lie to be nice.
 
 ## Interview Structure
 
-**Before (5 min):**
-- Set context: "I'm exploring [problem space]"
-- No product pitch
+<!-- .slide: class="dense" -->
 
-**During (15-20 min):**
-- Start broad, then dig into specifics
-- Follow emotional reactions
-- Take notes on behaviors, not opinions
-
-**After (5 min):**
-- Ask who else you should talk to
-- Thank them
+| Phase | Time | Do |
+|-------|------|----|
+| **Before** | 5 min | Set context: "I'm exploring [problem space]." No product pitch. |
+| **During** | 15-20 min | Start broad, dig into specifics. Follow emotional reactions. Note behaviors, not opinions. |
+| **After** | 5 min | Ask who else to talk to. Thank them. |
 
 <!-- vertical -->
 
@@ -241,6 +273,92 @@ Use Claude Web to:
 - Build interactive prototypes for user testing
 
 **Key principle:** AI speeds up the loop. You still make the decisions.
+
+---
+
+# Context & Memory in Claude Web
+
+> What Claude remembers -- and what it forgets.
+
+<!-- vertical -->
+
+## What Is a Context Window?
+
+The **context window** is Claude's working memory -- everything it can "see" at once.
+
+- Claude 4 Sonnet: **~200K tokens** (≈ 500 pages of text)
+- Includes: system prompt + conversation history + uploaded files
+- Once the window fills, the oldest messages drop out
+
+**Think of it like a whiteboard:** large, but finite. When it's full, you have to erase something to write more.
+
+<!-- vertical -->
+
+## How Context Fills Up
+
+Every message you send **and** every response Claude gives consumes tokens.
+
+```
+[System Prompt] → [Message 1] → [Response 1] → [Message 2] → ...
+```
+
+- Context grows linearly with each turn
+- Oldest turns are dropped first (FIFO)
+- Uploaded files consume tokens the entire conversation
+- Long conversations lose early context silently
+
+**Practical tip:** Start a new conversation when you shift topics.
+
+<!-- vertical -->
+
+## Claude Projects
+
+<!-- .slide: class="dense" -->
+
+**Projects** give Claude a persistent knowledge base across conversations.
+
+| Feature | What It Does |
+|---------|--------------|
+| **Project Knowledge** | Upload files (PRDs, docs, code) that Claude can reference in every conversation |
+| **Custom Instructions** | Set project-specific guidelines ("Always use TypeScript", "Follow our API conventions") |
+| **RAG Auto-Activation** | Claude automatically searches uploaded files when relevant -- no manual prompting needed |
+
+Projects don't consume your per-conversation context window -- they act as an external memory layer.
+
+<!-- vertical -->
+
+## Personalization Layers
+
+<!-- .slide: class="dense" -->
+
+Claude Web offers three levels of customization:
+
+| Layer | Scope | Example |
+|-------|-------|---------|
+| **Profile** | All conversations | "I'm a grad student. I prefer concise answers." |
+| **Project Instructions** | All conversations in a project | "Use React + TypeScript. Follow Airbnb style guide." |
+| **Styles** | Per-conversation or project | "Respond like a senior engineer doing code review." |
+
+**Stack them:** Profile sets your defaults, Project Instructions set technical context, Styles adjust tone.
+
+<!-- vertical -->
+
+## Best Practices + Project 1
+
+**Context management tips:**
+
+- Keep conversations focused on one task
+- Start new chats when switching topics
+- Use Projects for persistent context (don't re-paste your PRD every time)
+
+**For Project 1, set up a Claude Project with:**
+
+1. Your PRD and user stories
+2. Tech stack decisions (e.g., React, Node, MongoDB)
+3. Custom instructions for your coding conventions
+4. Any research notes from Mom Test interviews
+
+This becomes your AI-powered project hub for the rest of the semester.
 
 ---
 
@@ -404,8 +522,10 @@ After building your prototype:
 
 # What to Remember
 
+- **AI Modalities:** Claude Web → Antigravity → Claude Code (each builds on the last)
 - **The Mom Test:** Ask about behavior, not opinions
 - **Design Thinking:** Empathize before you build
+- **Context & Projects:** Use Claude Projects to persist your PRD, tech stack, and conventions
 - **Artifacts:** Prototype fast, iterate faster
 - **User Stories:** Structure your requirements with INVEST
 - **MoSCoW:** Prioritize ruthlessly for your MVP
@@ -433,6 +553,11 @@ After building your prototype:
 
 **Claude Web & Artifacts:**
 - [Claude Artifacts Guide](https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code)
+
+**Context Windows & Projects:**
+- [Context Windows](https://platform.claude.com/docs/en/build-with-claude/context-windows)
+- [What Are Projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+- [Personalization Features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)
 
 **Design Thinking:**
 - [IDEO Design Thinking](https://designthinking.ideo.com/)

@@ -115,8 +115,8 @@ Content here
 
 **Three AI Modalities:**
 1. Claude Web (Week 2) - Architecture, learning, brainstorming
-2. Antigravity (Weeks 4-5) - Production code, daily workflow
-3. Claude Code (Week 6+) - Automation, multi-file refactoring
+2. Antigravity (Weeks 5-6) - Production code, daily workflow
+3. Claude Code (Week 7+) - Automation, multi-file refactoring
 
 **Key Elements:**
 - Weekly Quizzes: 10% of grade, concept-focused assessments
@@ -138,8 +138,22 @@ The course website is in `website/` (symlink to external repo).
 **Course ID:** 246270 (Spring 2026 AI Coding CS7180)
 **Canvas Domain:** northeastern.instructure.com
 
-MCP server `mcp-canvas-lms` is configured globally at `~/.claude/mcp.json` to manage:
+Two MCP servers are configured globally at `~/.claude.json`:
+
+**`canvas-lms`** (`canvas-mcp-server@2.2.3`) — primary server for:
 - Assignments and quizzes
 - Modules and pages
 - Announcements and discussions
 - Grades and rubrics
+
+**`canvas-extras`** (`tools/canvas-extras-mcp/`) — supplements with missing endpoints:
+- `canvas_create_discussion_topic` — create discussion topics
+- `canvas_create_quiz` — create quizzes (preferred over `canvas-lms` for quiz creation)
+- `canvas_create_quiz_question` — add questions to quizzes
+- `canvas_list_quiz_questions` — list questions in a quiz
+- `canvas_list_quizzes` — list all quizzes in a course
+- `canvas_update_quiz_question` — update existing quiz questions
+
+**Quiz creation workflow:** Use `canvas-extras` (not `canvas-lms`) for creating quizzes and adding questions. The `canvas-extras` server provides the full quiz creation pipeline: `canvas_create_quiz` → `canvas_create_quiz_question` (repeat) → `canvas_list_quiz_questions` (verify). Note: `canvas_list_quiz_questions` paginates at 10 results by default.
+
+All tools default to `course_id = 246270`.

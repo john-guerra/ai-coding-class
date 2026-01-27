@@ -659,14 +659,13 @@ The "memory" is just including conversation history in the prompt!
 
 <!-- .slide: class="dense" -->
 
-How much can models "remember"?
+How much can models "remember"? (Jan 2026)
 
 | Model | Context Window |
 | --- | --- |
-| GPT-3.5 | 4K-16K tokens |
-| GPT-4 | 8K-128K tokens |
-| Claude 3.5 | 200K tokens |
-| Gemini 1.5 | 1M-2M tokens |
+| GPT-5.2 | 400K tokens |
+| Claude Opus 4.5 | 200K tokens |
+| Gemini 3 Pro | 1M tokens |
 
 **What fits in 200K tokens?**
 
@@ -874,11 +873,11 @@ Write tests for new functions
 | Today's Concept | Later Application |
 | --- | --- |
 | Everything is text | Prompt engineering (Week 3) |
-| Context matters | Context engineering (Week 8) |
-| RAG basics | .cursorrules, @codebase (Week 4-5) |
-| Hallucinations | Evaluation systems (Week 9-10) |
-| Testing as verification | TDD with AI (Week 4-5) |
-| Lazy teenager model | Why evals matter (Week 9) |
+| Context matters | Context engineering (Week 9) |
+| RAG basics | .cursorrules, @codebase (Week 5-6) |
+| Hallucinations | Evaluation systems (Week 10-11) |
+| Testing as verification | TDD with AI (Week 5-6) |
+| Lazy teenager model | Why evals matter (Week 10) |
 
 ---
 

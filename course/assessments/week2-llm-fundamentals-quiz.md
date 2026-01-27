@@ -25,7 +25,7 @@ This quiz assesses your understanding of LLM fundamentals covered in Week 2 lect
 - **Time Limit:** 15 minutes
 - **Questions:** 10 questions (15 points total)
 - **Attempts:** One attempt only
-- **Tools Required:** For questions 9-10, you will need to use external tools (Tiktokenizer, TensorFlow Embedding Projector)
+- **Tools Required:** For question 9, you will need to use an external tool (Tiktokenizer)
 
 **Topics Covered:**
 - Software 1.0/2.0/3.0 (Karpathy's framework)
@@ -94,15 +94,15 @@ What does the "lost in the middle" phenomenon refer to?
 
 ---
 
-#### Q5: Hallucination Statistics (1 point)
+#### Q5: Why Code Hallucinations Are Hard to Detect (1 point)
 **Type:** Multiple Choice
 
-According to research cited in class, approximately what percentage of LLM-recommended packages don't actually exist?
+What makes LLM hallucinations in code particularly difficult to detect compared to hallucinations in prose?
 
-- A) ~5%
-- B) ~10%
-- C) ~20%
-- D) ~40%
+- A) Hallucinated code always produces runtime errors
+- B) Hallucinated code is often syntactically correct and follows plausible patterns
+- C) Code editors automatically highlight hallucinated code
+- D) Hallucinated code only occurs in dynamically-typed languages
 
 ---
 
@@ -146,7 +146,7 @@ Your company builds a coding assistant that helps developers with your proprieta
 
 ---
 
-### Section 3: Tool-Based Questions (2 questions, 2 points each)
+### Section 3: Applied Questions (2 questions, 2 points each)
 
 ---
 
@@ -164,10 +164,15 @@ Select the **GPT-4** tokenizer (cl100k_base). How many tokens does this code use
 
 ---
 
-#### Q10: Embedding Intuition (2 points)
-**Type:** Short Answer
+#### Q10: When to Use Generative AI (2 points)
+**Type:** Multiple Choice
 
-Go to https://projector.tensorflow.org/ and load the **Word2Vec 10K** dataset. Search for "function" and list **TWO words** that appear closest to it in the embedding space.
+Which of the following tasks is the LEAST appropriate use of a generative AI coding assistant?
+
+- A) Generating boilerplate code for a new Express.js REST endpoint
+- B) Verifying that a critical financial calculation matches regulatory specifications exactly
+- C) Writing unit tests for a React component
+- D) Refactoring a function to improve readability
 
 ---
 

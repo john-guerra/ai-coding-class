@@ -1,7 +1,7 @@
 # Project 1: Personal Utility App
 
 **Weight:** 15% of final grade
-**Due:** Week 6
+**Due:** Week 7
 
 ## Objective
 

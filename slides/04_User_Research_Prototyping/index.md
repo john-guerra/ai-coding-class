@@ -28,8 +28,8 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 1. AI Coding Modalities -- Your Semester Roadmap
 2. The Mom Test -- Customer Interviews Done Right
 3. Design Thinking for Software Engineers
-4. Context & Memory in Claude Web
-5. Claude Web Artifacts for Rapid Prototyping
+4. Claude Web Artifacts for Rapid Prototyping
+5. Context & Memory in Claude Web
 6. User Stories & PRDs
 7. Hands-On Lab
 
@@ -276,6 +276,56 @@ Use Claude Web to:
 
 ---
 
+# Claude Web Artifacts
+
+> From idea to interactive prototype in minutes.
+
+<!-- vertical -->
+
+## What Are Artifacts?
+
+Artifacts are interactive, self-contained outputs that Claude creates:
+
+- **React components** -- Live, interactive UIs
+- **HTML pages** -- Styled, functional pages
+- **SVG graphics** -- Diagrams, charts, icons
+- **Documents** -- Formatted text, tables
+
+They render directly in the Claude Web interface -- no setup needed.
+
+<!-- vertical -->
+
+## Prototyping with Artifacts
+
+**Use cases for this course:**
+
+- Mockup your Project 1 UI before writing real code
+- Create interactive wireframes for user testing
+- Build data visualizations to explore ideas
+- Generate landing pages for user feedback
+
+<!-- vertical -->
+
+## Artifacts Workflow
+
+1. **Describe what you want** -- Be specific about layout, interactions, data
+2. **Claude generates the artifact** -- React component or HTML
+3. **Iterate conversationally** -- "Move the nav to the left" / "Add a dark mode toggle"
+4. **Test with users** -- Share the artifact link for feedback
+5. **Use as a spec** -- Reference the prototype when building the real app
+
+<!-- vertical -->
+
+## Tips for Better Artifacts
+
+- Start with a clear description of the user flow
+- Include specific data examples (not "some items")
+- Request specific styling ("Tailwind", "minimalist", "dashboard-style")
+- Iterate in small steps -- one change per message
+- Ask for responsive design if mobile matters
+
+---
+
 # Context & Memory in Claude Web
 
 > What Claude remembers -- and what it forgets.
@@ -359,56 +409,6 @@ Claude Web offers three levels of customization:
 4. Any research notes from Mom Test interviews
 
 This becomes your AI-powered project hub for the rest of the semester.
-
----
-
-# Claude Web Artifacts
-
-> From idea to interactive prototype in minutes.
-
-<!-- vertical -->
-
-## What Are Artifacts?
-
-Artifacts are interactive, self-contained outputs that Claude creates:
-
-- **React components** -- Live, interactive UIs
-- **HTML pages** -- Styled, functional pages
-- **SVG graphics** -- Diagrams, charts, icons
-- **Documents** -- Formatted text, tables
-
-They render directly in the Claude Web interface -- no setup needed.
-
-<!-- vertical -->
-
-## Prototyping with Artifacts
-
-**Use cases for this course:**
-
-- Mockup your Project 1 UI before writing real code
-- Create interactive wireframes for user testing
-- Build data visualizations to explore ideas
-- Generate landing pages for user feedback
-
-<!-- vertical -->
-
-## Artifacts Workflow
-
-1. **Describe what you want** -- Be specific about layout, interactions, data
-2. **Claude generates the artifact** -- React component or HTML
-3. **Iterate conversationally** -- "Move the nav to the left" / "Add a dark mode toggle"
-4. **Test with users** -- Share the artifact link for feedback
-5. **Use as a spec** -- Reference the prototype when building the real app
-
-<!-- vertical -->
-
-## Tips for Better Artifacts
-
-- Start with a clear description of the user flow
-- Include specific data examples (not "some items")
-- Request specific styling ("Tailwind", "minimalist", "dashboard-style")
-- Iterate in small steps -- one change per message
-- Ask for responsive design if mobile matters
 
 ---
 

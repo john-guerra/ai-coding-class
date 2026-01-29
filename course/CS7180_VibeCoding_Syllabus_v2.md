@@ -179,7 +179,7 @@ There is also an associated Canvas site for this course. We will use it to help 
 Vibe coding is a rapidly evolving field, and the most current information comes from online sources. Students will be required to complete weekly readings including:
 
 - Anthropic Claude Documentation - https://docs.anthropic.com
-- Antigravity Documentation - https://docs.antigravity.dev
+- Antigravity Documentation - https://antigravity.google/docs/get-started
 - GitHub Copilot Guide - https://docs.github.com/copilot
 - Research papers on LLMs, prompt engineering, and AI-assisted development
 - Case studies and blog posts from industry practitioners

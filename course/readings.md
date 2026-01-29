@@ -153,8 +153,7 @@ All URLs have been verified as of January 2026.
 **Antigravity Documentation**
 | Topic | URL |
 |-------|-----|
-| Antigravity Docs (Official) | https://docs.antigravity.dev/ |
-| Getting Started | https://docs.antigravity.dev/get-started/migrate-from-vscode |
+| Antigravity Docs (Official) | https://antigravity.google/docs/get-started |
 
 **Test-Driven Development**
 | Resource | URL |
@@ -275,7 +274,7 @@ All URLs have been verified as of January 2026.
 | Tool | URL |
 |------|-----|
 | Anthropic Claude Docs | https://docs.anthropic.com |
-| Antigravity Docs | https://docs.antigravity.dev |
+| Antigravity Docs | https://antigravity.google/docs/get-started |
 | GitHub Copilot Guide | https://docs.github.com/copilot |
 | Next.js Documentation | https://nextjs.org/docs |
 | React Documentation | https://react.dev |

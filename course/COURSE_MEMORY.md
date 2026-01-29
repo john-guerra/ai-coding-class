@@ -837,7 +837,7 @@ Run agents simultaneously using:
 
 ### Online Documentation (Required)
 - Anthropic Claude Documentation: https://docs.anthropic.com
-- Antigravity Documentation: https://antigravity.dev/docs
+- Antigravity Documentation: https://antigravity.google/docs/get-started
 - GitHub Copilot Guide: https://docs.github.com/copilot
 
 ### Tools (Required)

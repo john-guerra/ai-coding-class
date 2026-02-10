@@ -4,11 +4,10 @@
 
 | Weeks | Focus                                                               |
 | ----- | ------------------------------------------------------------------- |
-| 1-4   | Foundations: LLM fundamentals, prompt engineering, user research    |
-| 5-7   | Antigravity IDE, TDD intro, CI/CD basics, **Project 1 due**         |
-| 8-11  | Advanced prompting, context engineering, evals                      |
-| 12-14 | Agile, parallel agents, advanced CI/CD + production, **Project 2 due** |
-| 15    | Demo Day, **Project 3 due**                                         |
+| 1-3   | Fundamentals: LLM basics, prompt engineering                        |
+| 4-5   | Claude Web: Artifacts, Projects, rapid prototyping                  |
+| 6-11  | IDE Assistants: Antigravity (from Week 6), TDD, CI/CD, evals, **P1 & P2 due** |
+| 12-15 | CLI Agentic: Claude Code, agents, production, **P3 due**            |
 
 ## Detailed Weekly Schedule
 
@@ -18,16 +17,16 @@
 | **2**  | **LLM Fundamentals + Modality 1** | **LLM Fundamentals**: Transformers, tokens, context windows, hallucinations, temperature, model comparison; Mom Test & Design Thinking intro; Claude Web & Projects                       | Weekly Quiz 2                                                        | **P1:** User research begins                      |
 | **3**  | **Prompt Engineering**            | Effective prompt structure, Few-shot learning, System vs user prompts, Iteration strategies                                                                                               | Weekly Quiz 3                                                        | **P1:** PRD & user stories, Architecture          |
 | **4**  | **User Research & Prototyping**   | Mom Test & Design Thinking workshop, Claude Web Artifacts for rapid prototyping, User story writing, PRD refinement                                                                       | **HW1 DUE:** Prompt Eng, Weekly Quiz 4                               | **P1:** User research complete, Prototyping       |
-| **5**  | **Modality 2 (Part 1)**           | Antigravity installation & setup, Tab autocomplete, Inline chat (Cmd+K), @ context references, Basic .antigravityrules, **TDD Introduction**                                              | **HW2 DUE:** Mom Test, Weekly Quiz 5                                 | **P1:** Sprint 1, Implementation begins           |
-| **6**  | **Antigravity + CI/CD**           | Composer (multi-file), Advanced .antigravityrules, **CI/CD Fundamentals**: GitHub Actions basics, Test automation, Setting up first pipeline                                              | Weekly Quiz 6                                                        | **P1:** Sprint 2, Add CI pipeline                 |
-| **7**  | **Project 1 + Modality 3**        | **PROJECT 1 PRESENTATIONS**, Claude Code & Terminal AI, Agentic coding intro, Terminal workflows, Automation & scripts                                                                    | **PROJECT 1 DUE**, Weekly Quiz 7                                     | **P1:** Final submission, **P2:** Planning begins |
-| **8**  | **Advanced Prompting**            | Chain-of-thought, Meta-prompting, Prompt chaining, Structured prompts (XML/JSON), Cost optimization, Building prompt libraries                                                            | Weekly Quiz 8                                                        | **P2:** Sprint 1, Architecture & setup            |
-| **9**  | **Context Engineering**           | Context windows, Context sources & optimization, RAG for code, Token management, .antigravityrules best practices, MCPs (Model Control Protocols)                                         | **HW3 DUE:** Context, Weekly Quiz 9                                  | **P2:** Sprint 2, Core features                   |
-| **10** | **Evals Part 1**                  | What are evals & why they matter, Types of evals: Correctness, Quality, Semantic, Building eval frameworks, Golden dataset creation                                                       | Weekly Quiz 10                                                       | **P2:** Sprint 3, Testing & quality               |
-| **11** | **TDD + CI/CD + Evals**           | Advanced TDD with AI, Multi-stage CI/CD pipelines, Deploy previews, Coverage reporting, Security scanning, **Evals Part 2:** LLM-as-judge, Automated dashboards                           | **HW4 DUE:** TDD+CI/CD, Weekly Quiz 11                               | **P2:** Final polish, Complete eval suite         |
-| **12** | **Project 2 + Agile**             | **PROJECT 2 PRESENTATIONS**, Agile workflows with AI, Scrum ceremonies, Sprint planning with AI, Team velocity & estimation, **Team Formation Workshop**                                  | **PROJECT 2 DUE**, Weekly Quiz 12                                    | **P2:** Final submission, **P3:** Team formation  |
-| **13** | **Parallel Agents**               | Agent fundamentals: ReAct, Plan-and-Execute, Agent architectures, Single agent workflows, Multi-agent coordination, Agent safety & debugging, Cost control for agents                     | Weekly Quiz 13                                                       | **P3:** Sprint 1, Parallel development            |
-| **14** | **Advanced Patterns + Production** | System design with AI, Advanced CI/CD: Multi-environment, Canary/blue-green deployments, Performance gates; Monitoring & observability, Error tracking & logging, Security best practices, Accessibility (WCAG basics), Portfolio building tips | **HW5 DUE:** Parallel agents, **HW6 DUE:** Production, Weekly Quiz 14 | **P3:** Sprint 2-3, Advanced features & deploy   |
+| **5**  | **Claude Web Deep Dive**          | Building full projects with Artifacts, Mockup-to-prototype workflow, Artifact persistence & storage, AI-powered artifacts (`window.claude.complete()`), Debugging artifacts, P1 workshop   | **HW2 DUE:** Mom Test, Weekly Quiz 5                                 | **P1:** Sprint 1, Implementation begins           |
+| **6**  | **IDE-Centric AI Coding**         | **PROJECT 1 DUE**, How IDE AI tools work (architecture pipeline, context collection, indexing), Code suggestions & tab completion, Inline edit (Cmd+K), Chat panel, Modes (Ask/Write/Agent/Plan), Rules files, @ context references, Tool comparison (Antigravity vs Copilot vs Cursor) | **PROJECT 1 DUE**, Weekly Quiz 6                                      | **P1:** Final, **P2:** Starts                     |
+| **7**  | **Advanced IDE AI + Agile/Scrum** | Agile/Scrum crash course (roles, sprint cycle, ceremonies), GitHub as scrumboard (Issues, Projects board, labels, milestones), PRD → sprint backlog, Branch-per-issue workflow, Agent memory & persistent context, MCP servers, Browser mode, Mockup-to-code | Weekly Quiz 7                                                        | **P2:** Sprint 1                                  |
+| **8**  | **Claude Code (Modality 3)**         | Claude Code & Terminal AI intro, Agentic coding basics, CLAUDE.md deep dive, Chain-of-thought, Meta-prompting, Prompt chaining, Context windows & optimization                            | **HW3 DUE:** Context Eng (Rules+Scrum), Weekly Quiz 8                  | **P2:** Sprint 2                                  |
+| **9**  | **Spring Break**                  | *No class - March 2-8, 2026*                                                                                                                                                              | —                                                                    | Work on P2                                        |
+| **10** | **Project 2 + TDD + Evals**       | **PROJECT 2 DUE**, Advanced TDD with AI, Evals: LLM-as-judge, **Team Formation Workshop**                                                                                                | **PROJECT 2 DUE**, **HW4 DUE:** TDD+CI/CD, Weekly Quiz 10           | **P2:** Final, **P3:** Team formation & Start     |
+| **11** | **CI/CD Fundamentals**            | GitHub Actions basics, CI/CD pipelines, Automated testing in CI, Deploy previews, Coverage reporting, Security scanning, Deployment strategies                                             | **HW5 DUE:** Parallel agents, Weekly Quiz 11                         | **P3:** Sprint 1                                  |
+| **12** | **Claude Code + Parallel Agents** | Claude Code & Terminal AI, Agent fundamentals: ReAct, Plan-and-Execute, Agent architectures, Multi-agent coordination, Agent safety & debugging                                           | Weekly Quiz 12                                                       | **P3:** Sprint 2, Parallel development            |
+| **13** | **Advanced Patterns + Production** | System design with AI, Advanced CI/CD: Multi-environment, Canary/blue-green deployments, Performance gates; Monitoring & observability, Error tracking & logging, Security best practices | **HW6 DUE:** Production, Weekly Quiz 13                              | **P3:** Sprint 3, Advanced features               |
+| **14** | **Production Polish**             | Accessibility (WCAG basics), Portfolio building tips, Final project polish, Team code reviews, Demo preparation                                                                           | Weekly Quiz 14                                                       | **P3:** Sprint 4, Deploy & polish                 |
 | **15** | **Demo Day**                      | **FINAL PRESENTATIONS**, Portfolio showcase, Course retrospective, Industry panel (optional), Career prep discussion                                                                      | **PROJECT 3 DUE**                                                    | **P3:** Final demos, Portfolio complete           |
 
 ## Key Dates Summary
@@ -36,20 +35,20 @@
 | ------- | --------------------------------------- |
 | Week 4  | HW1 due (Prompt Engineering)            |
 | Week 5  | HW2 due (Mom Test)                      |
-| Week 7  | **Project 1 due + Presentations**       |
-| Week 9  | HW3 due (Context Engineering)           |
-| Week 11 | HW4 due (TDD+CI/CD)                     |
-| Week 12 | **Project 2 due + Presentations**       |
-| Week 14 | HW5 due (Parallel Agents) + HW6 due (Production Readiness) |
+| Week 6  | **Project 1 due**                       |
+| Week 8  | HW3 due (Context Engineering)           |
+| Week 10 | **Project 2 due**, HW4 due (TDD+CI/CD) |
+| Week 11 | HW5 due (Parallel Agents)               |
+| Week 13 | HW6 due (Production Readiness)          |
 | Week 15 | **Project 3 due + Demo Day**            |
 
 ## The Three AI Modalities
 
-| Modality        | When      | Best For                                       |
-| --------------- | --------- | ---------------------------------------------- |
-| **Claude Web**  | Week 2    | Architecture planning, learning, brainstorming |
-| **Antigravity** | Weeks 5-6 | Production code, daily development workflow    |
-| **Claude Code** | Week 7+   | Automation, multi-file refactoring, DevOps     |
+| Modality        | When       | Best For                                       |
+| --------------- | ---------- | ---------------------------------------------- |
+| **Claude Web**  | Weeks 4-5  | Architecture planning, prototyping, brainstorming |
+| **Antigravity** | Weeks 6-7 (intro), 8-11 (daily use) | Production code, daily development workflow     |
+| **Claude Code** | Weeks 8+   | Automation, multi-file refactoring, DevOps      |
 
 ---
 

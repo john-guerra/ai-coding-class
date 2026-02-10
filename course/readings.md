@@ -110,7 +110,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 4: User Research & Prototyping
+## Weeks 4-5: Claude Web & Artifacts
 
 ### 📚 Required
 
@@ -118,6 +118,8 @@ All URLs have been verified as of January 2026.
 | Resource | Description | URL |
 |----------|-------------|-----|
 | Claude Artifacts Guide | Creating & iterating AI apps without code | https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
+| Prototype AI-Powered Apps | Building AI-powered artifacts with `window.claude.complete()` | https://support.claude.com/en/articles/11649438-prototype-ai-powered-apps-with-claude-artifacts |
+| Claude-Powered Artifacts Announcement | Official announcement of AI features in artifacts | https://www.anthropic.com/news/claude-powered-artifacts |
 
 > **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
 
@@ -139,6 +141,10 @@ All URLs have been verified as of January 2026.
 | How to Create and Manage Projects | Step-by-step guide to Claude Projects | https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects |
 | RAG for Projects | How retrieval-augmented generation works in Claude Projects | https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects |
 | Personalization Features | Profile, instructions, and styles in Claude Web | https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features |
+| How to Use Claude Artifacts (Zapier) | Step-by-step guide to building web apps with artifacts | https://zapier.com/blog/how-to-use-claude-artifacts-to-create-web-apps/ |
+| Claude Artifacts 101 (DataCamp) | Types, use cases, sharing, and more | https://www.datacamp.com/blog/claude-artifacts-introduction |
+| Everything I built with Claude Artifacts (Simon Willison) | Real-world examples of artifact projects | https://simonwillison.net/2024/Oct/21/claude-artifacts/ |
+| Fixing Claude Artifact Issues | Troubleshooting common artifact problems | https://christinasouch.com/blog/fixing-claude-artifact-creation-issues |
 
 | Book | Author | Focus |
 |------|--------|-------|
@@ -146,14 +152,56 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 5-6: Antigravity IDE & TDD
+## Week 6: IDE-Centric AI Coding
 
 ### 📚 Required
 
-**Antigravity Documentation**
-| Topic | URL |
-|-------|-----|
-| Antigravity Docs (Official) | https://antigravity.google/docs/get-started |
+**IDE AI Tools**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Antigravity Docs (Getting Started) | Official setup and usage guide | https://antigravity.google/docs/get-started |
+| GitHub Copilot Guide | GitHub's AI coding assistant documentation | https://docs.github.com/copilot |
+| Cursor Documentation | Cursor IDE docs and features | https://docs.cursor.com |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Inside GitHub Copilot (GitHub Blog) | How Copilot's architecture works under the hood | https://github.blog/ai-and-ml/github-copilot/inside-github-copilot-how-github-copilot-works/ |
+| cursor.directory | Community-maintained rules files for various tech stacks | https://cursor.directory/ |
+| OpenSSF Guide for AI Code Assistants | Security-focused best practices for AI coding tools | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
+
+---
+
+## Week 7: Advanced IDE AI + Agile/Scrum
+
+### 📚 Required
+
+**Agile/Scrum**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| The Scrum Guide (official) | Definitive guide to Scrum framework | https://scrumguides.org/ |
+| GitHub Projects Documentation | Setting up and using project boards | https://docs.github.com/en/issues/planning-and-tracking-with-projects |
+| GitHub Issues Documentation | Creating and managing issues | https://docs.github.com/en/issues |
+
+**Required Book**
+| Book | Author | Focus |
+|------|--------|-------|
+| Scrum | Jeff Sutherland | Agile methodology (start reading this week) |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Atlassian Agile Coach | Comprehensive Agile/Scrum guide | https://www.atlassian.com/agile |
+| GitHub Flow Guide | Branch-based workflow | https://docs.github.com/en/get-started/using-github/github-flow |
+| MCP Specification | Model Context Protocol docs | https://modelcontextprotocol.io/ |
+
+---
+
+## Weeks 8-11: TDD, CI/CD & Claude Code
+
+### 📚 Required
 
 **Test-Driven Development**
 | Resource | URL |
@@ -162,9 +210,14 @@ All URLs have been verified as of January 2026.
 | Vitest Documentation | https://vitest.dev/guide/ |
 | Testing Library | https://testing-library.com/docs/ |
 
+**CI/CD (Week 11)**
+| Resource | URL |
+|----------|-----|
+| GitHub Actions Documentation | https://docs.github.com/en/actions |
+
 ---
 
-## Week 7: Claude Code & Terminal AI
+## Weeks 12-15: Claude Code & Production
 
 ### 📚 Required
 
@@ -175,7 +228,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 8-9: Advanced Prompting & Context Engineering
+## Weeks 8-10: Context Engineering & Evaluations
 
 ### 📚 Required
 
@@ -194,11 +247,7 @@ All URLs have been verified as of January 2026.
 | Tracing the Thoughts of a Large Language Model | https://www.anthropic.com/research/tracing-thoughts-language-model |
 | Constitutional AI | https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback |
 
----
-
-## Week 10-11: Evaluations (Evals)
-
-### 📚 Required
+#### 📚 Additional (Evaluations)
 
 | Resource | Description | URL |
 |----------|-------------|-----|
@@ -223,13 +272,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 12-13: Agile & Parallel Agents
-
-### 📚 Required Books
-
-| Book | Author | Focus |
-|------|--------|-------|
-| Scrum | Jeff Sutherland | Agile methodology |
+## Weeks 12-13: Parallel Agents
 
 ### 📖 Recommended
 
@@ -240,7 +283,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 14: Production & CI/CD
+## Weeks 13-14: Production & CI/CD
 
 ### 📚 Required
 
@@ -312,13 +355,13 @@ All URLs have been verified as of January 2026.
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
 | 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs |
-| 4 | User Research & Prototyping | Artifacts guide, context windows, Projects, Mom Test |
-| 5-6 | Antigravity & TDD | Antigravity docs, testing frameworks |
-| 7 | Claude Code | Tool use documentation |
-| 8-9 | Context Engineering | Advanced prompting, Anthropic research |
-| 10-11 | Evaluations | Success criteria, eval courses, hallucination reduction |
-| 12-13 | Agile + Agents | Required books, LangChain tutorials |
-| 14 | Production | CI/CD docs, security guides |
+| 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
+| 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
+| 7 | Advanced IDE AI + Agile/Scrum | Scrum Guide, GitHub Projects/Issues, Scrum book |
+| 8-11 | TDD, CI/CD & Claude Code | Testing frameworks, GitHub Actions, Claude Code |
+| 8-10 | Context Engineering & Evals | Advanced prompting, success criteria, eval courses |
+| 12-13 | Parallel Agents | LangChain tutorials |
+| 12-15 | Claude Code & Production | Tool use documentation, CI/CD docs, security guides |
 
 ---
 

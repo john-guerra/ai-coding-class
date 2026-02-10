@@ -259,11 +259,9 @@ Use the AI as your rubber duck:
 
 ## Evolving Rules as a Pair
 
-**Your `.antigravityrules` (or equivalent) is the single source of truth for how your pair writes code.**
+**Your `.antigravityrules` is the single source of truth** -- both partners contribute and maintain it.
 
-**Both partners should contribute to and maintain the rules file.**
-
-Suggested sections for a pair project:
+Example sections for a pair project:
 
 ```
 ## Tech Stack
@@ -278,11 +276,6 @@ Suggested sections for a pair project:
 - Branch naming: feature/[issue#]-[description]
 - Commit messages: "Verb description (#issue)"
 - All PRs need partner review before merge
-
-## Don'ts
-- Never use `any` type
-- Never commit .env files
-- Never merge without passing tests
 ```
 
 <!-- vertical -->

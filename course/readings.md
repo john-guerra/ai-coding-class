@@ -173,7 +173,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 7: Advanced IDE AI + Agile/Scrum
+## Week 7: Agile/Scrum + Pair Workflow
 
 ### 📚 Required
 
@@ -195,11 +195,30 @@ All URLs have been verified as of January 2026.
 |----------|-------------|-----|
 | Atlassian Agile Coach | Comprehensive Agile/Scrum guide | https://www.atlassian.com/agile |
 | GitHub Flow Guide | Branch-based workflow | https://docs.github.com/en/get-started/using-github/github-flow |
-| MCP Specification | Model Context Protocol docs | https://modelcontextprotocol.io/ |
+| Tuple's Pair Programming Guide | Best practices for remote pair programming | https://tuple.app/pair-programming-guide |
 
 ---
 
-## Weeks 8-11: TDD, CI/CD & Claude Code
+## Week 8: Advanced IDE AI Features
+
+### 📚 Required
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| MCP Specification | Model Context Protocol docs | https://modelcontextprotocol.io/ |
+| Antigravity Advanced Docs | Agent memory, MCP, browser mode | https://antigravity.google/docs/get-started |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| MCP GitHub Repository | Reference implementation and examples | https://github.com/modelcontextprotocol |
+| Chrome DevTools Debugging Guide | Browser debugging techniques | https://developer.chrome.com/docs/devtools/ |
+| Node.js Debugging Guide | Server-side debugging | https://nodejs.org/en/learn/getting-started/debugging |
+
+---
+
+## Weeks 10-11: TDD, CI/CD & Claude Code
 
 ### 📚 Required
 
@@ -357,10 +376,11 @@ All URLs have been verified as of January 2026.
 | 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs |
 | 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
 | 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
-| 7 | Advanced IDE AI + Agile/Scrum | Scrum Guide, GitHub Projects/Issues, Scrum book |
-| 8-11 | TDD, CI/CD & Claude Code | Testing frameworks, GitHub Actions, Claude Code |
-| 8-10 | Context Engineering & Evals | Advanced prompting, success criteria, eval courses |
-| 12-13 | Parallel Agents | LangChain tutorials |
+| 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair programming |
+| 8 | Advanced IDE AI Features | MCP Specification, debugging guides, Antigravity advanced docs |
+| 10-11 | TDD, CI/CD & Claude Code | Testing frameworks, GitHub Actions, Claude Code |
+| 10-11 | Context Engineering & Evals | Advanced prompting, success criteria, eval courses |
+| 12 | Parallel Agents | LangChain tutorials |
 | 12-15 | Claude Code & Production | Tool use documentation, CI/CD docs, security guides |
 
 ---

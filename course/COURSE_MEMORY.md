@@ -100,13 +100,13 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
 | **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | **HW1 DUE:** Prompt Eng<br>Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
 | **5** | **Modality 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
-| **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor) | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts |
-| **7** | **Advanced IDE AI + Agile/Scrum** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode & mockup-to-code | Weekly Quiz 7 | **P2:** Sprint 1 |
-| **8** | **Claude Code (Modality 3)** | • Claude Code & Terminal AI intro<br>• Agentic coding basics<br>• CLAUDE.md deep dive<br>• Chain-of-thought & meta-prompting<br>• Prompt chaining<br>• Context windows & optimization | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
+| **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
+| **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair programming with AI (driver/navigator + AI)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
+| **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
 | **9** | **Spring Break** | *No class - March 2-8, 2026* | — | Work on P2 |
-| **10** | **Project 2 + TDD + Evals** | • **PROJECT 2 DUE**<br>• Advanced TDD with AI<br>• Evals: LLM-as-judge<br>• **Team Formation Workshop** | **PROJECT 2 DUE** 🎯<br>**HW4 DUE:** TDD+CI/CD<br>Weekly Quiz 10 | **P2:** Final<br>**P3:** Team formation & Start |
-| **11** | **CI/CD Fundamentals** | • GitHub Actions basics<br>• CI/CD pipelines<br>• Automated testing in CI<br>• Deploy previews & coverage reporting<br>• Security scanning<br>• Deployment strategies | **HW5 DUE:** Parallel agents<br>Weekly Quiz 11 | **P3:** Sprint 1 |
-| **12** | **Claude Code + Parallel Agents** | • Claude Code & Terminal AI<br>• Agent fundamentals<br>&nbsp;&nbsp;- ReAct, Plan-and-Execute<br>&nbsp;&nbsp;- Agent architectures<br>• Multi-agent coordination<br>• Agent safety & debugging | Weekly Quiz 12 | **P3:** Sprint 2<br>Parallel development |
+| **10** | **Claude Code (Modality 3)** | • **PROJECT 2 DUE**<br>• Claude Code & Terminal AI intro<br>• Agentic coding basics<br>• CLAUDE.md deep dive<br>• Chain-of-thought & meta-prompting<br>• Prompt chaining<br>• Context windows & optimization<br>• **P3 team formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 10 | **P2:** Final<br>**P3:** Team formation & Start |
+| **11** | **TDD + Evals + CI/CD** | • Advanced TDD with AI<br>• Evals: LLM-as-judge<br>• GitHub Actions basics<br>• CI/CD pipelines<br>• Automated testing in CI<br>• Deploy previews & coverage reporting<br>• Security scanning | **HW4 DUE:** TDD+CI/CD<br>Weekly Quiz 11 | **P3:** Sprint 1 |
+| **12** | **Advanced Claude Code + Parallel Agents** | • Claude Code advanced techniques<br>• Agent fundamentals<br>&nbsp;&nbsp;- ReAct, Plan-and-Execute<br>&nbsp;&nbsp;- Agent architectures<br>• Multi-agent coordination<br>• Agent safety & debugging | **HW5 DUE:** Parallel agents<br>Weekly Quiz 12 | **P3:** Sprint 2<br>Parallel development |
 | **13** | **Advanced Patterns + Production** | • System design with AI<br>• Advanced CI/CD:<br>&nbsp;&nbsp;- Multi-environment<br>&nbsp;&nbsp;- Canary/blue-green deployments<br>• Performance gates<br>• Monitoring & observability<br>• Error tracking & logging<br>• Security best practices | **HW6 DUE:** Production<br>Weekly Quiz 13 | **P3:** Sprint 3<br>Advanced features |
 | **14** | **Production Polish** | • Accessibility (WCAG basics)<br>• Portfolio building tips<br>• Final project polish<br>• Team code reviews<br>• Demo preparation | Weekly Quiz 14 | **P3:** Sprint 4<br>Deploy & polish |
 | **15** | **Demo Day** | • **FINAL PRESENTATIONS**<br>• Portfolio showcase<br>• Course retrospective<br>• Industry panel (optional)<br>• Career prep discussion | **PROJECT 3 DUE** 🎯 | **P3:** Final demos<br>Portfolio complete |
@@ -136,7 +136,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 2: Antigravity IDE (Weeks 6-7 intro, 8-11 daily use)
+### Modality 2: Antigravity IDE (Weeks 6-8 intro, 8-11 daily use)
 **Best for:** Professional development, production code, daily coding workflow
 
 **Skills Covered:**
@@ -165,7 +165,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 3: Claude Code / Terminal AI (Weeks 8+)
+### Modality 3: Claude Code / Terminal AI (Weeks 10+)
 **Best for:** Automation, multi-file refactoring, DevOps, complex migrations
 
 **Skills Covered:**
@@ -236,7 +236,14 @@ Students must submit a **single PDF/document** containing:
 
 ### Project 2: Full-Stack Application (20%) - Due Week 10
 
-**Objective:** Integrate multiple modalities with professional practices
+**Objective:** Integrate multiple modalities with professional practices as a pair
+
+**Team Structure:**
+- P2 is a **pair project** (2 students)
+- Form pairs in Week 6, create Canvas group by end of Week 6
+- One submission per pair via Canvas group
+- Both partners must have meaningful commits
+- Grades may be adjusted individually for unbalanced contributions
 
 **Requirements:**
 - **Functional:**
@@ -272,11 +279,19 @@ Students must submit a **single PDF/document** containing:
     - Automated deployment
     - Environment management
 
+- **Pair Requirements:**
+  - Shared GitHub repo (both partners push access)
+  - Shared rules file maintained by both partners
+  - Branch-per-issue workflow, PRs reviewed by partner
+  - Minimum 5 PR reviews per partner (visible in GitHub)
+  - Both partners must have substantial commit history
+  - Document at least 2 pair programming sessions
+
 - **Agile Process:**
   - 2+ documented sprints
-  - Sprint planning documents
-  - Daily standup notes
-  - Sprint retrospectives
+  - Sprint planning done jointly (both partners)
+  - Partner standups (at least 3 per sprint from each partner)
+  - Sprint retrospectives including partner feedback
   - User stories with acceptance criteria
   - Task estimation
 
@@ -288,15 +303,16 @@ Students must submit a **single PDF/document** containing:
   - Setup/deployment guide
   - Sprint retrospectives
   - 10-minute demo video
-  - 1500-word technical blog post
+  - Partner contribution log
+  - Individual 300-word reflection from each partner (separate submissions)
 
 **Deliverables:**
-1. GitHub repository
+1. GitHub repository (with visible commit history from both partners)
 2. Deployed app (production URL)
 3. Eval dashboard (live or screenshots)
 4. Complete documentation package
 5. Demo video
-6. Technical blog post
+6. Individual reflections (one per partner, submitted separately)
 
 **Rubric (200 points):**
 - Functionality: 45 pts
@@ -507,7 +523,7 @@ Students must submit a **single PDF/document** containing:
 
 ---
 
-### HW4: TDD + CI/CD + Evals Suite (Week 8) - 5%
+### HW4: TDD + CI/CD + Evals Suite (Week 11) - 5%
 
 **Objective:** Build comprehensive quality assurance system
 
@@ -564,7 +580,7 @@ Create dashboard showing:
 
 ---
 
-### HW5: Parallel Agent Orchestration (Week 11) - 4%
+### HW5: Parallel Agent Orchestration (Week 12) - 4%
 
 **Objective:** Master coordinating multiple AI agents for complex tasks
 
@@ -1571,10 +1587,11 @@ Track changes semester-to-semester:
 - **Week 1:** Course start, LLM Fundamentals
 - **Week 4:** HW1 due (Prompt Engineering)
 - **Week 5:** HW2 due (Mom Test)
-- **Week 6:** Project 1 due
+- **Week 6:** Project 1 due, P2 pairs formed
 - **Week 8:** HW3 due (Context Engineering)
-- **Week 10:** Project 2 due, HW4 due (TDD+CI/CD)
-- **Week 11:** HW5 due (Parallel Agents)
+- **Week 10:** Project 2 due
+- **Week 11:** HW4 due (TDD+CI/CD)
+- **Week 12:** HW5 due (Parallel Agents)
 - **Week 13:** HW6 due (Production Readiness)
 - **Week 15:** Project 3 due + Demo Day
 

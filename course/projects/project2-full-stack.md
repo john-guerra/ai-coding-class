@@ -1,11 +1,19 @@
 # Project 2: Full-Stack Application
 
 **Weight:** 20% of final grade
-**Due:** Week 12
+**Due:** Week 10
 
 ## Objective
 
-Integrate multiple AI modalities with professional engineering practices to build a complete full-stack application.
+Integrate multiple AI modalities with professional engineering practices to build a complete full-stack application as a pair.
+
+## Team Structure
+
+- **P2 is a pair project** (2 students)
+- Form pairs in **Week 6**, create a Canvas group by end of Week 6
+- **One submission per pair** via Canvas group
+- Both partners must have **meaningful commits** throughout the project
+- Grades may be adjusted individually for unbalanced contributions (see Rubric)
 
 ## Requirements
 
@@ -48,11 +56,20 @@ Integrate multiple AI modalities with professional engineering practices to buil
 - Automated deployment
 - Environment management
 
+### Pair Requirements
+
+- **Shared GitHub repo** with both partners having push access
+- **Shared rules file** (`.antigravityrules` or equivalent) maintained by both partners
+- **Branch-per-issue workflow** -- PRs reviewed by partner before merge
+- **Minimum 5 PR reviews per partner** (visible in GitHub)
+- Both partners must have **substantial commit history** (no single-partner projects)
+- **Document at least 2 pair programming sessions** (date, duration, what you worked on)
+
 ### Agile Process
 - 2+ documented sprints
-- Sprint planning documents
-- Daily standup notes
-- Sprint retrospectives
+- Sprint planning done jointly (both partners)
+- Partner standups (at least 3 per sprint from each partner)
+- Sprint retrospectives including partner feedback
 - User stories with acceptance criteria
 - Task estimation
 
@@ -64,16 +81,17 @@ Integrate multiple AI modalities with professional engineering practices to buil
 - Setup/deployment guide
 - Sprint retrospectives
 - 10-minute demo video
-- 1500-word technical blog post
+- Partner contribution log (who did what)
+- Individual 300-word reflection from each partner (separate submissions)
 
 ## Deliverables
 
-1. GitHub repository
+1. GitHub repository (with visible commit history from both partners)
 2. Deployed app (production URL)
 3. Eval dashboard (live or screenshots)
 4. Complete documentation package
 5. Demo video
-6. Technical blog post
+6. Individual reflections (one per partner, submitted separately)
 
 ## Rubric (200 points)
 
@@ -83,8 +101,8 @@ Integrate multiple AI modalities with professional engineering practices to buil
 | **Technical Excellence** | 60 | Code quality, architecture, test coverage (80%+) |
 | **AI Mastery** | 30 | Effective use of all 3 modalities |
 | **CI/CD & DevOps** | 30 | Pipeline quality, deployment, monitoring |
-| **Agile Process** | 20 | Sprint documentation, retrospectives |
-| **Documentation** | 15 | README, API docs, blog post quality |
+| **Agile Process & Pair Workflow** | 20 | Sprint docs, pair standups, PR reviews, contribution balance |
+| **Documentation** | 15 | README, API docs, reflections quality |
 
 ### Functionality Breakdown (45 pts)
 - User authentication: 10 pts
@@ -104,6 +122,16 @@ Integrate multiple AI modalities with professional engineering practices to buil
 - Coverage reporting: 5 pts
 - Security scanning: 5 pts
 - Automated deployment: 5 pts
+
+### Agile Process & Pair Workflow Breakdown (20 pts)
+- Sprint planning & retros: 5 pts
+- Partner standups (3+ per sprint each): 3 pts
+- PR reviews (5+ per partner): 4 pts
+- Contribution balance (both partners with substantial commits): 4 pts
+- Pair programming sessions documented: 2 pts
+- Shared rules file maintained: 2 pts
+
+**Note:** Individual grades may be adjusted up to ±10% based on contribution balance. If commit history or PR reviews show significantly unbalanced work, the less-contributing partner's grade may be reduced.
 
 ---
 

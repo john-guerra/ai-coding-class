@@ -48,13 +48,15 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 | | **Claude Web** | **Antigravity** | **Claude Code** |
 |---|---|---|---|
-| **When** | Weeks 2-5 | Weeks 6-7 (intro), 8-11 (daily use) | Weeks 8+ |
+| **When** | Weeks 2-5 | Weeks 6-8 (intro), 8-11 (daily use) | Weeks 10+ |
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 
 Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## The Modality Shift
 
@@ -186,6 +188,8 @@ This happens **constantly** as you type. The AI watches your keystrokes and pred
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Getting Better Suggestions
 
 **The AI reads your code like a colleague reading over your shoulder.**
@@ -267,6 +271,9 @@ The chat panel sees your current file and can reference others with @ mentions.
 **Antigravity** exposes these as Ask, Write, and Agent. **Cursor** calls them similarly.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
+<!-- make this a two column grid -->
 
 ## Agent Mode: Power & Risks
 
@@ -450,6 +457,54 @@ All three are capable. We use **Antigravity** in this course, but the concepts t
 
 ---
 
+# P2 Launch: Working in Pairs
+
+> Your next project is a team effort -- pairs of two
+
+<!-- vertical -->
+
+## P2 is a Pair Project
+
+**Starting this week, form pairs for Project 2.**
+
+- **Find a partner** -- someone with complementary skills or interests
+- **Create a Canvas group** by end of Week 6 (one submission per pair)
+- **Set up a shared GitHub repo** -- both partners need push access
+- **Start your shared rules file** -- `.antigravityrules` with conventions you both agree on
+
+**Why pairs?** Professional developers rarely work alone. Pair programming with AI is a skill worth practicing.
+
+<!-- vertical -->
+
+## Pair Programming with AI
+
+**The driver/navigator model, augmented:**
+
+| Role | Responsibility |
+|---|---|
+| **Driver** | Types, uses AI suggestions, writes code |
+| **Navigator** | Reviews, directs strategy, catches issues |
+| **AI** | Generates suggestions, answers questions, runs tasks |
+
+**Rotate roles** every 30-60 minutes or per issue.
+
+The navigator keeps the big picture while the driver and AI handle implementation details.
+
+<!-- vertical -->
+
+## Getting Started This Week
+
+**Before next class:**
+
+1. **Find your partner** and agree on a project idea
+2. **Create your Canvas group** (instructions on Canvas)
+3. **Create a shared GitHub repo** with both partners as collaborators
+4. **Start a shared rules file** with your tech stack and conventions
+
+**Both partners must have meaningful commits throughout the project.**
+
+---
+
 # What to Remember
 
 1. **IDE AI tools see your code** -- not just your description of it. That changes everything.
@@ -463,16 +518,15 @@ All three are capable. We use **Antigravity** in this course, but the concepts t
 
 # Looking Ahead
 
-## Next Week: Advanced IDE AI + Agile/Scrum
+## Next Week: Agile/Scrum + Pair Workflow
 
-**Week 7 -- Process meets power features**
+**Week 7 -- Process for working in pairs**
 
 - **Agile/Scrum crash course** -- Sprints, ceremonies, and roles for P2
 - **GitHub as your scrumboard** -- Issues, Projects board, milestones
 - **From PRD to sprint backlog** -- Turning your Weeks 3-4 PRD into actionable issues
-- **Agent memory** -- Persistent project knowledge via `.antigravityrules` / `CLAUDE.md`
-- **MCP servers** -- Connecting your AI to external tools and data
-- **Browser mode & mockup-to-code** -- AI that sees your running app
+- **Pair programming with AI** -- Driver/navigator + AI, splitting work via issues
+- **Partner code review** -- PR-based review workflow between partners
 
 ---
 

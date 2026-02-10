@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Advanced IDE AI + Agile/Scrum"
+title: "CS 7180: Agile/Scrum + Pair Workflow"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-## CS 7180: Advanced IDE AI + Agile/Scrum
+## CS 7180: Agile/Scrum + Pair Workflow
 
 <img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
 
@@ -30,15 +30,14 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 3. GitHub as Your Scrumboard
 4. From PRD to Sprint Backlog
 5. Branches, PRs, and Code Review
-6. Agent Memory & Persistent Context
-7. MCP Servers
-8. Browser Mode & Mockup-to-Code
+6. Pair Programming with AI
+7. Code Review Between Partners
 
 ---
 
 # Where We Are
 
-> Week 7 -- Going deeper with process and tools
+> Week 7 -- Process for working in pairs
 
 <!-- vertical -->
 
@@ -51,19 +50,20 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 - Modes: Ask / Write / Agent / Plan
 - Rules files and @ context references
 - Tool comparison: Antigravity vs Copilot vs Cursor
+- **P2 pair formation** -- you should have a partner and a Canvas group
 
-**You have the tools.** Now you need the _process_ to use them effectively on a team project.
+**You have the tools and a partner.** Now you need the _process_ to work effectively together.
 
 <!-- vertical -->
 
-## This Week: Process + Power Features
+## This Week: Process for Pairs
 
 **Two themes today:**
 
 1. **Agile/Scrum** -- How professional teams organize work (you'll need this for P2 and P3)
-2. **Advanced IDE features** -- Agent memory, MCP servers, browser mode, mockup-to-code
+2. **Pair workflow** -- How to split work, avoid conflicts, and review each other's code
 
-Both come together: Agile gives you the _structure_, advanced AI features give you the _speed_.
+Agile gives you the _structure_, your partner gives you _accountability_, and AI gives you _speed_.
 
 ---
 
@@ -92,11 +92,11 @@ Both come together: Agile gives you the _structure_, advanced AI features give y
 
 | Role | Responsibility | In This Course |
 |---|---|---|
-| **Product Owner** | Decides _what_ to build, prioritizes backlog | You (P1/P2) or team lead (P3) |
-| **Scrum Master** | Facilitates process, removes blockers | Rotating role in P3 teams |
-| **Development Team** | Builds the product | You + your AI tools |
+| **Product Owner** | Decides _what_ to build, prioritizes backlog | One partner takes lead (rotate per sprint) |
+| **Scrum Master** | Facilitates process, removes blockers | The other partner (rotate per sprint) |
+| **Development Team** | Builds the product | Both partners + your AI tools |
 
-In a solo project (P2), you wear all three hats. In P3, you'll split responsibilities.
+In P2, you split roles between partners. In P3 teams, you'll have more flexibility.
 
 <!-- vertical -->
 
@@ -131,7 +131,7 @@ The key insight: you commit to a _small, achievable_ set of work each sprint.
 | **Sprint Review** | End of sprint | 30 min | Demo working software |
 | **Retrospective** | After review | 15-30 min | What went well? What to improve? |
 
-For P2/P3: Document your planning and retro in your README or project wiki.
+For P2: Document your planning and retro in your README or project wiki. Partner standups count -- at least 3 per sprint.
 
 ---
 
@@ -231,20 +231,20 @@ GitHub Issues:
 
 ## Sprint Planning: Picking Issues
 
-**In sprint planning, you:**
+**In sprint planning, you and your partner:**
 
-1. Review the backlog (all open issues)
+1. Review the backlog together (all open issues)
 2. Estimate effort (small / medium / large)
 3. Pick issues that fit the sprint's capacity
-4. Assign them to the sprint milestone
-5. Move them to "Sprint Todo" on your board
+4. **Assign each issue to one partner** -- clear ownership
+5. Assign them to the sprint milestone
 
 **For Sprint 1 of P2**, aim for:
 
 - Core data model and API setup
 - 1-2 key features (login, main CRUD operation)
 - Basic test suite setup
-- CI pipeline (GitHub Actions)
+- Shared rules file established
 
 ---
 
@@ -278,7 +278,7 @@ git push -u origin feature/42-add-login-page
 
 <!-- vertical -->
 
-## PRs, Code Review, and AI
+## PRs and AI-Assisted Review
 
 **Pull Request best practices:**
 
@@ -287,7 +287,7 @@ git push -u origin feature/42-add-login-page
 - **PR template:** Add a template in `.github/pull_request_template.md`
 - **AI-assisted review:** Use your IDE AI to review diffs before pushing
 
-**Code review with AI tools:**
+**AI-assisted self-review before creating PR:**
 
 ```
 "Review this diff for bugs, security issues, and style violations.
@@ -297,135 +297,99 @@ git push -u origin feature/42-add-login-page
 
 ---
 
-# Agent Memory & Persistent Context
+# Pair Programming with AI
 
-> How AI tools remember across sessions
-
-<!-- vertical -->
-
-## The Memory Problem
-
-**Every time you open a new chat, the AI starts fresh.**
-
-It doesn't remember:
-- What you discussed yesterday
-- Your project's architecture decisions
-- Bugs you've already fixed
-- Patterns you've established
-
-**Solution:** Give the AI persistent project knowledge through _memory files_.
+> Driver, navigator, and AI -- a three-way collaboration
 
 <!-- vertical -->
 
-## Memory Files in Practice
+## The Pair + AI Model
 
 <!-- .slide: class="dense" -->
 
-| Tool | Memory File | What to Include |
+**Traditional pair programming, adapted for AI:**
+
+| Role | What They Do | AI's Role |
 |---|---|---|
-| **Antigravity** | `.antigravityrules` | Project patterns, conventions, do's/don'ts |
-| **Claude Code** | `CLAUDE.md` | Build commands, architecture, project context |
-| **Cursor** | `.cursorrules` | Same as above |
+| **Driver** | Writes code, accepts/rejects AI suggestions | Generates suggestions in real-time |
+| **Navigator** | Reviews, plans next steps, catches issues | Available for questions via chat |
 
-**What makes a good memory file:**
+**When to pair vs. split work:**
 
-- **Tech stack and versions** -- "Next.js 14, TypeScript 5, Tailwind"
-- **Architecture decisions** -- "Server components by default, client only for interactivity"
-- **Code patterns** -- "Use Zod for validation, Prisma for DB access"
-- **Common pitfalls** -- "Never use `any` type, always handle null cases"
+- **Pair (synchronous):** Complex features, architecture setup, debugging hard issues
+- **Split (async):** Independent features with clear interfaces, tests, documentation
 
-Think of it as onboarding docs that your AI reads before every interaction.
-
----
-
-# MCP Servers
-
-> Connecting your AI to the outside world
+Document at least **2 pair programming sessions** for P2.
 
 <!-- vertical -->
 
-## What Is MCP?
+## Splitting Work Without Conflicts
 
-**Model Context Protocol (MCP)** lets AI tools connect to external data sources and services.
+**How to avoid stepping on each other's toes:**
+
+1. **Assign issues to one person** -- never both working on the same file
+2. **Define interfaces first** -- agree on API shapes, component props, data models before splitting
+3. **Use feature branches** -- one branch per issue, never commit directly to main
+4. **Merge frequently** -- don't let branches diverge for days
+5. **Communicate blockers** -- async standups keep both partners aware
+
+**Anti-pattern:** Both partners editing the same file in parallel. This leads to merge conflicts and wasted time.
+
+<!-- vertical -->
+
+## Async Standups for Pairs
+
+**Not everyone can meet daily. Use async standups:**
+
+Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 
 ```
-Your IDE AI
-    ↓
-MCP Client (built into the tool)
-    ↓
-MCP Server (connects to a service)
-    ↓
-External Service (database, API, docs, etc.)
+📅 Date: [today]
+✅ Yesterday: Completed #42 login UI, started #43 auth endpoint
+🎯 Today: Finish auth endpoint, write tests for login flow
+🚧 Blockers: Waiting on partner's DB schema PR (#40) to merge
 ```
 
-**Without MCP:** You copy-paste information between tools and chat.
-
-**With MCP:** The AI can directly query your database, read your docs, check your CI status.
-
-<!-- vertical -->
-
-## Practical MCP Examples
-
-<!-- .slide: class="dense" -->
-
-| MCP Server | What It Connects To | Use Case |
-|---|---|---|
-| **Database** | PostgreSQL, MongoDB | "What's the schema for the users table?" |
-| **GitHub** | Issues, PRs, Actions | "What's failing in CI right now?" |
-| **Docs** | API documentation | "How does the Stripe webhook API work?" |
-| **File system** | Local files | "Find all files that import this module" |
-| **Browser** | Running web app | "What does the login page look like?" |
-
-MCP is still evolving, but it's the direction all AI tools are heading -- your AI becomes a connected assistant, not an isolated chatbot.
+**For P2:** At least 3 standups per sprint from each partner. These can be async messages.
 
 ---
 
-# Browser Mode
+# Code Review Between Partners
 
-> AI that sees your running app
-
-**Browser mode** lets the AI interact with your running application:
-
-- Take screenshots of your app and analyze UI issues
-- Navigate through user flows to find bugs
-- Compare your implementation to a design mockup
-- Debug visual regressions
-
-**Workflow:** Run your dev server, point the AI's browser at `localhost:3000`, then ask it to evaluate what it sees.
-
-Useful for: "Does this match the Figma design?", "Why is the layout broken on mobile?", "Walk through the signup flow and find issues."
-
----
-
-# Mockup-to-Code in the IDE
-
-> From design to implementation with AI assistance
+> Every PR gets a human review
 
 <!-- vertical -->
 
-## The Workflow
+## Partner Code Review Workflow
 
-**Turn a design into working code:**
+**Every PR reviewed by your partner before merge:**
 
-1. **Get a mockup** -- Figma export, screenshot, hand-drawn sketch, or text description
-2. **Share it with your IDE AI** -- Drag the image into the chat panel
-3. **Prompt for implementation** -- "Build this UI using React and Tailwind CSS"
-4. **Iterate** -- "Make the header sticky" / "Add responsive breakpoints"
+```
+1. Developer creates PR (links to issue)
+2. Partner reviews the code
+   - Read the diff
+   - Check against acceptance criteria
+   - Run locally if needed
+   - Leave comments (questions, suggestions, approvals)
+3. Developer addresses feedback
+4. Partner approves → Merge
+```
 
-**AI image understanding** varies by tool. Claude and GPT-4o are strongest at interpreting designs.
+**Minimum 5 PR reviews per partner** across the project (visible in GitHub).
 
 <!-- vertical -->
 
-## Connecting to Your P2 Workflow
+## What to Look For in Review
 
-**Practical approach for Project 2:**
+**When reviewing your partner's PR:**
 
-1. **Design first** (Week 6-7) -- Use Claude Web Artifacts to create a quick mockup
-2. **Export/screenshot** the mockup
-3. **Feed to IDE AI** -- "Implement this design as a React component following @.antigravityrules"
-4. **Iterate in code** -- Refine with inline edit and chat
+- **Does it match the issue?** -- Check acceptance criteria
+- **Code quality** -- Naming, structure, readability
+- **Tests included?** -- New feature should have tests
+- **Rules file followed?** -- Does it match your shared conventions?
+- **No dead code** -- Remove console.logs, commented-out code
 
-This bridges the gap between prototyping (Claude Web) and implementation (IDE AI).
+**Use AI to assist your review** but don't skip reading the code yourself. AI catches patterns; humans catch intent.
 
 ---
 
@@ -435,24 +399,24 @@ This bridges the gap between prototyping (Claude Web) and implementation (IDE AI
 2. **GitHub Issues + Projects = your scrumboard** -- no extra tools needed.
 3. **PRD maps to issues** -- every user story becomes actionable GitHub Issues.
 4. **Branch-per-issue** keeps your work organized and reviewable.
-5. **Memory files are your most valuable context** -- invest time in `.antigravityrules` / `CLAUDE.md`.
-6. **MCP and browser mode are multipliers** -- they connect your AI to real project context.
+5. **Every PR gets reviewed by your partner** -- this is how professionals work.
+6. **Pair programming + AI** = driver, navigator, and AI working together.
 
 ---
 
 # Looking Ahead
 
-## Next Week: Claude Code (Modality 3)
+## Next Week: Advanced IDE AI Features
 
-**Week 8 -- AI in the terminal**
+**Week 8 -- Power features for your P2 sprint**
 
-- **Claude Code** -- The third AI modality: autonomous agents in your terminal
-- **Agentic coding** -- Multi-file edits, automated refactoring
-- **CLAUDE.md deep dive** -- Persistent context for CLI-based AI
-- **Chain-of-thought & meta-prompting** -- Advanced prompting techniques
-- **Context window optimization** -- Getting the most from limited context
+- **Agent memory** -- Persistent project knowledge via `.antigravityrules` / `CLAUDE.md`
+- **MCP servers** -- Connecting your AI to external tools and data
+- **Browser mode & mockup-to-code** -- AI that sees your running app
+- **Debugging with AI** -- Error analysis, stack trace reading, rubber duck debugging
+- **Shared rules files for pairs** -- Evolving conventions as a team
 
-**HW3 (Context Engineering) is due Week 8.** It builds directly on what you learned today -- create your P2 rules file and Scrum board. Start now.
+**HW3 (Context Engineering) is due Week 8.** Create your P2 rules file and Scrum board. Start now.
 
 ---
 
@@ -469,7 +433,6 @@ This bridges the gap between prototyping (Claude Web) and implementation (IDE AI
 | The Scrum Guide (official) | [scrumguides.org](https://scrumguides.org/) |
 | GitHub Projects Documentation | [docs.github.com/issues/planning-and-tracking-with-projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects) |
 | GitHub Issues Documentation | [docs.github.com/issues](https://docs.github.com/en/issues) |
-| Antigravity Docs | [antigravity.google/docs/get-started](https://antigravity.google/docs/get-started) |
 
 <!-- vertical -->
 
@@ -482,4 +445,4 @@ This bridges the gap between prototyping (Claude Web) and implementation (IDE AI
 | Scrum by Jeff Sutherland (course textbook) | Required book for the course |
 | Atlassian Agile Coach | [atlassian.com/agile](https://www.atlassian.com/agile) |
 | GitHub Flow Guide | [docs.github.com/get-started/using-github/github-flow](https://docs.github.com/en/get-started/using-github/github-flow) |
-| MCP Specification | [modelcontextprotocol.io](https://modelcontextprotocol.io/) |
+| Tuple's Pair Programming Guide | [tuple.app/pair-programming-guide](https://tuple.app/pair-programming-guide) |

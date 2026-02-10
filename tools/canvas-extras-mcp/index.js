@@ -281,6 +281,37 @@ server.tool(
   }
 );
 
+// --- Tool: Update Quiz ---
+server.tool(
+  "canvas_update_quiz",
+  "Update an existing quiz in a Canvas course",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    quiz_id: z.string().describe("Quiz ID to update"),
+    title: z.string().optional().describe("Quiz title"),
+    description: z.string().optional().describe("Quiz description/instructions (HTML)"),
+    time_limit: z.number().optional().describe("Time limit in minutes"),
+    allowed_attempts: z.number().optional().describe("Number of allowed attempts"),
+    shuffle_answers: z.boolean().optional().describe("Shuffle answer choices"),
+    one_question_at_a_time: z.boolean().optional().describe("Show one question at a time"),
+    cant_go_back: z.boolean().optional().describe("Lock questions after answering"),
+    published: z.boolean().optional().describe("Whether to publish the quiz"),
+  },
+  async ({ course_id, quiz_id, title, description, time_limit, allowed_attempts, shuffle_answers, one_question_at_a_time, cant_go_back, published }) => {
+    const quiz = {};
+    if (title != null) quiz.title = title;
+    if (description != null) quiz.description = description;
+    if (time_limit != null) quiz.time_limit = time_limit;
+    if (allowed_attempts != null) quiz.allowed_attempts = allowed_attempts;
+    if (shuffle_answers != null) quiz.shuffle_answers = shuffle_answers;
+    if (one_question_at_a_time != null) quiz.one_question_at_a_time = one_question_at_a_time;
+    if (cant_go_back != null) quiz.cant_go_back = cant_go_back;
+    if (published != null) quiz.published = published;
+    const result = await canvas("PUT", `/courses/${course_id}/quizzes/${quiz_id}`, { quiz });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
 // --- Tool: Update Quiz Question ---
 server.tool(
   "canvas_update_quiz_question",

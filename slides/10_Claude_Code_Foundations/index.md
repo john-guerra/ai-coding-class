@@ -562,6 +562,62 @@ Shows a list of recent sessions. Useful when juggling multiple tasks.
 
 <!-- vertical -->
 
+## Visualizing Your Context
+
+<!-- .slide: class="dense" -->
+
+Use `/context` to inspect what's in your session window:
+
+```bash
+> /context
+```
+
+Shows:
+- Current token usage vs. limit
+- What files and conversations are loaded
+- Whether CLAUDE.md is active
+
+**Why it matters:** Claude Code has a finite context window. When it fills up, older context gets dropped silently — you may get worse answers without knowing why. `/context` makes the invisible visible.
+
+> Rule of thumb: if responses start feeling "off," check `/context` first.
+
+<!-- vertical -->
+
+## Switching Models with /model
+
+<!-- .slide: class="dense" -->
+
+<div class="columns">
+<div class="column">
+
+**Switch mid-session:**
+```bash
+> /model opus
+> /model sonnet
+> /model haiku
+```
+
+Or at launch:
+```bash
+claude --model claude-opus-4-6
+```
+
+</div>
+<div class="column">
+
+| Model | Best for |
+|-------|----------|
+| **Opus** | Complex refactors, architecture decisions |
+| **Sonnet** | Daily coding, default balance |
+| **Haiku** | Quick lookups, fast iteration |
+
+</div>
+</div>
+
+> **Cost tip:** Use Sonnet by default. Switch to Opus when the task genuinely requires deeper reasoning.
+
+<!-- vertical -->
+
 ## The "Context Stuffing" Anti-Pattern
 
 <!-- .slide: class="dense" -->

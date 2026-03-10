@@ -63,7 +63,6 @@ Integrate multiple AI modalities with professional engineering practices to buil
 - **Branch-per-issue workflow** -- PRs reviewed by partner before merge
 - **Minimum 5 PR reviews per partner** (visible in GitHub)
 - Both partners must have **substantial commit history** (no single-partner projects)
-- **Document at least 2 pair programming sessions** (date, duration, what you worked on)
 
 ### Agile Process
 - 2+ documented sprints
@@ -125,10 +124,9 @@ Integrate multiple AI modalities with professional engineering practices to buil
 
 ### Agile Process & Pair Workflow Breakdown (20 pts)
 - Sprint planning & retros: 5 pts
-- Partner standups (3+ per sprint each): 3 pts
+- Partner standups (3+ per sprint each): 5 pts
 - PR reviews (5+ per partner): 4 pts
 - Contribution balance (both partners with substantial commits): 4 pts
-- Pair programming sessions documented: 2 pts
 - Shared rules file maintained: 2 pts
 
 **Note:** Individual grades may be adjusted up to ±10% based on contribution balance. If commit history or PR reviews show significantly unbalanced work, the less-contributing partner's grade may be reduced.

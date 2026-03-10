@@ -57,6 +57,21 @@
   font-size: 0.55em;
 }
 
+/* Mermaid diagrams -- override pre styling */
+.reveal pre.mermaid {
+  font-size: 1em;
+  box-shadow: none;
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+.reveal pre.mermaid svg {
+  max-width: 100%;
+  max-height: 65vh;
+  height: auto;
+}
+
 .reveal code {
   font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
 }
@@ -163,6 +178,16 @@
   font-size: 0.75em;
 }
 
+.reveal section.dense h2 {
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+
 .reveal section.dense table {
   font-size: 0.6em;
+}
+
+.reveal section.dense table th,
+.reveal section.dense table td {
+  padding: 0.2em 0.4em;
 }

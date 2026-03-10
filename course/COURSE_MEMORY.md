@@ -47,7 +47,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 |-----------|--------|---------|
 | **Participation** | 15% | 7% pre-class questions + 8% lottery points |
 | **Weekly Quizzes** | 10% | Concept quizzes on Canvas (2 lowest dropped) |
-| **Homeworks** | 25% | 6 scaffolding assignments (4-5% each) |
+| **Homeworks** | 25% | 5 scaffolding assignments (5% each) |
 | **Projects** | 50% | P1: 13%, P2: 18%, P3: 19% |
 | **TOTAL** | 100% | |
 
@@ -101,15 +101,15 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | **HW1 DUE:** Prompt Eng<br>Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
 | **5** | **Modality 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
 | **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
-| **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair programming with AI (driver/navigator + AI)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
+| **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair workflow (scrum for two, design thinking → backlog)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
 | **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
 | **9** | **Spring Break** | *No class - March 2-8, 2026* | — | Work on P2 |
-| **10** | **Claude Code (Modality 3)** | • **PROJECT 2 DUE**<br>• Claude Code & Terminal AI intro<br>• Agentic coding basics<br>• CLAUDE.md deep dive<br>• Chain-of-thought & meta-prompting<br>• Prompt chaining<br>• Context windows & optimization<br>• **P3 team formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 10 | **P2:** Final<br>**P3:** Team formation & Start |
-| **11** | **TDD + Evals + CI/CD** | • Advanced TDD with AI<br>• Evals: LLM-as-judge<br>• GitHub Actions basics<br>• CI/CD pipelines<br>• Automated testing in CI<br>• Deploy previews & coverage reporting<br>• Security scanning | **HW4 DUE:** TDD+CI/CD<br>Weekly Quiz 11 | **P3:** Sprint 1 |
-| **12** | **Advanced Claude Code + Parallel Agents** | • Claude Code advanced techniques<br>• Agent fundamentals<br>&nbsp;&nbsp;- ReAct, Plan-and-Execute<br>&nbsp;&nbsp;- Agent architectures<br>• Multi-agent coordination<br>• Agent safety & debugging | **HW5 DUE:** Parallel agents<br>Weekly Quiz 12 | **P3:** Sprint 2<br>Parallel development |
-| **13** | **Advanced Patterns + Production** | • System design with AI<br>• Advanced CI/CD:<br>&nbsp;&nbsp;- Multi-environment<br>&nbsp;&nbsp;- Canary/blue-green deployments<br>• Performance gates<br>• Monitoring & observability<br>• Error tracking & logging<br>• Security best practices | **HW6 DUE:** Production<br>Weekly Quiz 13 | **P3:** Sprint 3<br>Advanced features |
-| **14** | **Production Polish** | • Accessibility (WCAG basics)<br>• Portfolio building tips<br>• Final project polish<br>• Team code reviews<br>• Demo preparation | Weekly Quiz 14 | **P3:** Sprint 4<br>Deploy & polish |
-| **15** | **Demo Day** | • **FINAL PRESENTATIONS**<br>• Portfolio showcase<br>• Course retrospective<br>• Industry panel (optional)<br>• Career prep discussion | **PROJECT 3 DUE** 🎯 | **P3:** Final demos<br>Portfolio complete |
+| **10** | **Claude Code Foundations** | • **PROJECT 2 DUE**<br>• How Claude Code works (agentic loop, built-in tools: Read, Edit, Bash, Glob, Grep, WebFetch)<br>• Installation & setup (CLI, VS Code, Desktop)<br>• CLAUDE.md deep dive (@imports, hierarchy, auto-memory, `/init`)<br>• Tool use system & permission model (allowlists, sandboxing)<br>• Context management (`/clear`, `/compact`, checkpoints, `--continue`, `--resume`)<br>• Thinking & planning modes (Plan mode, `Ctrl+G`, extended thinking)<br>• **P3 team formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 10 | **P2:** Final<br>**P3:** Team formation & Start |
+| **11** | **Claude Code Workflows & Dev Practices** | • Explore → Plan → Implement → Commit workflow<br>• TDD with Claude Code (write failing tests → AI implements → refactor)<br>• Git & GitHub integration (commits, branches, PRs through CC)<br>• CI/CD via Claude Code & GitHub Actions (`claude -p` for PR review)<br>• Visual debugging (screenshots, Chrome extension)<br>• Non-interactive mode & scripting (`claude -p`, JSON output, fan-out patterns) | **HW4 DUE:** CC Workflow & TDD<br>Weekly Quiz 11 | **P3:** Sprint 1 |
+| **12** | **Claude Code Extensibility** | • Skills & custom commands (`.claude/skills/`, slash commands)<br>• Hooks (PreToolUse, PostToolUse, Stop — deterministic vs advisory)<br>• MCP servers (Model Context Protocol, `claude mcp add`, databases, Figma, Playwright)<br>• Custom sub-agents (`.claude/agents/`, isolated context, specialized reviewers)<br>• Plugins & plugin marketplace<br>• Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 12 | **P3:** Sprint 2 |
+| **13** | **Agent Architectures & Agent SDK** | • Agent fundamentals (agent vs workflow, augmented LLM)<br>• Anthropic's 6 agent patterns:<br>&nbsp;&nbsp;- Prompt Chaining, Routing, Parallelization<br>&nbsp;&nbsp;- Orchestrator-Workers, Evaluator-Optimizer, Autonomous<br>• Claude Agent SDK (Python/TypeScript, `query()`, hooks, sessions)<br>• Multi-agent coordination & message passing<br>• Agent safety & evaluation (sandboxing, `--allowedTools`)<br>• Real-world agent examples | **HW5 DUE:** Skill + MCP<br>Weekly Quiz 13 | **P3:** Sprint 3 |
+| **14** | **Emerging AI Engineering** | • AI code review automation (Claude Code in GitHub Actions)<br>• Prompt caching & cost optimization<br>• RAG patterns for codebases<br>• Model routing & selection (Opus vs Sonnet vs Haiku)<br>• Monitoring, observability & security (OpenTelemetry, OWASP)<br>• Future of AI engineering<br>• Demo preparation workshop | Weekly Quiz 14 | **P3:** Sprint 4<br>Deploy & polish |
+| **15** | **Project Due Date** | • **PROJECT 3 DUE** (no lecture)<br>• Optional async demo video submissions | **PROJECT 3 DUE** 🎯 | **P3:** Final |
 
 ---
 
@@ -285,7 +285,6 @@ Students must submit a **single PDF/document** containing:
   - Branch-per-issue workflow, PRs reviewed by partner
   - Minimum 5 PR reviews per partner (visible in GitHub)
   - Both partners must have substantial commit history
-  - Document at least 2 pair programming sessions
 
 - **Agile Process:**
   - 2+ documented sprints
@@ -383,7 +382,6 @@ Students must submit a **single PDF/document** containing:
   - Daily standups recorded
   - Sprint planning & retrospectives
   - Code review process
-  - Pair programming sessions
   - Clear Git workflow (branches, PRs, reviews)
   - Peer evaluations
 
@@ -424,7 +422,7 @@ Students must submit a **single PDF/document** containing:
 
 ## 6. HOMEWORK ASSIGNMENTS (25% of Grade)
 
-### HW1: Prompt Engineering Battle (Week 4) - 4%
+### HW1: Prompt Engineering Battle (Week 4) - 5%
 
 **Objective:** Master effective prompting through iteration
 
@@ -455,7 +453,7 @@ Students must submit a **single PDF/document** containing:
 
 ---
 
-### HW2: Mom Test Interviews + User Stories (Week 5) - 4%
+### HW2: Mom Test Interviews + User Stories (Week 5) - 5%
 
 **Objective:** Learn to validate ideas through proper user research
 
@@ -481,7 +479,7 @@ Students must submit a **single PDF/document** containing:
 
 ---
 
-### HW3: Context Engineering — Rules & Process for Your P2 Project (Week 8) - 4%
+### HW3: Context Engineering — Rules & Process for Your P2 Project (Week 8) - 5%
 
 **Objective:** Set up your P2 project for AI-assisted development by creating effective rules files and an Agile workflow. Bridge PRD/mockups (Claude Web) to IDE-centric development.
 
@@ -523,174 +521,85 @@ Students must submit a **single PDF/document** containing:
 
 ---
 
-### HW4: TDD + CI/CD + Evals Suite (Week 11) - 5%
+### HW4: Claude Code Workflow & TDD (Week 11) - 5%
 
-**Objective:** Build comprehensive quality assurance system
+**Objective:** Demonstrate mastery of the Claude Code development workflow by setting up a project, using the Explore→Plan→Implement→Commit pattern, and doing TDD through Claude Code
 
-**Part 1: Test-Driven Development (20%)**
-Build new feature using strict TDD:
-1. Write failing tests
-2. Use AI to implement minimum code to pass
+**Part 1: Claude Code Project Setup (25%)**
+Set up Claude Code for your P3 project:
+- Write a comprehensive CLAUDE.md (project context, stack, conventions, do's/don'ts)
+- Configure permissions (allowlists or sandboxing)
+- Demonstrate `/init` output and iterate on CLAUDE.md based on it
+- Show context management strategy (`/clear`, `/compact`, `--continue`)
+
+**Part 2: Explore → Plan → Implement → Commit (30%)**
+Use Claude Code's recommended 4-phase workflow on a real P3 feature:
+- **Explore:** Use Glob, Grep, Read to understand existing code
+- **Plan:** Use Plan mode to design the approach
+- **Implement:** Execute the plan with Claude Code
+- **Commit:** Create clean commits with meaningful messages
+- Git history must clearly show this workflow
+
+**Part 3: TDD with Claude Code (30%)**
+Build a P3 feature using strict TDD through Claude Code:
+1. Write failing tests first
+2. Have Claude Code implement minimum code to pass
 3. Refactor
 4. Repeat for all acceptance criteria
+- Git history must show red-green-refactor commits
 
-**Part 2: Evaluation Suite (35%)**
-Create comprehensive evals:
-- Unit tests (80%+ coverage)
-- Integration tests
-- E2E tests (Playwright/Cypress)
-- Linting (ESLint/Prettier)
-- Type checking (TypeScript)
-- Security scanning (npm audit)
-- Performance benchmarks
-- At least 1 custom semantic eval
-
-**Part 3: CI/CD Pipeline (35%)**
-Set up complete pipeline:
-1. Quality Checks (lint, format, types)
-2. Security Audit
-3. Unit Tests (with coverage)
-4. Integration Tests
-5. E2E Tests
-6. Build
-7. Deploy Preview (on PR)
-8. Deploy Production (on merge)
-
-**Part 4: Eval Dashboard (10%)**
-Create dashboard showing:
-- Test results
-- Coverage trends
-- Performance metrics
-- Security scan results
-- Build success rate
+**Part 4: Reflection (15%)**
+- How does the Explore→Plan→Implement→Commit workflow compare to your previous approach?
+- What context management strategies worked best?
+- Annotated Claude Code session log showing your workflow
 
 **Deliverables:**
-- Feature code (tests written first)
-- Complete eval suite (runnable)
-- Working CI/CD pipeline
-- Eval dashboard or report
-- Documentation: "My TDD + CI/CD + Evals Guide"
+- P3 repository with CLAUDE.md and permissions config
+- Feature code with TDD git history (red-green-refactor commits)
+- Annotated Claude Code session log
+- Reflection document (1-2 pages)
 
 **Rubric (50 points):**
-- TDD process: 20%
-- Eval comprehensiveness: 35%
-- CI/CD implementation: 30%
-- Dashboard quality: 10%
-- Documentation: 5%
+- CLAUDE.md & project setup: 25%
+- Explore→Plan→Implement→Commit workflow: 30%
+- TDD process through Claude Code: 30%
+- Reflection & session log: 15%
 
 ---
 
-### HW5: Parallel Agent Orchestration (Week 12) - 4%
+### HW5: Custom Skill + MCP Integration (Week 13) - 5%
 
-**Objective:** Master coordinating multiple AI agents for complex tasks
+**Objective:** Extend Claude Code by building a custom skill for your P3 workflow and connecting an MCP server
 
-**Example Feature:** "Add OAuth authentication with Google and GitHub"
+**Part 1: Custom Skill (50%)**
+Create a custom Claude Code skill (`.claude/skills/`) for your P3 project:
+- Define a reusable workflow as a slash command (e.g., `/fix-issue`, `/deploy`, `/add-feature`, `/review`)
+- Skill must include clear instructions, constraints, and expected behavior
+- Test the skill on at least 2 real tasks
+- Iterate on the skill based on results (show v1 → v2 improvement)
 
-**Phase 1: Planning (20%)**
-- Break feature into independent tasks
-- Assign tasks to different "agents" (A, B, C, D)
-- Define interfaces between components
-- Create coordination strategy
+**Part 2: MCP Integration (35%)**
+Connect at least one MCP server to your Claude Code workflow:
+- Choose a relevant server: database MCP, Playwright (browser testing), GitHub, Figma, or another
+- Configure with `claude mcp add`
+- Demonstrate a complete task that uses the MCP connection
+- Document the setup process and what it enables
 
-**Phase 2: Parallel Execution (40%)**
-- Agent A: Database schema + migrations
-- Agent B: Backend API endpoints
-- Agent C: Frontend components
-- Agent D: Comprehensive test suite
-
-Run agents simultaneously using:
-- Multiple Antigravity sessions, OR
-- Multiple Claude Code instances, OR
-- Different tools for different agents
-
-**Phase 3: Integration (30%)**
-- Merge agent outputs
-- Resolve conflicts
-- Ensure consistency
-- Test integrated system
-
-**Phase 4: Retrospective (10%)**
-- What worked well?
-- What was challenging?
-- How would you improve?
+**Part 3: Retrospective (15%)**
+- How did the custom skill change your workflow?
+- What tasks became easier with MCP integration?
+- What would you build next (hooks, sub-agents, more skills)?
 
 **Deliverables:**
-- Task breakdown document
-- Prompts used for each agent
-- Integration strategy
-- Git history showing parallel work
-- Working integrated feature
-- Retrospective document with lessons learned
+- `.claude/skills/` directory with custom skill (v1 and v2)
+- MCP server configuration and usage demonstration
+- Screenshots or session logs showing skill and MCP in action
+- Retrospective document (1-2 pages)
 
-**Rubric (40 points):**
-- Planning quality: 20%
-- Parallel execution: 40%
-- Integration success: 25%
+**Rubric (50 points):**
+- Custom skill quality & iteration: 50%
+- MCP integration & demonstration: 35%
 - Retrospective: 15%
-
----
-
-### HW6: Production Readiness Checklist (Week 13) - 4%
-
-**Objective:** Transform any app into production-grade software
-
-**Provided:** Working application (can be your own or provided)
-
-**Tasks:**
-
-**1. Security Audit (25%)**
-- Fix all vulnerabilities
-- Add proper authentication
-- Input validation everywhere
-- Environment variables for secrets
-- Rate limiting
-- HTTPS enforcement
-- Security headers (CSP, etc.)
-
-**2. Performance Optimization (25%)**
-- Database indexing
-- Query optimization
-- Caching strategy (Redis/in-memory)
-- Code splitting / lazy loading
-- Image optimization
-- Bundle size optimization
-- Load testing results
-
-**3. Monitoring & Observability (25%)**
-- Error tracking (Sentry or similar)
-- Analytics
-- Health checks
-- Logging strategy
-- Uptime monitoring
-- Performance monitoring
-
-**4. CI/CD Enhancement (15%)**
-- Multi-environment pipeline (dev/staging/prod)
-- Performance gates
-- Automated security scanning
-- Rollback capability
-- Blue-green OR canary deployment
-
-**5. Documentation (10%)**
-- README with setup
-- API documentation
-- Architecture diagram
-- Deployment guide
-- Runbook for incidents
-
-**Deliverables:**
-- Before/after comparison document
-- Completed production readiness checklist
-- Deployed application with monitoring
-- Documentation package
-- Guide: "How I Made It Production-Ready"
-
-**Rubric (40 points):**
-- Security: 25%
-- Performance: 25%
-- Monitoring: 25%
-- CI/CD: 15%
-- Documentation: 10%
 
 ---
 
@@ -1189,7 +1098,7 @@ By course end, students will have:
 **Active Learning:**
 - Hands-on coding labs
 - Live demonstrations
-- Pair programming
+- Collaborative partner work
 - Group discussions
 - Code reviews
 
@@ -1227,16 +1136,16 @@ By course end, students will have:
 - Moderate complexity
 - Increased autonomy
 
-**Week 12-15:**
-- Advanced techniques
-- Team collaboration
-- Production practices
-- Independence
+**Week 12-14:**
+- Claude Code extensibility (skills, hooks, MCP, sub-agents)
+- Agent architectures & Claude Agent SDK
+- Emerging AI engineering & production practices
+- Team collaboration & independence
 
 **Red Flags Addressed:**
 - Week 5-6: Spread TDD + CI/CD across two weeks
-- Week 10-11: Split evals into two parts
-- Week 12: Dedicated team formation
+- Week 10-12: Progressive Claude Code deep-dive (foundations → workflows → extensibility)
+- Week 10: P3 team formation aligned with Claude Code intro
 - Throughout: Weekly quizzes for spaced repetition
 
 ---
@@ -1385,7 +1294,6 @@ By course end, students will have:
 **For Future Offerings:**
 - Guest speakers from industry
 - Company site visits
-- More pair programming
 - Additional AI modalities
 - Advanced security module
 - Performance optimization deep dive
@@ -1548,6 +1456,10 @@ By course end, students will have:
 - Resource library
 - Alumni network
 
+### Link Maintenance
+
+All reading URLs (in `course/readings.md`, `website/index.pug`, and Canvas discussion topics) should be periodically verified. External blog posts and documentation pages frequently move or are removed. When a broken link is found, update it in all three locations simultaneously.
+
 ---
 
 ## 17. VERSION HISTORY
@@ -1590,17 +1502,16 @@ Track changes semester-to-semester:
 - **Week 6:** Project 1 due, P2 pairs formed
 - **Week 8:** HW3 due (Context Engineering)
 - **Week 10:** Project 2 due
-- **Week 11:** HW4 due (TDD+CI/CD)
-- **Week 12:** HW5 due (Parallel Agents)
-- **Week 13:** HW6 due (Production Readiness)
-- **Week 15:** Project 3 due + Demo Day
+- **Week 11:** HW4 due (Claude Code Workflow & TDD)
+- **Week 13:** HW5 due (Custom Skill + MCP Integration)
+- **Week 15:** Project 3 due (no lecture)
 
 ### Assessment Summary
 | Component | Weight | Count |
 |-----------|--------|-------|
 | Participation | 15% | Weekly (pre-class + lottery) |
 | Weekly Quizzes | 10% | 14 quizzes (drop lowest 2) |
-| Homeworks | 25% | 6 assignments |
+| Homeworks | 25% | 5 assignments (5% each) |
 | Projects | 50% | 3 projects |
 
 ### Contact Methods

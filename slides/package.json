@@ -13,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/john-guerra/ai-coding-class.git"
   },
-  "keywords": ["slides", "reveal.js", "ai-coding", "northeastern"],
+  "keywords": [
+    "slides",
+    "reveal.js",
+    "ai-coding",
+    "northeastern"
+  ],
   "author": "John Alexis Guerra Gómez",
   "license": "ISC",
   "bugs": {
@@ -22,5 +27,8 @@
   "homepage": "https://johnguerra.co/classes/aiCoding_spring_2026/",
   "devDependencies": {
     "reveal-md": "^6.1.4"
+  },
+  "dependencies": {
+    "mermaid": "^11.13.0"
   }
 }

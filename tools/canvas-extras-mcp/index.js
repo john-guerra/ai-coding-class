@@ -123,7 +123,7 @@ server.tool(
     quiz_id: z.string().describe("Canvas quiz ID"),
   },
   async ({ course_id, quiz_id }) => {
-    const result = await canvas("GET", `/courses/${course_id}/quizzes/${quiz_id}/questions`);
+    const result = await canvas("GET", `/courses/${course_id}/quizzes/${quiz_id}/questions?per_page=50`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );
@@ -359,6 +359,52 @@ server.tool(
     if (position != null) question.position = position;
     if (answers) question.answers = answers;
     const result = await canvas("PUT", `/courses/${course_id}/quizzes/${quiz_id}/questions/${question_id}`, { question });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: List Group Categories (Group Sets) ---
+server.tool(
+  "canvas_list_group_categories",
+  "List all group categories (group sets) in a Canvas course",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+  },
+  async ({ course_id }) => {
+    const result = await canvas("GET", `/courses/${course_id}/group_categories`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Create Group ---
+server.tool(
+  "canvas_create_group",
+  "Create a group inside a group category (group set)",
+  {
+    group_category_id: z.string().describe("Group category (group set) ID"),
+    name: z.string().describe("Name for the new group"),
+    join_level: z.enum(["parent_context_auto_join", "parent_context_request", "invitation_only"]).default("invitation_only").describe("How users can join the group"),
+  },
+  async ({ group_category_id, name, join_level }) => {
+    const result = await canvas("POST", `/group_categories/${group_category_id}/groups`, { name, join_level });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// --- Tool: Update Group ---
+server.tool(
+  "canvas_update_group",
+  "Update an existing group (e.g. rename it)",
+  {
+    group_id: z.string().describe("Group ID to update"),
+    name: z.string().optional().describe("New name for the group"),
+    join_level: z.enum(["parent_context_auto_join", "parent_context_request", "invitation_only"]).optional().describe("How users can join the group"),
+  },
+  async ({ group_id, name, join_level }) => {
+    const body = {};
+    if (name != null) body.name = name;
+    if (join_level != null) body.join_level = join_level;
+    const result = await canvas("PUT", `/groups/${group_id}`, body);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );

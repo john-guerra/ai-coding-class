@@ -167,7 +167,7 @@ All URLs have been verified as of January 2026.
 
 | Resource | Description | URL |
 |----------|-------------|-----|
-| Inside GitHub Copilot (GitHub Blog) | How Copilot's architecture works under the hood | https://github.blog/ai-and-ml/github-copilot/inside-github-copilot-how-github-copilot-works/ |
+| How GitHub Copilot Understands Your Code (GitHub Blog) | How Copilot uses context and retrieval to improve suggestions | https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/ |
 | cursor.directory | Community-maintained rules files for various tech stacks | https://cursor.directory/ |
 | OpenSSF Guide for AI Code Assistants | Security-focused best practices for AI coding tools | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
 
@@ -195,7 +195,6 @@ All URLs have been verified as of January 2026.
 |----------|-------------|-----|
 | Atlassian Agile Coach | Comprehensive Agile/Scrum guide | https://www.atlassian.com/agile |
 | GitHub Flow Guide | Branch-based workflow | https://docs.github.com/en/get-started/using-github/github-flow |
-| Tuple's Pair Programming Guide | Best practices for remote pair programming | https://tuple.app/pair-programming-guide |
 
 ---
 
@@ -218,44 +217,118 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Weeks 10-11: TDD, CI/CD & Claude Code
+## Week 10: Claude Code Foundations
 
-### 📚 Required
+### 📚 Required (Before Class)
 
-**Test-Driven Development**
-| Resource | URL |
-|----------|-----|
-| Jest Documentation | https://jestjs.io/docs/getting-started |
-| Vitest Documentation | https://vitest.dev/guide/ |
-| Testing Library | https://testing-library.com/docs/ |
+**Anthropic "Claude Code in Action" Course — Modules 1-3**
+| Module | Topic | URL |
+|--------|-------|-----|
+| Module 1 | Architecture & How Claude Code Works | https://anthropic.skilljar.com/claude-code-in-action |
+| Module 2 | Tool Use System | https://anthropic.skilljar.com/claude-code-in-action |
+| Module 3 | Context Management | https://anthropic.skilljar.com/claude-code-in-action |
 
-**CI/CD (Week 11)**
-| Resource | URL |
-|----------|-----|
-| GitHub Actions Documentation | https://docs.github.com/en/actions |
+**Claude Code Documentation**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Claude Code Overview | What Claude Code is and how to get started | https://code.claude.com/docs/en/overview |
+| CLAUDE.md — Project Instructions | How to write effective CLAUDE.md files | https://code.claude.com/docs/en/claude-md |
+| Context Management | Managing context window, /clear, /compact, checkpoints | https://code.claude.com/docs/en/context-management |
+| Permissions & Security | Permission model, allowlists, sandboxing | https://code.claude.com/docs/en/permissions |
+| Settings & Configuration | CLI flags, config files, settings hierarchy | https://code.claude.com/docs/en/settings |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Claude Code Best Practices | Anthropic's recommended workflows | https://code.claude.com/docs/en/best-practices |
+| Writing a Good CLAUDE.md | HumanLayer research on rule-application rates | https://humanlayer.dev/blog/writing-a-good-claude-md |
+| Effective Context Engineering for AI Agents | Anthropic's context engineering guide | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents |
+| My AI Coding Workflow (Addy Osmani) | Spec → plan → implement → test workflow | https://addyosmani.com/blog/ai-coding-workflow |
+| Trail of Bits: claude-code-config | Security-focused CLAUDE.md templates | https://github.com/trailofbits/claude-code-config |
+| Extended Thinking | How thinking modes work in Claude | https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking |
 
 ---
 
-## Weeks 12-15: Claude Code & Production
+## Week 11: Claude Code Workflows & Development Practices
 
 ### 📚 Required
 
-| Resource | URL |
-|----------|-----|
-| Claude Code Documentation | https://docs.anthropic.com/en/docs/claude-code |
-| Anthropic Tool Use Course | https://github.com/anthropics/courses |
+**Anthropic "Claude Code in Action" Course — Modules 4 & 7**
+| Module | Topic | URL |
+|--------|-------|-----|
+| Module 4 | Visual Workflows & Debugging | https://anthropic.skilljar.com/claude-code-in-action |
+| Module 7 | GitHub Integration | https://anthropic.skilljar.com/claude-code-in-action |
+
+**TDD & CI/CD**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Jest Documentation | Unit testing framework | https://jestjs.io/docs/getting-started |
+| Vitest Documentation | Fast Vite-native testing | https://vitest.dev/guide/ |
+| GitHub Actions Documentation | CI/CD pipeline setup | https://docs.github.com/en/actions |
+| Claude Code in GitHub Actions | Running Claude Code in CI for PR review | https://code.claude.com/docs/en/github-actions |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Claude Code CLI Reference | Non-interactive mode, `claude -p`, output formats | https://code.claude.com/docs/en/cli-reference |
+| Testing Library | React component testing | https://testing-library.com/docs/ |
 
 ---
 
-## Weeks 8-10: Context Engineering & Evaluations
+## Week 12: Claude Code Extensibility
 
 ### 📚 Required
 
-**Chain-of-Thought & Advanced Techniques**
-| Resource | URL |
-|----------|-----|
-| Anthropic: Extended Thinking | https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking |
-| Prompt Chaining Guide | https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts |
+**Anthropic "Claude Code in Action" Course — Modules 5 & 6**
+| Module | Topic | URL |
+|--------|-------|-----|
+| Module 5 | Custom Automation (Skills) | https://anthropic.skilljar.com/claude-code-in-action |
+| Module 6 | MCP (Model Context Protocol) | https://anthropic.skilljar.com/claude-code-in-action |
+
+**Claude Code Extensibility Docs**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Skills | Creating custom slash commands | https://code.claude.com/docs/en/skills |
+| Hooks | Deterministic automation at lifecycle points | https://code.claude.com/docs/en/hooks |
+| MCP Servers | Connecting external tools and data | https://code.claude.com/docs/en/mcp |
+| Sub-agents | Custom agent definitions (.claude/agents/) | https://code.claude.com/docs/en/sub-agents |
+
+**MCP Protocol**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| MCP Specification | Model Context Protocol official docs | https://modelcontextprotocol.io/ |
+| MCP GitHub Repository | Reference implementations and examples | https://github.com/modelcontextprotocol |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Playwright MCP Server | Browser testing via MCP | https://github.com/anthropics/mcp-servers/tree/main/playwright |
+| Claude Code Plugins | Plugin marketplace and community extensions | https://code.claude.com/docs/en/plugins |
+
+---
+
+## Week 13: Agent Architectures & Agent SDK
+
+### 📚 Required
+
+**Anthropic Research & Documentation**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Building Effective Agents | Anthropic's guide to the 6 agent patterns | https://www.anthropic.com/engineering/building-effective-agents |
+| Claude Agent SDK Overview | Official SDK documentation | https://platform.claude.com/docs/en/agent-sdk/overview |
+| Claude Agent SDK — Quick Start | Getting started with the Agent SDK | https://platform.claude.com/docs/en/agent-sdk/quickstart |
+| Tool Use (Function Calling) | How agents use tools | https://platform.claude.com/docs/en/build-with-claude/tool-use/overview |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Anthropic Courses — Tool Use | Interactive tutorial on tool use | https://github.com/anthropics/courses |
+| Claude Agent SDK Demos | Example agents (code reviewer, bug fixer, etc.) | https://github.com/anthropics/claude-agent-sdk-demos |
+| Prompt Chaining Guide | Sequential processing patterns | https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts |
 
 #### 📄 Reference
 
@@ -266,66 +339,41 @@ All URLs have been verified as of January 2026.
 | Tracing the Thoughts of a Large Language Model | https://www.anthropic.com/research/tracing-thoughts-language-model |
 | Constitutional AI | https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback |
 
-#### 📚 Additional (Evaluations)
-
-| Resource | Description | URL |
-|----------|-------------|-----|
-| Define Success Criteria | Building measurable success metrics | https://platform.claude.com/docs/en/test-and-evaluate/define-success |
-| Anthropic Prompt Evaluations Course | Systematic prompt testing | https://github.com/anthropics/courses |
-| HumanEval Benchmark | Code generation evaluation | https://github.com/openai/human-eval |
-
-> **Why Success Criteria First?** Before building evals, you need clear, measurable definitions of what "good" looks like. This documentation covers quantitative metrics, qualitative scales, and multi-dimensional evaluation.
-
-#### 📄 Reference
-
-**Guardrails & Quality**
-| Resource | Description | URL |
-|----------|-------------|-----|
-| Reduce Hallucinations | Verification strategies and guardrails | https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations |
-
-**Benchmark Research**
-| Paper | URL |
-|-------|-----|
-| HumanEval Pro (ACL 2025) | https://aclanthology.org/2025.findings-acl.686/ |
-| Cybersecurity Risks of AI-Generated Code (Georgetown CSET) | https://cset.georgetown.edu/publication/cybersecurity-risks-of-ai-generated-code/ |
-
 ---
 
-## Weeks 12-13: Parallel Agents
-
-### 📖 Recommended
-
-| Resource | URL |
-|----------|-----|
-| LangChain RAG Tutorial | https://python.langchain.com/docs/tutorials/rag/ |
-| LangGraph Code Assistant | https://langchain-ai.github.io/langgraph/tutorials/code_assistant/langgraph_code_assistant/ |
-
----
-
-## Weeks 13-14: Production & CI/CD
+## Week 14: Emerging AI Engineering & Production
 
 ### 📚 Required
 
-**CI/CD & DevOps**
-| Resource | URL |
-|----------|-----|
-| GitHub Actions Documentation | https://docs.github.com/en/actions |
-| Vercel Deployment Docs | https://vercel.com/docs |
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Prompt Caching | How prompt caching works and when to use it | https://platform.claude.com/docs/en/build-with-claude/prompt-caching |
+| Define Success Criteria | Building measurable success metrics for evals | https://platform.claude.com/docs/en/test-and-evaluate/define-success |
+| OWASP Top 10 | Security best practices for web applications | https://owasp.org/www-project-top-ten/ |
 
-**Security**
-| Resource | URL |
-|----------|-----|
-| OpenSSF AI Code Security Guide | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
-| OWASP Top 10 | https://owasp.org/www-project-top-ten/ |
+**CI/CD & DevOps**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| GitHub Actions Documentation | CI/CD pipeline reference | https://docs.github.com/en/actions |
+| Vercel Deployment Docs | Production deployment | https://vercel.com/docs |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| OpenSSF AI Code Security Guide | Security-focused best practices | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
+| Reduce Hallucinations | Verification strategies and guardrails | https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations |
+| When to Trust AI-Generated Code (Graphite) | Guidelines for code trust | https://graphite.com/guides/when-to-trust-ai-code |
 
 #### 📄 Reference
 
 **AI Code Quality Research**
 | Resource | URL |
 |----------|-----|
-| When to Trust AI-Generated Code (Graphite) | https://graphite.com/guides/when-to-trust-ai-code |
 | GitHub Copilot Research | https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/ |
 | Veracode AI Security Analysis | https://www.veracode.com/blog/ai-generated-code-security-risks/ |
+| Cybersecurity Risks of AI-Generated Code (Georgetown CSET) | https://cset.georgetown.edu/publication/cybersecurity-risks-of-ai-generated-code/ |
+| HumanEval Pro (ACL 2025) | https://aclanthology.org/2025.findings-acl.686/ |
 
 ---
 
@@ -376,12 +424,13 @@ All URLs have been verified as of January 2026.
 | 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs |
 | 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
 | 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
-| 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair programming |
+| 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |
 | 8 | Advanced IDE AI Features | MCP Specification, debugging guides, Antigravity advanced docs |
-| 10-11 | TDD, CI/CD & Claude Code | Testing frameworks, GitHub Actions, Claude Code |
-| 10-11 | Context Engineering & Evals | Advanced prompting, success criteria, eval courses |
-| 12 | Parallel Agents | LangChain tutorials |
-| 12-15 | Claude Code & Production | Tool use documentation, CI/CD docs, security guides |
+| 10 | Claude Code Foundations | Claude Code docs, Anthropic Skilljar Modules 1-3, CLAUDE.md, context management |
+| 11 | Claude Code Workflows & Dev Practices | Skilljar Modules 4 & 7, TDD frameworks, GitHub Actions, CI/CD |
+| 12 | Claude Code Extensibility | Skilljar Modules 5 & 6, Skills, Hooks, MCP, Sub-agents |
+| 13 | Agent Architectures & Agent SDK | Building Effective Agents, Agent SDK docs, tool use |
+| 14 | Emerging AI Engineering | Prompt caching, OWASP, production deployment, security |
 
 ---
 

@@ -30,7 +30,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 3. GitHub as Your Scrumboard
 4. From PRD to Sprint Backlog
 5. Branches, PRs, and Code Review
-6. Pair Programming with AI
+6. Pair Workflow with AI
 7. Code Review Between Partners
 
 ---
@@ -297,29 +297,31 @@ git push -u origin feature/42-add-login-page
 
 ---
 
-# Pair Programming with AI
+# Pair Workflow with AI
 
-> Driver, navigator, and AI -- a three-way collaboration
+> Scrum for two -- agile process meets AI-assisted development
 
 <!-- vertical -->
 
-## The Pair + AI Model
+## The Pair + AI Workflow
 
 <!-- .slide: class="dense" -->
 
-**Traditional pair programming, adapted for AI:**
+**Your pair runs scrum, AI assists both partners:**
 
-| Role | What They Do | AI's Role |
+| Activity | How It Works | AI's Role |
 |---|---|---|
-| **Driver** | Writes code, accepts/rejects AI suggestions | Generates suggestions in real-time |
-| **Navigator** | Reviews, plans next steps, catches issues | Available for questions via chat |
+| **Sprint Planning** | Meet together, pick issues from backlog | Helps break down stories into tasks |
+| **Development** | Each partner owns assigned issues | Real-time coding assistance per partner |
+| **Code Review** | Every PR reviewed by your partner | Pre-review via AI, human catches intent |
+| **Standups** | Async check-ins on progress & blockers | Summarize changes, draft standup notes |
 
 **When to pair vs. split work:**
 
-- **Pair (synchronous):** Complex features, architecture setup, debugging hard issues
+- **Pair (synchronous):** Complex features, architecture decisions, debugging hard issues
 - **Split (async):** Independent features with clear interfaces, tests, documentation
 
-Document at least **2 pair programming sessions** for P2.
+Your **design thinking** and **mom test** skills feed the backlog -- user feedback drives sprint priorities.
 
 <!-- vertical -->
 
@@ -400,7 +402,7 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 3. **PRD maps to issues** -- every user story becomes actionable GitHub Issues.
 4. **Branch-per-issue** keeps your work organized and reviewable.
 5. **Every PR gets reviewed by your partner** -- this is how professionals work.
-6. **Pair programming + AI** = driver, navigator, and AI working together.
+6. **Pair workflow + AI** = scrum process, design thinking, and AI working together.
 
 ---
 
@@ -445,4 +447,3 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 | Scrum by Jeff Sutherland (course textbook) | Required book for the course |
 | Atlassian Agile Coach | [atlassian.com/agile](https://www.atlassian.com/agile) |
 | GitHub Flow Guide | [docs.github.com/get-started/using-github/github-flow](https://docs.github.com/en/get-started/using-github/github-flow) |
-| Tuple's Pair Programming Guide | [tuple.app/pair-programming-guide](https://tuple.app/pair-programming-guide) |

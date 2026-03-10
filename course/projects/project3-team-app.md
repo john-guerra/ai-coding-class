@@ -64,7 +64,6 @@ Build a production-grade application with advanced AI techniques as a team.
 - Daily standups recorded
 - Sprint planning & retrospectives
 - Code review process
-- Pair programming sessions
 - Clear Git workflow (branches, PRs, reviews)
 - Peer evaluations
 

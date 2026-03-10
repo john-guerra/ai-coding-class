@@ -45,7 +45,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 **Week 6:** IDE fundamentals -- how AI tools work, modes, rules files, context references
 
-**Week 7:** Process -- Agile/Scrum, GitHub scrumboard, pair programming, partner code review
+**Week 7:** Process -- Agile/Scrum, GitHub scrumboard, pair workflow, partner code review
 
 **You have the tools and the process.** Now you unlock the _power features_ that make IDE AI truly productive.
 

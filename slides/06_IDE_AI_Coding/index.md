@@ -84,6 +84,30 @@ Each modality builds on the last -- you don't stop using Claude Web when you sta
 
 **P1 is done.** Now the engineering standards go up.
 
+<!-- vertical -->
+
+## How Context Changes Between Modalities
+
+![Context Pipelines: Claude Web vs IDE AI](images/context-comparison.svg) <!-- .element: style="max-height: 450px;" -->
+
+<small>In Claude Web, you curate the context manually. In IDE AI, the tool assembles it automatically from your codebase.</small>
+
+<!-- vertical -->
+
+## Context Comparison: Claude Web vs IDE AI
+
+<!-- .slide: class="dense" -->
+
+| | **Claude Web** | **IDE AI** |
+|---|---|---|
+| **Context source** | You describe it in conversation | AI reads your actual codebase |
+| **What AI sees** | Only what you paste/upload | Current file + open tabs + project index + rules |
+| **Context window** | Entire conversation history | Assembled prompt (curated snippets) |
+| **Retrieval** | You are the retrieval engine | Embeddings, import graph, semantic search |
+| **Persistence** | Conversation-scoped | Project-scoped (index persists) |
+
+Understanding this shift is key to getting results from IDE AI tools.
+
 ---
 
 # How IDE AI Tools Work
@@ -114,6 +138,16 @@ You review, accept, or reject
 
 <!-- vertical -->
 
+## Life of a Completion
+
+![Life of a Completion](images/life-of-a-completion.png) <!-- .element: style="max-height: 400px;" -->
+
+Open tabs + editor data + vector DB → **prompt library** → **contextual filter** → LLM → completions shown to user
+
+<small>Source: GitHub Blog — <a href="https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/">How GitHub Copilot is getting better at understanding your code</a></small>
+
+<!-- vertical -->
+
 ## Context Collection Strategies
 
 <!-- .slide: class="dense" -->
@@ -130,7 +164,32 @@ Different tools use different mixes of these strategies.
 
 <!-- vertical -->
 
+## Fill-in-the-Middle (FIM)
+
+**A key innovation in how code completions work:**
+
+Before FIM, the model only saw code **above** the cursor. FIM sends both sides:
+
+```
+Before FIM:          After FIM (FIM):
+┌──────────────┐     ┌──────────────┐
+│ code above ← │     │ prefix     ← │
+│ ▌ cursor     │     │ ▌ cursor     │
+│ code below ✗ │     │ suffix     ← │
+└──────────────┘     └──────────────┘
+  Model sees            Model sees
+  only above            both sides
+```
+
+Result: **~10% relative improvement** in suggestion acceptance rate.
+
+<small>Source: GitHub Blog — How Copilot is getting better at understanding your code</small>
+
+<!-- vertical -->
+
 ## Indexing & Embeddings
+
+<!-- .slide: class="dense" -->
 
 **How the AI "knows" your whole project:**
 
@@ -141,6 +200,8 @@ Different tools use different mixes of these strategies.
 5. **Queries on demand** -- When you ask a question or trigger a suggestion, the tool searches this index for relevant context
 
 This is why first-open of a large project takes a moment -- the tool is building its mental map.
+
+> **2025 update:** GitHub's new embedding model delivers **37.6% better retrieval**, **8× smaller index**, and **2× throughput** — using Matryoshka Representation Learning for multi-granularity code embeddings.
 
 <!-- vertical -->
 
@@ -273,9 +334,11 @@ The chat panel sees your current file and can reference others with @ mentions.
 <!-- vertical -->
 
 <!-- .slide: class="dense" -->
-<!-- make this a two column grid -->
 
 ## Agent Mode: Power & Risks
+
+<div class="columns">
+<div class="column">
 
 **Agent mode lets the AI:**
 
@@ -284,12 +347,18 @@ The chat panel sees your current file and can reference others with @ mentions.
 - Install packages
 - Create new files and directories
 
+</div>
+<div class="column">
+
 **The risks:**
 
-- AI may change files you didn't expect
+- May change files you didn't expect
 - Terminal commands can have side effects
 - Changes can cascade across the project
-- Harder to review than a single inline edit
+- Harder to review than inline edits
+
+</div>
+</div>
 
 **Rule of thumb:** Use Agent mode for well-scoped tasks. Review the plan before letting it execute.
 
@@ -339,6 +408,8 @@ Same concept, different file names. The content is similar across all tools.
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## What to Include
 
 **A good rules file covers:**
@@ -378,6 +449,8 @@ Most IDE AI tools support **@ mentions** to pull specific context into the conve
 Not all tools support all references. Check your tool's docs.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Referencing Lines & Selections
 
@@ -435,9 +508,9 @@ This is why rules files and @ mentions are so powerful -- you control what the A
 
 # Tool Comparison
 
-> Antigravity vs GitHub Copilot vs Cursor
-
 <!-- .slide: class="dense" -->
+
+> Antigravity vs GitHub Copilot vs Cursor
 
 | Feature | **Antigravity** | **GitHub Copilot** | **Cursor** |
 |---|---|---|---|
@@ -447,6 +520,15 @@ This is why rules files and @ mentions are so powerful -- you control what the A
 | **Inline Edit** | Cmd+K | Cmd+I | Cmd+K |
 | **Chat Panel** | Yes | Yes | Yes |
 | **Agent Mode** | Yes | Yes (Copilot Agent) | Yes (Composer) |
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## Tool Comparison (cont.)
+
+| Feature | **Antigravity** | **GitHub Copilot** | **Cursor** |
+|---|---|---|---|
 | **Rules File** | `.antigravityrules` | `.github/copilot-instructions.md` | `.cursorrules` |
 | **@ References** | @file, @folder, @docs, @codebase, @web | @file, @workspace | @file, @folder, @docs, @codebase, @web, @git |
 | **Project Indexing** | Yes | Yes (workspace) | Yes |
@@ -472,23 +554,23 @@ All three are capable. We use **Antigravity** in this course, but the concepts t
 - **Set up a shared GitHub repo** -- both partners need push access
 - **Start your shared rules file** -- `.antigravityrules` with conventions you both agree on
 
-**Why pairs?** Professional developers rarely work alone. Pair programming with AI is a skill worth practicing.
+**Why pairs?** Professional developers rarely work alone. Collaborating with a partner while using AI is a skill worth practicing.
 
 <!-- vertical -->
 
-## Pair Programming with AI
+<!-- .slide: class="dense" -->
 
-**The driver/navigator model, augmented:**
+## How Pairs Work: Scrum for Two
 
-| Role | Responsibility |
-|---|---|
-| **Driver** | Types, uses AI suggestions, writes code |
-| **Navigator** | Reviews, directs strategy, catches issues |
-| **AI** | Generates suggestions, answers questions, runs tasks |
+**Your P2 pair runs lightweight scrum:**
 
-**Rotate roles** every 30-60 minutes or per issue.
+- **Sprint planning** -- Meet at sprint start, pick issues from the backlog
+- **Split work via GitHub Issues** -- Each partner owns specific issues per sprint
+- **Async standups** -- Daily/regular check-ins on progress and blockers
+- **PR-based code review** -- Every PR reviewed by your partner before merge
+- **Sprint review** -- Demo what you built, reflect on what to improve
 
-The navigator keeps the big picture while the driver and AI handle implementation details.
+Both partners take turns driving priorities. Your **design thinking** and **mom test** skills from Weeks 2-4 feed directly into backlog prioritization -- real user feedback shapes what you build next.
 
 <!-- vertical -->
 
@@ -525,7 +607,7 @@ The navigator keeps the big picture while the driver and AI handle implementatio
 - **Agile/Scrum crash course** -- Sprints, ceremonies, and roles for P2
 - **GitHub as your scrumboard** -- Issues, Projects board, milestones
 - **From PRD to sprint backlog** -- Turning your Weeks 3-4 PRD into actionable issues
-- **Pair programming with AI** -- Driver/navigator + AI, splitting work via issues
+- **Pair workflow** -- Scrum for two, splitting work via issues and PRs
 - **Partner code review** -- PR-based review workflow between partners
 
 ---
@@ -553,5 +635,8 @@ The navigator keeps the big picture while the driver and AI handle implementatio
 | Resource | URL |
 |----------|-----|
 | Inside GitHub Copilot (GitHub Blog) | [github.blog](https://github.blog/ai-and-ml/github-copilot/inside-github-copilot-how-github-copilot-works/) |
+| How Copilot Understands Your Code (GitHub Blog) | [github.blog](https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/) |
+| GitHub's New Embedding Model (InfoQ) | [infoq.com](https://www.infoq.com/news/2025/10/github-embedding-model/) |
+| Copilot Repository Indexing (GitHub Docs) | [docs.github.com](https://docs.github.com/copilot/concepts/indexing-repositories-for-copilot-chat) |
 | cursor.directory (Community Rules Files) | [cursor.directory](https://cursor.directory/) |
 | OpenSSF Guide for AI Code Assistants | [best.openssf.org](https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions) |

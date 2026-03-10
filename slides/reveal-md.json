@@ -16,5 +16,5 @@
     "pdfSeparateFragments": false
   },
   "css": ["css/style.css"],
-  "scripts": ["js/fragments.js"]
+  "scripts": ["js/fragments.js", "js/mermaid-init.js"]
 }

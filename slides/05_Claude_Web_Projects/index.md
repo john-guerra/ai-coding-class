@@ -461,14 +461,17 @@ Speed comes from **fast iteration**, not getting it right the first time.
 
 <!-- vertical -->
 
-## Next Week: Antigravity IDE
+## Next Week: IDE-Centric AI Coding
 
 **Week 6 -- Project 1 Due + New Modality**
 
 - **Project 1 is due** -- Submit your artifact
-- **Antigravity introduction** -- AI moves into your code editor
-- Tab autocomplete, inline chat (Cmd+K)
-- Setting up `.antigravityrules`
+- **IDE AI tools** -- AI moves into your code editor
+- How IDE AI works under the hood (context collection, indexing)
+- Tab completion, inline edit (Cmd+K), chat panel
+- Modes: Ask / Write / Agent / Plan
+- Rules files & @ context references
+- Tool comparison: Antigravity vs Copilot vs Cursor
 
 **Start transitioning** from prototyping to production code.
 

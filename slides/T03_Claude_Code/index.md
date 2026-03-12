@@ -33,7 +33,7 @@ revealOptions:
 
 <!-- Note: This is the biggest mindset shift. Ask the audience: "What's the difference between a chatbot and an agent?" -->
 
-----
+<!-- vertical -->
 
 ## The Agentic Loop
 
@@ -52,7 +52,7 @@ flowchart LR
 
 It keeps going until the task is complete — or it hits a blocker and asks you.
 
-----
+<!-- vertical -->
 
 ## Built-in Tools
 
@@ -70,7 +70,7 @@ It keeps going until the task is complete — or it hits a blocker and asks you.
 
 Claude Code chains these automatically. You describe the goal — it figures out the steps.
 
-----
+<!-- vertical -->
 
 ## IDE Chat vs Claude Code
 
@@ -85,7 +85,7 @@ Claude Code chains these automatically. You describe the goal — it figures out
 | **You do** | Drive each step | Set goal, approve changes |
 | **Best for** | Focused inline edits | Multi-file, automation |
 
-----
+<!-- vertical -->
 
 ## The Key Insight
 
@@ -109,7 +109,7 @@ This requires new skills:
 
 <!-- Note: CLAUDE.md is the single most important concept. A well-written CLAUDE.md is the difference between Claude Code doing great work and going sideways. -->
 
-----
+<!-- vertical -->
 
 ## What is CLAUDE.md?
 
@@ -125,7 +125,7 @@ my-project/
 └── package.json
 ```
 
-----
+<!-- vertical -->
 
 ## What Goes in CLAUDE.md
 
@@ -151,7 +151,7 @@ Uses Express, in-memory storage, Jest for tests.
 - Descriptive variable names, no abbreviations
 ```
 
-----
+<!-- vertical -->
 
 ## The CLAUDE.md Effect
 
@@ -167,7 +167,7 @@ Data from HumanLayer (2025):
 
 *Start small. Grow it over time as you discover what Claude needs to know.*
 
-----
+<!-- vertical -->
 
 ## CLAUDE.md is a Living Document
 
@@ -187,7 +187,7 @@ Add your team's conventions, testing strategy, branch naming, anything that woul
 
 <!-- Note: DEMO - 15 minutes. Have the terminal open with the workshop starter app ready. -->
 
-----
+<!-- vertical -->
 
 ## The Setup
 
@@ -204,7 +204,7 @@ Tests are already passing. Now we want to **add priority support**.
 
 <!-- Note: DEMO - Show the running app: `curl http://localhost:3000/todos` -->
 
-----
+<!-- vertical -->
 
 ## Step 1: Start Claude Code
 
@@ -217,7 +217,7 @@ Claude Code scans the project, reads CLAUDE.md, shows a prompt.
 
 <!-- Note: DEMO - Show claude starting up, reading CLAUDE.md -->
 
-----
+<!-- vertical -->
 
 ## Step 2: Give It a Goal
 
@@ -238,7 +238,7 @@ Watch what happens:
 
 <!-- Note: DEMO - Let it run. Point out each step as it happens. -->
 
-----
+<!-- vertical -->
 
 ## Step 3: Review the Changes
 
@@ -258,7 +258,7 @@ If something's wrong: *tell Claude Code what to fix*, don't fix it yourself.
 
 <!-- Note: DEMO - Walk through the diff. Ask audience: "What would you check first?" -->
 
-----
+<!-- vertical -->
 
 ## What Just Happened
 
@@ -275,7 +275,7 @@ This is the shift. You become the **architect and reviewer**, not the typist.
 
 > Explore → Plan → Implement → Commit
 
-----
+<!-- vertical -->
 
 ## Four Phases for Every Feature
 
@@ -289,7 +289,7 @@ flowchart LR
 
 Anthropic's recommended pattern. Each phase has a different mental mode.
 
-----
+<!-- vertical -->
 
 ## EXPLORE
 
@@ -310,7 +310,7 @@ Claude Code reads, traces, summarizes. You get a mental model without touching c
 
 *Always explore with a fresh context window before a complex task.*
 
-----
+<!-- vertical -->
 
 ## PLAN
 
@@ -330,7 +330,7 @@ Review the plan. Ask for changes. Only proceed when you're happy.
 
 *The plan lives in context — or save it to a file for large tasks.*
 
-----
+<!-- vertical -->
 
 ## IMPLEMENT
 
@@ -341,7 +341,7 @@ Let Claude Code do the work. Your role: supervise and approve.
 - Intervene when it goes sideways
 - Don't micro-manage — let it think
 
-----
+<!-- vertical -->
 
 ## COMMIT
 
@@ -361,7 +361,7 @@ Check the diff before committing. The commit message is a record of what happene
 
 > Three concrete next steps
 
-----
+<!-- vertical -->
 
 ## This Week
 
@@ -375,7 +375,7 @@ spending by category.
 ```
 Spend 20 minutes iterating on it.
 
-----
+<!-- vertical -->
 
 ## This Week (cont.)
 
@@ -393,7 +393,7 @@ claude
 
 Ask it: `"Explain the architecture of this project"`
 
-----
+<!-- vertical -->
 
 ## This Week (cont.)
 
@@ -416,7 +416,7 @@ That's it. Start there. Grow it as you use it.
 
 # Wrap-up
 
-----
+<!-- vertical -->
 
 ## The Bigger Picture
 
@@ -434,7 +434,7 @@ The engineers who thrive aren't the ones who fight this shift — they're the on
 - **Reviewing AI output** (critical thinking > typing speed)
 - **Building quality systems** (TDD, CI/CD, evals — still matter, maybe more than before)
 
-----
+<!-- vertical -->
 
 ## It's Not About Replacing Skill
 
@@ -446,7 +446,7 @@ An engineer who uses AI coding tools well ships faster, catches more bugs, and h
 
 The skill floor lowers. The ceiling rises.
 
-----
+<!-- vertical -->
 
 ## Resources
 
@@ -458,7 +458,7 @@ The skill floor lowers. The ceiling rises.
 | **Prompt engineering guide** | docs.anthropic.com/en/docs/build-with-claude/prompt-engineering |
 | **Claude Code best practices** | code.claude.com/docs/best-practices |
 
-----
+<!-- vertical -->
 
 ## Q&A
 

@@ -64,7 +64,7 @@ Keep it up if it worked the way you expected.
 
 # The Reality Check
 
-----
+<!-- vertical -->
 
 ## What actually happens
 
@@ -74,7 +74,7 @@ Keep it up if it worked the way you expected.
 - Security vulnerabilities get shipped quietly
 - "It works on my machine" at a whole new scale
 
-----
+<!-- vertical -->
 
 ## The deeper problem
 
@@ -94,7 +94,7 @@ No systematic evaluation → you don't know what you actually shipped
 
 > AI is a **powerful collaborator**, not a magic wand.
 
-----
+<!-- vertical -->
 
 ## The Contractor Analogy
 
@@ -108,7 +108,7 @@ Think of AI as a skilled contractor:
 
 **The better you communicate, the better the output.**
 
-----
+<!-- vertical -->
 
 ## What Actually Changes
 
@@ -132,7 +132,7 @@ The skill shifts from *typing code* to *directing, reviewing, and validating* co
 
 <!-- Note: This is the core framework of the talk. These aren't competing tools — they're different modes of collaboration, each suited to different moments in your workflow. Most people only discover one or two. -->
 
-----
+<!-- vertical -->
 
 ## Overview
 
@@ -153,7 +153,7 @@ Each builds on the last — you don't stop using earlier modalities.
 
 ## The Whiteboard with a Senior Mentor
 
-----
+<!-- vertical -->
 
 ## What It Is
 
@@ -161,7 +161,7 @@ Go to [claude.ai](https://claude.ai) and start a conversation.
 
 No setup. No environment. Just describe what you're building and start thinking through it together.
 
-----
+<!-- vertical -->
 
 ## What It's Best For
 
@@ -181,7 +181,7 @@ No setup. No environment. Just describe what you're building and start thinking 
 
 <!-- Note: Demo opportunity: if time allows, show creating a quick artifact — a data viz or simple interactive tool — directly in claude.ai. This takes 2-3 minutes and usually gets an "oh wow" reaction from audiences who haven't seen it. -->
 
-----
+<!-- vertical -->
 
 ## Claude Projects
 
@@ -194,7 +194,7 @@ Upload your documents, give Claude persistent context:
 
 **Claude remembers everything across conversations in the project.**
 
-----
+<!-- vertical -->
 
 ## Artifacts: Instant Prototypes
 
@@ -212,7 +212,7 @@ a monthly chart and category breakdown"
 
 <!-- Note: Show an actual artifact if demoing — the visual impact is significant. Key point: this is useful for validating ideas with stakeholders BEFORE writing any production code. -->
 
-----
+<!-- vertical -->
 
 ## When to Use Claude Web
 
@@ -231,7 +231,7 @@ a monthly chart and category breakdown"
 
 <!-- Note: Tools in this category: Cursor, GitHub Copilot, Antigravity, Windsurf. The underlying experience is similar — AI integrated directly into your editing environment. -->
 
-----
+<!-- vertical -->
 
 ## What It Is
 
@@ -239,7 +239,7 @@ AI built directly into your code editor. It sees your code, understands your pro
 
 Tools: **Cursor**, **GitHub Copilot**, **Antigravity**, **Windsurf**
 
-----
+<!-- vertical -->
 
 ## Core Capabilities
 
@@ -255,7 +255,7 @@ Ask questions about your codebase. Reference files with `@filename`.
 **Agent / Composer mode**
 Give a larger task — it reads relevant files and makes coordinated changes across your project.
 
-----
+<!-- vertical -->
 
 ## What It's Best For
 
@@ -267,7 +267,7 @@ Give a larger task — it reads relevant files and makes coordinated changes acr
 
 <!-- Note: The key difference from Claude Web is context — IDE AI sees your actual files, your imports, your conventions. It produces code that fits your project, not generic examples. -->
 
-----
+<!-- vertical -->
 
 ## The Rules File
 
@@ -291,7 +291,7 @@ Most IDE AI tools support a configuration file that sets permanent context:
 
 **This file is read every session.** It's how you onboard the AI to your codebase.
 
-----
+<!-- vertical -->
 
 ## When to Use IDE AI
 
@@ -308,7 +308,7 @@ Most IDE AI tools support a configuration file that sets permanent context:
 
 <!-- Note: This is the newest and most powerful modality. It's also the one that most fundamentally changes the developer role — from driver to supervisor. -->
 
-----
+<!-- vertical -->
 
 ## What It Is
 
@@ -322,7 +322,7 @@ claude
 
 It reads files, edits code, runs tests, fixes failures, and keeps going.
 
-----
+<!-- vertical -->
 
 ## The Agentic Loop
 
@@ -336,7 +336,7 @@ Your goal → Think → Use tools → Observe results → Done?
 
 It chains tool calls — read a file, edit it, run the tests, fix the failures — until the task is done or it needs your input.
 
-----
+<!-- vertical -->
 
 ## What It's Best For
 
@@ -348,7 +348,7 @@ It chains tool calls — read a file, edit it, run the tests, fix the failures �
 
 <!-- Note: The demo that usually lands best: show Claude Code being asked to "add a complete test suite for the auth module" and watch it read the source files, generate tests, run them, fix failures, and commit — without you typing a single line of code. -->
 
-----
+<!-- vertical -->
 
 ## The Mental Model Shift
 
@@ -361,7 +361,7 @@ It chains tool calls — read a file, edit it, run the tests, fix the failures �
 
 **You shift from writing code to directing and reviewing outcomes.**
 
-----
+<!-- vertical -->
 
 ## The New Skills You Need
 
@@ -375,7 +375,7 @@ These are learnable skills. They get better with practice.
 
 <!-- Note: Reassure the audience — this isn't harder, it's different. Many people find it easier once they internalize the shift. The key anxiety is "but what if it does something wrong?" — address this with the permission model. -->
 
-----
+<!-- vertical -->
 
 ## Safety: You Stay in Control
 
@@ -388,7 +388,7 @@ Allow? (y/n/always)
 
 You can configure what it can do automatically vs. what requires approval. Start conservative — read-only tools are safe, shell commands need review.
 
-----
+<!-- vertical -->
 
 ## When to Use Claude Code
 
@@ -404,7 +404,7 @@ You can configure what it can do automatically vs. what requires approval. Start
 
 ## Which modality, when?
 
-----
+<!-- vertical -->
 
 ## Quick Reference
 
@@ -422,7 +422,7 @@ You can configure what it can do automatically vs. what requires approval. Start
 | "What database schema should I use?" | Claude Web |
 | "Generate boilerplate for a new endpoint" | IDE AI |
 
-----
+<!-- vertical -->
 
 ## The Rule of Thumb
 
@@ -442,7 +442,7 @@ You can configure what it can do automatically vs. what requires approval. Start
 
 ## How AI coding changes the developer role
 
-----
+<!-- vertical -->
 
 ## Three Stages of Adoption
 
@@ -459,7 +459,7 @@ Most people go through predictable stages:
 
 <!-- Note: Where is your audience? Most practitioners in the room are probably in Stage 2. The goal of this talk is to help them reach Stage 3. -->
 
-----
+<!-- vertical -->
 
 ## What You're Actually Learning
 
@@ -473,7 +473,7 @@ The skills that matter more now:
 - **Security awareness** — AI-generated code has real vulnerability patterns
 - **Testing instincts** — knowing what to verify and how
 
-----
+<!-- vertical -->
 
 ## The Quality Bar Doesn't Lower
 
@@ -488,7 +488,7 @@ AI generates code faster. It doesn't automatically make good code.
 
 <!-- Note: This is a good moment to name the risk: developers who use AI to skip engineering discipline are building faster toward technical debt. The professional move is to use AI to do engineering-quality work faster. -->
 
-----
+<!-- vertical -->
 
 ## The Workflow That Works
 
@@ -506,7 +506,7 @@ This isn't slower than "just vibe coding." It's faster long-term.
 
 # What's Next in This Talk
 
-----
+<!-- vertical -->
 
 ## Part 2: Hands-On (45 min)
 
@@ -514,7 +514,7 @@ This isn't slower than "just vibe coding." It's faster long-term.
 - **Live demo:** IDE AI workflow — daily coding with Cursor/Copilot
 - **Practice:** You try it with a guided exercise
 
-----
+<!-- vertical -->
 
 ## Part 3: Advanced Practice (30 min)
 
@@ -543,7 +543,7 @@ Before we go hands-on:
 
 # Foundation Summary
 
-----
+<!-- vertical -->
 
 ## The Core Ideas
 
@@ -557,7 +557,7 @@ Before we go hands-on:
 
 5. **It gets better with practice** — the learning curve is real but worth it
 
-----
+<!-- vertical -->
 
 ## The One Thing to Remember
 

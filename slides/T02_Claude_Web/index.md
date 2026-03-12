@@ -30,7 +30,7 @@ revealOptions:
 
 > Three features that make claude.ai more than a chatbot.
 
-----
+<!-- vertical -->
 
 ## The Trifecta
 
@@ -42,7 +42,7 @@ revealOptions:
 
 Each one multiplies the value of the others.
 
-----
+<!-- vertical -->
 
 ## Artifacts: Apps Without Code
 
@@ -55,7 +55,7 @@ Each one multiplies the value of the others.
 
 > "Describe what you want. Claude builds it. You click around it immediately."
 
-----
+<!-- vertical -->
 
 ## What Artifacts Can Do
 
@@ -67,7 +67,7 @@ Each one multiplies the value of the others.
 
 **No IDE. No terminal. No npm install.**
 
-----
+<!-- vertical -->
 
 ## Projects: Persistent Memory
 
@@ -81,7 +81,7 @@ Each one multiplies the value of the others.
 - Claude remembers context across all conversations
 - Build a knowledge base that grows with your work
 
-----
+<!-- vertical -->
 
 ## Best Use Cases for Claude Web
 
@@ -105,7 +105,7 @@ Each one multiplies the value of the others.
 
 <!-- Note: DEMO — open claude.ai in a new tab, create a fresh conversation (not inside a Project). Make sure Artifacts is enabled in settings. Walk slowly through each step so the audience can see Claude's output before you continue. -->
 
-----
+<!-- vertical -->
 
 ## Step 1: The First Prompt
 
@@ -122,7 +122,7 @@ by category.
 - The artifact renders immediately in the sidebar
 - You can interact with it before Claude is done explaining
 
-----
+<!-- vertical -->
 
 ## Step 2: Iterating
 
@@ -138,7 +138,7 @@ to hitting it.
 - Each iteration stacks cleanly on the previous one
 - The app gets more capable with each message
 
-----
+<!-- vertical -->
 
 ## Step 3: Going Interactive
 
@@ -154,7 +154,7 @@ the individual expenses for that category.
 - Three prompts produced a genuinely useful, interactive app
 - Total time: under 5 minutes
 
-----
+<!-- vertical -->
 
 ## What the Demo Shows
 
@@ -169,7 +169,7 @@ the individual expenses for that category.
 
 > Small changes in how you ask make a big difference in what you get.
 
-----
+<!-- vertical -->
 
 ## Pattern 1: Specificity
 
@@ -188,7 +188,7 @@ last 6 months below. Use a clean, minimal style.
 
 The model isn't guessing what you want — you've told it exactly.
 
-----
+<!-- vertical -->
 
 ## Specificity Formula
 
@@ -202,7 +202,7 @@ The model isn't guessing what you want — you've told it exactly.
 
 You don't need all five every time — but the more you include, the better the first result.
 
-----
+<!-- vertical -->
 
 ## Pattern 2: Show Don't Tell
 
@@ -220,7 +220,7 @@ Good: "When I click submit with an empty field,
 
 Claude can't see your screen. Describe the symptom, not the diagnosis.
 
-----
+<!-- vertical -->
 
 ## Pattern 3: Start Broad, Then Narrow
 
@@ -242,7 +242,7 @@ Round 4: "Change the color scheme to greens and blues"
 
 **Trying to specify everything upfront often makes the first result worse**, not better.
 
-----
+<!-- vertical -->
 
 ## Pattern 4: Constraints as Features
 
@@ -261,7 +261,7 @@ Limitations force better solutions.
 
 Constraints tell Claude what tradeoffs to make. Without them, it guesses.
 
-----
+<!-- vertical -->
 
 ## Anti-Patterns to Avoid
 
@@ -273,7 +273,7 @@ Constraints tell Claude what tradeoffs to make. Without them, it guesses.
 | No examples | Claude picks arbitrary style | "Make it look like [app you like]" |
 | Accepting the first result | First drafts are starting points | Always plan to iterate 2–4 times |
 
-----
+<!-- vertical -->
 
 ## Putting It Together
 
@@ -305,7 +305,7 @@ Same model. Very different output.
 
 > Artifacts are prototypes. Know when you've outgrown them.
 
-----
+<!-- vertical -->
 
 ## Signs You've Hit the Ceiling
 
@@ -319,7 +319,7 @@ Same model. Very different output.
 
 When you hit these walls, that's not a failure — it's the prototype doing its job.
 
-----
+<!-- vertical -->
 
 ## Artifacts vs. Real Apps
 
@@ -333,7 +333,7 @@ When you hit these walls, that's not a failure — it's the prototype doing its 
 | Persistent database | No | Yes |
 | Team collaboration | Read-only | Yes |
 
-----
+<!-- vertical -->
 
 ## The Handoff
 
@@ -346,7 +346,7 @@ When you hit these walls, that's not a failure — it's the prototype doing its 
 
 > The artifact earned its keep. Now it steps aside.
 
-----
+<!-- vertical -->
 
 ## Artifacts as the Right Tool for the Job
 
@@ -364,7 +364,7 @@ Idea → Claude Web Artifact   (minutes, zero setup)
          IDE + Claude Code    (full project, full power)
 ```
 
-----
+<!-- vertical -->
 
 ## What's Coming Next
 

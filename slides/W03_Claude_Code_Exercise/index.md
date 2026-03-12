@@ -35,7 +35,7 @@ revealOptions:
 
 > One command. That's it.
 
-----
+<!-- vertical -->
 
 ## Installation
 
@@ -53,7 +53,7 @@ node --version
 
 <!-- Note: Give people 5 minutes here. Walk the room to help anyone with issues. -->
 
-----
+<!-- vertical -->
 
 ## Verify It Works
 
@@ -65,7 +65,7 @@ That's all you need. Claude Code auto-updates in the background.
 
 **Alternative:** VS Code extension (search "Claude Code") or the Claude Desktop app — same engine, different interface.
 
-----
+<!-- vertical -->
 
 ## What You'll Need
 
@@ -82,7 +82,7 @@ That's all you need. Claude Code auto-updates in the background.
 
 > Your project's constitution
 
-----
+<!-- vertical -->
 
 ## What is CLAUDE.md?
 
@@ -99,7 +99,7 @@ my-project/
 
 Think of it as the onboarding doc you'd write for a new team member. Except this team member actually reads it.
 
-----
+<!-- vertical -->
 
 ## The Starter CLAUDE.md
 
@@ -125,7 +125,7 @@ Open `examples/workshop-claude-code/CLAUDE.md`:
 <!-- TODO: fill this in -->
 ```
 
-----
+<!-- vertical -->
 
 ## What Goes in Each Section
 
@@ -139,7 +139,7 @@ Open `examples/workshop-claude-code/CLAUDE.md`:
 
 **Testing Strategy:** Where do tests live? What should always be tested?
 
-----
+<!-- vertical -->
 
 ## The CLAUDE.md Effect
 
@@ -153,7 +153,7 @@ From HumanLayer research (2025):
 
 **Less is more.** Start small, grow it over time.
 
-----
+<!-- vertical -->
 
 ## CLAUDE.md is a Living Document
 
@@ -171,7 +171,7 @@ Add conventions as you discover them. Remove rules that don't matter.
 
 > How Claude Code works under the hood
 
-----
+<!-- vertical -->
 
 ## Think → Tool → Observe → Repeat
 
@@ -188,7 +188,7 @@ flowchart LR
 
 You describe the goal. Claude Code figures out the steps.
 
-----
+<!-- vertical -->
 
 ## Built-in Tools
 
@@ -205,7 +205,7 @@ You describe the goal. Claude Code figures out the steps.
 
 For the exercise: you'll see it use Read → Write (tests) → Bash (npm test) → Edit → Bash (npm test again).
 
-----
+<!-- vertical -->
 
 ## You Shift from Driving to Supervising
 
@@ -224,7 +224,7 @@ Your most important skill: **knowing when to intervene vs. let it continue.**
 
 > Add priority support to the todos API
 
-----
+<!-- vertical -->
 
 ## The Starter App
 
@@ -244,7 +244,7 @@ PUT    /todos/:id   update a todo  { title?, completed? }
 DELETE /todos/:id   delete a todo
 ```
 
-----
+<!-- vertical -->
 
 ## Your Task
 
@@ -265,7 +265,7 @@ default: medium). GET /todos should support filtering by
 Use TDD — write the failing tests first, then implement.
 ```
 
-----
+<!-- vertical -->
 
 ## What Claude Code Will Do
 
@@ -284,7 +284,7 @@ Use TDD — write the failing tests first, then implement.
 
 *5:00 – 5:10 (10 min)*
 
-----
+<!-- vertical -->
 
 ## Step 1: Navigate to the Starter
 
@@ -292,7 +292,7 @@ Use TDD — write the failing tests first, then implement.
 cd examples/workshop-claude-code
 ```
 
-----
+<!-- vertical -->
 
 ## Step 2: Fill in Your CLAUDE.md
 
@@ -308,7 +308,7 @@ Open `CLAUDE.md` and complete the three TODO sections:
 
 <!-- Note: Timer slide — give 5 minutes. Walk the room. Help people who are stuck on what to write. Remind them: write for a new engineer joining the team. -->
 
-----
+<!-- vertical -->
 
 ## Step 3: Start Claude Code
 
@@ -332,7 +332,7 @@ Does Claude Code's summary match what you wrote? If not, update CLAUDE.md.
 
 <!-- Note: This slide stays up during the build phase. Walk the room. -->
 
-----
+<!-- vertical -->
 
 ## Give Claude Code the Task
 
@@ -345,7 +345,7 @@ Use TDD — write the failing tests first, then implement.
 
 Then: **watch and supervise.**
 
-----
+<!-- vertical -->
 
 ## What to Watch For
 
@@ -356,7 +356,7 @@ Then: **watch and supervise.**
 
 <!-- Note: CHECKPOINT at 45 min — use the next slide -->
 
-----
+<!-- vertical -->
 
 <!-- .slide: data-background="#fff3cd" -->
 
@@ -376,7 +376,7 @@ Then: **watch and supervise.**
 
 *6:30 – 7:00 (30 min)*
 
-----
+<!-- vertical -->
 
 ## Go Deeper
 
@@ -408,7 +408,7 @@ a todo complete. Should work alongside PUT /todos/:id.
 
 <!-- Note: Use the next few slides to structure the debrief conversation -->
 
-----
+<!-- vertical -->
 
 ## What Surprised You?
 
@@ -418,7 +418,7 @@ a todo complete. Should work alongside PUT /todos/:id.
 - "It wrote tests I wouldn't have thought of, like..."
 - "I had to intervene when..."
 
-----
+<!-- vertical -->
 
 ## CLAUDE.md Retrospective
 
@@ -430,7 +430,7 @@ a todo complete. Should work alongside PUT /todos/:id.
 
 *Update your CLAUDE.md now, while it's fresh.*
 
-----
+<!-- vertical -->
 
 ## The Bigger Picture
 
@@ -445,7 +445,7 @@ You just experienced the shift:
 
 **The skill that matters most:** writing clear goals and reviewing the result critically.
 
-----
+<!-- vertical -->
 
 ## What to Do This Week
 

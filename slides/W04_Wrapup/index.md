@@ -23,7 +23,7 @@ revealOptions:
 
 <!-- Note: These slides are meant to facilitate discussion. Call on a few people before revealing answers. -->
 
-----
+<!-- vertical -->
 
 ## What Made Great Artifacts?
 
@@ -36,7 +36,7 @@ revealOptions:
 - **Iterating in small steps** — one feature at a time
 - **Describing what you *see*, not what you *want*** — "the button is in the wrong corner" > "fix the layout"
 
-----
+<!-- vertical -->
 
 ## Common Mistakes (Claude Web)
 
@@ -55,7 +55,7 @@ revealOptions:
 
 → Create a Project first. All your builds live there.
 
-----
+<!-- vertical -->
 
 ## The Artifact Ceiling
 
@@ -74,7 +74,7 @@ You'll hit it when you need:
 
 > What we learned from the afternoon
 
-----
+<!-- vertical -->
 
 ## How the Agentic Loop Surprised People
 
@@ -88,7 +88,7 @@ You'll hit it when you need:
 
 <!-- Note: Ask the room: "What surprised YOU?" Give this 3-4 minutes of discussion. -->
 
-----
+<!-- vertical -->
 
 ## CLAUDE.md: What We Learned
 
@@ -104,7 +104,7 @@ Claude Code is great at following rules it knows about. It can't follow rules yo
 
 *Your CLAUDE.md should grow after every session.*
 
-----
+<!-- vertical -->
 
 ## Common Mistakes (Claude Code)
 
@@ -134,7 +134,7 @@ Claude Code is great at following rules it knows about. It can't follow rules yo
 
 > The practices that separate good AI-assisted engineering from "vibe coding"
 
-----
+<!-- vertical -->
 
 ## Test-Driven Development
 
@@ -152,7 +152,7 @@ When you write tests first:
   Don't implement anything yet.
 ```
 
-----
+<!-- vertical -->
 
 ## Code Review (Still Matters)
 
@@ -169,7 +169,7 @@ AI-generated code has a higher rate of security issues:
 
 *You're the last line of defense.*
 
-----
+<!-- vertical -->
 
 ## Evals: Measuring Quality
 
@@ -184,7 +184,7 @@ The same way you know anything is good: **measure it**.
 
 *The teams that use AI best are the ones who also test the most.*
 
-----
+<!-- vertical -->
 
 ## The Sustainable Workflow
 
@@ -205,7 +205,7 @@ Generate code → Ship it → Fix bugs in production
 
 > What to do with this
 
-----
+<!-- vertical -->
 
 ## This Week
 
@@ -221,7 +221,7 @@ Generate code → Ship it → Fix bugs in production
 - Build something with Claude Web Artifacts
 - Try the Explore → Plan → Implement → Commit workflow on a feature
 
-----
+<!-- vertical -->
 
 ## Resources
 
@@ -234,7 +234,7 @@ Generate code → Ship it → Fix bugs in production
 | **Prompt engineering** | docs.anthropic.com/en/docs/build-with-claude/prompt-engineering |
 | **Claude.ai pricing** | claude.ai/pricing (free tier available) |
 
-----
+<!-- vertical -->
 
 ## The Bigger Picture
 
@@ -257,7 +257,7 @@ The engineers who thrive:
 
 <!-- Note: Common questions with suggested answers below. Use or ignore as needed. -->
 
-----
+<!-- vertical -->
 
 ## Common Q&A
 
@@ -273,7 +273,7 @@ The engineers who thrive:
 **"What's the cost?"**
 > Claude Code uses the Anthropic API. Light use is free on claude.ai. Heavy professional use: ~$20-100/month depending on usage. Most people find it saves far more than it costs.
 
-----
+<!-- vertical -->
 
 ## Thank You
 

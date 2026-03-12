@@ -57,7 +57,7 @@ _Breaks are built in. We'll stay on schedule._
 
 The ability to build software by _describing what you want_ and iterating.
 
-----
+<!-- vertical -->
 
 ## The Hype
 
@@ -69,7 +69,7 @@ Every week someone builds something impressive in 10 minutes.
 
 **All of these things have happened.**
 
-----
+<!-- vertical -->
 
 ## The Reality Check
 
@@ -81,7 +81,7 @@ Most "10 minute" demos:
 
 The hype isn't wrong. The framing is wrong.
 
-----
+<!-- vertical -->
 
 ## The Right Framing
 
@@ -94,7 +94,7 @@ AI coding is powerful **when you know what you're doing.**
 | Anyone can skip learning | Judgment still requires knowledge |
 | AI replaces you | AI amplifies you |
 
-----
+<!-- vertical -->
 
 ## Turn to Your Neighbor
 
@@ -110,7 +110,7 @@ What went wrong when you tried it yourself?
 
 Not all AI tools are the same. The best developers use them differently for different jobs.
 
-----
+<!-- vertical -->
 
 ## Modality 1: Claude Web
 
@@ -125,7 +125,7 @@ Not all AI tools are the same. The best developers use them differently for diff
 
 _We'll use this in blocks W02–W03 this morning._
 
-----
+<!-- vertical -->
 
 ## What Claude Web Looks Like
 
@@ -137,7 +137,7 @@ _We'll use this in blocks W02–W03 this morning._
 
 The whole thing runs in the browser. No setup required.
 
-----
+<!-- vertical -->
 
 ## Modality 2: IDE AI (Pair Programmer)
 
@@ -154,7 +154,7 @@ Tools: GitHub Copilot, Cursor, Windsurf, Antigravity
 
 _We'll mention this but won't focus on it today._
 
-----
+<!-- vertical -->
 
 ## Modality 3: Claude Code
 
@@ -169,7 +169,7 @@ _We'll mention this but won't focus on it today._
 
 _We'll use this in block W03 this afternoon._
 
-----
+<!-- vertical -->
 
 ## The Decision Framework
 
@@ -187,7 +187,7 @@ _We'll use this in block W03 this afternoon._
 
 When in doubt, start with Claude Web. It's the fastest way to understand a problem.
 
-----
+<!-- vertical -->
 
 ## These Are Not Replacements
 
@@ -202,7 +202,7 @@ They stack. Each one handles a different layer of the work.
 
 This is the part that takes the most time to internalize.
 
-----
+<!-- vertical -->
 
 ## Chat Model
 
@@ -217,7 +217,7 @@ AI: "Updated version: ..."
 
 You control every step. AI is a smart autocomplete.
 
-----
+<!-- vertical -->
 
 ## Pair Programmer Model
 
@@ -234,7 +234,7 @@ You accept or reject.
 
 You still drive. AI handles the typing.
 
-----
+<!-- vertical -->
 
 ## Autonomous Agent Model
 
@@ -250,7 +250,7 @@ runs tests → fixes failures → commits → done.
 
 You supervise. AI drives.
 
-----
+<!-- vertical -->
 
 ## The New Skills
 
@@ -266,7 +266,7 @@ Moving from chat to agent requires different habits:
 | Debugging | Knowing when to redirect |
 | Doing the steps | Approving the plan |
 
-----
+<!-- vertical -->
 
 ## Turn to Your Neighbor
 
@@ -282,7 +282,7 @@ Which modality would you reach for? Why?
 
 Let's make sure everyone has what they need before we start building.
 
-----
+<!-- vertical -->
 
 ## What You Need for This Morning (W02)
 
@@ -294,7 +294,7 @@ Let's make sure everyone has what they need before we start building.
 
 _Raise your hand if you hit a problem_
 
-----
+<!-- vertical -->
 
 ## Create a Project
 
@@ -306,7 +306,7 @@ Claude Projects give your conversation persistent context.
 
 This is where you'll build your app today.
 
-----
+<!-- vertical -->
 
 ## What You Need for This Afternoon (W03)
 
@@ -322,7 +322,7 @@ If you don't have Node.js: [nodejs.org/en/download](https://nodejs.org/en/downlo
 
 We'll install Claude Code together at the start of W03.
 
-----
+<!-- vertical -->
 
 ## Quick Orientation Poll
 

@@ -55,7 +55,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 ## This Week: The Transition
 
 - **P2 is due** -- your pair project wraps up
-- **P3 team formation** -- form your 4-person teams this week
+- **P3 team formation** -- form your pairs this week
 - **New tool, new mental model** -- Claude Code is fundamentally different from IDE chat
 
 P2 taught you pair workflow and IDE AI. P3 will push you into team-scale development with agentic tools.
@@ -870,7 +870,7 @@ This is the workflow you'll use daily in P3.
 **Weekly Quiz 10** -- Claude Code Foundations concepts
 
 **P3 Team Formation:**
-- Form your 4-person teams
+- Form your pairs
 - Create your P3 GitHub repo
 - Run `/init` and commit your initial CLAUDE.md
 
@@ -902,7 +902,7 @@ This is the workflow you'll use daily in P3.
 
 | Resource | URL |
 |----------|-----|
-| Claude Code in Action (Modules 1-3) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
+| Claude Code in Action (Intro, Setup, Context) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
 | Claude Code Overview | [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overview) |
 | CLAUDE.md Documentation | [code.claude.com/docs/en/claude-md](https://code.claude.com/docs/en/claude-md) |
 | Context Management Docs | [code.claude.com/docs/en/context-management](https://code.claude.com/docs/en/context-management) |

@@ -221,18 +221,18 @@ All URLs have been verified as of January 2026.
 
 ### 📚 Required (Before Class)
 
-**Anthropic "Claude Code in Action" Course — Modules 1-3**
-| Module | Topic | URL |
-|--------|-------|-----|
-| Module 1 | Architecture & How Claude Code Works | https://anthropic.skilljar.com/claude-code-in-action |
-| Module 2 | Tool Use System | https://anthropic.skilljar.com/claude-code-in-action |
-| Module 3 | Context Management | https://anthropic.skilljar.com/claude-code-in-action |
+**Anthropic "Claude Code in Action" Course — Introduction, Setup & Context**
+| Lecture | Topic | URL |
+|---------|-------|-----|
+| Introduction | What is a coding assistant? Claude Code in action | https://anthropic.skilljar.com/claude-code-in-action |
+| Setup | Claude Code setup, project setup | https://anthropic.skilljar.com/claude-code-in-action |
+| Adding Context & Controlling Context | Managing context effectively | https://anthropic.skilljar.com/claude-code-in-action |
 
 **Claude Code Documentation**
 | Resource | Description | URL |
 |----------|-------------|-----|
 | Claude Code Overview | What Claude Code is and how to get started | https://code.claude.com/docs/en/overview |
-| CLAUDE.md — Project Instructions | How to write effective CLAUDE.md files | https://code.claude.com/docs/en/claude-md |
+| CLAUDE.md — Project Instructions | How to write effective CLAUDE.md files | https://code.claude.com/docs/en/memory#claude-md-files |
 | Context Management | Managing context window, /clear, /compact, checkpoints | https://code.claude.com/docs/en/context-management |
 | Permissions & Security | Permission model, allowlists, sandboxing | https://code.claude.com/docs/en/permissions |
 | Settings & Configuration | CLI flags, config files, settings hierarchy | https://code.claude.com/docs/en/settings |
@@ -254,11 +254,11 @@ All URLs have been verified as of January 2026.
 
 ### 📚 Required
 
-**Anthropic "Claude Code in Action" Course — Modules 4 & 7**
-| Module | Topic | URL |
-|--------|-------|-----|
-| Module 4 | Visual Workflows & Debugging | https://anthropic.skilljar.com/claude-code-in-action |
-| Module 7 | GitHub Integration | https://anthropic.skilljar.com/claude-code-in-action |
+**Anthropic "Claude Code in Action" Course — Custom Commands & GitHub**
+| Lecture | Topic | URL |
+|---------|-------|-----|
+| Custom Commands | Creating reusable command workflows | https://anthropic.skilljar.com/claude-code-in-action |
+| GitHub Integration | Automated PR reviews and issue handling | https://anthropic.skilljar.com/claude-code-in-action |
 
 **TDD & CI/CD**
 | Resource | Description | URL |
@@ -281,11 +281,11 @@ All URLs have been verified as of January 2026.
 
 ### 📚 Required
 
-**Anthropic "Claude Code in Action" Course — Modules 5 & 6**
-| Module | Topic | URL |
-|--------|-------|-----|
-| Module 5 | Custom Automation (Skills) | https://anthropic.skilljar.com/claude-code-in-action |
-| Module 6 | MCP (Model Context Protocol) | https://anthropic.skilljar.com/claude-code-in-action |
+**Anthropic "Claude Code in Action" Course — MCP, Hooks & SDK**
+| Lecture | Topic | URL |
+|---------|-------|-----|
+| MCP Servers | Connecting external tools and services | https://anthropic.skilljar.com/claude-code-in-action |
+| Hooks and the SDK | Writing hooks, Claude Code SDK | https://anthropic.skilljar.com/claude-code-in-action |
 
 **Claude Code Extensibility Docs**
 | Resource | Description | URL |
@@ -426,9 +426,9 @@ All URLs have been verified as of January 2026.
 | 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
 | 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |
 | 8 | Advanced IDE AI Features | MCP Specification, debugging guides, Antigravity advanced docs |
-| 10 | Claude Code Foundations | Claude Code docs, Anthropic Skilljar Modules 1-3, CLAUDE.md, context management |
-| 11 | Claude Code Workflows & Dev Practices | Skilljar Modules 4 & 7, TDD frameworks, GitHub Actions, CI/CD |
-| 12 | Claude Code Extensibility | Skilljar Modules 5 & 6, Skills, Hooks, MCP, Sub-agents |
+| 10 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
+| 11 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), TDD frameworks, GitHub Actions, CI/CD |
+| 12 | Claude Code Extensibility | Skilljar (MCP, Hooks, SDK), Skills, Hooks, MCP, Sub-agents |
 | 13 | Agent Architectures & Agent SDK | Building Effective Agents, Agent SDK docs, tool use |
 | 14 | Emerging AI Engineering | Prompt caching, OWASP, production deployment, security |
 

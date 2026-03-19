@@ -579,7 +579,7 @@ Each specialist has its own context and worktree. Results merge back via git.
 4. **Review before merging** -- parallel work needs careful integration
 5. **Use Plan mode first** -- have each agent plan before implementing
 
-**For P3 teams:** 3-5 teammates, each running 5-6 tasks in parallel. That's 15-30 parallel workstreams -- coordinate via your scrumboard.
+**For P3 pairs:** 2 teammates, each running 5-6 tasks in parallel. That's 10-12 parallel workstreams -- coordinate via your scrumboard.
 
 ---
 
@@ -817,7 +817,7 @@ After 15 minutes: review, resolve conflicts, merge.
 
 | Resource | URL |
 |----------|-----|
-| Claude Code in Action (Modules 5-6) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
+| Claude Code in Action (MCP, Hooks & SDK) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
 | Skills Documentation | [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) |
 | Hooks Documentation | [code.claude.com/docs/en/hooks](https://code.claude.com/docs/en/hooks) |
 | MCP Servers Documentation | [code.claude.com/docs/en/mcp](https://code.claude.com/docs/en/mcp) |

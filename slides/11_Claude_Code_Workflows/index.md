@@ -60,7 +60,7 @@ Last week you learned the **what** of Claude Code:
 
 ## The P3 Journey
 
-**P3 is now in Sprint 1.** Your 4-person team should have:
+**P3 is now in Sprint 1.** Your pair should have:
 
 - A GitHub repo with a CLAUDE.md
 - A project board with issues
@@ -814,7 +814,7 @@ Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
 
 | Resource | URL |
 |----------|-----|
-| Claude Code in Action (Modules 4, 7) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
+| Claude Code in Action (Custom Commands, GitHub) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
 | Jest Documentation | [jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started) |
 | Vitest Documentation | [vitest.dev/guide](https://vitest.dev/guide/) |
 | GitHub Actions Documentation | [docs.github.com/en/actions](https://docs.github.com/en/actions) |

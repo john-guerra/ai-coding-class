@@ -98,7 +98,7 @@ Each phase has a different **mental mode** and **Claude Code usage pattern**.
 
 **Goal:** Understand the problem and existing code before changing anything.
 
-```
+```text
 > Explore the authentication system. What middleware is used?
 > How are sessions managed? Where are the route guards?
 ```
@@ -108,7 +108,7 @@ Each phase has a different **mental mode** and **Claude Code usage pattern**.
 - You get a mental model without writing any code
 - Save findings to a file if the task is complex
 
-```
+```text
 > Write your findings to docs/auth-analysis.md
 > /clear
 ```
@@ -119,7 +119,7 @@ Each phase has a different **mental mode** and **Claude Code usage pattern**.
 
 **Goal:** Design the solution before writing code.
 
-```
+```text
 > (plan) Add OAuth2 login with Google. The app currently
 > uses session-based auth with express-session.
 ```
@@ -139,7 +139,7 @@ Each phase has a different **mental mode** and **Claude Code usage pattern**.
 * After approving the plan, Claude Code creates/modifies files, installs dependencies, runs tests, and fixes issues along the way. 
 * Your role is to monitor and intervene if needed.
 
-```
+```text
 > Wait -- use passport-google-oauth20, not the deprecated package
 ```
 
@@ -149,7 +149,7 @@ Each phase has a different **mental mode** and **Claude Code usage pattern**.
 
 **COMMIT:** Ship a clean, atomic commit and PR.
 
-```
+```text
 > Create a commit for the Google OAuth integration
 > Push this branch and create a PR with a description
 ```
@@ -162,7 +162,7 @@ Claude Code stages relevant files, writes a descriptive message, and creates the
 
 **Without the pattern:**
 
-```
+```text
 > Add OAuth login
 (Claude Code starts coding immediately, makes assumptions,
  creates a mess across 12 files, hard to review)
@@ -183,7 +183,7 @@ Each phase produces a **reviewable checkpoint**. You catch problems early when t
 
 For large features, use `/clear` between phases:
 
-```
+```text
 Phase 1: EXPLORE  ->  save findings to a file
          /clear
 
@@ -244,7 +244,7 @@ Tests are the **specification**. Claude Code writes code to meet the spec.
 
 ## The AI-TDD Workflow
 
-```
+```text
 1. YOU write the test (the spec)
 2. Commit the failing test
 3. CLAUDE CODE implements the code
@@ -314,6 +314,8 @@ test('email validation rejects all non-email strings', () => {
 
 **Research data:** Property-based testing shows **23-37% improvement** in pass rates for AI-generated code.
 
+<small>Source: [Property-Based Testing for AI-Generated Code](https://arxiv.org/abs/2506.18315) — arXiv, 2025</small>
+
 <!-- vertical -->
 
 ## Mutation Testing with Stryker
@@ -326,7 +328,7 @@ npx stryker run
 
 Stryker **mutates your code** (changes `>` to `>=`, removes lines, flips conditions) and checks if tests catch the mutations.
 
-```
+```text
 Mutation score: 87%
 - 13% of mutations survived (tests didn't catch them)
 - These are gaps in your test suite
@@ -342,6 +344,8 @@ Use mutation testing to evaluate the quality of your test suite, not just covera
 
 Testkube identifies three key risks when AI generates tests:
 
+<small>Source: [Testing AI-Generated Code](https://testkube.io/blog/testing-ai-generated-code) — Testkube</small>
+
 | Risk | Description | Mitigation |
 |------|-------------|------------|
 | **Business logic gaps** | AI tests the code, not the requirement. Tests verify implementation details instead of business rules | Write test descriptions yourself; let AI implement |
@@ -349,6 +353,35 @@ Testkube identifies three key risks when AI generates tests:
 | **Subtle logic errors** | Tests pass but encode wrong assumptions (off-by-one, timezone, encoding) | Review test assertions carefully; use property-based testing |
 
 **Mitigation strategy:** Humans write test descriptions and assertions. AI writes the implementation and boilerplate.
+
+<!-- vertical -->
+
+## TDD Meets Scrum: Closing the Loop
+
+<!-- .slide: class="dense" -->
+
+In W07 you learned Scrum artifacts. TDD is **how you verify them**:
+
+| Scrum (W07) | TDD (W11) |
+|-------------|-----------|
+| Acceptance criterion | Failing test (**RED**) |
+| Sprint dev work | Implement to pass (**GREEN**) |
+| Code review / PR | Tests prove criteria met |
+| Definition of Done | All criteria have passing tests |
+
+**Inside a sprint:**
+
+```text
+GitHub Issue #12: "User can filter by date range"
+  ✅ AC1 → test('filters results by start date')     → RED → GREEN
+  ✅ AC2 → test('filters results by end date')        → RED → GREEN
+  ✅ AC3 → test('returns empty array for no matches') → RED → GREEN
+  ── All tests pass → Definition of Done → commit & PR ──
+```
+
+Each git commit maps to a **verifiable acceptance criterion** from a GitHub Issue.
+
+*This works at every level of the testing pyramid — from unit tests (this week) to E2E tests with Playwright (Week 12).*
 
 ---
 
@@ -362,7 +395,7 @@ Testkube identifies three key risks when AI generates tests:
 
 Claude Code has full access to `git` and `gh` (GitHub CLI). You can:
 
-```
+```text
 > Create a branch called feat/oauth-login
 > Commit the current changes with a descriptive message
 > Push and create a PR
@@ -376,7 +409,9 @@ Claude Code runs the appropriate git/gh commands and handles the details.
 
 ## Branch-Per-Feature Workflow
 
-```
+<!-- .slide: class="dense" -->
+
+```text
 main
   |
   +-- feat/oauth-login        (your feature branch)
@@ -392,11 +427,40 @@ main
         +-- PR #43 -> main
 ```
 
-```
+```text
 > Create a branch called feat/oauth-login from main
 > ... (work on the feature) ...
 > Push this branch and create a PR targeting main
 ```
+
+<!-- vertical -->
+
+## GitHub Issues as Testable Specifications
+
+<!-- .slide: class="dense" -->
+
+The quality of your GitHub Issues determines the quality of your tests.
+
+| ❌ Weak Issue | ✅ Strong Issue |
+|--------------|----------------|
+| **Title:** Add search | **Title:** Add search by name and email |
+| **Body:** Users should be able to search. | **Acceptance Criteria:** |
+| | ☐ Search by name returns partial matches |
+| | ☐ Search by email returns exact match |
+| | ☐ Empty query returns all users |
+| | ☐ No results shows "No users found" |
+
+**Each checkbox becomes a test:**
+
+```javascript
+// From Issue #15 acceptance criteria → test names
+test('search by name returns partial matches')     // AC1
+test('search by email returns exact match')         // AC2
+test('empty query returns all users')               // AC3
+test('no results shows "No users found" message')   // AC4
+```
+
+**Issue criteria = test names = Definition of Done**
 
 <!-- vertical -->
 
@@ -413,7 +477,7 @@ gh pr merge 42 --squash    # Merge when ready
 
 **A complete feature in natural language:**
 
-```
+```text
 1. > Create branch feat/user-search from main
 2. > (plan) Add full-text search to the users endpoint
 3. > Implement the plan
@@ -429,13 +493,14 @@ gh pr merge 42 --squash    # Merge when ready
 
 > GitHub Actions setup and AI-powered PR review
 
+
 <!-- vertical -->
 
 ## Setting Up GitHub Actions
 
 Ask Claude Code to create your CI pipeline:
 
-```
+```text
 > Set up GitHub Actions for this project:
 > - Run tests on every PR, run linting, build check
 > - Deploy to Vercel on merge to main
@@ -446,6 +511,8 @@ Claude Code creates `.github/workflows/ci.yml` configured for your stack.
 <!-- vertical -->
 
 ## AI-Powered PR Review (claude-code-action)
+
+<!-- .slide: class="dense" -->
 
 ```yaml
 # .github/workflows/claude-review.yml
@@ -497,7 +564,7 @@ Read-only tools prevent Claude from modifying files or running commands in CI.
 
 Hooks are **deterministic scripts** that run before or after Claude Code tool calls:
 
-```
+```text
 Claude wants to edit a file
         |
         v
@@ -536,6 +603,8 @@ Claude wants to edit a file
 
 ## Example: Block Writes to Sensitive Files
 
+<!-- .slide: class="dense" -->
+
 ```json
 // .claude/settings.json
 {
@@ -562,6 +631,8 @@ sys.exit(0)
 <!-- vertical -->
 
 ## Example: Auto-Format After Edits
+
+<!-- .slide: class="dense" -->
 
 ```json
 {
@@ -605,7 +676,7 @@ Every time Claude Code edits or creates a file, Prettier auto-formats it. No mor
 
 Claude Code accepts images. Paste a screenshot directly into the terminal:
 
-```
+```text
 > [paste screenshot of error in browser]
 > Fix this error
 ```
@@ -622,6 +693,8 @@ Claude Code will:
 
 ## The Debug Workflow
 
+<!-- .slide: class="dense" -->
+
 <pre class="mermaid">
 %%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 30}}}%%
 flowchart LR
@@ -632,7 +705,7 @@ flowchart LR
 
 **Example:**
 
-```
+```text
 > I'm getting this error when I click the login button:
 > [paste screenshot]
 > The error started after the last commit.
@@ -729,13 +802,15 @@ flowchart LR
 
 Research shows **85% agreement** with human judgment -- higher than human-human agreement at **81%**.
 
+<small>Source: [Judging LLM-as-a-Judge](https://arxiv.org/abs/2306.05685) — Zheng et al., 2023</small>
+
 <!-- vertical -->
 
 ## Scoring Approaches
 
 **Pointwise scoring** -- rate each output independently (1-5 scale):
 
-```
+```text
 Rate this code review comment from 1-5:
 Comment: "This function has O(n^2) complexity due
 to the nested loop. Consider using a Set for O(n)."
@@ -754,7 +829,7 @@ to the nested loop. Consider using a Set for O(n)."
 | **Position bias** | Prefers the first option in comparisons | Swap order and average scores |
 | **Verbosity bias** | Rates longer responses higher | Normalize for length |
 | **Self-enhancement** | Rates its own model's output higher | Use a different model as judge |
-| **Wrong logic analysis** | Accepts plausible-sounding but incorrect reasoning (52.8% of cases) | Use binary sub-questions |
+| **Wrong logic analysis** | Accepts plausible-sounding but incorrect reasoning ([52.8%](https://arxiv.org/abs/2410.02184) of cases) | Use binary sub-questions |
 
 These biases are well-documented. You must mitigate them for reliable evaluations.
 

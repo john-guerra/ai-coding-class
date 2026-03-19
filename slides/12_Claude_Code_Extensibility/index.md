@@ -78,7 +78,7 @@ All of these directly support your **P3 Sprint 2** work.
 
 Skills are markdown files in `.claude/skills/` that teach Claude Code **how to perform specific tasks**.
 
-```
+```text
 your-project/
   .claude/
     skills/
@@ -167,7 +167,7 @@ Your team's best practices are encoded as repeatable, shareable commands.
 
 Hooks run **shell commands** at specific points in Claude Code's lifecycle. Unlike CLAUDE.md instructions (which are advisory), hooks are **deterministic** -- they always execute.
 
-```
+```text
 Advisory (CLAUDE.md):
   "Please run prettier after editing files"
   --> Claude might forget
@@ -183,7 +183,7 @@ Deterministic (Hook):
 
 Three hook events you can tap into:
 
-```
+```text
   Think --> PreToolUse --> Execute Tool
                               |
                           PostToolUse
@@ -283,7 +283,7 @@ Exit code 2 blocks the edit and feeds the message back to Claude. Exit code 0 me
 
 # MCP Servers
 
-> The "USB-C of AI" -- connecting Claude Code to everything
+> The "[USB-C of AI](https://www.anthropic.com/news/model-context-protocol)" -- connecting Claude Code to everything
 
 <!-- vertical -->
 
@@ -307,7 +307,7 @@ MCP servers translate between Claude Code's tool-use protocol and external APIs.
 
 Without MCP:
 
-```
+```text
 You: "What tables exist in our database?"
 You: *open pgAdmin, run query, copy results*
 You: *paste into Claude Code*
@@ -315,7 +315,7 @@ You: *paste into Claude Code*
 
 With MCP:
 
-```
+```text
 You: "What tables exist in our database?"
 Claude: *calls PostgreSQL MCP server*
 Claude: "Your database has 12 tables..."
@@ -367,13 +367,42 @@ Commit to git -- every teammate gets the same MCP connections automatically.
 
 <!-- vertical -->
 
+## E2E Testing with Playwright MCP
+
+<!-- .slide: class="dense" -->
+
+E2E tests verify **user stories**, not functions. Each acceptance criterion (W11) becomes a browser-level test:
+
+| Issue #15 Acceptance Criteria | Playwright Test |
+|-------------------------------|-----------------|
+| ☐ Search by name returns partial matches | `test('search filters by name')` |
+| ☐ No results shows "No users found" | `test('shows empty state message')` |
+
+```javascript
+// tests/e2e/search.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('search filters by name', async ({ page }) => {
+  await page.goto('/users');
+  await page.fill('[data-testid="search"]', 'alice');
+  await expect(page.locator('.user-card')).toContainText('Alice');
+  await expect(page.locator('.user-card')).not.toContainText('Bob');
+});
+```
+
+**AI-assisted workflow:** Describe the user flow → Claude Code writes the Playwright test → runs it via MCP → sees browser results → fixes failures.
+
+**CI tip:** E2E tests run last — unit tests catch most bugs faster.
+
+<!-- vertical -->
+
 ## Tool Search: Scaling MCP
 
 When you add many MCP servers, their **tool definitions consume context**.
 
 Claude Code activates **Tool Search** automatically when tool definitions exceed ~10% of the context window.
 
-```
+```text
 Before Tool Search:
   All tool definitions loaded in context
   (hundreds of tools = thousands of tokens)
@@ -420,7 +449,7 @@ This course's own Canvas integration uses a custom MCP server (`tools/canvas-ext
 
 Sub-agents are **specialized Claude Code instances** defined in `.claude/agents/`:
 
-```
+```text
 .claude/
   agents/
     security-reviewer.md
@@ -452,7 +481,7 @@ Sub-agents get their own context window and can operate in an isolated worktree.
 
 The `isolation: worktree` setting gives the sub-agent its own **git worktree** -- a separate working directory.
 
-```
+```text
 Main worktree:     ~/project/          (your work)
 Sub-agent worktree: ~/project/.claude/
                       worktrees/security-reviewer/
@@ -498,7 +527,7 @@ claude --worktree
 
 Creates a **new git worktree** in `.claude/worktrees/` with its own branch. Claude Code works there without touching your main working directory.
 
-```
+```text
 ~/project/                    (main worktree -- your code)
 ~/project/.claude/worktrees/
   feature-auth/               (worktree 1 -- auth feature)
@@ -514,7 +543,7 @@ All worktrees share the same git history but have independent file states.
 
 Open several terminal windows, each running Claude Code on a different task:
 
-```
+```text
 Terminal 1: claude --worktree
   > "Implement the user profile API endpoint"
 
@@ -533,7 +562,7 @@ Each works in its own worktree. Merge results via git when done.
 
 Ask two agents to solve the **same problem** independently, then compare:
 
-```
+```text
 Terminal 1: claude --worktree
   > "Implement caching for the API using Redis"
 
@@ -552,7 +581,7 @@ Useful when you're unsure about the right approach.
 
 **Background orchestration:** Fire-and-forget with `run_in_background`:
 
-```
+```text
 > Run a sub-agent in the background to add
 > comprehensive tests for the auth module.
 > I'll keep working on the API routes.
@@ -560,7 +589,7 @@ Useful when you're unsure about the right approach.
 
 **Specialist sub-agents:** Combine sub-agents with worktrees:
 
-```
+```text
 Main session:     "Working on the checkout flow"
 Background 1:     security-reviewer (vulnerabilities)
 Background 2:     test-writer (tests for new code)
@@ -634,6 +663,8 @@ AI-generated code has **specific failure patterns** that human code doesn't:
 - **2.74x** more cross-site scripting (XSS) vulnerabilities
 - **1.91x** more insecure direct object references
 
+<small>Source: [Code Review Checklist for AI-Generated Code](https://clacky.ai/blog/code-review-checklist-ai-generated-code) — ClackyAI</small>
+
 The code _looks_ correct. It passes a quick scan. But it hides subtle issues.
 
 <!-- vertical -->
@@ -642,9 +673,9 @@ The code _looks_ correct. It passes a quick scan. But it hides subtle issues.
 
 **False confidence:** AI code is well-formatted and commented, creating an illusion of quality. Reviewers let their guard down.
 
-**Hallucinated APIs:** The AI calls functions or methods that don't exist. Simon Willison notes these are actually "the least dangerous" kind of hallucination -- they cause immediate, visible errors.
+**Hallucinated APIs:** The AI calls functions or methods that don't exist. Simon Willison notes these are actually "[the least dangerous](https://simonwillison.net/2025/Mar/2/hallucinations-in-code/)" kind of hallucination -- they cause immediate, visible errors.
 
-**Duplicate logic:** Without global project awareness, AI generates redundant implementations. One team found **11 different email validation implementations** in their AI-assisted codebase.
+**Duplicate logic:** Without global project awareness, AI generates redundant implementations -- multiple versions of the same utility (e.g., email validation, date formatting) scattered across the codebase.
 
 **Stale patterns:** AI may use deprecated APIs or outdated patterns from its training data.
 
@@ -712,7 +743,7 @@ Including a "% AI-generated" field helps reviewers know where to focus their att
 
 ## Putting It All Together
 
-```
+```text
 .claude/
   skills/fix-issue.md       Standardized workflows
   agents/security-reviewer.md   Specialized reviewers
@@ -762,7 +793,7 @@ Add an MCP server to your project (Playwright, filesystem, or database). Use `cl
 
 Split your team and run parallel agents:
 
-```
+```text
 Teammate A: claude --worktree
   > "Implement [feature from scrumboard]"
 

@@ -90,6 +90,8 @@ flowchart LR
 
 Each phase has a different **mental mode** and **Claude Code usage pattern**.
 
+<small>Source: [Best Practices for Claude Code](https://docs.anthropic.com/en/docs/claude-code/best-practices) — Anthropic</small>
+
 <!-- vertical -->
 
 ## Phase 1: EXPLORE
@@ -131,13 +133,19 @@ Each phase has a different **mental mode** and **Claude Code usage pattern**.
 
 <!-- vertical -->
 
-## Phase 3: IMPLEMENT / Phase 4: COMMIT
+## Phase 3: IMPLEMENT
 
-**IMPLEMENT:** After approving the plan, Claude Code creates/modifies files, installs dependencies, runs tests, and fixes issues along the way. Your role is to monitor and intervene if needed.
+**IMPLEMENT:** 
+* After approving the plan, Claude Code creates/modifies files, installs dependencies, runs tests, and fixes issues along the way. 
+* Your role is to monitor and intervene if needed.
 
 ```
 > Wait -- use passport-google-oauth20, not the deprecated package
 ```
+
+<!-- vertical -->
+
+## Phase 4: COMMIT
 
 **COMMIT:** Ship a clean, atomic commit and PR.
 
@@ -190,17 +198,40 @@ Phase 4: COMMIT   ->  review changes, commit
 
 Your findings and plans **persist in files**, not in context. This lets you tackle tasks larger than the 200K token window.
 
+<!-- vertical -->
+
+## Recommended, Not Automatic
+
+<!-- .slide: class="dense" -->
+
+This workflow is a **best practice pattern**, not a built-in feature.
+
+Claude Code provides the **building blocks**:
+
+| Phase | Tool Support |
+|-------|-------------|
+| Explore | Subagents, `@` references, Plan Mode (read-only) |
+| Plan | Plan Mode (`Ctrl+G`), edit plans in your editor |
+| Implement | Normal Mode, tests, screenshots, hooks |
+| Commit | `/commit`, PR creation via `gh` |
+
+**You** provide the discipline to use them in sequence.
+
+Skills and plugins can add more structure — but the pattern starts with you.
+
 ---
 
 # TDD with Claude Code
 
-> "The single highest-leverage thing" -- Anthropic
+> "The single highest-leverage thing" — Anthropic Best Practices
 
 <!-- vertical -->
 
 ## Why TDD Is Critical with AI
 
-Anthropic calls TDD **"the single highest-leverage thing"** you can do when coding with AI.
+Anthropic calls giving Claude verification **"the single highest-leverage thing"** you can do when coding with AI. TDD is the most powerful form of this.
+
+<small>Source: [Best Practices for Claude Code](https://docs.anthropic.com/en/docs/claude-code/best-practices) — Anthropic</small>
 
 **Why?** AI-generated code needs a **verification mechanism**:
 
@@ -233,6 +264,8 @@ flowchart TD
 
 ## Example: TDD in Practice
 
+<!-- .slide: class="dense" -->
+
 **Step 1 (you):** Write the failing test
 
 ```javascript
@@ -250,6 +283,8 @@ describe('UserService', () => {
 });
 ```
 
+<!-- vertical -->
+
 **Step 2:** Commit the test: `git commit -m "test: user creation specs"`
 
 **Step 3 (Claude Code):** `> The tests in user-service.test.js are failing. Implement createUser to make them pass. Do not modify the tests.`
@@ -257,6 +292,8 @@ describe('UserService', () => {
 <!-- vertical -->
 
 ## Property-Based Testing with fast-check
+
+<!-- .slide: class="dense" -->
 
 Go beyond example-based tests. **Property-based testing** generates hundreds of random inputs:
 

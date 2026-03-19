@@ -674,6 +674,8 @@ Every time Claude Code edits or creates a file, Prettier auto-formats it. No mor
 
 ## Pasting Screenshots
 
+<!-- .slide: class="dense" -->
+
 Claude Code accepts images. Paste a screenshot directly into the terminal:
 
 ```text

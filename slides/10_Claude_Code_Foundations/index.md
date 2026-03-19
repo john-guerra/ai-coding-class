@@ -178,11 +178,11 @@ What happens:
 
 Try something simple:
 
-```
+```text
 > Explain the architecture of this project
 ```
 
-```
+```text
 > What does the test suite cover?
 ```
 
@@ -221,7 +221,7 @@ A markdown file in your project root that Claude Code reads **every session**.
 
 It is your project's **onboarding document for the AI** -- the same way you'd onboard a new teammate.
 
-```
+```text
 your-project/
   CLAUDE.md        <-- Claude Code reads this automatically
   package.json
@@ -317,7 +317,7 @@ This keeps your CLAUDE.md concise while giving Claude Code access to detailed re
 
 Claude Code merges multiple CLAUDE.md files from different locations:
 
-```
+```text
 ~/.claude/CLAUDE.md          (1) Global -- applies to ALL projects
   |
   +-- your-project/
@@ -342,14 +342,14 @@ Claude Code can **remember things across sessions** on its own.
 
 When you tell it something important, it may save it to CLAUDE.md automatically:
 
-```
+```text
 You: "Always use vitest instead of jest in this project"
 Claude Code: "I'll remember that." (adds to CLAUDE.md)
 ```
 
 You can also explicitly ask:
 
-```
+```text
 You: "Remember that our API rate limit is 100 req/min"
 ```
 
@@ -407,7 +407,7 @@ It chains tools naturally. A single prompt can trigger 10+ tool calls in sequenc
 
 Every tool call requires your approval by default:
 
-```
+```text
 Claude wants to run: npm test
 Allow? (y/n/always)
 ```
@@ -492,7 +492,7 @@ Claude Code has a ~200K token context window. That sounds like a lot, but:
 
 ## /clear -- Reset Context
 
-```
+```text
 > /clear
 ```
 
@@ -511,7 +511,7 @@ Wipes the conversation history. Claude Code starts fresh but still reads CLAUDE.
 
 <!-- .slide: class="dense" -->
 
-```
+```text
 > /compact
 ```
 
@@ -530,7 +530,7 @@ Claude Code summarizes the conversation so far into a compressed form, freeing u
 
 Claude Code creates **checkpoints** at key moments (before major edits, after commits).
 
-```
+```text
 > /rewind
 ```
 
@@ -624,7 +624,7 @@ claude --model claude-opus-4-6
 
 **Bad:** Dumping everything into context upfront.
 
-```
+```text
 > Read all files in src/, then read all tests, then read
 > the README, then read package.json, then...
 ```
@@ -633,7 +633,7 @@ This fills your context window before you've done any real work.
 
 **Good:** Let Claude Code pull in context as needed.
 
-```
+```text
 > Add input validation to the user registration endpoint
 ```
 
@@ -647,7 +647,7 @@ Claude Code will read only the files it needs. Trust the agentic loop.
 
 For complex tasks, use `/clear` as a **context reset tool**:
 
-```
+```text
 Phase 1: EXPLORE
 > Explore the auth system and summarize findings
 
@@ -690,7 +690,7 @@ Your **findings persist in files**, not in context. This lets you tackle tasks l
 
 **Normal mode:** Claude Code reads, edits, and executes immediately.
 
-```
+```text
 > Fix the broken import in UserList.tsx
 ```
 
@@ -698,7 +698,7 @@ Good for small, well-defined tasks.
 
 **Plan mode:** Claude Code creates a plan first, then waits for your approval before executing.
 
-```
+```text
 > (plan) Refactor the authentication system to use JWT
 ```
 
@@ -844,7 +844,7 @@ Commit it to your repo. This is a living document -- you'll update it throughout
 
 Try this four-step workflow on a simple task:
 
-```
+```text
 1. > Explore the codebase and explain the project structure
 
 2. > (plan) Add a health check endpoint at GET /api/health

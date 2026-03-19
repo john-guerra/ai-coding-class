@@ -90,7 +90,7 @@ A plain text file at the root of your project.
 
 Claude Code reads it on every startup — before doing anything else.
 
-```
+```text
 my-project/
 ├── CLAUDE.md        ← Claude reads this first
 ├── src/
@@ -237,7 +237,7 @@ npm test
 ```
 
 Routes:
-```
+```text
 GET    /todos       list all todos
 POST   /todos       create a todo  { title }
 PUT    /todos/:id   update a todo  { title?, completed? }
@@ -258,7 +258,7 @@ Requirements:
 
 **The prompt to use:**
 
-```
+```text
 Add a "priority" field to todos (values: low, medium, high;
 default: medium). GET /todos should support filtering by
 ?priority=high. Validate the priority value.
@@ -318,7 +318,7 @@ claude
 
 Warm-up prompt to verify your CLAUDE.md is working:
 
-```
+```text
 Explore this project and summarize its architecture.
 ```
 
@@ -336,7 +336,7 @@ Does Claude Code's summary match what you wrote? If not, update CLAUDE.md.
 
 ## Give Claude Code the Task
 
-```
+```text
 Add a "priority" field to todos (values: low, medium, high;
 default: medium). GET /todos should support filtering by
 ?priority=high. Validate the priority value.
@@ -383,19 +383,19 @@ Then: **watch and supervise.**
 Try one of these:
 
 **Stats endpoint:**
-```
+```text
 Add GET /todos/stats — returns count of todos by priority
 ({ low: 2, medium: 5, high: 1 }) and completion rate.
 ```
 
 **Input sanitization:**
-```
+```text
 Sanitize todo titles — strip leading/trailing whitespace
 and reject titles over 200 characters.
 ```
 
 **Completion shortcut:**
-```
+```text
 Add PATCH /todos/:id/complete as a shortcut for marking
 a todo complete. Should work alongside PUT /todos/:id.
 ```

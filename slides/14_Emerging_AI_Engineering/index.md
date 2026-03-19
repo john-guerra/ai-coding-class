@@ -91,7 +91,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 **Why Vercel?** Built by the Next.js team. Zero-config, automatic HTTPS, CDN, edge functions, generous free tier.
 
-```
+```text
 npm i -g vercel
 vercel login
 vercel          # deploys to preview
@@ -100,7 +100,7 @@ vercel --prod   # deploys to production
 
 **Every PR gets its own preview URL automatically:**
 
-```
+```text
 PR #42: add-login-page
   -> https://myapp-pr-42.vercel.app
 ```
@@ -119,7 +119,7 @@ Reviewers test the PR live before merging. No branch pulling needed.
 | Preview | Vercel dashboard > Settings > Env Vars |
 | Production | Vercel dashboard > Settings > Env Vars |
 
-```
+```text
 # .env.local (gitignored)
 DATABASE_URL=postgres://localhost:5432/myapp_dev
 
@@ -133,7 +133,7 @@ DATABASE_URL=postgres://prod-server:5432/myapp
 
 **Never deploy directly. Let the pipeline decide.**
 
-```
+```text
 main branch push -> CI/CD runs -> All pass? -> Deploy
                                   Fail?     -> Block + notify
 ```
@@ -229,7 +229,7 @@ Sentry.init({
 
 **With a Sentry MCP server, Claude Code can query your errors directly:**
 
-```
+```text
 > "What are the top 5 errors in production this week?"
 Claude reads Sentry API -> summarizes -> suggests fixes
 ```
@@ -347,7 +347,7 @@ const HeavyChart = dynamic(
 
 **Problem:** Repeated API calls with similar prompts waste tokens.
 
-```
+```text
 First call:
   [System prompt: 2000 tokens] + [User query: 50 tokens]
   -> Full processing, result cached
@@ -388,7 +388,7 @@ Second call (same system prompt):
 | **Sonnet** | Daily coding, PR reviews, standard features | $$ | Medium |
 | **Haiku** | Simple tasks, classification, batch processing | $ | Fast |
 
-```
+```text
 "Fix this typo in the README"         -> Haiku  ($0.001)
 "Implement login following auth pattern" -> Sonnet ($0.01)
 "Redesign DB schema for multi-tenancy"  -> Opus   ($0.10)
@@ -469,7 +469,7 @@ When Claude Code processes your request:
 
 **Embeddings turn text into numbers that capture meaning.**
 
-```
+```text
 "authentication middleware" -> [0.82, -0.15, 0.43, ...]  (1536 dims)
 "login security check"     -> [0.79, -0.12, 0.41, ...]  (similar!)
 "database migration"       -> [0.11, 0.67, -0.33, ...]  (different)
@@ -524,7 +524,7 @@ FROM docs ORDER BY embedding <=> query_vec LIMIT 5;
 
 **For code:** AST-based chunking preserves function boundaries. A function split across two chunks loses meaning.
 
-```
+```text
 // Good: one chunk per function
 chunk_1: function authenticate(user, pass) { ... }
 chunk_2: function validateToken(token) { ... }
@@ -689,7 +689,7 @@ flowchart LR
 
 **Architecture (2 min) -- show a Mermaid diagram:**
 
-```
+```text
 graph LR
   A[React Frontend] --> B[Next.js API]
   B --> C[PostgreSQL]
@@ -746,6 +746,8 @@ Highlight tech stack choices, key decisions, where AI agents fit.
 
 Students who reflect on their learning retain information 23% better, transfer skills to new contexts more effectively, and develop stronger metacognitive abilities.
 
+<small>Source: [Learning by Thinking](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478) — Di Stefano et al., Harvard Business School</small>
+
 **This is not a "soft" exercise. It's a learning multiplier.**
 
 <!-- vertical -->
@@ -790,7 +792,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 ## The Learning Arc
 
-```
+```text
 Weeks 1-3: Understanding AI
   "What are LLMs? How do prompts work?"
 
@@ -813,7 +815,7 @@ Weeks 13-14: Architecting with AI (Agents & Production)
 
 ## From Individual to Production
 
-```
+```text
 P1: Individual Mastery
   Solo project, Claude Web, basic engineering
   "Can I build something useful with AI?"

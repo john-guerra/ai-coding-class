@@ -168,7 +168,7 @@ Claude can **see** your designs:
 
 ## The Mockup-to-Artifact Workflow
 
-```
+```text
 1. Sketch your interface (paper, Figma, etc.)
 2. Upload the image to Claude
 3. "Build this as an interactive artifact"
@@ -404,7 +404,7 @@ Copy the error message and paste it to Claude:
 
 ## Iterative Debugging Workflow
 
-```
+```text
 1. See the error or unexpected behavior
 2. Describe what you expected vs. what happened
 3. Claude proposes a fix
@@ -447,7 +447,7 @@ Copy the error message and paste it to Claude:
 
 ## The Artifact Development Loop
 
-```
+```text
 Plan → Mockup → Upload → Build → Test → Iterate
   ↑                                        |
   └────────────────────────────────────────┘

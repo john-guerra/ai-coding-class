@@ -43,7 +43,7 @@ Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lecture
 
 **Same model, different prompts:**
 
-```
+```text
 Prompt 1: "Write a function"
 Result: Generic, maybe wrong
 
@@ -121,12 +121,12 @@ Not every prompt needs all five, but more context = better results.
 # Example: Building a Prompt
 
 **Bad prompt:**
-```
+```text
 Make a login form
 ```
 
 **Good prompt:**
-```
+```text
 Context: I'm building a React app with TypeScript and TailwindCSS.
 Task: Create a login form component with email and password fields.
 Format: Functional component with proper TypeScript types.
@@ -154,7 +154,7 @@ Examples: Similar to shadcn/ui form patterns.
 - Changes each interaction
 - References the system context
 
-```
+```text
 [System] You are a TypeScript expert who writes clean code...
 [User] Create a function that validates phone numbers
 ```
@@ -163,7 +163,7 @@ Examples: Similar to shadcn/ui form patterns.
 
 # The Iteration Loop
 
-```
+```text
 1. Write initial prompt
        ↓
 2. Review output
@@ -191,13 +191,13 @@ Techniques that consistently improve results.
 
 **Zero-shot:** Just ask, no examples
 
-```
+```text
 Convert this date to ISO format: "January 15, 2026"
 ```
 
 **Few-shot:** Provide examples first
 
-```
+```text
 Convert dates to ISO format:
 - "March 1, 2024" → "2024-03-01"
 - "December 25, 2023" → "2023-12-25"
@@ -212,7 +212,7 @@ Convert dates to ISO format:
 
 **Force the AI to think step-by-step:**
 
-```
+```text
 Before writing code, analyze this problem:
 
 1. What are the inputs and outputs?
@@ -232,7 +232,7 @@ Before writing code, analyze this problem:
 
 **Give the AI a persona:**
 
-```
+```text
 You are a senior software engineer at a FAANG company
 doing a code review. Be critical and thorough.
 
@@ -255,7 +255,7 @@ Review this function for:
 
 **Request specific formats:**
 
-```
+```text
 Return your analysis as JSON:
 {
   "summary": "one sentence",
@@ -280,7 +280,7 @@ Return your analysis as JSON:
 
 **Real-world prompt using multiple patterns:**
 
-```
+```text
 [Role] You are a TypeScript expert focused on clean code.
 
 [Chain-of-thought] First, analyze what this function does.
@@ -338,7 +338,7 @@ Input: function fetchUser(id){...}
 
 **The workflow:**
 
-```
+```text
 1. Describe your problem/idea
        ↓
 2. Let Claude ask clarifying questions
@@ -366,7 +366,7 @@ Input: function fetchUser(id){...}
 
 **Debugging tip:** Describe what's wrong, not the technical error.
 
-```
+```text
 Bad:  "I get TypeError: undefined is not a function"
 Good: "When I click submit with empty fields, nothing happens"
 ```

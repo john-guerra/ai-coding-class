@@ -144,7 +144,7 @@ def add(a, b):
 - Prompts ARE the new code
 - The model "executes" your English instructions
 
-```
+```text
 Software 1.0: Tell machine HOW to do it
 Software 2.0: Show machine WHAT to do (examples)
 Software 3.0: Tell machine WHAT you want (English)
@@ -284,7 +284,7 @@ This is why we're learning **all three modalities** in this course!
 
 <!-- .slide: class="dense" -->
 
-```
+```text
 Input:  "The quick brown fox"
 Target: "jumps"
 
@@ -537,7 +537,7 @@ Best practices for different tasks:
 
 **Example:**
 
-```
+```text
 king - man + woman ≈ queen
 ```
 
@@ -641,7 +641,7 @@ This is crucial for understanding how AI coding tools work.
 
 # Chatbots: Faking Memory
 
-```
+```text
 [Previous messages get prepended to every new request]
 
 User: What's 2+2?
@@ -701,7 +701,7 @@ How much can models "remember"? (Jan 2026)
 
 # RAG: The Concept
 
-```
+```text
 1. User asks a question
 2. System searches relevant documents (using embeddings!)
 3. Retrieved chunks are added to the prompt
@@ -718,7 +718,7 @@ How much can models "remember"? (Jan 2026)
 
 # Under the Hood: Cursor
 
-```
+```text
 [System Prompt]
 You are a helpful coding assistant...
 Here are the user's preferences from .cursorrules:
@@ -747,7 +747,7 @@ Here are the user's preferences from .cursorrules:
 
 **Example .cursorrules:**
 
-```
+```text
 Use TypeScript with strict mode
 Prefer functional components
 Always include error handling

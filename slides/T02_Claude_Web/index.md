@@ -111,7 +111,7 @@ Each one multiplies the value of the others.
 
 <!-- Note: DEMO — Type this prompt exactly as written, then show the artifact as it renders. Point out that Claude built the whole thing: HTML structure, JavaScript state, a chart. No boilerplate, no configuration. -->
 
-```
+```text
 Build me a simple expense tracker. I can add expenses
 with a category and amount. Show me a chart of spending
 by category.
@@ -128,7 +128,7 @@ by category.
 
 <!-- Note: DEMO — Add a few test expenses first so the chart has data. Then type the iteration prompt. Show how Claude updates the artifact in place — it doesn't start over, it extends what's there. Point out the budget progress bar. -->
 
-```
+```text
 Add a monthly budget goal and show me how close I am
 to hitting it.
 ```
@@ -144,7 +144,7 @@ to hitting it.
 
 <!-- Note: DEMO — Type this prompt, then click a category bar in the chart to demonstrate. This is the moment that usually gets a reaction from the audience — it shows that Claude can add real interactivity, not just static UI. -->
 
-```
+```text
 Make the chart interactive — clicking a category shows
 the individual expenses for that category.
 ```
@@ -174,12 +174,12 @@ the individual expenses for that category.
 ## Pattern 1: Specificity
 
 **Vague → Generic output**
-```
+```text
 Build me a dashboard
 ```
 
 **Specific → Targeted output**
-```
+```text
 Build me a dashboard that shows monthly revenue,
 new signups, and churn rate as three KPI cards
 at the top, with a line chart of revenue over the
@@ -208,7 +208,7 @@ You don't need all five every time — but the more you include, the better the 
 
 **Describe what you see, not what you want changed.**
 
-```
+```text
 Bad:  "Fix the layout"
 Good: "The sidebar is overlapping the main content
        on screens smaller than 800px"
@@ -226,7 +226,7 @@ Claude can't see your screen. Describe the symptom, not the diagnosis.
 
 **Don't try to get it perfect in one shot.**
 
-```
+```text
 Round 1: "Build an expense tracker"
          → Get the basic structure working
 
@@ -248,7 +248,7 @@ Round 4: "Change the color scheme to greens and blues"
 
 Limitations force better solutions.
 
-```
+```text
 "Make it work without a database — store everything
  in the browser"
 
@@ -278,12 +278,12 @@ Constraints tell Claude what tradeoffs to make. Without them, it guesses.
 ## Putting It Together
 
 **Before (weak):**
-```
+```text
 Make me a budget app
 ```
 
 **After (strong):**
-```
+```text
 Build a personal budget tracker for one month.
 
 I can enter income and expenses, each with a name,
@@ -356,7 +356,7 @@ When you hit these walls, that's not a failure — it's the prototype doing its 
 - They're perfect for **demos, personal tools, and learning**
 - The conversation stays the same — only the environment changes
 
-```
+```text
 Idea → Claude Web Artifact   (minutes, zero setup)
                ↓
        Does it work? Is it worth building?

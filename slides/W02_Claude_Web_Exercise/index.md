@@ -70,7 +70,7 @@ _Pick based on what you'd actually use. That motivation helps._
 
 **Starter prompt — copy this exactly:**
 
-```
+```text
 Build me a personal expense tracker as a React artifact.
 
 Features:
@@ -91,7 +91,7 @@ Use a light color scheme.
 
 **Starter prompt — copy this exactly:**
 
-```
+```text
 Build me a daily habit tracker as a React artifact.
 
 Features:
@@ -110,7 +110,7 @@ Use green for completed, light gray for missed.
 
 **Starter prompt — copy this exactly:**
 
-```
+```text
 Build me a personal recipe book as a React artifact.
 
 Features:
@@ -130,7 +130,7 @@ Warm color scheme. No backend needed.
 
 **Starter prompt — copy this exactly:**
 
-```
+```text
 Build me a reading list tracker as a React artifact.
 
 Features:
@@ -174,7 +174,7 @@ Before you send that first prompt:
 Claude should generate an **Artifact** — a rendered interactive app on the right side of the screen.
 
 If you only see text: add this to your prompt:
-```
+```text
 Give me this as a runnable React artifact.
 ```
 
@@ -206,13 +206,13 @@ If the artifact shows a blank white screen:
 
 If Claude generates something broken:
 
-```
+```text
 Use the "Try fixing with Claude" button first.
 ```
 
 If it's still broken, describe expected vs actual:
 
-```
+```text
 "I expected the form to clear after I submit,
 but it keeps the old values. Fix this."
 ```

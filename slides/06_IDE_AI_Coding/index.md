@@ -118,7 +118,7 @@ Understanding this shift is key to getting results from IDE AI tools.
 
 ## The Architecture Pipeline
 
-```
+```text
 Your Code
    ↓
 Editor Extension (Antigravity / Copilot / Cursor)
@@ -170,7 +170,7 @@ Different tools use different mixes of these strategies.
 
 Before FIM, the model only saw code **above** the cursor. FIM sends both sides:
 
-```
+```text
 Before FIM:          After FIM (FIM):
 ┌──────────────┐     ┌──────────────┐
 │ code above ← │     │ prefix     ← │
@@ -231,7 +231,7 @@ Understanding this is the key to getting better results.
 
 ## How Tab Autocomplete Works
 
-```
+```text
 You type:  function validateEma|
                                 ↑ cursor here
 
@@ -479,7 +479,7 @@ Specific: "The `getUserProfile` function in `@src/api/users.ts` returns null whe
 
 **The AI assembles context in this priority order:**
 
-```
+```text
 1. Rules files           (always included, highest priority)
 2. Explicit references   (@ mentions you provide)
 3. Current file          (file open in editor)

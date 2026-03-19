@@ -147,7 +147,7 @@ When you write tests first:
 - It can verify its own work without you checking
 - You catch misunderstandings before implementation
 
-```
+```text
 > Write the failing tests for the priority filtering feature.
   Don't implement anything yet.
 ```
@@ -188,14 +188,14 @@ The same way you know anything is good: **measure it**.
 
 ## The Sustainable Workflow
 
-```
+```text
 Write CLAUDE.md → Give clear goal → Watch agentic loop →
 Review diff → Run tests → Commit → Update CLAUDE.md
 ```
 
 Not:
 
-```
+```text
 Generate code → Ship it → Fix bugs in production
 ```
 

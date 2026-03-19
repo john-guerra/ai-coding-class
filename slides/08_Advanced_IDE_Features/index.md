@@ -117,7 +117,7 @@ Think of it as onboarding docs that your AI reads before every interaction.
 
 **Model Context Protocol (MCP)** lets AI tools connect to external data sources and services.
 
-```
+```text
 Your IDE AI
     ↓
 MCP Client (built into the tool)
@@ -208,7 +208,7 @@ This bridges the gap between prototyping (Claude Web) and implementation (IDE AI
 
 **When you hit an error, follow this pattern:**
 
-```
+```text
 1. Copy the error message / stack trace
 2. Paste it into your IDE AI chat
 3. Ask: "Explain this error and suggest a fix"
@@ -225,7 +225,7 @@ This bridges the gap between prototyping (Claude Web) and implementation (IDE AI
 
 **Stack traces tell you _where_ the error happened. AI helps you understand _why_.**
 
-```
+```text
 TypeError: Cannot read properties of undefined (reading 'map')
     at UserList (src/components/UserList.tsx:15:22)
     at renderWithHooks (node_modules/react-dom/...)
@@ -263,7 +263,7 @@ Use the AI as your rubber duck:
 
 Example sections for a pair project:
 
-```
+```text
 ## Tech Stack
 - Next.js 14, TypeScript, Tailwind, Prisma, PostgreSQL
 
@@ -298,7 +298,7 @@ Example sections for a pair project:
 
 **Complete workflow for a P2 feature:**
 
-```
+```text
 1. PRD → User Story → GitHub Issue (sprint planning)
 2. Assign issue to one partner
 3. Create feature branch (feature/42-add-login)

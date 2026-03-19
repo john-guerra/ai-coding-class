@@ -117,7 +117,7 @@ A plain text file at the root of your project that Claude Code reads on every st
 
 Think of it as the **onboarding doc you'd give a new engineer** — except Claude Code actually follows it.
 
-```
+```text
 my-project/
 ├── CLAUDE.md        ← Claude reads this first
 ├── src/
@@ -221,7 +221,7 @@ Claude Code scans the project, reads CLAUDE.md, shows a prompt.
 
 ## Step 2: Give It a Goal
 
-```
+```text
 > Add a "priority" field to todos (low/medium/high).
   GET /todos should support ?priority=high filtering.
   Use TDD — write the tests first.
@@ -295,7 +295,7 @@ Anthropic's recommended pattern. Each phase has a different mental mode.
 
 Understand the codebase before changing anything.
 
-```
+```text
 > Explore the authentication system. What middleware
   is used? How are sessions managed? Where are the
   route guards?
@@ -303,7 +303,7 @@ Understand the codebase before changing anything.
 
 Claude Code reads, traces, summarizes. You get a mental model without touching code.
 
-```
+```text
 > Save your findings to docs/auth-analysis.md
 > /clear
 ```
@@ -316,7 +316,7 @@ Claude Code reads, traces, summarizes. You get a mental model without touching c
 
 Design before you build.
 
-```
+```text
 > Based on docs/auth-analysis.md, plan how to add
   OAuth login. List the files to change and why.
   Don't write any code yet.
@@ -324,7 +324,7 @@ Design before you build.
 
 Review the plan. Ask for changes. Only proceed when you're happy.
 
-```
+```text
 > Looks good. Now implement it.
 ```
 
@@ -347,7 +347,7 @@ Let Claude Code do the work. Your role: supervise and approve.
 
 Claude Code writes commit messages too.
 
-```
+```text
 > Commit the changes with a descriptive message
 ```
 
@@ -368,7 +368,7 @@ Check the diff before committing. The commit message is a record of what happene
 **1. Build an artifact in claude.ai**
 
 Go to claude.ai, start a new conversation:
-```
+```text
 Build me a personal expense tracker. I can add expenses
 with a category and amount. Show me a pie chart of
 spending by category.
@@ -422,7 +422,7 @@ That's it. Start there. Grow it as you use it.
 
 AI coding tools exist on a spectrum:
 
-```
+```text
 Autocomplete → Chat → Pair programmer → Autonomous agent
 ```
 

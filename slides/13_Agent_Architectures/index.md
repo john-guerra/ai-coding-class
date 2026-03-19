@@ -63,7 +63,7 @@ You learned how to **extend** Claude Code. Now you learn how to **build agents f
 
 **Session 2: Security of AI-Generated Code**
 
-- The data is alarming -- 45% of AI code has OWASP vulnerabilities
+- The data is alarming -- [45% of AI code has OWASP vulnerabilities](https://www.veracode.com/blog/genai-code-security-report/)
 - The 8-gate pipeline that catches what AI misses
 - Novel threats like slopsquatting
 - Ethics, IP, and professional responsibility
@@ -125,6 +125,8 @@ This is the most important distinction in this lecture.
 | **Cost** | Lower (fewer LLM calls) | Higher (many LLM calls) |
 
 **Rule of thumb from Anthropic:** Start with the simplest solution. Only add agent complexity when simpler patterns fail.
+
+<small>Source: [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) — Anthropic</small>
 
 ---
 
@@ -410,7 +412,7 @@ agent = Agent(
 
 **Writer/Reviewer pattern:**
 
-```
+```text
   Writer Agent ---> Reviewer Agent
        ^                  |
        |     Feedback     |
@@ -506,6 +508,8 @@ Agents are harder to test than deterministic code. Four approaches:
 | XSS vulnerability rate | **86%** |
 | Log injection vulnerability rate | **88%** |
 
+<small>Source: [GenAI Code Security Report](https://www.veracode.com/blog/genai-code-security-report/) — Veracode, 2025</small>
+
 **Critical finding:** Larger, more capable models do **NOT** generate more secure code. Security performance has not improved even as models get dramatically better at functional correctness.
 
 <!-- vertical -->
@@ -517,9 +521,13 @@ Agents are harder to test than deterministic code. Four approaches:
 - Privilege escalation flaws: **+322%** in AI-generated code
 - Architectural design flaws: **+153%** in AI-generated code
 
+<small>Source: [4x Velocity, 10x Vulnerabilities](https://apiiro.com/blog/4x-velocity-10x-vulnerabilities-ai-coding-assistants-are-shipping-more-risks/) — Apiiro</small>
+
 **Aikido 2026 Report:**
 
 - **1 in 5** organizations reported serious security incidents from AI-generated code
+
+<small>Source: [2026 State of AI in Security & Development](https://www.aikido.dev/reports/2026-state-of-ai-in-security-development) — Aikido</small>
 
 The AI writes code that *works* but is *vulnerable*. It passes tests but fails security audits.
 
@@ -547,7 +555,7 @@ The AI writes code that *works* but is *vulnerable*. It passes tests but fails s
 
 Every AI-generated code change should pass through **8 security gates** before reaching production.
 
-```
+```text
   Code -> [1] -> [2] -> [3] -> [4] -> [5] -> [6] -> [7] -> [8] -> Production
          Pre-  Deps   SAST   DAST  Contain License SecAcc  SBOM
          commit                      er
@@ -620,7 +628,7 @@ If you deploy in containers, scan the image:
 AI-generated code may introduce dependencies with **incompatible licenses**.
 
 - GPL dependency in an MIT project? License violation.
-- **Red Hat found 17 incidents** of GPL code appearing in MIT-licensed projects via Copilot.
+- Reports of GPL-licensed code appearing in MIT-licensed projects via Copilot highlight the risk of AI introducing license conflicts.
 
 FOSSA scans your dependency tree for license conflicts automatically.
 
@@ -654,7 +662,7 @@ npx @cyclonedx/cyclonedx-npm --output-file sbom.json
 
 AI models sometimes **hallucinate package names** that don't exist.
 
-```
+```text
 You: "How do I parse CSV in Python?"
 AI: "Use the fast-csv-parser package: pip install fast-csv-parser"
 ```
@@ -692,15 +700,19 @@ When developers follow AI advice and `pip install` or `npm install` the hallucin
 
 Your code is only protected if there is meaningful human creative contribution.
 
-**Doe v. GitHub (ongoing):**
+<small>Source: [Copyright and Artificial Intelligence](https://www.copyright.gov/ai/) — U.S. Copyright Office</small>
 
-- Potential **$9 billion** in DMCA damages
+**Doe v. GitHub (class action):**
+
 - Alleges Copilot reproduces copyrighted code without attribution
 - Class action on behalf of open-source developers
+- Note: DMCA claims were largely dismissed in June 2024; remaining claims continue
 
-**Red Hat (2024):**
+<small>Source: [The Copilot Litigation](https://www.bakerlaw.com/the-copilot-litigation/) — Baker & Hostetler LLP</small>
 
-- Documented **17 incidents** of GPL-licensed code appearing in MIT-licensed projects via Copilot
+**License compliance risk:**
+
+- Reports of GPL-licensed code appearing in MIT-licensed projects via AI code assistants
 - GPL requires derivative works to also be GPL -- violation means legal liability
 
 <!-- vertical -->

@@ -173,7 +173,7 @@ _We'll use this in block W03 this afternoon._
 
 ## The Decision Framework
 
-```
+```text
 "What am I actually trying to do?"
         |
         +---> Exploring an idea?        --> Claude Web
@@ -208,7 +208,7 @@ This is the part that takes the most time to internalize.
 
 You type a message. You get a message back.
 
-```
+```text
 You: "Write me a function that sorts a list"
 AI: "Here's a function: ..."
 You: "Can you make it work for objects too?"
@@ -223,7 +223,7 @@ You control every step. AI is a smart autocomplete.
 
 AI is sitting next to you. It can see your screen.
 
-```
+```text
 You select a function and press Cmd+K:
 "Rewrite this to use async/await"
 
@@ -240,7 +240,7 @@ You still drive. AI handles the typing.
 
 You describe a goal. AI runs a loop until it's done.
 
-```
+```text
 You: "Add user authentication to this Express app.
       Use JWT, add tests, update the README."
 

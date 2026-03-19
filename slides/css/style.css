@@ -76,6 +76,15 @@
   font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
 }
 
+/* Plain text code blocks: no syntax highlighting, light background */
+.reveal pre code.hljs.language-text,
+.reveal pre code.hljs.language-text [class^="hljs"],
+.reveal pre code.hljs.language-plaintext,
+.reveal pre code.hljs.language-plaintext [class^="hljs"] {
+  color: #333;
+  background: #f5f5f5;
+}
+
 /* Blockquotes */
 .reveal blockquote {
   background: #f9f9f9;

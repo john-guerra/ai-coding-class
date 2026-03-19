@@ -348,7 +348,7 @@ The **context window** is Claude's working memory -- everything it can "see" at 
 
 Every message you send **and** every response Claude gives consumes tokens.
 
-```
+```text
 [System Prompt] → [Message 1] → [Response 1] → [Message 2] → ...
 ```
 

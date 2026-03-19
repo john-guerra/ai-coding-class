@@ -102,7 +102,7 @@ In P2, you split roles between partners. In P3 teams, you'll have more flexibili
 
 ## The Sprint Cycle
 
-```
+```text
 Sprint Planning (start of sprint)
     ↓
 Daily Work (build, test, commit)
@@ -212,7 +212,7 @@ Your PRD is the _what_. Your sprint backlog is the _when_ and _how_.
 
 **Each user story becomes one or more GitHub Issues:**
 
-```
+```text
 PRD User Story:
   "As a user, I want to log in with email
    so that my data is saved across sessions"
@@ -289,7 +289,7 @@ git push -u origin feature/42-add-login-page
 
 **AI-assisted self-review before creating PR:**
 
-```
+```text
 "Review this diff for bugs, security issues, and style violations.
  Our project uses TypeScript, React, and follows the patterns in
  @.antigravityrules"
@@ -345,7 +345,7 @@ Your **design thinking** and **mom test** skills feed the backlog -- user feedba
 
 Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 
-```
+```text
 📅 Date: [today]
 ✅ Yesterday: Completed #42 login UI, started #43 auth endpoint
 🎯 Today: Finish auth endpoint, write tests for login flow
@@ -366,7 +366,7 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 
 **Every PR reviewed by your partner before merge:**
 
-```
+```text
 1. Developer creates PR (links to issue)
 2. Partner reviews the code
    - Read the diff

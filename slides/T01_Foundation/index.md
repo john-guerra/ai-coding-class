@@ -205,7 +205,7 @@ Claude can generate interactive apps that run directly in the browser:
 - Games, tools, calculators — fully functional
 - Share with a link — no deployment needed
 
-```
+```text
 "Build me an interactive budget tracker with
 a monthly chart and category breakdown"
 ```
@@ -328,7 +328,7 @@ It reads files, edits code, runs tests, fixes failures, and keeps going.
 
 Claude Code doesn't wait for you after every step.
 
-```
+```text
 Your goal → Think → Use tools → Observe results → Done?
                 ↑                                    |
                 └──────────── keep going ────────────┘
@@ -381,7 +381,7 @@ These are learnable skills. They get better with practice.
 
 Claude Code asks before doing anything risky:
 
-```
+```text
 Claude wants to run: npm run migrate
 Allow? (y/n/always)
 ```
@@ -492,7 +492,7 @@ AI generates code faster. It doesn't automatically make good code.
 
 ## The Workflow That Works
 
-```
+```text
 1. THINK    — Use Claude Web to plan before writing
 2. BUILD    — Use IDE AI for production code with tests
 3. AUTOMATE — Use Claude Code for scale and repetition

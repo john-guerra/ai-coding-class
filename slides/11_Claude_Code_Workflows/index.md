@@ -381,7 +381,7 @@ GitHub Issue #12: "User can filter by date range"
 
 Each git commit maps to a **verifiable acceptance criterion** from a GitHub Issue.
 
-*This works at every level of the testing pyramid — from unit tests (this week) to E2E tests with Playwright (Week 12).*
+*This works at every level of the testing pyramid — from unit tests (this week) to visual regression and E2E tests with Playwright (Week 12).*
 
 ---
 
@@ -837,6 +837,8 @@ These biases are well-documented. You must mitigate them for reliable evaluation
 
 ## Mitigation Strategies & Validation
 
+<!-- .slide: class="dense" -->
+
 **Mitigate biases with:**
 
 1. **Chain-of-thought** -- judge explains reasoning before scoring
@@ -844,6 +846,7 @@ These biases are well-documented. You must mitigate them for reliable evaluation
 3. **Few-shot examples** -- 3-5 examples of good/bad output with scores
 4. **Position swapping** -- swap order in comparisons, average results
 
+<!-- vertical --> 
 **Validate with human labels:**
 
 Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
@@ -871,6 +874,8 @@ Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
 <!-- vertical -->
 
 ## Lab Part 2: GitHub Actions + Hooks (25 min)
+
+<!-- .slide: class="dense" -->
 
 **GitHub Actions:**
 1. `> Set up GitHub Actions to run tests and linting on every PR to main`

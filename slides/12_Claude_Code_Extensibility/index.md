@@ -396,6 +396,29 @@ test('search filters by name', async ({ page }) => {
 
 <!-- vertical -->
 
+## Visual Regression Testing with Vitest
+
+Vitest 4.0's Browser Mode enables **screenshot-based regression testing** — catch styling bugs that unit and E2E tests miss:
+
+```javascript
+import { test, expect } from 'vitest';
+import { page } from '@vitest/browser/context';
+
+test('dashboard renders correctly', async () => {
+  await page.goto('/dashboard');
+  await expect(page.elementLocator('.dashboard'))
+    .toMatchScreenshot('dashboard.png');
+});
+```
+
+**How it works:** First run saves a baseline screenshot. Future runs compare pixel-by-pixel and fail on visual differences.
+
+**Why it matters for AI coding:** AI gets logic right but can break styling — visual tests catch what unit tests can't.
+
+<small>Source: [Vitest Visual Regression Testing](https://vitest.dev/guide/browser/visual-regression-testing)</small>
+
+<!-- vertical -->
+
 ## Tool Search: Scaling MCP
 
 When you add many MCP servers, their **tool definitions consume context**.

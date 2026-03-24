@@ -100,6 +100,7 @@
 /* Tables */
 .reveal table {
   margin: 1em auto;
+  font-size: 0.7em;
 }
 
 .reveal table th {

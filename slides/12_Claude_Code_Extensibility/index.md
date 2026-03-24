@@ -378,6 +378,14 @@ E2E tests verify **user stories**, not functions. Each acceptance criterion (W11
 | ☐ Search by name returns partial matches | `test('search filters by name')` |
 | ☐ No results shows "No users found" | `test('shows empty state message')` |
 
+**AI-assisted workflow:** Describe the user flow → Claude Code writes the Playwright test → runs it via MCP → sees browser results → fixes failures.
+
+**CI tip:** E2E tests run last — unit tests catch most bugs faster.
+
+<!-- vertical -->
+
+## E2E Testing with Playwright MCP
+
 ```javascript
 // tests/e2e/search.spec.ts
 import { test, expect } from '@playwright/test';
@@ -390,13 +398,11 @@ test('search filters by name', async ({ page }) => {
 });
 ```
 
-**AI-assisted workflow:** Describe the user flow → Claude Code writes the Playwright test → runs it via MCP → sees browser results → fixes failures.
-
-**CI tip:** E2E tests run last — unit tests catch most bugs faster.
-
 <!-- vertical -->
 
 ## Visual Regression Testing with Vitest
+
+<!-- .slide: class="dense" -->
 
 Vitest 4.0's Browser Mode enables **screenshot-based regression testing** — catch styling bugs that unit and E2E tests miss:
 
@@ -602,6 +608,8 @@ Useful when you're unsure about the right approach.
 
 ## Patterns 3 & 4: Background & Specialists
 
+<!-- .slide: class="dense" -->
+
 **Background orchestration:** Fire-and-forget with `run_in_background`:
 
 ```text
@@ -624,6 +632,8 @@ Each specialist has its own context and worktree. Results merge back via git.
 <!-- vertical -->
 
 ## Best Practices for Parallel Work
+
+<!-- .slide: class="dense" -->
 
 1. **Scope tasks clearly** -- each agent needs a well-defined goal
 2. **Avoid file conflicts** -- don't assign overlapping files to parallel agents
@@ -706,6 +716,8 @@ The code _looks_ correct. It passes a quick scan. But it hides subtle issues.
 
 ## The C.L.E.A.R. Framework
 
+<!-- .slide: class="dense" -->
+
 A structured approach to reviewing AI-generated code:
 
 **C -- Context:** Does this code fit the project's architecture and conventions?
@@ -765,6 +777,8 @@ Including a "% AI-generated" field helps reviewers know where to focus their att
 <!-- vertical -->
 
 ## Putting It All Together
+
+<!-- .slide: class="dense" -->
 
 ```text
 .claude/

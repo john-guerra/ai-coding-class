@@ -430,5 +430,71 @@ server.tool(
   }
 );
 
+// --- Tool: Set Discussion Checkpoints ---
+server.tool(
+  "canvas_set_discussion_checkpoints",
+  "Enable checkpoints on a graded discussion, setting separate due dates for the initial post and peer replies",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    topic_id: z.string().describe("Discussion topic ID"),
+    reply_to_topic_due_at: z.string().describe("Due date for the initial post (ISO 8601)"),
+    reply_to_entry_due_at: z.string().describe("Due date for peer replies (ISO 8601)"),
+    replies_required: z.number().default(2).describe("Number of peer replies required"),
+    points_reply_to_topic: z.number().default(2).describe("Points for initial post checkpoint"),
+    points_reply_to_entry: z.number().default(2).describe("Points for peer replies checkpoint"),
+  },
+  async ({ course_id, topic_id, reply_to_topic_due_at, reply_to_entry_due_at, replies_required, points_reply_to_topic, points_reply_to_entry }) => {
+    // Canvas uses GraphQL (not REST) for discussion checkpoint management.
+    // The REST API silently ignores discussion_checkpoints; the UI uses the
+    // updateDiscussionTopic GraphQL mutation with assignment.forCheckpoints=true.
+    const query = `
+      mutation UpdateDiscussionTopicWithCheckpoints($input: UpdateDiscussionTopicInput!) {
+        updateDiscussionTopic(input: $input) {
+          discussionTopic {
+            _id
+            isCheckpointed
+            replyToEntryRequiredCount
+          }
+          errors {
+            attribute
+            message
+          }
+        }
+      }
+    `;
+    const variables = {
+      input: {
+        id: topic_id,
+        checkpoints: [
+          {
+            checkpointLabel: "reply_to_topic",
+            pointsPossible: points_reply_to_topic,
+            dates: [{ type: "everyone", dueAt: reply_to_topic_due_at }],
+          },
+          {
+            checkpointLabel: "reply_to_entry",
+            pointsPossible: points_reply_to_entry,
+            repliesRequired: replies_required,
+            dates: [{ type: "everyone", dueAt: reply_to_entry_due_at }],
+          },
+        ],
+        assignment: { forCheckpoints: true },
+      },
+    };
+    const url = `https://${CANVAS_DOMAIN}/api/graphql`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${CANVAS_API_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query, variables }),
+    });
+    const text = await res.text();
+    if (!res.ok) throw new Error(`Canvas GraphQL ${res.status}: ${text}`);
+    return { content: [{ type: "text", text: text }] };
+  }
+);
+
 const transport = new StdioServerTransport();
 await server.connect(transport);

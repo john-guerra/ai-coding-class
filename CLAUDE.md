@@ -62,54 +62,6 @@ aiCoding_Course/
 └── website -> [symlink]          # Course website (external repo)
 ```
 
-## Key Course Files
-
-| File | Purpose |
-|------|---------|
-| `course/COURSE_MEMORY.md` | Complete course plan, rubrics, policies |
-| `course/syllabus.md` | Official syllabus |
-| `course/schedule.md` | 15-week schedule with deliverables |
-| `course/readings.md` | Required readings by week |
-
-## Creating Slides (reveal-md Format)
-
-Each lecture folder contains:
-- `index.md` - Reveal.js markdown with YAML frontmatter
-- `images/` - Lecture-specific images
-
-Slide template:
-```markdown
----
-title: "Lecture Title"
-theme: white
-revealOptions:
-  transition: convex
-  hash: true
-  history: true
----
-
-## Slide Title
-
-Content here
-
----
-
-# New Section (horizontal)
-
-----
-
-## Sub-slide (vertical)
-```
-
-**Slide separators:**
-- `---` creates a new horizontal slide (new topic)
-- `----` creates a vertical slide (subtopic under current section)
-
-**Reveal.js built-in classes:**
-- `r-fit-text` - Auto-scales text to fit slide
-- `r-stretch` - Makes element fill remaining vertical space
-- `r-stack` - Centers/layers elements for progressive disclosure
-
 ## Course Context
 
 **Philosophy:** "Vibe Coding" done right—AI-assisted speed with engineering quality (TDD, CI/CD, evals).
@@ -168,24 +120,6 @@ All tools default to `course_id = 246270`.
 
 **Canvas API gap policy:** When `canvas-lms` does not support a needed Canvas API feature (missing parameters, endpoints, etc.), implement the missing functionality as a new tool in `canvas-extras` (`tools/canvas-extras-mcp/index.js`). Never call the Canvas API directly via `fetch`/`node` scripts — always go through an MCP tool.
 
-## Document Versioning
-
-When generating syllabus or course documents:
-- Keep all versions (v1, v2, v3...) — never overwrite previous versions
-- Name pattern: `CS7180_VibeCoding_Syllabus_v{N}.pdf`
-- Source of truth: `course/syllabus.md`
-- Generate with: `python course/generate-syllabus-pdf.py` (auto-increments version)
-
-## Handouts
-
-Supplementary handouts live in `course/handouts/` as markdown source + generated PDF.
-
-Generate with: `python course/generate-handout-pdf.py <markdown-file> [--subtitle "..."] [--footer "..."]`
-
-Example: `python course/generate-handout-pdf.py course/handouts/public-api-guide.md --subtitle "CS 7180 — Project 2 Handout"`
-
-Handouts are idempotent (no versioning — PDF is overwritten on regeneration).
-
 ## Website Updates
 
 When updating course content (schedule, readings, HWs, etc.), the **website must also be updated**:
@@ -226,3 +160,5 @@ When updating course content (schedule, readings, HWs, etc.), the **website must
 ## When talking to me always include a ⭐️ at the beginning of the message
 
 Unless of course you are writing a message that requires a different format.
+
+

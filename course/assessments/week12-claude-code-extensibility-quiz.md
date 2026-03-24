@@ -132,7 +132,7 @@ You want to ensure that Prettier always runs after Claude Code edits a file — 
 #### Q7: .mcp.json for Teams (1 point)
 **Type:** Multiple Choice
 
-Your P3 team has four members, and you want everyone to have the same MCP server connections. What is the correct approach?
+Your P3 team has two members, and you want both to have the same MCP server connections. What is the correct approach?
 
 - A) Each team member runs `claude mcp add` independently with their own settings
 - B) Commit a `.mcp.json` file to the repo with shared MCP server configurations — every team member automatically gets the same connections
@@ -220,12 +220,12 @@ Your team has three requirements: (1) enforce that all TypeScript files use semi
 #### Q14: Parallel Development for P3 (2 points)
 **Type:** Multiple Choice
 
-Your P3 team of four is starting Sprint 2. You have 20 issues on your scrumboard. What is the recommended approach for parallel development with Claude Code?
+Your P3 pair is starting Sprint 2. You have 12 issues on your scrumboard. What is the recommended approach for parallel development with Claude Code?
 
-- A) One person runs Claude Code while the others watch and review the output
-- B) Each teammate picks 5 issues and works through them sequentially, one at a time, in a single Claude Code session
+- A) One person runs Claude Code while the other watches and reviews the output
+- B) Each teammate picks 6 issues and works through them sequentially, one at a time, in a single Claude Code session
 - C) Each teammate uses `claude --worktree` to work on their assigned issues in parallel, with each worktree on its own branch, merging via PRs
-- D) All four teammates share a single Claude Code session and take turns typing prompts
+- D) Both teammates share a single Claude Code session and take turns typing prompts
 
 ---
 

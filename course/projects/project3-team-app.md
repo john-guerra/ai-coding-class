@@ -5,7 +5,9 @@
 
 ## Objective
 
-Build a production-grade application with advanced AI techniques as a team.
+**Team size:** 2 (pairs)
+
+Build a production-grade application with advanced AI techniques as a pair.
 
 ## Requirements
 

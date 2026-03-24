@@ -339,7 +339,6 @@ Critical 2-hour module covering transformer architecture, tokens, context window
 - Slack for quick questions
 - Office hours: Tuesdays 2-4 PM
 - TA hours (posted on Slack)
-- Pair programming sessions
 - AI debugging clinics (Fridays)
 
 ### Wellness

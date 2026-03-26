@@ -7,11 +7,19 @@ revealOptions:
   hash: true
 ---
 
-# CS 7180: Special Topics in AI
+<!-- .slide: id="title" -->
 
-## Vibe Coding
+<span class="course-week">CS 7180 · Week 1</span>
 
-### AI-Assisted Software Engineering
+## Introduction to Vibe Coding
+
+AI-Assisted Software Engineering
+
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
+
+[**John Alexis Guerra Gomez**](http://johnguerra.co/)
+
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/01_Introduction/)</small>
 
 ---
 

@@ -9,17 +9,17 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-## CS 7180: Claude Code Extensibility
+<span class="course-week">CS 7180 · Week 12</span>
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
+## Claude Code Extensibility
+
+Skills · Hooks · MCP · Sub-agents
+
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-jguerra at northeastern.edu
-
-Class: [johnguerra.co/classes/aiCoding_spring_2026](https://johnguerra.co/classes/aiCoding_spring_2026/)
-
-Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lectures/ai_assisted_coding/12_Claude_Code_Extensibility/)
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/12_Claude_Code_Extensibility/)</small>
 
 ---
 
@@ -76,38 +76,47 @@ All of these directly support your **P3 Sprint 2** work.
 
 ## What Are Skills?
 
-Skills are markdown files in `.claude/skills/` that teach Claude Code **how to perform specific tasks**.
+Skills are directories in `.claude/skills/` that teach Claude Code **how to perform specific tasks**.
 
 ```text
 your-project/
   .claude/
     skills/
-      fix-issue.md       <-- "/fix-issue" slash command
-      deploy.md          <-- "/deploy" slash command
-      add-component.md   <-- "/add-component" slash command
+      fix-issue/
+        SKILL.md           <-- "/fix-issue" slash command
+      deploy/
+        SKILL.md           <-- "/deploy" slash command
+      add-component/
+        SKILL.md           <-- "/add-component" slash command
 ```
 
-When you type `/fix-issue`, Claude Code loads the skill file and follows its instructions.
+When you type `/fix-issue`, Claude Code loads the `SKILL.md` and follows its instructions.
 
 <!-- vertical -->
 
 ## Anatomy of a Skill File
 
-```markdown
-# Fix Issue
-## Description
-Fix a GitHub issue: branch, implement, test, PR.
-## Steps
+<!-- .slide: class="dense" -->
+
+<pre><code class="yaml">---​
+name: fix-issue
+description: Fix a GitHub issue: branch, implement, test, PR.
+disable-model-invocation: true
+---​
+
+Fix GitHub issue $ARGUMENTS:
+
 1. Read issue details from GitHub
 2. Create branch fix/{issue-number}
 3. Implement following project conventions
 4. Write/update tests for changed code
 5. Run test suite to verify
 6. Create PR linking to the issue
-## Constraints
+
+Constraints:
 - Never modify unrelated files
 - Always include a test for the fix
-```
+</code></pre>
 
 <!-- vertical -->
 

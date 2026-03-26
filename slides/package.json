@@ -4,7 +4,7 @@
   "description": "Slides for CS 7180: Vibe Coding - AI-Assisted Software Engineering",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx playwright test",
     "serve": "reveal-md . --watch",
     "build": "reveal-md . --static dist",
     "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_spring2026/"
@@ -26,6 +26,7 @@
   },
   "homepage": "https://johnguerra.co/classes/aiCoding_spring_2026/",
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "reveal-md": "^6.1.4"
   },
   "dependencies": {

@@ -9,17 +9,17 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-## CS 7180: Agent Architectures & Security
+<span class="course-week">CS 7180 · Week 13</span>
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
+## Agent Architectures & Security
+
+6 Patterns · SDK · Multi-Agent · Safety
+
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-jguerra at northeastern.edu
-
-Class: [johnguerra.co/classes/aiCoding_spring_2026](https://johnguerra.co/classes/aiCoding_spring_2026/)
-
-Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lectures/ai_assisted_coding/13_Agent_Architectures/)
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/13_Agent_Architectures/)</small>
 
 ---
 

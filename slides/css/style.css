@@ -141,6 +141,14 @@
   color: var(--neu-red);
 }
 
+/* Title slide course/week indicator */
+.reveal .course-week {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: var(--text-gray);
+  letter-spacing: 0.05em;
+}
+
 /* Utility classes */
 .small {
   font-size: 0.7em;

@@ -9,17 +9,17 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-## CS 7180: LLM Fundamentals
+<span class="course-week">CS 7180 · Week 2</span>
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
+## LLM Fundamentals
 
-[**John Alexis Guerra Gómez**](http://johnguerra.co/)
+Tokens · Training · Embeddings · Context
 
-jguerra at northeastern.edu
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
 
-Class: [johnguerra.co/classes/aiCoding_spring_2026](https://johnguerra.co/classes/aiCoding_spring_2026/)
+[**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lectures/ai_assisted_coding/02_LLMs_fundamentals/)
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/02_LLMs_fundamentals/)</small>
 
 ---
 

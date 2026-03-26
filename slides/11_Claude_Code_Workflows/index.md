@@ -9,17 +9,17 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-## CS 7180: Claude Code Workflows & Development Practices
+<span class="course-week">CS 7180 · Week 11</span>
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
+## Claude Code Workflows
+
+Explore · Plan · Implement · Commit
+
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-jguerra at northeastern.edu
-
-Class: [johnguerra.co/classes/aiCoding_spring_2026](https://johnguerra.co/classes/aiCoding_spring_2026/)
-
-Slides: [johnguerra.co/lectures/ai_assisted_coding](http://johnguerra.co/lectures/ai_assisted_coding/11_Claude_Code_Workflows/)
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/11_Claude_Code_Workflows/)</small>
 
 ---
 

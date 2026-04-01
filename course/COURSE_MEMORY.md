@@ -323,98 +323,56 @@ Students must submit a **single PDF/document** containing:
 
 ---
 
-### Project 3: Team Application with Advanced AI (20%) - Due Week 15
+### Project 3: Production Application with Claude Code Mastery (19%) - Due Week 15
 
-**Objective:** Build production-grade application with advanced techniques
+**Objective:** Build production-grade deployed application demonstrating mastery of Claude Code extensibility (W10-W14)
 
 **Requirements:**
 - **Functional:**
-  - Complex, production-ready application
-  - Multiple user types with different capabilities
-  - Advanced features requiring sophisticated logic
-  - Real-world use case (Mom Test validated)
+  - Production-ready application solving a real problem
+  - 2+ user roles or distinct feature areas
   - Portfolio/interview-worthy quality
+  - Deployed and accessible via public URL
 
-- **Technical:**
-  - **Advanced Architecture:**
-    - Microservices OR well-architected monolith
-    - Message queues or event-driven (if appropriate)
-    - Caching strategy (Redis or similar)
-    - API gateway or similar
-  
-  - **Parallel Agentic Programming:**
-    - 3+ features built with parallel agents
-    - Clear agent coordination strategy
-    - Documentation of agent workflow
-  
-  - **Comprehensive Evaluation System:**
-    - Multi-dimensional evals (correctness, quality, semantics, performance, security)
-    - LLM-as-judge implementation
-    - Historical metrics tracking
-    - Golden dataset of test cases
-    - Quantitative comparison of AI approaches
-  
-  - **Enterprise CI/CD:**
-    - Multi-environment (dev/staging/prod)
-    - Advanced deployment (canary OR blue-green)
-    - Performance gates (Lighthouse, bundle size)
-    - Automated security scanning (SAST/DAST)
-    - Database migrations in pipeline
-    - Automated rollback capability
-  
-  - **Production Monitoring:**
-    - Error tracking (Sentry or similar)
-    - Performance monitoring (APM)
-    - Uptime monitoring
-    - Log aggregation
-    - Alerting system
-  
-  - **Security:**
-    - Security audit passed
-    - Penetration testing performed
-    - OWASP top 10 addressed
-    - Secrets management
-    - Rate limiting
+- **Technical — Claude Code Mastery (core):**
+  - **CLAUDE.md & Memory (W10):** Comprehensive CLAUDE.md with @imports, auto-memory, evolution in git
+  - **Skills (W12):** 2+ custom skills in `.claude/skills/`, iterated v1→v2
+  - **Hooks (W12):** 2+ hooks for quality enforcement (PreToolUse/PostToolUse/Stop)
+  - **MCP Servers (W12):** 1+ MCP server integrated, shared via `.mcp.json`
+  - **Agents (W12-W13):** Sub-agents OR agent teams OR Agent SDK feature (student's choice)
+  - **Parallel Development (W12):** Worktree usage for parallel features
+  - **Writer/Reviewer + C.L.E.A.R. (W12):** Applied on 2+ PRs with AI disclosure
+
+- **Technical — Engineering:**
+  - **Architecture:** Next.js + database + Vercel deployment
+  - **TDD (W11):** Red-green-refactor for 3+ features, 70%+ coverage, unit + integration + E2E
+  - **CI/CD (W14):** GitHub Actions — lint, typecheck, tests, E2E, security, AI review, preview, prod deploy
+  - **Security (W13):** 4+ gates from 8-gate pipeline, OWASP in CLAUDE.md
 
 - **Team Process:**
-  - 3+ sprints documented
-  - Team contract established
-  - Daily standups recorded
-  - Sprint planning & retrospectives
-  - Code review process
-  - Clear Git workflow (branches, PRs, reviews)
-  - Peer evaluations
-
-- **Documentation:**
-  - System architecture documentation
-  - API documentation (comprehensive)
-  - Database schema + ER diagrams
-  - Deployment guide
-  - Developer onboarding guide
-  - User guide
-  - All sprint retrospectives
-  - Team retrospective
-  - Individual reflections (each member)
-  - Technical blog post (team effort)
-  - 20-minute demo presentation
+  - 2 sprints documented (planning + retrospective each)
+  - Branch-per-issue workflow, async standups (3+/sprint/partner)
+  - C.L.E.A.R. framework in PR reviews, peer evaluations
 
 **Deliverables:**
-1. GitHub organization with repositories
-2. Deployed application (production)
-3. Monitoring dashboard access
-4. Eval system with historical data
-5. Complete documentation package
-6. Team presentation
-7. Individual reflections
-8. Technical blog post
+1. GitHub repository with full `.claude/` configuration
+2. Deployed application (Vercel production URL)
+3. CI/CD pipeline (GitHub Actions, all stages passing)
+4. Technical blog post (published on Medium, dev.to, or similar)
+6. Screencast video (5-10 min, app + Claude Code workflow)
+7. Live demo (8-10 min on Demo Day)
+8. Individual reflections (500 words/partner)
+9. Showcase submission via Google Form
 
 **Rubric (200 points):**
-- Application Quality: 50 pts
-- Advanced AI Techniques: 45 pts
-- Technical Excellence: 40 pts
-- CI/CD & DevOps: 30 pts
-- Team Collaboration: 20 pts
-- Documentation: 15 pts
+- Application Quality: 40 pts
+- Claude Code Mastery: 55 pts (skills, hooks, MCP, agents, CLAUDE.md, worktrees, C.L.E.A.R.)
+- Testing & TDD: 30 pts
+- CI/CD & Production: 35 pts
+- Team Process: 25 pts
+- Documentation & Demo: 15 pts
+
+**Bonus:** Property-based testing (+3), mutation testing (+3), Agent SDK feature (+4)
 
 **Note:** Individual grades adjusted by peer evaluations (±10%)
 
@@ -967,7 +925,7 @@ By course end, students will have:
 **3 Production Apps:**
 1. Personal Utility App (deployable, resume-worthy)
 2. Full-Stack Application (advanced features)
-3. Team Application (enterprise-grade)
+3. Production Application with Claude Code Mastery (pair project)
 
 **Professional Presence:**
 - GitHub profile with quality projects

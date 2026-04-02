@@ -174,6 +174,8 @@ flowchart TD
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" --> 
+
 ## Pattern 3: Parallelization
 
 Run independent subtasks **simultaneously** for speed or diversity.
@@ -192,10 +194,14 @@ flowchart TD
 **When to use:** Tasks with independent subtasks or where multiple perspectives improve quality.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Pattern 4: Orchestrator-Workers
 
 A central orchestrator **dynamically delegates** to worker agents.
+
+<div class="columns">
+<div class="column">
 
 <pre class="mermaid">
 %%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 30}}}%%
@@ -208,6 +214,9 @@ flowchart TD
     W3 --> S
 </pre>
 
+</div>
+<div class="column small">
+
 **How it works:**
 - Orchestrator analyzes the task and creates a plan
 - Dynamically spawns worker subtasks (number and type vary)
@@ -218,11 +227,18 @@ flowchart TD
 
 **Example:** "Refactor the auth system" -- orchestrator identifies 5 files to change, creates a worker for each.
 
+</div>
+</div>
+
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Pattern 5: Evaluator-Optimizer
 
 Generate, then **critique and refine** in a loop.
+
+<div class="columns">
+<div class="column small">
 
 <pre class="mermaid">
 %%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 30}}}%%
@@ -231,16 +247,22 @@ flowchart LR
     E -->|"Feedback loop"| G
 </pre>
 
-**How it works:**
-- Generator produces an initial output
-- Evaluator scores or critiques the output
-- If below threshold, evaluator sends feedback to generator
-- Generator revises based on feedback
-- Loop continues until quality is sufficient
-
-**Example:** Write documentation -> Review for completeness -> Revise -> Review again -> Accept.
+**Example:** Write docs → Review → Revise → Accept.
 
 **When to use:** Tasks with clear quality criteria where iterative refinement adds value.
+
+</div>
+<div class="column small">
+
+**How it works:**
+- Generator produces initial output
+- Evaluator scores or critiques it
+- If below threshold, sends feedback
+- Generator revises based on feedback
+- Loop until quality is sufficient
+
+</div>
+</div>
 
 <!-- vertical -->
 

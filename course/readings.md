@@ -310,7 +310,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 13: Agent Architectures & Agent SDK
+## Week 13: Agent Architectures & SDK
 
 ### 📚 Required
 
@@ -326,6 +326,10 @@ All URLs have been verified as of January 2026.
 
 | Resource | Description | URL |
 |----------|-------------|-----|
+| Building a C Compiler with Parallel Claudes | 16 agents, 100K lines, file-locking coordination | https://www.anthropic.com/engineering/building-c-compiler |
+| How We Built Our Multi-Agent Research System | Orchestrator-worker pattern, 90% time reduction | https://www.anthropic.com/engineering/multi-agent-research-system |
+| Writing Effective Tools for Agents | Tool design principles for agents | https://www.anthropic.com/engineering/writing-tools-for-agents |
+| Code Execution with MCP | 98.7% token reduction via code-based tool calls | https://www.anthropic.com/engineering/code-execution-with-mcp |
 | Anthropic Courses — Tool Use | Interactive tutorial on tool use | https://github.com/anthropics/courses |
 | Claude Agent SDK Demos | Example agents (code reviewer, bug fixer, etc.) | https://github.com/anthropics/claude-agent-sdk-demos |
 | Prompt Chaining Guide | Sequential processing patterns | https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts |
@@ -341,27 +345,32 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 14: Emerging AI Engineering & Production
+## Week 14: AI Security & Code Quality
 
 ### 📚 Required
 
+**Security of AI-Generated Code**
 | Resource | Description | URL |
 |----------|-------------|-----|
-| Prompt Caching | How prompt caching works and when to use it | https://platform.claude.com/docs/en/build-with-claude/prompt-caching |
-| Define Success Criteria | Building measurable success metrics for evals | https://platform.claude.com/docs/en/test-and-evaluate/define-success |
 | OWASP Top 10 | Security best practices for web applications | https://owasp.org/www-project-top-ten/ |
+| OWASP Top 10 for LLM Applications | LLM-specific security risks | https://genai.owasp.org |
+| OpenSSF AI Code Security Guide | Security-focused rules for AI coding assistants | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
+| Define Success Criteria | Building measurable success metrics for evals | https://platform.claude.com/docs/en/test-and-evaluate/define-success |
 
-**CI/CD & DevOps**
+**Evaluation & Safety**
 | Resource | Description | URL |
 |----------|-------------|-----|
-| GitHub Actions Documentation | CI/CD pipeline reference | https://docs.github.com/en/actions |
-| Vercel Deployment Docs | Production deployment | https://vercel.com/docs |
+| Demystifying Evals for AI Agents | Three grader types, pass@k metrics, practical guidance | https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents |
+| Claude Code Auto Mode | Two-layer defense architecture for agent safety | https://www.anthropic.com/engineering/claude-code-auto-mode |
+| Claude Code in GitHub Actions | Running Claude Code in CI for automated PR review | https://code.claude.com/docs/en/github-actions |
 
 ### 📖 Recommended
 
 | Resource | Description | URL |
 |----------|-------------|-----|
-| OpenSSF AI Code Security Guide | Security-focused best practices | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
+| Eval Awareness in BrowseComp | Model reverse-engineered its own benchmark | https://www.anthropic.com/engineering/eval-awareness-browsecomp |
+| Designing AI-Resistant Evaluations | Claude matched human performance; assessment design lessons | https://www.anthropic.com/engineering/AI-resistant-technical-evaluations |
+| Infrastructure Noise in Agentic Evals | Infrastructure config exceeds model leaderboard gaps | https://www.anthropic.com/engineering/infrastructure-noise |
 | Reduce Hallucinations | Verification strategies and guardrails | https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations |
 | When to Trust AI-Generated Code (Graphite) | Guidelines for code trust | https://graphite.com/guides/when-to-trust-ai-code |
 
@@ -370,10 +379,37 @@ All URLs have been verified as of January 2026.
 **AI Code Quality Research**
 | Resource | URL |
 |----------|-----|
-| GitHub Copilot Research | https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/ |
 | Veracode AI Security Analysis | https://www.veracode.com/blog/ai-generated-code-security-risks/ |
 | Cybersecurity Risks of AI-Generated Code (Georgetown CSET) | https://cset.georgetown.edu/publication/cybersecurity-risks-of-ai-generated-code/ |
+| GitHub Copilot Research | https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/ |
 | HumanEval Pro (ACL 2025) | https://aclanthology.org/2025.findings-acl.686/ |
+
+---
+
+## Week 15: Production & Course Synthesis
+
+### 📚 Required
+
+**Production Deployment & Monitoring**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Prompt Caching | How prompt caching works and when to use it | https://platform.claude.com/docs/en/build-with-claude/prompt-caching |
+| Vercel Deployment Docs | Production deployment | https://vercel.com/docs |
+| GitHub Actions Documentation | CI/CD pipeline reference | https://docs.github.com/en/actions |
+
+**Long-Running Agents & Harness Design**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Harness Design for Long-Running Apps | Planner/Generator/Evaluator architecture, cost tradeoffs | https://www.anthropic.com/engineering/harness-design-long-running-apps |
+| Effective Harnesses for Long-Running Agents | Feature lists, incremental progress, one-feature-per-session | https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents |
+
+### 📖 Recommended
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Beyond Permission Prompts: Claude Code Sandboxing | Filesystem and network isolation for production | https://www.anthropic.com/engineering/claude-code-sandboxing |
+| Contextual Retrieval | RAG techniques for domain-specific applications | https://www.anthropic.com/engineering/contextual-retrieval |
+| How AI Is Transforming Work at Anthropic | AI impact on software development workflows | https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic |
 
 ---
 
@@ -429,8 +465,9 @@ All URLs have been verified as of January 2026.
 | 10 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
 | 11 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), TDD frameworks, GitHub Actions, CI/CD |
 | 12 | Claude Code Extensibility | Skilljar (MCP, Hooks, SDK), Skills, Hooks, MCP, Sub-agents |
-| 13 | Agent Architectures & Agent SDK | Building Effective Agents, Agent SDK docs, tool use |
-| 14 | Emerging AI Engineering | Prompt caching, OWASP, production deployment, security |
+| 13 | Agent Architectures & SDK | Building Effective Agents, Agent SDK docs, tool use, multi-agent patterns |
+| 14 | AI Security & Code Quality | OWASP, OpenSSF guide, eval frameworks, AI code review, agent safety |
+| 15 | Production & Course Synthesis | Prompt caching, deployment, harness design, RAG, long-running agents |
 
 ---
 

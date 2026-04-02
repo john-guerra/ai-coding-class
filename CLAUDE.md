@@ -31,7 +31,7 @@ aiCoding_Course/
 ├── course/                        # Course definition (shared memory)
 │   ├── COURSE_MEMORY.md          # Master reference (1700+ lines)
 │   ├── syllabus.md               # Policies, grading, academic integrity
-│   ├── schedule.md               # 15-week schedule
+│   ├── schedule.md               # 15-week + finals schedule
 │   ├── readings.md               # Required readings by week
 │   ├── projects/                 # Project specifications
 │   │   ├── project1-personal-utility.md
@@ -69,7 +69,7 @@ aiCoding_Course/
 **Three AI Modalities:**
 1. Claude Web (Weeks 4-5) - Architecture, learning, brainstorming
 2. Antigravity (Weeks 6-8) - Production code, daily workflow
-3. Claude Code (Weeks 10-14) - Agentic coding, automation, extensibility, agent architectures
+3. Claude Code (Weeks 10-15) - Agentic coding, automation, extensibility, agent architectures, production
 
 **Key Elements:**
 - Weekly Quizzes: 10% of grade, concept-focused assessments
@@ -120,24 +120,36 @@ All tools default to `course_id = 246270`.
 
 **Canvas API gap policy:** When `canvas-lms` does not support a needed Canvas API feature (missing parameters, endpoints, etc.), implement the missing functionality as a new tool in `canvas-extras` (`tools/canvas-extras-mcp/index.js`). Never call the Canvas API directly via `fetch`/`node` scripts — always go through an MCP tool.
 
-## Website Updates
+## Course Content Sync
 
-When updating course content (schedule, readings, HWs, etc.), the **website must also be updated**:
+When modifying weekly topics, dates, or course structure, ALL of these must stay in sync:
 
-1. **Edit `website/index.pug`** — schedule table (~lines 179-246), grading section, readings accordion (~lines 327-510)
-2. **Edit `website/timeline.js`** — `courseData` object: phases, homeworks array, and weekly `weeks` array
-3. **Regenerate HTML**: `npx pug website/index.pug --out website/ --pretty`
-4. **Never edit `website/index.html` directly** — always edit `index.pug` and regenerate
+| Artifact | File(s) | What to update |
+|----------|---------|---------------|
+| Schedule | `course/schedule.md` | Overview table, detailed schedule, key dates |
+| Readings | `course/readings.md` | Week headers, reading lists, summary table |
+| Course Memory | `course/COURSE_MEMORY.md` | Schedule table, key dates, P3 due |
+| Timeline | `website/timeline.js` | `weeklyFocus`, `totalWeeks`, phases, projects |
+| Website | `website/index.pug` | Schedule table, readings accordion, project badges |
+| Slides | `slides/XX_Topic/index.md` | Title slide week number and topic |
+| Projects | `course/projects/*.md` | Due dates |
+| Research | `docs/research/*.md` | If topics shifted between weeks |
 
-## Current Curriculum State (March 2026)
+After website changes: `npx pug website/index.pug --out website/ --pretty`
+**Never edit `website/index.html` directly** — always edit `index.pug` and regenerate.
 
-### W10-W14 Structure (Redesigned March 2026)
+Use `/sync-course` skill to verify all artifacts are in sync.
+
+## Current Curriculum State (April 2026)
+
+### W10-W16 Structure (Redesigned April 2026)
 - **W10**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking)
 - **W11**: Claude Code Workflows & Dev Practices (Explore→Plan→Implement→Commit, TDD, CI/CD, GitHub)
 - **W12**: Claude Code Extensibility (skills, hooks, MCP, sub-agents, plugins, parallel sessions)
-- **W13**: Agent Architectures & Agent SDK (6 patterns, SDK, multi-agent, safety)
-- **W14**: Emerging AI Engineering (code review automation, caching, RAG, model routing, monitoring)
-- **W15**: Project Due Date only (no lecture)
+- **W13**: Agent Architectures & SDK (6 patterns, SDK, multi-agent coordination)
+- **W14**: AI Security & Code Quality (OWASP, 8-gate pipeline, slopsquatting, ethics, AI code review, evals)
+- **W15**: Production & Course Synthesis (deployment, monitoring, cost optimization, RAG, demo prep)
+- **W16**: Finals Week — P3 Due (Apr 21)
 
 ### Homework Assignments (5 total, 5% each = 25%)
 - HW1 (W4): Prompt Engineering Battle
@@ -148,14 +160,10 @@ When updating course content (schedule, readings, HWs, etc.), the **website must
 - No HW6 — removed to reduce load during P3 sprints
 
 ### Research Reference
-`docs/research/claude_code_course_research.md` contains detailed pedagogical research for W10-W14 with data-backed insights, practical exercises, and additional readings. Key findings to incorporate into slides:
-- CLAUDE.md: HumanLayer data — <200 lines = >92% rule-application, 400+ = ~71%
-- 45% of AI-generated code contains OWASP vulnerabilities (Veracode 2025)
-- LLM-as-judge aligns with human judgment at 85% (vs 81% human-to-human)
-- AI PRs have 1.57x more security issues, 2.74x more XSS (ClackyAI)
-- C.L.E.A.R. framework for reviewing AI code
-- Property-based testing with fast-check: 23-37% improvement in pass rates
-- Slopsquatting: AI hallucinating package names that attackers register
+`docs/research/claude_code_course_research.md` contains pedagogical research for W10-W15.
+- **"Updated Research" section** (Anthropic blog 2025-2026) — all claims verified with source URLs
+- **Original W10-W14 section** — some claims lack clickable source URLs (known debt)
+- Use `/verify-references` skill to audit references
 
 ## When talking to me always include a ⭐️ at the beginning of the message
 

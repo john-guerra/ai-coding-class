@@ -107,9 +107,10 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **10** | **Claude Code Foundations** | • **PROJECT 2 DUE**<br>• How Claude Code works (agentic loop, built-in tools: Read, Edit, Bash, Glob, Grep, WebFetch)<br>• Installation & setup (CLI, VS Code, Desktop)<br>• CLAUDE.md deep dive (@imports, hierarchy, auto-memory, `/init`)<br>• Tool use system & permission model (allowlists, sandboxing)<br>• Context management (`/clear`, `/compact`, checkpoints, `--continue`, `--resume`)<br>• Thinking & planning modes (Plan mode, `Ctrl+G`, extended thinking)<br>• **P3 team formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 10 | **P2:** Final<br>**P3:** Team formation & Start |
 | **11** | **Claude Code Workflows & Dev Practices** | • Explore → Plan → Implement → Commit workflow<br>• TDD with Claude Code (write failing tests → AI implements → refactor)<br>• Git & GitHub integration (commits, branches, PRs through CC)<br>• CI/CD via Claude Code & GitHub Actions (`claude -p` for PR review)<br>• Visual debugging (screenshots, Chrome extension)<br>• Non-interactive mode & scripting (`claude -p`, JSON output, fan-out patterns) | **HW4 DUE:** CC Workflow & TDD<br>Weekly Quiz 11 | **P3:** Sprint 1 |
 | **12** | **Claude Code Extensibility** | • Skills & custom commands (`.claude/skills/`, slash commands)<br>• Hooks (PreToolUse, PostToolUse, Stop — deterministic vs advisory)<br>• MCP servers (Model Context Protocol, `claude mcp add`, databases, Figma, Playwright)<br>• Custom sub-agents (`.claude/agents/`, isolated context, specialized reviewers)<br>• Plugins & plugin marketplace<br>• Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 12 | **P3:** Sprint 2 |
-| **13** | **Agent Architectures & Agent SDK** | • Agent fundamentals (agent vs workflow, augmented LLM)<br>• Anthropic's 6 agent patterns:<br>&nbsp;&nbsp;- Prompt Chaining, Routing, Parallelization<br>&nbsp;&nbsp;- Orchestrator-Workers, Evaluator-Optimizer, Autonomous<br>• Claude Agent SDK (Python/TypeScript, `query()`, hooks, sessions)<br>• Multi-agent coordination & message passing<br>• Agent safety & evaluation (sandboxing, `--allowedTools`)<br>• Real-world agent examples | **HW5 DUE:** Skill + MCP<br>Weekly Quiz 13 | **P3:** Sprint 3 |
-| **14** | **Emerging AI Engineering** | • AI code review automation (Claude Code in GitHub Actions)<br>• Prompt caching & cost optimization<br>• RAG patterns for codebases<br>• Model routing & selection (Opus vs Sonnet vs Haiku)<br>• Monitoring, observability & security (OpenTelemetry, OWASP)<br>• Future of AI engineering<br>• Demo preparation workshop | Weekly Quiz 14 | **P3:** Sprint 4<br>Deploy & polish |
-| **15** | **Project Due Date** | • **PROJECT 3 DUE** (no lecture)<br>• Optional async demo video submissions | **PROJECT 3 DUE** 🎯 | **P3:** Final |
+| **13** | **Agent Architectures & SDK** | • Agent fundamentals (agent vs workflow, augmented LLM)<br>• Anthropic's 6 agent patterns:<br>&nbsp;&nbsp;- Prompt Chaining, Routing, Parallelization<br>&nbsp;&nbsp;- Orchestrator-Workers, Evaluator-Optimizer, Autonomous<br>• Claude Agent SDK (Python/TypeScript, `query()`, hooks, sessions)<br>• Multi-agent coordination & message passing<br>• Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Skill + MCP<br>Weekly Quiz 13 | **P3:** Sprint 3 |
+| **14** | **AI Security & Code Quality** | • Agent safety & evaluation<br>• The security problem (45% of AI code has OWASP vulnerabilities)<br>• The 8-gate security pipeline<br>• Slopsquatting<br>• Ethics & professional responsibility<br>• AI code review automation (Claude Code in GitHub Actions)<br>• Eval awareness & integrity | Weekly Quiz 14 | **P3:** Sprint 4 |
+| **15** | **Production & Course Synthesis** | • Production deployment (CI/CD, Vercel)<br>• Monitoring & observability (OpenTelemetry, Sentry)<br>• Cost optimization (prompt caching, model routing)<br>• RAG patterns for codebases<br>• Future of AI engineering<br>• Demo preparation workshop<br>• Meta-reflection & course synthesis | Weekly Quiz 15 | **P3:** Deploy & polish |
+| **16** | **Finals Week** | • **PROJECT 3 DUE (Apr 21)**<br>• Optional async demo video submissions | **PROJECT 3 DUE** 🎯 | **P3:** Final |
 
 ---
 
@@ -323,7 +324,7 @@ Students must submit a **single PDF/document** containing:
 
 ---
 
-### Project 3: Production Application with Claude Code Mastery (19%) - Due Week 15
+### Project 3: Production Application with Claude Code Mastery (19%) - Due Finals Week (Apr 21)
 
 **Objective:** Build production-grade deployed application demonstrating mastery of Claude Code extensibility (W10-W14)
 
@@ -1462,7 +1463,7 @@ Track changes semester-to-semester:
 - **Week 10:** Project 2 due
 - **Week 11:** HW4 due (Claude Code Workflow & TDD)
 - **Week 13:** HW5 due (Custom Skill + MCP Integration)
-- **Week 15:** Project 3 due (no lecture)
+- **Week 16 (Finals):** Project 3 due (Apr 21)
 
 ### Assessment Summary
 | Component | Weight | Count |

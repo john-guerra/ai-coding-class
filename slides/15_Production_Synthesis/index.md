@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Production Readiness & Emerging AI Engineering"
+title: "CS 7180: Production & Course Synthesis"
 theme: white
 revealOptions:
   transition: convex
@@ -9,29 +9,29 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 14</span>
+<span class="course-week">CS 7180 · Week 15</span>
 
-## Emerging AI Engineering
+## Production & Course Synthesis
 
-Deployment · Monitoring · RAG · Cost
+Deploy · Monitor · Optimize · Reflect
 
 <img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/14_Emerging_AI_Engineering/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/15_Production_Synthesis/)</small>
 
 ---
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 14 checkpoint
+1. Where We Are -- Week 15 checkpoint
 2. Production Deployment
 3. Monitoring & Observability
 4. Performance Optimization with AI
 5. Cost Optimization
-6. RAG & Vector Databases
-7. AI Code Review at Scale
+6. Harness Design for Production
+7. RAG & Vector Databases
 8. The Future of AI Engineering
 9. Demo Preparation
 10. Meta-Reflection & Course Synthesis
@@ -40,31 +40,32 @@ Deployment · Monitoring · RAG · Cost
 
 # Where We Are
 
-> Week 14 -- Final week of lectures
+> Week 15 -- Final week
 
 <!-- vertical -->
 
-## Recap: Week 13
+## Recap: Week 14
 
-**Agent Architectures & Agent SDK**
+**Emerging AI Engineering**
 
-- The 6 agent patterns: chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer, autonomous
-- Claude Agent SDK: `query()`, hooks, sessions
-- Multi-agent coordination and safety
+- AI code review at scale: automated PR reviews with Claude Code in GitHub Actions
+- Structured review output: MUST FIX / SHOULD CONSIDER / MINOR
+- Security: 45% of AI-generated code contains OWASP vulnerabilities
+- C.L.E.A.R. framework for reviewing AI code
 
-**You can now build agents.** This week: ship them to production.
+**You can now review code with AI.** This week: ship everything to production.
 
 <!-- vertical -->
 
-## This Week: Production & Beyond
+## This Week: Ship & Reflect
 
-**Session 1:** Get your P3 production-ready
+**Session 1:** Production-ready P3
 
 - Deployment pipelines, monitoring, performance and cost optimization
 
 **Session 2:** Prepare for Demo Day
 
-- RAG & vector databases, AI code review at scale, future trends
+- Harness design, RAG, future trends
 - Demo rehearsal and meta-reflection
 
 ---
@@ -418,6 +419,102 @@ claude -p "Review this codebase for security issues" \
 
 ---
 
+# Harness Design for Production
+
+> Multi-agent architectures for real applications
+
+<!-- vertical -->
+
+## The Planner / Generator / Evaluator Pattern
+
+**GAN-inspired architecture for building production applications.**
+
+<pre class="mermaid">
+%%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 30}}}%%
+flowchart LR
+    A["Planner<br/>(prompts → specs)"] --> B["Generator<br/>(implements code)"]
+    B --> C["Evaluator<br/>(tests with Playwright)"]
+    C -->|"Feedback"| B
+</pre>
+
+- **Planner:** Converts high-level prompts into detailed specifications
+- **Generator:** Implements with React/Vite/FastAPI using the spec
+- **Evaluator:** Tests with browser automation (Playwright), not just unit tests
+
+**Separating roles prevents the "lenient bias" problem.**
+
+<!-- vertical -->
+
+## Self-Evaluation Shows Lenient Bias
+
+**Models are bad at evaluating their own work.**
+
+When a model generates code and then evaluates it:
+
+- It gives itself the benefit of the doubt
+- It marks features as "complete" prematurely
+- It overlooks bugs it introduced
+
+**Solution:** Separate generation from evaluation. Different agent sessions, different roles, different prompts.
+
+This maps directly to your CI/CD pipeline: **the code author should not be the only reviewer.**
+
+<!-- vertical -->
+
+## Solo Agent vs Full Harness
+
+<!-- .slide: class="dense" -->
+
+| Approach | Time | Cost | Quality |
+|---|---|---|---|
+| **Solo agent** | 20 min | $9 | Broken mechanics, incomplete features |
+| **Full harness** (Planner + Generator + Evaluator) | 6 hrs | $200 | Functional gameplay, polished output |
+| **Opus 4.6 harness** (DAW example) | 3 hrs 50 min | $125 | Eliminated sprint decomposition, maintained quality |
+
+**Key insight:** *"Every component in a harness encodes an assumption about what the model can't do independently."* As models improve, less scaffolding is necessary.
+
+**Tradeoff:** Not every task needs a harness. Match investment to complexity.
+
+<!-- vertical -->
+
+## One-Feature-Per-Session Pattern
+
+**Agents attempting comprehensive implementation in single sessions exhaust context mid-feature.**
+
+The pattern:
+
+1. **Initializer agent** creates `init.sh`, `claude-progress.txt`, and a feature list (JSON)
+2. **Coding agent** follows startup: read context -> review progress -> consult feature list -> run tests -> work -> commit
+3. **One feature per session** -- prevents context exhaustion and premature completion
+
+**Feature lists as guardrails:**
+
+```json
+{
+  "feature": "User Authentication",
+  "steps": ["Create login form", "Add OAuth", "Session management"],
+  "verification": ["Can log in with email", "OAuth redirects work"],
+  "status": "incomplete"
+}
+```
+
+Structured verification criteria prevent agents from declaring victory early.
+
+<!-- vertical -->
+
+## Four Failure Modes of Long-Running Agents
+
+| Failure Mode | What Happens | Prevention |
+|---|---|---|
+| **Early victory declarations** | Agent claims "done" with broken output | Feature list with verification criteria |
+| **Undocumented broken states** | Tests fail silently, agent moves on | Browser automation (Puppeteer/Playwright) |
+| **Premature feature completion** | Agent marks features complete without testing | Separate evaluator agent |
+| **Setup time waste** | Each session re-discovers project structure | `init.sh` + `claude-progress.txt` |
+
+**Browser automation (Puppeteer MCP) dramatically improved outcomes over unit tests alone.**
+
+---
+
 # RAG & Vector Databases
 
 > Retrieval-augmented generation for AI-powered apps
@@ -560,61 +657,6 @@ flowchart TD
 
 ---
 
-# AI Code Review at Scale
-
-> Claude Code in GitHub Actions
-
-<!-- vertical -->
-
-## Automated PR Review
-
-```yaml
-# .github/workflows/ai-review.yml
-name: AI Code Review
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Claude Code Review
-        run: |
-          claude -p "Review this PR diff.
-          Categorize findings as:
-          - MUST FIX: bugs, security issues
-          - SHOULD CONSIDER: performance, readability
-          - MINOR: style, naming suggestions
-          Be specific. Reference file:line."
-```
-
-<!-- vertical -->
-
-## Structured Review Output
-
-```markdown
-## MUST FIX (2 issues)
-1. **SQL Injection** - `src/api/users.ts:42`
-   Raw string interpolation in query.
-   Use parameterized queries instead.
-2. **Missing auth check** - `src/api/admin.ts:15`
-   Admin endpoint has no authentication middleware.
-
-## SHOULD CONSIDER (1 issue)
-1. **N+1 query** - `src/api/posts.ts:28`
-   Fetching author inside a loop. Use JOIN.
-
-## MINOR (1 issue)
-1. **Naming** - `src/utils/helpers.ts:5`
-   `processData()` too generic -> `transformUserResponse()`
-```
-
-**The human reviewer still makes the final call.** AI review is a first pass, not a replacement.
-
----
-
 # The Future of AI Engineering
 
 > Where this is all heading
@@ -746,7 +788,7 @@ Highlight tech stack choices, key decisions, where AI agents fit.
 
 Students who reflect on their learning retain information 23% better, transfer skills to new contexts more effectively, and develop stronger metacognitive abilities.
 
-<small>Source: [Learning by Thinking](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478) — Di Stefano et al., Harvard Business School</small>
+<small>Source: [Learning by Thinking](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2414478) -- Di Stefano et al., Harvard Business School</small>
 
 **This is not a "soft" exercise. It's a learning multiplier.**
 
@@ -760,7 +802,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 **About AI as a tool:**
 - When did AI help you most? When did it hinder you?
-- How did your prompting evolve from Week 1 to Week 14?
+- How did your prompting evolve from Week 1 to Week 15?
 - What would you never let AI do? What do you always let it do?
 
 **About software quality:**
@@ -773,7 +815,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 # Course Synthesis
 
-> Connecting the threads across Weeks 10-14
+> Connecting the threads across Weeks 10-15
 
 <!-- vertical -->
 
@@ -781,12 +823,12 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 <!-- .slide: class="dense" -->
 
-| Practice | W10 | W11 | W12 | W13 | W14 |
-|---|---|---|---|---|---|
-| **Testing & CI/CD** | Tool permissions | TDD, GitHub Actions | Hooks enforce CI | Agent evals | Full pipeline |
-| **Code Review** | CLAUDE.md standard | PR workflow via CC | Writer/reviewer agents | Multi-agent review | AI review at scale |
-| **System Design** | Agentic loop | Explore-Plan-Implement | Skills, hooks, MCP | 6 agent patterns | RAG, vector DBs, model routing |
-| **Ethical AI Dev** | Permission modes | Human review of AI | Hooks as guardrails | Agent safety | Production responsibility |
+| Practice | W10 | W11 | W12 | W13 | W14 | W15 |
+|---|---|---|---|---|---|---|
+| **Testing & CI/CD** | Tool permissions | TDD, GitHub Actions | Hooks enforce CI | Agent evals | Security review | Full pipeline deploy |
+| **Code Review** | CLAUDE.md standard | PR workflow via CC | Writer/reviewer agents | Multi-agent review | AI review at scale | Production monitoring |
+| **System Design** | Agentic loop | Explore-Plan-Implement | Skills, hooks, MCP | 6 agent patterns | Model routing | Harness design, RAG |
+| **Ethical AI Dev** | Permission modes | Human review of AI | Hooks as guardrails | Agent safety | Security scanning | Production responsibility |
 
 <!-- vertical -->
 
@@ -805,11 +847,11 @@ Weeks 6-8: Coding with AI (IDE)
 Weeks 10-12: Engineering with AI (Claude Code)
   "AI is part of my development infrastructure"
 
-Weeks 13-14: Architecting with AI (Agents & Production)
-  "I can design AI-powered systems"
+Weeks 13-15: Architecting with AI (Agents & Production)
+  "I can design and deploy AI-powered systems"
 ```
 
-**You went from user to architect in 14 weeks.**
+**You went from user to architect in 15 weeks.**
 
 <!-- vertical -->
 
@@ -835,7 +877,7 @@ P3: Production Responsibility
 
 ## What You Take With You
 
-**Technical skills:** Prompt engineering, context engineering (CLAUDE.md, rules files), TDD with AI, CI/CD with AI review, agent architecture patterns.
+**Technical skills:** Prompt engineering, context engineering (CLAUDE.md, rules files), TDD with AI, CI/CD with AI review, agent architecture patterns, harness design.
 
 **Engineering judgment:** When to trust AI output and when to verify, how to review AI-generated code, when to use which modality, how to manage costs and quality tradeoffs.
 
@@ -845,7 +887,7 @@ P3: Production Responsibility
 
 # Deliverables
 
-> What's due and what's next
+> What's due
 
 <!-- vertical -->
 
@@ -853,65 +895,50 @@ P3: Production Responsibility
 
 | Deliverable | Due | Details |
 |---|---|---|
-| **Weekly Quiz 14** | Tuesday, Week 14 at 2:59 PM PT | Production, cost optimization, emerging trends |
-| **P3 Sprint 4** | End of week | Deploy and polish. Final sprint! |
+| **Project 3 Final** | End of Week 15 | Final submission with deployed URL |
+| **Demo Videos** | End of Week 15 | Async demo submissions |
 
-**P3 Final Sprint Checklist:**
+**P3 Final Submission Checklist:**
 
 - [ ] App deployed to production (Vercel or similar)
 - [ ] CI/CD pipeline passing all stages
 - [ ] Environment variables properly configured
 - [ ] Error monitoring set up (Sentry or equivalent)
 - [ ] README with setup instructions and live URL
-- [ ] Demo video recorded as backup
+- [ ] Demo video recorded
 - [ ] Architecture diagram (Mermaid) in repo
-
-<!-- vertical -->
-
-## Next Week: Week 15
-
-**No lecture.**
-
-| Item | Details |
-|---|---|
-| **Project 3 Due** | Final submission with deployed URL |
-| **Demo Videos** | Optional async demo submissions |
-
-**This is your last chance to polish before submission.**
 
 ---
 
 # Resources
 
-> Readings and references for this week
+> Readings and references
 
 <!-- vertical -->
 
-## Required Readings
+## Production & Deployment
 
 <!-- .slide: class="dense" -->
 
 | Resource | Description | URL |
 |---|---|---|
-| Prompt Caching | How caching works, when to use it | platform.claude.com/docs/en/build-with-claude/prompt-caching |
-| Define Success Criteria | Building measurable success metrics | platform.claude.com/docs/en/test-and-evaluate/define-success |
-| OWASP Top 10 | Security best practices for web apps | owasp.org/www-project-top-ten/ |
-| GitHub Actions Docs | CI/CD pipeline reference | docs.github.com/en/actions |
 | Vercel Deployment Docs | Production deployment | vercel.com/docs |
+| GitHub Actions Docs | CI/CD pipeline reference | docs.github.com/en/actions |
+| Sentry for Next.js | Error monitoring setup | docs.sentry.io/platforms/javascript/guides/nextjs/ |
+| Prompt Caching | How caching works, when to use it | platform.claude.com/docs/en/build-with-claude/prompt-caching |
 
 <!-- vertical -->
 
-## Recommended Readings
+## Harness Design & RAG
 
 <!-- .slide: class="dense" -->
 
 | Resource | Description | URL |
 |---|---|---|
-| OpenSSF AI Code Security Guide | Security-focused best practices | best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
-| Reduce Hallucinations | Verification strategies and guardrails | platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations |
-| When to Trust AI-Generated Code | Guidelines for code trust | graphite.com/guides/when-to-trust-ai-code |
-| GitHub Copilot Research | Does Copilot improve code quality? | github.blog/news-insights/research/does-github-copilot-improve-code-quality |
-| Cybersecurity Risks of AI Code | Georgetown CSET report | cset.georgetown.edu/publication/cybersecurity-risks-of-ai-generated-code/ |
+| Harness Design for Long-Running Apps | Planner/Generator/Evaluator architecture | anthropic.com/engineering/harness-design-long-running-apps |
+| Effective Harnesses for Long-Running Agents | One-feature-per-session, feature lists | anthropic.com/engineering/effective-harnesses-for-long-running-agents |
+| OWASP Top 10 | Security best practices for web apps | owasp.org/www-project-top-ten/ |
+| Define Success Criteria | Building measurable success metrics | platform.claude.com/docs/en/test-and-evaluate/define-success |
 
 ---
 

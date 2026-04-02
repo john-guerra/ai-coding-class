@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Agent Architectures & Security"
+title: "CS 7180: Agent Architectures & SDK"
 theme: white
 revealOptions:
   transition: convex
@@ -11,11 +11,11 @@ revealOptions:
 
 <span class="course-week">CS 7180 · Week 13</span>
 
-## Agent Architectures & Security
+## Agent Architectures & SDK
 
-6 Patterns · SDK · Multi-Agent · Safety
+6 Patterns · SDK · Multi-Agent
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
@@ -31,17 +31,13 @@ revealOptions:
 4. Claude Agent SDK
 5. Multi-Agent Coordination
 6. Agent Safety & Evaluation
-7. Security of AI-Generated Code
-8. The 8-Gate Security Pipeline
-9. Slopsquatting
-10. Ethics & Professional Responsibility
-11. Hands-on Lab
+7. Hands-on Lab
 
 ---
 
 # Where We Are
 
-> Week 13 -- Agent architectures and securing AI code
+> Week 13 -- Agent architectures and the Agent SDK
 
 <!-- vertical -->
 
@@ -49,24 +45,19 @@ revealOptions:
 
 **Week 12:** Claude Code Extensibility -- skills, hooks, MCP servers, custom sub-agents, parallel sessions
 
-You learned how to **extend** Claude Code. Now you learn how to **build agents from scratch** and how to **secure everything AI generates**.
+You learned how to **extend** Claude Code. Now you learn how to **build agents from scratch** using the Agent SDK and canonical patterns.
 
 <!-- vertical -->
 
-## This Week: Two Sessions
+## This Week's Focus
 
-**Session 1: Agent Architectures**
+**Agent Architectures & SDK**
 
 - What makes something an "agent" vs a scripted workflow
 - The 6 canonical patterns from Anthropic research
 - Claude Agent SDK for building programmatic agents
-
-**Session 2: Security of AI-Generated Code**
-
-- The data is alarming -- [45% of AI code has OWASP vulnerabilities](https://www.veracode.com/blog/genai-code-security-report/)
-- The 8-gate pipeline that catches what AI misses
-- Novel threats like slopsquatting
-- Ethics, IP, and professional responsibility
+- Multi-agent coordination and message passing
+- Agent safety, sandboxing, and evaluation
 
 ---
 
@@ -489,265 +480,9 @@ Agents are harder to test than deterministic code. Four approaches:
 
 ---
 
-# The Security Problem
-
-> Session 2: AI-generated code is dangerously insecure
-
-<!-- vertical -->
-
-## The Data Is Alarming
-
-<!-- .slide: class="dense" -->
-
-**Veracode 2025 Study:**
-
-| Metric | Result |
-|--------|--------|
-| AI code with OWASP Top 10 vulnerabilities | **45%** |
-| Java code failure rate | **72%** |
-| XSS vulnerability rate | **86%** |
-| Log injection vulnerability rate | **88%** |
-
-<small>Source: [GenAI Code Security Report](https://www.veracode.com/blog/genai-code-security-report/) — Veracode, 2025</small>
-
-**Critical finding:** Larger, more capable models do **NOT** generate more secure code. Security performance has not improved even as models get dramatically better at functional correctness.
-
-<!-- vertical -->
-
-## More Alarming Data
-
-**Apiiro Research:**
-
-- Privilege escalation flaws: **+322%** in AI-generated code
-- Architectural design flaws: **+153%** in AI-generated code
-
-<small>Source: [4x Velocity, 10x Vulnerabilities](https://apiiro.com/blog/4x-velocity-10x-vulnerabilities-ai-coding-assistants-are-shipping-more-risks/) — Apiiro</small>
-
-**Aikido 2026 Report:**
-
-- **1 in 5** organizations reported serious security incidents from AI-generated code
-
-<small>Source: [2026 State of AI in Security & Development](https://www.aikido.dev/reports/2026-state-of-ai-in-security-development) — Aikido</small>
-
-The AI writes code that *works* but is *vulnerable*. It passes tests but fails security audits.
-
-**You ship it. You own it.**
-
-<!-- vertical -->
-
-## Why AI Code Is Insecure
-
-1. **Training data includes vulnerable code** -- learned from millions of repos with known vulnerabilities
-2. **Functional correctness != security** -- optimizes for "does it work?" not "is it safe?"
-3. **Missing context** -- doesn't know your threat model or compliance requirements
-4. **Developer overconfidence** -- code that "looks right" and passes tests gets less scrutiny
-5. **Speed vs rigor tradeoff** -- faster development tempts developers to skip security reviews
-
----
-
-# The 8-Gate Security Pipeline
-
-> Systematic defense for AI-generated code
-
-<!-- vertical -->
-
-## Overview: 8 Gates
-
-Every AI-generated code change should pass through **8 security gates** before reaching production.
-
-```text
-  Code -> [1] -> [2] -> [3] -> [4] -> [5] -> [6] -> [7] -> [8] -> Production
-         Pre-  Deps   SAST   DAST  Contain License SecAcc  SBOM
-         commit                      er
-```
-
-No single gate catches everything. Together, they form defense in depth.
-
-<!-- vertical -->
-
-## Gates 1-2: Secrets & Dependencies
-
-**Gate 1 -- Pre-Commit Secrets Detection (Gitleaks)**
-
-Scans code before commit for API keys, tokens, passwords, private keys.
-
-```bash
-gitleaks protect --staged   # Run as pre-commit hook
-```
-
-AI models sometimes hallucinate credentials or copy patterns that include hardcoded secrets.
-
-**Gate 2 -- Dependency Scanning (npm audit, Dependabot, Snyk)**
-
-AI suggests dependencies from training data -- some with known vulnerabilities or unmaintained.
-
-```bash
-npm audit          # Check for known vulnerabilities
-npm audit fix      # Auto-fix what you can
-```
-
-The model may suggest outdated package versions with known CVEs.
-
-<!-- vertical -->
-
-## Gates 3-4: SAST and DAST
-
-**Gate 3 -- SAST (Static Application Security Testing)**
-
-Analyzes source code without running it.
-
-- **SonarQube** -- comprehensive, many languages
-- **Semgrep** -- lightweight, pattern-based rules
-
-Catches: SQL injection patterns, XSS sinks, hardcoded secrets, insecure crypto
-
-**Gate 4 -- DAST (Dynamic Application Security Testing)**
-
-Tests the **running application** from the outside.
-
-- **OWASP ZAP** -- open source, automated scanning
-- Simulates attacks against your deployed app
-
-Catches: Authentication bypasses, CORS misconfigurations, exposed endpoints
-
-<!-- vertical -->
-
-## Gates 5-6: Container & License
-
-**Gate 5 -- Container Scanning**
-
-If you deploy in containers, scan the image:
-- Base image vulnerabilities
-- Unnecessary packages
-- Running as root (don't)
-
-**Gate 6 -- License Compliance**
-
-**Tool:** FOSSA, license-checker
-
-AI-generated code may introduce dependencies with **incompatible licenses**.
-
-- GPL dependency in an MIT project? License violation.
-- Reports of GPL-licensed code appearing in MIT-licensed projects via Copilot highlight the risk of AI introducing license conflicts.
-
-FOSSA scans your dependency tree for license conflicts automatically.
-
-<!-- vertical -->
-
-## Gates 7-8: Security Criteria & SBOM
-
-**Gate 7 -- Security Acceptance Criteria**
-
-Add to your Definition of Done: input validation, auth checks, no secrets in code/logs, rate limiting, non-leaking error messages.
-
-**Gate 8 -- SBOM (Software Bill of Materials)**
-
-A complete inventory of every component. Formats: SPDX, CycloneDX.
-
-Required by U.S. Executive Order 14028, EU Cyber Resilience Act, and enterprise procurement.
-
-```bash
-npx @cyclonedx/cyclonedx-npm --output-file sbom.json
-```
-
----
-
-# Slopsquatting
-
-> A novel threat unique to AI development
-
-<!-- vertical -->
-
-## What Is Slopsquatting?
-
-AI models sometimes **hallucinate package names** that don't exist.
-
-```text
-You: "How do I parse CSV in Python?"
-AI: "Use the fast-csv-parser package: pip install fast-csv-parser"
-```
-
-Problem: `fast-csv-parser` doesn't exist. But what if an attacker **registers it**?
-
-**Slopsquatting:** Attackers monitor AI hallucinations, register the fake package names, and fill them with malicious code.
-
-When developers follow AI advice and `pip install` or `npm install` the hallucinated package, they install malware.
-
-<!-- vertical -->
-
-## Defending Against Slopsquatting
-
-1. **Verify every package** -- check it exists on npm/PyPI with real downloads
-2. **Use lockfiles** -- `package-lock.json` pins known-good versions
-3. **Dependency scanning** (Gate 2) catches known malicious packages
-4. **Be suspicious of unfamiliar packages** -- if you've never heard of it, verify first
-
-**This is not theoretical -- it's happening in production.**
-
----
-
-# Ethics & Professional Responsibility
-
-> You ship it, you own it
-
-<!-- vertical -->
-
-## IP and Copyright
-
-**U.S. Copyright Office (2023):**
-
-> Wholly AI-generated content is **not copyrightable**.
-
-Your code is only protected if there is meaningful human creative contribution.
-
-<small>Source: [Copyright and Artificial Intelligence](https://www.copyright.gov/ai/) — U.S. Copyright Office</small>
-
-**Doe v. GitHub (class action):**
-
-- Alleges Copilot reproduces copyrighted code without attribution
-- Class action on behalf of open-source developers
-- Note: DMCA claims were largely dismissed in June 2024; remaining claims continue
-
-<small>Source: [The Copilot Litigation](https://www.bakerlaw.com/the-copilot-litigation/) — Baker & Hostetler LLP</small>
-
-**License compliance risk:**
-
-- Reports of GPL-licensed code appearing in MIT-licensed projects via AI code assistants
-- GPL requires derivative works to also be GPL -- violation means legal liability
-
-<!-- vertical -->
-
-## Professional Responsibility
-
-**ACM Code of Ethics, Principle 1.6:**
-
-> "Accept full responsibility for their own work."
-
-When you use AI to generate code:
-- **You** are the author of record
-- **You** are responsible for bugs, vulnerabilities, and license violations
-- **You** must review every line before shipping
-- "The AI wrote it" is not a defense
-
-**The standard has not changed.** AI is a tool. The engineer is accountable.
-
-<!-- vertical -->
-
-## Bias in AI-Generated Code
-
-AI perpetuates biases from training data:
-
-- **Default assumptions** -- user schemas assuming binary gender, Western names, English-only
-- **Exclusionary patterns** -- accessibility features omitted unless explicitly requested
-- **Cultural bias** -- dates, currencies, addresses default to U.S. conventions
-
-**Your responsibility:** Review for inclusivity, explicitly prompt for accessibility, test with diverse personas, don't ship defaults uncritically.
-
----
-
 # Hands-on Lab
 
-> Build a simple agent and audit AI code for security
+> Build agents using the 6 patterns and the Agent SDK
 
 <!-- vertical -->
 
@@ -767,29 +502,6 @@ Build an agent that (1) writes a unit test, (2) evaluates if the test is meaning
 
 Build an agent that classifies input as "bug report," "feature request," or "question" and routes to specialized handlers.
 
-<!-- vertical -->
-
-## Exercise 2: Security Audit (20 min)
-
-Take a piece of AI-generated code from your P3 project and run it through as many gates as you can:
-
-```bash
-# Gate 1: Secrets
-gitleaks detect --source .
-
-# Gate 2: Dependencies
-npm audit
-
-# Gate 3: SAST (if you have Semgrep)
-semgrep --config auto src/
-
-# Check: any vulnerabilities found?
-```
-
-Document what you find. Discuss with your team:
-- Were there any surprises?
-- Would you have caught these without the tools?
-
 ---
 
 # This Week's Deliverables
@@ -798,27 +510,26 @@ Document what you find. Discuss with your team:
 
 ## Due This Week
 
-**Weekly Quiz 13** -- Agent Architectures & Security concepts
+**Weekly Quiz 13** -- Agent Architectures & SDK concepts
 
 **P3 Sprint 3** -- continue your team project
 
 **Recommended:**
 - Try at least one Agent SDK pattern from the lab
-- Run `npm audit` and `gitleaks detect` on your P3 repo
-- Review your P3 code for the OWASP Top 10
+- Experiment with multi-agent coordination in your P3 project
 
 ---
 
 # Next Week Preview
 
-## Week 14: Emerging AI Engineering
+## Week 14: AI Security & Code Quality
 
-- AI code review automation (Claude Code in GitHub Actions)
+- Security of AI-generated code (45% have OWASP vulnerabilities)
+- The 8-gate security pipeline
+- Slopsquatting and novel AI threats
+- Ethics, IP, and professional responsibility
+- AI code review automation
 - Prompt caching & cost optimization
-- RAG patterns for codebases
-- Model routing & selection (Opus vs Sonnet vs Haiku)
-- Monitoring, observability & security (OpenTelemetry, OWASP)
-- Future of AI engineering
 - **Demo preparation workshop** for P3
 
 **P3 Sprint 4 -- deploy & polish.**
@@ -839,7 +550,6 @@ Document what you find. Discuss with your team:
 | Claude Agent SDK Overview | [platform.claude.com/docs/en/agent-sdk/overview](https://platform.claude.com/docs/en/agent-sdk/overview) |
 | Claude Agent SDK Quick Start | [platform.claude.com/docs/en/agent-sdk/quickstart](https://platform.claude.com/docs/en/agent-sdk/quickstart) |
 | Tool Use (Function Calling) | [platform.claude.com/docs/en/build-with-claude/tool-use/overview](https://platform.claude.com/docs/en/build-with-claude/tool-use/overview) |
-| OWASP Top 10 | [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/) |
 
 <!-- vertical -->
 
@@ -851,9 +561,9 @@ Document what you find. Discuss with your team:
 |----------|-----|
 | Claude Agent SDK Demos | [github.com/anthropics/claude-agent-sdk-demos](https://github.com/anthropics/claude-agent-sdk-demos) |
 | Prompt Chaining Guide | [docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts) |
-| OpenSSF AI Code Security Guide | [best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions](https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions) |
-| Veracode AI Security Analysis | [veracode.com/blog/ai-generated-code-security-risks](https://www.veracode.com/blog/ai-generated-code-security-risks/) |
-| Georgetown CSET: Cybersecurity Risks of AI Code | [cset.georgetown.edu/publication/cybersecurity-risks-of-ai-generated-code](https://cset.georgetown.edu/publication/cybersecurity-risks-of-ai-generated-code/) |
+| Building a C Compiler with Parallel Claudes | [anthropic.com/engineering/building-c-compiler](https://www.anthropic.com/engineering/building-c-compiler) |
+| Multi-Agent Research System | [anthropic.com/engineering/multi-agent-research-system](https://www.anthropic.com/engineering/multi-agent-research-system) |
+| Writing Effective Tools for Agents | [anthropic.com/engineering/writing-tools-for-agents](https://www.anthropic.com/engineering/writing-tools-for-agents) |
 
 <!-- vertical -->
 

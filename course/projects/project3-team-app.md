@@ -108,9 +108,8 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 2. Deployed application (Vercel production URL)
 3. CI/CD pipeline (GitHub Actions, all stages passing)
 4. Technical blog post (team effort, published on Medium, dev.to, or similar)
-6. Screencast video demonstration (5-10 minutes, showcasing app + Claude Code workflow)
-7. Live demo (8-10 minutes on Demo Day, structure per W14)
-8. Individual reflections (one per partner, 500 words)
+5. Video demonstration (5-10 minutes, showcasing app + Claude Code workflow)
+6. Individual reflections (one per partner, 500 words)
 9. Showcase submission via Google Form (project name, URLs, thumbnail, video, blog)
 
 ---
@@ -124,7 +123,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 | **Testing & TDD** | 30 | TDD workflow, coverage, test pyramid |
 | **CI/CD & Production** | 35 | Pipeline stages, AI review, Vercel deploy, security gates |
 | **Team Process** | 25 | Sprints, PRs, C.L.E.A.R. reviews, async standups, peer evals |
-| **Documentation & Demo** | 15 | README, blog post, screencast, reflections, live demo |
+| **Documentation & Demo** | 15 | README, blog post, video demo, reflections |
 
 ### Application Quality Breakdown (40 pts)
 
@@ -177,9 +176,8 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 |-----------|-----|-----------|------|--------------|-------------------|
 | README & architecture | 3 | Clear README with Mermaid diagram, setup instructions | README present, basic architecture | Minimal README | Missing |
 | Blog post | 3 | Published, insightful, covers AI workflow and technical decisions | Published, adequate depth | Draft or shallow | Missing |
-| Screencast video (5-10 min) | 3 | Polished video showing app + Claude Code workflow, clear narration | Video present, covers main points | Video present but minimal | Missing |
+| Video demo (5-10 min) | 6 | Polished video showing app + Claude Code workflow, clear narration, covers architecture and key decisions | Video present, covers main points | Video present but minimal | Missing |
 | Individual reflections | 3 | 500 words/partner, specific Claude Code insights, honest assessment | Meets word count, some reflection | Shallow or short | Missing |
-| Live demo (8-10 min) | 3 | Follows W14 structure, smooth live demo, AI workflow showcase | Mostly follows structure | Over/under time, unprepared | No demo |
 
 **Note:** Individual grades adjusted by peer evaluations (±10%)
 

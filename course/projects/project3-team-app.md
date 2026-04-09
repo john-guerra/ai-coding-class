@@ -87,7 +87,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 - Preview deploy (Vercel)
 - Production deploy on merge to main
 
-**Security (W13) — minimum 4 gates from the 8-gate pipeline:**
+**Security (W14) — minimum 4 gates from the 8-gate pipeline:**
 - Pre-commit secrets detection (Gitleaks or equivalent)
 - Dependency scanning (npm audit in CI)
 - At least one SAST tool or security-focused sub-agent

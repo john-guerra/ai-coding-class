@@ -78,6 +78,7 @@ Safety · Security · Evals · Ethics
 > Measuring and controlling autonomous systems
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Eval Frameworks: pass@k vs pass^k
 
@@ -98,6 +99,7 @@ Two metrics for non-deterministic AI outputs:
 <small>Source: [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) -- Anthropic</small>
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Three Grader Types
 
@@ -114,6 +116,7 @@ Two metrics for non-deterministic AI outputs:
 - Human graders for high-stakes decisions (security review, architecture)
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Building Your First Eval Suite
 
@@ -156,6 +159,7 @@ Two metrics for non-deterministic AI outputs:
 **Critical finding:** Larger, more capable models do **NOT** generate more secure code. Security performance has not improved even as models get dramatically better at functional correctness.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## More Alarming Data
 
@@ -193,6 +197,7 @@ The AI writes code that *works* but is *vulnerable*. It passes tests but fails s
 > Systematic defense for AI-generated code
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Overview: 8 Gates
 
@@ -207,6 +212,7 @@ Every AI-generated code change should pass through **8 security gates** before r
 No single gate catches everything. Together, they form defense in depth.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Gates 1-2: Secrets & Dependencies
 
@@ -232,6 +238,7 @@ npm audit fix      # Auto-fix what you can
 The model may suggest outdated package versions with known CVEs.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Gates 3-4: SAST and DAST
 
@@ -254,6 +261,7 @@ Tests the **running application** from the outside.
 Catches: Authentication bypasses, CORS misconfigurations, exposed endpoints
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Gates 5-6: Container & License
 
@@ -276,6 +284,7 @@ AI-generated code may introduce dependencies with **incompatible licenses**.
 FOSSA scans your dependency tree for license conflicts automatically.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Gates 7-8: Security Criteria & SBOM
 

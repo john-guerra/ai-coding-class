@@ -151,3 +151,17 @@ website
 
 # Assessment answer keys (instructor only)
 course/assessments/*-answer-key.md
+
+# Claude Code local files
+.claude/settings.local.json
+.claude/projects/
+.claude/worktrees/
+
+# Generated PDFs
+course/*.pdf
+
+# Playwright test results
+slides/test-results/
+
+# PowerPoint files (large binaries)
+*.pptx

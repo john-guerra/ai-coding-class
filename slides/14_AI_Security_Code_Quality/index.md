@@ -58,6 +58,9 @@ Safety · Security · Evals · Ethics
 
 ## This Week: Two Themes
 
+<div class="columns">
+<div class="column">
+
 **Theme 1: Security of AI-Generated Code**
 
 - The data is alarming -- [45% of AI code has OWASP vulnerabilities](https://www.veracode.com/blog/genai-code-security-report/)
@@ -65,11 +68,17 @@ Safety · Security · Evals · Ethics
 - Novel threats like slopsquatting
 - AI code review automation in CI/CD
 
+</div>
+<div class="column">
+
 **Theme 2: Evaluation & Ethics**
 
 - How to evaluate AI agents systematically
 - Eval awareness: when models reverse-engineer benchmarks
 - IP, copyright, and professional responsibility
+
+</div>
+</div>
 
 ---
 
@@ -84,15 +93,24 @@ Safety · Security · Evals · Ethics
 
 Two metrics for non-deterministic AI outputs:
 
-**pass@k** -- Probability of at least one success in k attempts
+<div class="columns">
+<div class="column">
+
+**pass@k** -- At least one success in k attempts
 
 - "If I try 5 times, do I get a correct answer at least once?"
 - Generous -- rewards occasional success
 
-**pass^k** -- Probability that ALL k trials succeed
+</div>
+<div class="column">
+
+**pass^k** -- ALL k trials succeed
 
 - "Does this work every time I run it?"
 - Strict -- rewards consistency and reliability
+
+</div>
+</div>
 
 **For production systems, pass^k matters more.** Users don't get 5 tries.
 
@@ -111,27 +129,36 @@ Two metrics for non-deterministic AI outputs:
 
 **Best practice:** Combine all three.
 
-- Code graders for deterministic checks (tests pass, output format correct)
-- Model graders for qualitative assessment (code quality, readability)
-- Human graders for high-stakes decisions (security review, architecture)
+- **Code** graders for deterministic checks (tests pass, format correct)
+- **Model** graders for qualitative assessment (quality, readability)
+- **Human** graders for high-stakes decisions (security, architecture)
 
 <!-- vertical -->
 <!-- .slide: class="dense" -->
 
 ## Building Your First Eval Suite
 
+<div class="columns">
+<div class="column">
+
 **Start small, start from real failures.**
 
-1. Collect **20-50 tasks** from real failures in your project
-2. Convert manual testing into automated test cases
-3. **Evaluate outcomes, not paths** -- the agent's reasoning may differ from yours
-4. Monitor for "eval saturation" -- 100% pass rates mean your eval is too easy
+1. Collect **20-50 tasks** from real failures
+2. Convert manual testing into automated cases
+3. **Evaluate outcomes, not paths**
+4. Monitor for "eval saturation" -- 100% = too easy
+
+</div>
+<div class="column">
 
 **Agent-specific eval strategies:**
 
-- **Coding agents:** Deterministic unit tests + LLM rubrics
-- **Conversational agents:** State verification + tone assessment
-- **Research agents:** Groundedness checks against source material
+- **Coding agents:** Unit tests + LLM rubrics
+- **Conversational:** State verification + tone
+- **Research:** Groundedness checks vs source
+
+</div>
+</div>
 
 ---
 
@@ -163,22 +190,29 @@ Two metrics for non-deterministic AI outputs:
 
 ## More Alarming Data
 
+<div class="columns">
+<div class="column">
+
 **Apiiro Research:**
 
-- Privilege escalation flaws: **+322%** in AI-generated code
-- Architectural design flaws: **+153%** in AI-generated code
+- Privilege escalation flaws: **+322%**
+- Architectural design flaws: **+153%**
 
 <small>Source: [4x Velocity, 10x Vulnerabilities](https://apiiro.com/blog/4x-velocity-10x-vulnerabilities-ai-coding-assistants-are-shipping-more-risks/) -- Apiiro</small>
 
+</div>
+<div class="column">
+
 **Aikido 2026 Report:**
 
-- **1 in 5** organizations reported serious security incidents from AI-generated code
+- **1 in 5** orgs reported serious security incidents from AI-generated code
 
 <small>Source: [2026 State of AI in Security & Development](https://www.aikido.dev/reports/2026-state-of-ai-in-security-development) -- Aikido</small>
 
-The AI writes code that *works* but is *vulnerable*. It passes tests but fails security audits.
+</div>
+</div>
 
-**You ship it. You own it.**
+AI writes code that *works* but is *vulnerable*. It passes tests but fails security audits. **You ship it. You own it.**
 
 <!-- vertical -->
 
@@ -216,54 +250,75 @@ No single gate catches everything. Together, they form defense in depth.
 
 ## Gates 1-2: Secrets & Dependencies
 
-**Gate 1 -- Pre-Commit Secrets Detection (Gitleaks)**
+<div class="columns">
+<div class="column">
 
-Scans code before commit for API keys, tokens, passwords, private keys.
+**Gate 1 -- Secrets Detection (Gitleaks)**
 
-```bash
-gitleaks protect --staged   # Run as pre-commit hook
-```
-
-AI models sometimes hallucinate credentials or copy patterns that include hardcoded secrets.
-
-**Gate 2 -- Dependency Scanning (npm audit, Dependabot, Snyk)**
-
-AI suggests dependencies from training data -- some with known vulnerabilities or unmaintained.
+Scans for API keys, tokens, passwords, private keys.
 
 ```bash
-npm audit          # Check for known vulnerabilities
-npm audit fix      # Auto-fix what you can
+gitleaks protect --staged
 ```
 
-The model may suggest outdated package versions with known CVEs.
+AI models sometimes hallucinate credentials or copy hardcoded secrets.
+
+</div>
+<div class="column">
+
+**Gate 2 -- Dependency Scanning**
+
+AI suggests deps from training data -- some with known vulnerabilities.
+
+```bash
+npm audit
+npm audit fix
+```
+
+May suggest outdated packages with known CVEs.
+
+</div>
+</div>
 
 <!-- vertical -->
 <!-- .slide: class="dense" -->
 
 ## Gates 3-4: SAST and DAST
 
-**Gate 3 -- SAST (Static Application Security Testing)**
+<div class="columns">
+<div class="column">
+
+**Gate 3 -- SAST (Static)**
 
 Analyzes source code without running it.
 
 - **SonarQube** -- comprehensive, many languages
-- **Semgrep** -- lightweight, pattern-based rules
+- **Semgrep** -- lightweight, pattern-based
 
-Catches: SQL injection patterns, XSS sinks, hardcoded secrets, insecure crypto
+Catches: SQL injection, XSS sinks, hardcoded secrets, insecure crypto
 
-**Gate 4 -- DAST (Dynamic Application Security Testing)**
+</div>
+<div class="column">
 
-Tests the **running application** from the outside.
+**Gate 4 -- DAST (Dynamic)**
 
-- **OWASP ZAP** -- open source, automated scanning
+Tests the **running application** from outside.
+
+- **OWASP ZAP** -- open source, automated
 - Simulates attacks against your deployed app
 
-Catches: Authentication bypasses, CORS misconfigurations, exposed endpoints
+Catches: Auth bypasses, CORS misconfig, exposed endpoints
+
+</div>
+</div>
 
 <!-- vertical -->
 <!-- .slide: class="dense" -->
 
 ## Gates 5-6: Container & License
+
+<div class="columns">
+<div class="column">
 
 **Gate 5 -- Container Scanning**
 
@@ -272,16 +327,19 @@ If you deploy in containers, scan the image:
 - Unnecessary packages
 - Running as root (don't)
 
+</div>
+<div class="column">
+
 **Gate 6 -- License Compliance**
 
-**Tool:** FOSSA, license-checker
+**Tools:** FOSSA, license-checker
 
-AI-generated code may introduce dependencies with **incompatible licenses**.
+- GPL dependency in an MIT project? Violation.
+- AI can introduce incompatible licenses silently
+- FOSSA scans your dependency tree automatically
 
-- GPL dependency in an MIT project? License violation.
-- Reports of GPL-licensed code appearing in MIT-licensed projects via Copilot highlight the risk of AI introducing license conflicts.
-
-FOSSA scans your dependency tree for license conflicts automatically.
+</div>
+</div>
 
 <!-- vertical -->
 <!-- .slide: class="dense" -->
@@ -393,9 +451,11 @@ jobs:
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Integrating Security Gates into CI
 
-Combine the 8-gate pipeline with AI code review in a single workflow:
+Combine the 8-gate pipeline with AI review in one workflow:
 
 ```yaml
 jobs:
@@ -404,24 +464,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci
-
-      # Gate 1: Secrets
-      - name: Gitleaks
+      - name: Gitleaks                        # Gate 1: Secrets
         uses: gitleaks/gitleaks-action@v2
-
-      # Gate 2: Dependencies
-      - run: npm audit --audit-level=high
-
-      # Gate 3: SAST
-      - name: Semgrep
+      - run: npm audit --audit-level=high     # Gate 2: Dependencies
+      - name: Semgrep                         # Gate 3: SAST
         uses: returntocorp/semgrep-action@v1
-
-      # AI Review layer
-      - name: Claude Security Review
-        run: |
-          claude -p "Review for OWASP Top 10
-          vulnerabilities. Focus on auth, injection,
-          and data exposure. Be specific."
+      - name: Claude Security Review          # AI Review layer
+        run: claude -p "Review for OWASP Top 10. Focus on auth, injection, data exposure."
 ```
 
 **Every PR gets security-checked automatically, before a human looks at it.**
@@ -452,22 +501,22 @@ Claude Opus 4.6's progression:
 <small>Source: [Eval Awareness in Claude Opus 4.6's BrowseComp Performance](https://www.anthropic.com/engineering/eval-awareness-browsecomp) -- Anthropic</small>
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Multi-Agent Contamination
 
 **Multi-agent configurations amplify the problem.**
 
 - **3.7x higher contamination rates** in multi-agent setups vs single-agent
-- At least **20 distinct sources** of leaked BrowseComp answers across academic papers and GitHub repos
-- Agents can coordinate to find and share leaked data more effectively than single instances
+- At least **20 distinct sources** of leaked BrowseComp answers across papers and GitHub repos
+- Agents can coordinate to find and share leaked data more effectively
 
-**Key conclusion from Anthropic:**
+> "Eval integrity must be treated as an ongoing adversarial problem rather than a design-time concern." -- Anthropic
 
-> "Eval integrity must be treated as an ongoing adversarial problem rather than a design-time concern."
-
-This applies to your course assessments too -- AI can find leaked quiz answers, shared homework solutions, and benchmark datasets.
+This applies to your course too -- AI can find leaked quiz answers and shared solutions.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Infrastructure Noise in Evals
 
@@ -482,9 +531,10 @@ This applies to your course assessments too -- AI can find leaked quiz answers, 
 
 <small>Source: [Quantifying Infrastructure Noise in Agentic Coding Evals](https://www.anthropic.com/engineering/infrastructure-noise) -- Anthropic</small>
 
-**Warning:** Leaderboard differences under 3 percentage points warrant skepticism without documented infrastructure configurations.
+**Warning:** Leaderboard gaps under 3 points warrant skepticism without documented infrastructure configs.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Designing AI-Resistant Evaluations
 
@@ -492,16 +542,16 @@ This applies to your course assessments too -- AI can find leaked quiz answers, 
 
 | Strategy | Why It Works |
 |----------|-------------|
-| **Out-of-distribution problems** | Novel constraint combinations the model hasn't seen |
-| **Process-over-output assessment** | Evaluate reasoning, not just the answer |
-| **Longer time horizons** | Require sustained effort, not pattern matching |
-| **AI as eval design partner** | Use models to identify where evaluations break |
+| **Out-of-distribution problems** | Novel constraints the model hasn't seen |
+| **Process-over-output** | Evaluate reasoning, not just answers |
+| **Longer time horizons** | Sustained effort, not pattern matching |
+| **AI as eval design partner** | Models identify where evals break |
 
-**What fails:** Common domain knowledge problems (Claude draws on extensive training data) and fixed time-limited constraints.
+**What fails:** Common domain knowledge problems and fixed time-limited constraints.
 
 <small>Source: [Designing AI-Resistant Technical Evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) -- Anthropic</small>
 
-**For your own projects:** If your eval suite hits 100% pass rate, the eval is too easy -- not the agent too good.
+**If your eval suite hits 100% pass rate, the eval is too easy -- not the agent too good.**
 
 ---
 
@@ -521,20 +571,25 @@ Your code is only protected if there is meaningful human creative contribution.
 
 <small>Source: [Copyright and Artificial Intelligence](https://www.copyright.gov/ai/) -- U.S. Copyright Office</small>
 
+<!-- vertical -->
+<!-- .slide: class="dense" -->
+
+## Litigation & License Risk
+
 **Doe v. GitHub (class action):**
 
 - Alleges Copilot reproduces copyrighted code without attribution
-- Class action on behalf of open-source developers
-- Note: DMCA claims were largely dismissed in June 2024; remaining claims continue
+- DMCA claims largely dismissed June 2024; remaining claims continue
 
 <small>Source: [The Copilot Litigation](https://www.bakerlaw.com/the-copilot-litigation/) -- Baker & Hostetler LLP</small>
 
 **License compliance risk:**
 
-- Reports of GPL-licensed code appearing in MIT-licensed projects via AI code assistants
-- GPL requires derivative works to also be GPL -- violation means legal liability
+- GPL-licensed code appearing in MIT-licensed projects via AI assistants
+- GPL requires derivative works to also be GPL -- violation = legal liability
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Professional Responsibility
 
@@ -569,6 +624,7 @@ AI perpetuates biases from training data:
 > Audit AI code for security
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Exercise 1: Security Gates Audit (30 min)
 
@@ -605,6 +661,7 @@ Set up an automated AI review step in your P3 project:
 **Goal:** Experience the overlap and gaps between automated tools and AI review.
 
 <!-- vertical -->
+<!-- .slide: class="dense" -->
 
 ## Exercise 3: Eval Design Challenge (15 min)
 

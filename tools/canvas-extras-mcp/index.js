@@ -281,6 +281,58 @@ server.tool(
   }
 );
 
+// --- Tool: Update Rubric ---
+server.tool(
+  "canvas_update_rubric",
+  "Update an existing rubric's criteria and rating descriptions",
+  {
+    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    rubric_id: z.string().describe("Rubric ID to update"),
+    title: z.string().optional().describe("New rubric title"),
+    criteria: z
+      .array(
+        z.object({
+          id: z.string().optional().describe("Existing criterion ID (required to update in-place)"),
+          description: z.string().describe("Criterion name/description"),
+          points: z.number().describe("Maximum points for this criterion"),
+          ratings: z
+            .array(
+              z.object({
+                id: z.string().optional().describe("Existing rating ID (required to update in-place)"),
+                description: z.string().describe("Rating level name"),
+                points: z.number().describe("Points for this rating level"),
+              })
+            )
+            .describe("Rating levels from best to worst"),
+        })
+      )
+      .describe("Full criteria array — include all criteria, not just changed ones"),
+  },
+  async ({ course_id, rubric_id, title, criteria }) => {
+    const criteriaHash = {};
+    criteria.forEach((c, i) => {
+      const ratingsHash = {};
+      c.ratings.forEach((r, j) => {
+        ratingsHash[String(j)] = {
+          ...(r.id && { id: r.id }),
+          description: r.description,
+          points: r.points,
+        };
+      });
+      criteriaHash[String(i)] = {
+        ...(c.id && { id: c.id }),
+        description: c.description,
+        points: c.points,
+        ratings: ratingsHash,
+      };
+    });
+    const body = { rubric: { criteria: criteriaHash } };
+    if (title != null) body.rubric.title = title;
+    const result = await canvas("PUT", `/courses/${course_id}/rubrics/${rubric_id}`, body);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
 // --- Tool: Update Quiz ---
 server.tool(
   "canvas_update_quiz",

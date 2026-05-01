@@ -15,13 +15,15 @@ revealOptions:
 
 Deploy · Monitor · Optimize · Reflect
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="300">
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
 <small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/15_Production_Synthesis/)</small>
 
 ---
+
+<!-- .slide: class="dense" -->
 
 # What We'll Cover Today
 
@@ -109,6 +111,8 @@ PR #42: add-login-page
 Reviewers test the PR live before merging. No branch pulling needed.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Environment Variable Management
 
@@ -214,6 +218,8 @@ jobs:
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Error Tracking with Sentry
 
 ```javascript
@@ -257,9 +263,9 @@ logger.error("payment.failed", {
 
 <!-- vertical -->
 
-## Claude Code Hooks for Production
+## Hooks: Block Bad Actions
 
-**PreToolUse: Block merges without passing CI**
+**PreToolUse hooks prevent mistakes before they happen.**
 
 ```json
 {
@@ -273,7 +279,13 @@ logger.error("payment.failed", {
 }
 ```
 
-**PostToolUse: Auto-generate release notes on tag**
+**If CI hasn't passed, the merge is blocked automatically.**
+
+<!-- vertical -->
+
+## Hooks: Automate Good Actions
+
+**PostToolUse hooks trigger automation after events.**
 
 ```json
 {
@@ -285,6 +297,8 @@ logger.error("payment.failed", {
   }
 }
 ```
+
+**Every `git tag` automatically generates release notes.**
 
 ---
 
@@ -313,9 +327,9 @@ cat report.json | claude -p \
 
 <!-- vertical -->
 
-## Common Performance Patterns
-
 <!-- .slide: class="dense" -->
+
+## Common Performance Patterns
 
 | Pattern | Problem | AI-Assisted Fix |
 |---|---|---|
@@ -324,6 +338,10 @@ cat report.json | claude -p \
 | **Images** | Unoptimized images | Claude suggests next/image, WebP conversion |
 | **Lazy loading** | Everything loads upfront | Claude identifies below-fold components for `dynamic()` |
 | **Caching** | Repeated API calls | Claude suggests cache headers, stale-while-revalidate |
+
+<!-- vertical -->
+
+## Lazy Loading Example
 
 ```javascript
 // Before: imported on every page load
@@ -335,6 +353,8 @@ const HeavyChart = dynamic(
   { loading: () => <Skeleton /> }
 );
 ```
+
+**AI identifies below-fold components and suggests `dynamic()` imports to reduce bundle size.**
 
 ---
 
@@ -379,6 +399,8 @@ Second call (same system prompt):
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Model Routing
 
 **Not every task needs the most powerful model.**
@@ -410,12 +432,16 @@ claude -p "Review this codebase for security issues" \
 
 **`max_budget_usd` prevents runaway costs in:** CI/CD pipeline reviews, batch processing, automated security scans, fan-out agent tasks.
 
-**Choosing the right model for the job:**
+<!-- vertical -->
+
+## Choosing the Right Model
 
 - **Development:** Sonnet (good balance)
 - **Code review CI:** Sonnet (quality matters)
 - **Log classification:** Haiku (volume is high)
 - **Architecture decisions:** Opus (stakes are high)
+
+**Route tasks to the cheapest model that can handle them.**
 
 ---
 
@@ -424,6 +450,8 @@ claude -p "Review this codebase for security issues" \
 > Multi-agent architectures for real applications
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## The Planner / Generator / Evaluator Pattern
 
@@ -437,13 +465,19 @@ flowchart LR
     C -->|"Feedback"| B
 </pre>
 
+<!-- vertical -->
+
+## Three Roles, Separate Agents
+
 - **Planner:** Converts high-level prompts into detailed specifications
 - **Generator:** Implements with React/Vite/FastAPI using the spec
 - **Evaluator:** Tests with browser automation (Playwright), not just unit tests
 
-**Separating roles prevents the "lenient bias" problem.**
+**Separating roles prevents the "lenient bias" problem.** The code author should not be the only reviewer.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Self-Evaluation Shows Lenient Bias
 
@@ -477,6 +511,8 @@ This maps directly to your CI/CD pipeline: **the code author should not be the o
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## One-Feature-Per-Session Pattern
 
 **Agents attempting comprehensive implementation in single sessions exhaust context mid-feature.**
@@ -487,7 +523,9 @@ The pattern:
 2. **Coding agent** follows startup: read context -> review progress -> consult feature list -> run tests -> work -> commit
 3. **One feature per session** -- prevents context exhaustion and premature completion
 
-**Feature lists as guardrails:**
+<!-- vertical -->
+
+## Feature Lists as Guardrails
 
 ```json
 {
@@ -502,14 +540,16 @@ Structured verification criteria prevent agents from declaring victory early.
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Four Failure Modes of Long-Running Agents
 
-| Failure Mode | What Happens | Prevention |
-|---|---|---|
-| **Early victory declarations** | Agent claims "done" with broken output | Feature list with verification criteria |
-| **Undocumented broken states** | Tests fail silently, agent moves on | Browser automation (Puppeteer/Playwright) |
-| **Premature feature completion** | Agent marks features complete without testing | Separate evaluator agent |
-| **Setup time waste** | Each session re-discovers project structure | `init.sh` + `claude-progress.txt` |
+| Failure Mode | Prevention |
+|---|---|
+| **Early victory declarations** — Agent claims "done" with broken output | Feature list with verification criteria |
+| **Undocumented broken states** — Tests fail silently, agent moves on | Browser automation (Puppeteer/Playwright) |
+| **Premature feature completion** — Marks complete without testing | Separate evaluator agent |
+| **Setup time waste** — Each session re-discovers project structure | `init.sh` + `claude-progress.txt` |
 
 **Browser automation (Puppeteer MCP) dramatically improved outcomes over unit tests alone.**
 
@@ -531,6 +571,10 @@ Structured verification criteria prevent agents from declaring victory early.
 
 **You can't feed 100M tokens into a 200K context window.** Solution: retrieve only what's relevant.
 
+<!-- vertical -->
+
+## RAG: Retrieve What's Relevant
+
 <pre class="mermaid">
 %%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 30}}}%%
 flowchart LR
@@ -540,6 +584,8 @@ flowchart LR
     D --> E["Augment Prompt"]
     E --> F["LLM Generates"]
 </pre>
+
+**Retrieval-Augmented Generation:** find the relevant chunks, add them to the prompt, then generate.
 
 <!-- vertical -->
 
@@ -554,11 +600,15 @@ When Claude Code processes your request:
 3. **Reads specific files** -- targeted context loading
 4. **Compacts when full** -- summarizes to free space
 
-**This is retrieval-augmented generation:**
+<!-- vertical -->
+
+## Claude Code = RAG in Practice
 
 - **Retrieval:** Glob, Grep, Read tools
 - **Augmentation:** Adding retrieved files to context
 - **Generation:** Producing code with that context
+
+**The tools you already know are a RAG pipeline.** Understanding this pattern lets you build your own.
 
 <!-- vertical -->
 
@@ -573,6 +623,10 @@ When Claude Code processes your request:
 ```
 
 **Key insight:** Similar meaning = nearby vectors. This enables **semantic search** -- finding relevant content even when keywords don't match.
+
+<!-- vertical -->
+
+## Embedding Models
 
 | Embedding Model | Dimensions | Best For |
 |---|---|---|
@@ -593,6 +647,10 @@ When Claude Code processes your request:
 | **Pinecone** | Managed cloud | Production scale, zero ops |
 | **Weaviate** | Self-hosted or cloud | Hybrid search (vector + keyword) |
 
+<!-- vertical -->
+
+## pgvector Example
+
 ```sql
 -- pgvector: add vector column to existing table
 ALTER TABLE docs ADD COLUMN embedding vector(1536);
@@ -606,11 +664,11 @@ FROM docs ORDER BY embedding <=> query_vec LIMIT 5;
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Chunking Strategies
 
 **How you split your data determines retrieval quality.**
-
-<!-- .slide: class="dense" -->
 
 | Strategy | How it works | Best for |
 |---|---|---|
@@ -619,7 +677,11 @@ FROM docs ORDER BY embedding <=> query_vec LIMIT 5;
 | **AST-based** | Split at function/class boundaries | Source code |
 | **Sliding window** | Overlapping chunks for context continuity | Long narratives |
 
-**For code:** AST-based chunking preserves function boundaries. A function split across two chunks loses meaning.
+**For code:** AST-based chunking preserves function boundaries.
+
+<!-- vertical -->
+
+## Chunking: Good vs Bad
 
 ```text
 // Good: one chunk per function
@@ -631,29 +693,36 @@ chunk_1: function authenticate(user, pass) { if (user
 chunk_2: === null) { return false; } ... }
 ```
 
+A function split across two chunks loses meaning.
+
 <!-- vertical -->
 
 ## Building a RAG Pipeline
 
 <pre class="mermaid">
-%%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 15, 'rankSpacing': 25}}}%%
-flowchart TD
+%%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 15, 'rankSpacing': 20}}}%%
+flowchart LR
     subgraph Indexing ["Indexing (offline)"]
-        A["Source Data"] --> B["Chunk"]
-        B --> C["Embed"]
-        C --> D["Store in Vector DB"]
+        A["Source Data"] --> B["Chunk"] --> C["Embed"] --> D["Vector DB"]
     end
     subgraph Query ["Query (runtime)"]
-        E["User Question"] --> F["Embed Query"]
-        F --> G["Vector Search"]
-        G --> H["Top-k Chunks"]
-        H --> I["Augment Prompt"]
-        I --> J["LLM Answer"]
+        E["Question"] --> F["Embed"] --> G["Search"] --> H["Top-k"] --> I["Augment"] --> J["LLM"]
     end
     D -.-> G
 </pre>
 
-**Common pitfalls:** chunks too large (noisy), chunks too small (no context), no overlap (missed boundaries), stale index (data changed but embeddings didn't).
+<!-- vertical -->
+
+## RAG Pitfalls
+
+| Pitfall | Problem |
+|---|---|
+| **Chunks too large** | Noisy results dilute relevance |
+| **Chunks too small** | Missing context, incomplete answers |
+| **No overlap** | Missed boundaries between chunks |
+| **Stale index** | Data changed but embeddings didn't |
+
+**Keep your index fresh and your chunks right-sized.**
 
 ---
 
@@ -721,15 +790,19 @@ flowchart LR
 
 <!-- vertical -->
 
-## Problem Statement & Architecture
+## Problem Statement (1 min)
 
-**Problem Statement (1 min) -- answer three questions:**
+**Answer three questions:**
 
 1. **What problem does this solve?** Be specific: "Students can't find study partners for specific courses" -- not "We built a social app"
 2. **Who has this problem?** Your target user, from Mom Test research
 3. **Why does your solution matter?**
 
-**Architecture (2 min) -- show a Mermaid diagram:**
+<!-- vertical -->
+
+## Architecture Overview (2 min)
+
+**Show a Mermaid diagram:**
 
 ```text
 graph LR
@@ -743,9 +816,7 @@ Highlight tech stack choices, key decisions, where AI agents fit.
 
 <!-- vertical -->
 
-## Live Demo & AI Showcase
-
-**Live Demo (3 min):**
+## Live Demo Tips (3 min)
 
 1. **Script it.** Know exactly what you'll click, type, show
 2. **Use real data.** Not "test test test"
@@ -753,7 +824,9 @@ Highlight tech stack choices, key decisions, where AI agents fit.
 4. **Have a backup.** Record a video in case WiFi fails
 5. **Practice at least 3 times.**
 
-**AI Workflow Showcase (2 min):**
+<!-- vertical -->
+
+## AI Workflow Showcase (2 min)
 
 - A complex feature where Claude Code wrote the implementation
 - A bug where AI diagnosis saved hours
@@ -794,7 +867,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 <!-- vertical -->
 
-## Questions to Answer
+## Reflect: Your Growth
 
 **About your coding abilities:**
 - What did you learn about your own strengths and weaknesses?
@@ -804,6 +877,10 @@ Students who reflect on their learning retain information 23% better, transfer s
 - When did AI help you most? When did it hinder you?
 - How did your prompting evolve from Week 1 to Week 15?
 - What would you never let AI do? What do you always let it do?
+
+<!-- vertical -->
+
+## Reflect: Quality & Hindsight
 
 **About software quality:**
 - How has your understanding of "good code" changed?
@@ -890,6 +967,8 @@ P3: Production Responsibility
 > What's due
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## This Week
 

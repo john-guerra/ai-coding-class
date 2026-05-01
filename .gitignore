@@ -165,3 +165,7 @@ slides/test-results/
 
 # PowerPoint files (large binaries)
 *.pptx
+
+# Overflow-detection debug screenshots
+overflow-*.png
+env-var-slide-*.png

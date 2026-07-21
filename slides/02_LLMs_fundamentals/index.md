@@ -175,7 +175,7 @@ We're in the "mainframe era" — expensive, centralized, time-shared access via 
 - Software 3.0 can configure Software 2.0 (ML models)
 - Each layer subsumes the previous
 
-This is why we're learning **all three modalities** in this course!
+This is why we're learning **all three harnesses** in this course!
 
 ---
 

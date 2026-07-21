@@ -66,10 +66,10 @@ aiCoding_Course/
 
 **Philosophy:** "Vibe Coding" done right—AI-assisted speed with engineering quality (TDD, CI/CD, evals).
 
-**Three AI Modalities:**
+**Three AI Harnesses:**
 1. Claude Web (Weeks 4-5) - Architecture, learning, brainstorming
 2. Antigravity (Weeks 6-8) - Production code, daily workflow
-3. Claude Code (Weeks 10-15) - Agentic coding, automation, extensibility, agent architectures, production
+3. Claude Code (Weeks 9-14) - Agentic coding, automation, extensibility, agent architectures, production
 
 **Key Elements:**
 - Weekly Quizzes: 10% of grade, concept-focused assessments

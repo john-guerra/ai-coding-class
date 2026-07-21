@@ -326,12 +326,12 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 
 # Looking Ahead
 
-## After Spring Break: Claude Code (Modality 3)
+## After Spring Break: Claude Code (Harness 3)
 
 **Week 10 -- AI in the terminal**
 
 - **P2 is due** at the beginning of Week 10 -- submit before spring break if you can
-- **Claude Code** -- The third AI modality: autonomous agents in your terminal
+- **Claude Code** -- The third AI harness: autonomous agents in your terminal
 - **Agentic coding** -- Multi-file edits, automated refactoring
 - **CLAUDE.md deep dive** -- Persistent context for CLI-based AI
 - **P3 team formation** -- Form your P3 teams in Week 10

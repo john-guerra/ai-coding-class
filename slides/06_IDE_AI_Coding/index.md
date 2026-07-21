@@ -25,7 +25,7 @@ Completions · Modes · Rules · Context
 
 # What We'll Cover Today
 
-1. Where We Are -- Modality Shift
+1. Where We Are -- Harness Shift
 2. How IDE AI Tools Work
 3. Code Suggestions & Tab Completion
 4. Ways to Call AI in Your Editor
@@ -42,7 +42,7 @@ Completions · Modes · Rules · Context
 
 <!-- vertical -->
 
-## The Three Modalities
+## The Three Harnesses
 
 <!-- .slide: class="dense" -->
 
@@ -52,13 +52,13 @@ Completions · Modes · Rules · Context
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 
-Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
+Each harness builds on the last -- you don't stop using Claude Web when you start Antigravity.
 
 <!-- vertical -->
 
 <!-- .slide: class="dense" -->
 
-## The Modality Shift
+## The Harness Shift
 
 **From whiteboard to pair programmer**
 
@@ -86,7 +86,7 @@ Each modality builds on the last -- you don't stop using Claude Web when you sta
 
 <!-- vertical -->
 
-## How Context Changes Between Modalities
+## How Context Changes Between Harnesses
 
 ![Context Pipelines: Claude Web vs IDE AI](images/context-comparison.svg) <!-- .element: style="max-height: 450px;" -->
 

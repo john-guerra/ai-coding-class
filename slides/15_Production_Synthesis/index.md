@@ -886,7 +886,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 - How has your understanding of "good code" changed?
 - What engineering practices will you carry forward?
 
-**Hindsight:** If you restarted P1 today, what would you change? Which AI modality was most valuable for which tasks? What's the biggest mistake you made?
+**Hindsight:** If you restarted P1 today, what would you change? Which AI harness was most valuable for which tasks? What's the biggest mistake you made?
 
 ---
 
@@ -956,7 +956,7 @@ P3: Production Responsibility
 
 **Technical skills:** Prompt engineering, context engineering (CLAUDE.md, rules files), TDD with AI, CI/CD with AI review, agent architecture patterns, harness design.
 
-**Engineering judgment:** When to trust AI output and when to verify, how to review AI-generated code, when to use which modality, how to manage costs and quality tradeoffs.
+**Engineering judgment:** When to trust AI output and when to verify, how to review AI-generated code, when to use which harness, how to manage costs and quality tradeoffs.
 
 **These are career-defining skills, not just course material.**
 

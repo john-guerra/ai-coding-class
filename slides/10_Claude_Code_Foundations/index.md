@@ -38,17 +38,17 @@ Agentic Loop · CLAUDE.md · Tools · Context
 
 # Where We Are
 
-> Week 10 -- Entering Modality 3: Claude Code
+> Week 10 -- Entering Harness 3: Claude Code
 
 <!-- vertical -->
 
 ## Recap: The Journey So Far
 
-**Modality 1 (Weeks 2-5):** Claude Web -- architecture, prototyping, brainstorming
+**Harness 1 (Weeks 2-5):** Claude Web -- architecture, prototyping, brainstorming
 
-**Modality 2 (Weeks 6-8):** Antigravity -- production code in the IDE, Agile workflow, pair programming
+**Harness 2 (Weeks 6-8):** Antigravity -- production code in the IDE, Agile workflow, pair programming
 
-**Now -- Modality 3 (Weeks 10-12):** Claude Code -- autonomous agents in your terminal
+**Now -- Harness 3 (Weeks 10-12):** Claude Code -- autonomous agents in your terminal
 
 <!-- vertical -->
 

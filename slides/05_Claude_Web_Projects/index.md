@@ -37,11 +37,11 @@ Projects · Mockups · Data · AI Features
 
 # Where We Are
 
-> Week 5 -- Deep into the Claude Web modality
+> Week 5 -- Deep into the Claude Web harness
 
 <!-- vertical -->
 
-## The Three Modalities
+## The Three Harnesses
 
 <!-- .slide: class="dense" -->
 
@@ -51,7 +51,7 @@ Projects · Mockups · Data · AI Features
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 
-Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
+Each harness builds on the last -- you don't stop using Claude Web when you start Antigravity.
 
 <!-- vertical -->
 
@@ -463,7 +463,7 @@ Speed comes from **fast iteration**, not getting it right the first time.
 
 ## Next Week: IDE-Centric AI Coding
 
-**Week 6 -- Project 1 Due + New Modality**
+**Week 6 -- Project 1 Due + New Harness**
 
 - **Project 1 is due** -- Submit your artifact
 - **IDE AI tools** -- AI moves into your code editor

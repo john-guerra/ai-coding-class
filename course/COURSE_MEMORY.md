@@ -15,9 +15,9 @@
 - **Level:** Graduate (Master's)
 - **Institution:** Northeastern University, Khoury College of Computer Sciences
 - **Campus:** Oakland, California
-- **Semester:** Fall 2026
-- **Schedule:** Tuesday/Thursday, 3:00PM-4:40PM PST
-- **Location:** Lucie Stern 27, Oakland Campus
+- **Semester:** Fall 2026 (term: Sep 9 – Dec 13, 2026; Finals Dec 14–20)
+- **Sections:** Oakland/Online — Tue & Fri 10:35 AM–12:15 PM PT; San Jose — Wed 1:00–4:20 PM PT
+- **Location:** _rooms TBD (confirm with registrar)_
 - **Prerequisites:** CS 5010 (min D) or CS 5004 (min C)
 - **Instructor:** John Alexis Guerra Gomez
 - **Email:** jguerra@northeastern.edu
@@ -91,15 +91,15 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-## 3. WEEKLY SCHEDULE (15 Weeks)
+## 3. WEEKLY SCHEDULE (14 Weeks + Finals)
 
 | Week | Module | Topics | Deliverables | Project Status |
 |------|--------|--------|--------------|----------------|
 | **1** | **Foundations** | • Course intro & portfolio planning<br>• Mom Test introduction<br>• Design Thinking basics<br>• **LLM Fundamentals (2 hours)**<br>&nbsp;&nbsp;- Transformers, tokens, context windows<br>&nbsp;&nbsp;- Hallucinations, temperature<br>&nbsp;&nbsp;- Model comparison (GPT/Claude/Gemini) | Weekly Quiz 1<br>Pre-class questions | **P1:** Ideation<br>Problem identification |
-| **2** | **Modality 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
+| **2** | **Harness 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
 | **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
 | **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | **HW1 DUE:** Prompt Eng<br>Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
-| **5** | **Modality 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
+| **5** | **Harness 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
 | **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
 | **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair workflow (scrum for two, design thinking → backlog)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
 | **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
@@ -108,14 +108,14 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **11** | **Claude Code Extensibility** | • Skills & custom commands (`.claude/skills/`, slash commands)<br>• Hooks (PreToolUse, PostToolUse, Stop — deterministic vs advisory)<br>• MCP servers (Model Context Protocol, `claude mcp add`, databases, Figma, Playwright)<br>• Custom sub-agents (`.claude/agents/`, isolated context, specialized reviewers)<br>• Plugins & plugin marketplace<br>• Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 11 | **P3:** Sprint 2 |
 | **12** | **Agent Architectures & SDK** | • Agent fundamentals (agent vs workflow, augmented LLM)<br>• Anthropic's 6 agent patterns:<br>&nbsp;&nbsp;- Prompt Chaining, Routing, Parallelization<br>&nbsp;&nbsp;- Orchestrator-Workers, Evaluator-Optimizer, Autonomous<br>• Claude Agent SDK (Python/TypeScript, `query()`, hooks, sessions)<br>• Multi-agent coordination & message passing<br>• Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Skill + MCP<br>Weekly Quiz 12 | **P3:** Sprint 3 |
 | **13** | **AI Security & Code Quality** | • Agent safety & evaluation<br>• The security problem (45% of AI code has OWASP vulnerabilities)<br>• The 8-gate security pipeline<br>• Slopsquatting<br>• Ethics & professional responsibility<br>• AI code review automation (Claude Code in GitHub Actions)<br>• Eval awareness & integrity | Weekly Quiz 13 | **P3:** Sprint 4 |
-| **14** | **Production & Course Synthesis** | • Production deployment (CI/CD, Vercel)<br>• Monitoring & observability (OpenTelemetry, Sentry)<br>• Cost optimization (prompt caching, model routing)<br>• RAG patterns for codebases<br>• Future of AI engineering<br>• Demo preparation workshop<br>• Meta-reflection & course synthesis | Weekly Quiz 14 | **P3:** Deploy & polish |
+| **14** | **Production & Course Synthesis** | • Production deployment (CI/CD, Vercel)<br>• Monitoring & observability (Sentry, structured logging)<br>• Cost optimization (prompt caching, model routing)<br>• RAG patterns for codebases<br>• Future of AI engineering<br>• Demo preparation workshop<br>• Meta-reflection & course synthesis | Weekly Quiz 14 | **P3:** Deploy & polish |
 | **Finals** | **Finals Week** | • **PROJECT 3 DUE (Dec 14–20, 2026)**<br>• Optional async demo video submissions | **PROJECT 3 DUE** 🎯 | **P3:** Final |
 
 ---
 
-## 4. THE THREE MODALITIES
+## 4. THE THREE HARNESSES
 
-### Modality 1: Claude Web Interface (Weeks 4-5)
+### Harness 1: Claude Web Interface (Weeks 4-5)
 **Best for:** Architecture planning, learning, complex problem-solving, brainstorming
 
 **Skills Covered:**
@@ -136,7 +136,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 2: Antigravity IDE (Weeks 6-8 intro, 8-11 daily use)
+### Harness 2: Antigravity IDE (Weeks 6-8 intro, 8-11 daily use)
 **Best for:** Professional development, production code, daily coding workflow
 
 **Skills Covered:**
@@ -165,7 +165,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-### Modality 3: Claude Code / Terminal AI (Weeks 9+)
+### Harness 3: Claude Code / Terminal AI (Weeks 9+)
 **Best for:** Automation, multi-file refactoring, DevOps, complex migrations
 
 **Skills Covered:**
@@ -191,7 +191,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ### Project 1: Personal Utility App — Claude Web Artifact (15%) - Due Week 6
 
-**Objective:** Master the Claude Web modality by building a real solution as an artifact
+**Objective:** Master the Claude Web harness by building a real solution as an artifact
 
 **Requirements:**
 - **Approval:**
@@ -236,7 +236,7 @@ Students must submit a **single PDF/document** containing:
 
 ### Project 2: Full-Stack Application (18%) - Due Week 9
 
-**Objective:** Integrate multiple modalities with professional practices as a pair
+**Objective:** Integrate multiple harnesses with professional practices as a pair
 
 **Team Structure:**
 - P2 is a **pair project** (2 students)
@@ -255,7 +255,7 @@ Students must submit a **single PDF/document** containing:
   - Professional UI/UX
 
 - **Technical:**
-  - Use all 3 modalities appropriately
+  - Use all 3 harnesses appropriately
   - Tech stack:
     - Frontend: React/Next.js + TailwindCSS
     - Backend: Node.js/Express OR Next.js API routes
@@ -1084,13 +1084,13 @@ By course end, students will have:
 
 **Week 1-6:**
 - Foundations & single concepts
-- One modality at a time
+- One harness at a time
 - Simple projects
 - Clear expectations
 
 **Week 7-11:**
 - Integration of concepts
-- Multiple modalities
+- Multiple harnesses
 - Moderate complexity
 - Increased autonomy
 
@@ -1252,7 +1252,7 @@ By course end, students will have:
 **For Future Offerings:**
 - Guest speakers from industry
 - Company site visits
-- Additional AI modalities
+- Additional AI harnesses
 - Advanced security module
 - Performance optimization deep dive
 - More real-world case studies
@@ -1431,7 +1431,7 @@ All reading URLs (in `course/readings.md`, `website/index.pug`, and Canvas discu
 - Expert feedback incorporated
 - Weekly quizzes (10% of grade) added
 - LLM Fundamentals module added
-- Reduced from 4 to 3 modalities
+- Reduced from 4 to 3 harnesses
 - Lottery changed to 10%
 - All materials ready for Fall 2026
 

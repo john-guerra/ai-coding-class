@@ -5,7 +5,7 @@
 
 ## Objective
 
-Integrate multiple AI modalities with professional engineering practices to build a complete full-stack application as a pair.
+Integrate multiple AI harnesses with professional engineering practices to build a complete full-stack application as a pair.
 
 ## Team Structure
 
@@ -27,8 +27,8 @@ Integrate multiple AI modalities with professional engineering practices to buil
 
 ### Technical Requirements
 
-**AI Modalities:**
-- Use all 3 modalities appropriately throughout development
+**AI Harnesses:**
+- Use all 3 harnesses appropriately throughout development
 
 **Tech Stack:**
 - Frontend: React/Next.js + TailwindCSS
@@ -98,7 +98,7 @@ Integrate multiple AI modalities with professional engineering practices to buil
 |----------|--------|-------------|
 | **Functionality** | 45 | Features complete, authentication working, API functional |
 | **Technical Excellence** | 60 | Code quality, architecture, test coverage (80%+) |
-| **AI Mastery** | 30 | Effective use of all 3 modalities |
+| **AI Mastery** | 30 | Effective use of all 3 harnesses |
 | **CI/CD & DevOps** | 30 | Pipeline quality, deployment, monitoring |
 | **Agile Process & Pair Workflow** | 20 | Sprint docs, pair standups, PR reviews, contribution balance |
 | **Documentation** | 15 | README, API docs, reflections quality |

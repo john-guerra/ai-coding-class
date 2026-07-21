@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linkstash</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Linkstash</h1>
+
+      <form id="add-form">
+        <input id="url" type="text" placeholder="https://example.com" required />
+        <input id="tags" type="text" placeholder="tags (comma-separated)" />
+        <label><input id="private" type="checkbox" /> private</label>
+        <button type="submit">Save</button>
+      </form>
+
+      <input id="search" type="search" placeholder="Search…" />
+
+      <ul id="links"></ul>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

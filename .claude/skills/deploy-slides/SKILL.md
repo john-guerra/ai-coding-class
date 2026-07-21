@@ -51,7 +51,7 @@ Report the rsync summary (files transferred, bytes sent).
 Verify the production server responds:
 
 ```bash
-curl -s -o /dev/null -w "%{http_code}" https://johnguerra.co/lectures/aiCoding_spring2026/
+curl -s -o /dev/null -w "%{http_code}" https://johnguerra.co/lectures/aiCoding_fall2026/
 ```
 
 - HTTP 200 = success

@@ -7,7 +7,9 @@
     "test": "npx playwright test",
     "serve": "reveal-md . --watch",
     "build": "reveal-md . --static dist",
-    "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_spring2026/"
+    "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_spring2026/",
+    "build:workshop": "ln -sfn ../css workshop/css && ln -sfn ../js workshop/js && reveal-md workshop --static dist-workshop && perl -0777 -i -pe 's{(session\\d)/index\\.md}{$1/index.html}g' dist-workshop/*.html",
+    "deploy:workshop": "npm run build:workshop && ssh johnguerra 'mkdir -p /var/www/lectures/aiCoding_workshop' && rsync -auz --partial --delete -e ssh dist-workshop/ johnguerra:/var/www/lectures/aiCoding_workshop/"
   },
   "repository": {
     "type": "git",

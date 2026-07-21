@@ -1,0 +1,5 @@
+
+# Workshop static build + asset symlinks
+dist-workshop/
+workshop/css
+workshop/js

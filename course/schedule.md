@@ -1,12 +1,10 @@
 # CS 6983: Course Schedule (14 Weeks + Finals)
 
-> **Fall 2026.** Two sections share this curriculum:
+> **Fall 2026.** Two sections share this **week-based** curriculum:
 > - **Oakland / Online:** Tuesday & Friday, 10:35 AM–12:15 PM PT
 > - **San Jose:** Wednesday, 1:00 PM–4:20 PM PT
 >
-> Term runs **Sep 9 – Dec 13, 2026**; **Finals Dec 14–20, 2026**. Meeting dates below are week-based (see per-section calendars in the syllabus).
->
-> ⚠️ **Scheduling flags to resolve:** (1) The **San Jose** Wednesday section loses its **Thanksgiving-week** session (Wed **Nov 25** is a break day), leaving 13 meetings vs. the 14-week curriculum — decide whether that week goes async or content is merged. (2) Oakland/Online **Fri Nov 27** is also in the Thanksgiving recess (no class). Confirm exact per-section dates.
+> **Term:** Sep 9 – Dec 13, 2026. **No class:** Oct 12 (Indigenous Peoples' Day, Mon), Nov 11 (Veterans Day, Wed), Nov 25–29 (**Fall Break**; classes resume Mon Nov 30). **Finals week Dec 14–20** — no class meetings; **Project 3 is submitted during finals week**. Both sections pause for Fall Break; content is listed by week (see *Fall 2026 Week Dates* below).
 
 ## Overview
 
@@ -18,6 +16,28 @@
 | 9-11  | Claude Code Deep Dive: Foundations, workflows, extensibility, **P2 due & P3 start** |
 | 12-14 | Agents, Security, Production, **P3 sprints**                        |
 | Finals | Finals Week (Dec 14–20), **P3 due**                                |
+
+## Fall 2026 Week Dates
+
+| Week | Dates | Module | Key deliverable / note |
+| ---- | ----- | ------ | ---------------------- |
+| 1 | Sep 9–11 | Foundations | Classes begin Wed Sep 9 (Labor Day Mon Sep 7) |
+| 2 | Sep 14–18 | LLM Fundamentals + Harness 1 | |
+| 3 | Sep 21–25 | Prompt Engineering | |
+| 4 | Sep 28–Oct 2 | User Research & Prototyping | HW1 due |
+| 5 | Oct 5–9 | Claude Web Deep Dive | HW2 due |
+| 6 | Oct 12–16 | IDE-Centric AI Coding | **P1 due**; no class Mon Oct 12 (Indigenous Peoples' Day) |
+| 7 | Oct 19–23 | Agile/Scrum + Pair Workflow | |
+| 8 | Oct 26–30 | Advanced IDE AI Features | HW3 due |
+| 9 | Nov 2–6 | Claude Code Foundations | **P2 due**; P3 teams form |
+| 10 | Nov 9–13 | Claude Code Workflows & Dev Practices | HW4 due; no class Wed Nov 11 (Veterans Day) |
+| 11 | Nov 16–20 | Claude Code Extensibility | |
+| 12 | Nov 23–24 | Agent Architectures & SDK | HW5 due; **Fall Break Nov 25–29** (resume Nov 30) — short week ⚠️ |
+| 13 | Nov 30–Dec 4 | AI Security & Code Quality | |
+| 14 | Dec 7–11 | Production & Course Synthesis | Last day of classes Sun Dec 13 |
+| Finals | Dec 14–20 | — | No class meetings; **Project 3 submitted** during finals week |
+
+> ⚠️ **Week 12 collides with Fall Break** (Nov 25–29): only Mon–Tue are class days, and San Jose's Wednesday meeting falls in the break. Consider delivering the Agent Architectures & SDK module async that week and/or moving HW5's due date earlier.
 
 ## Detailed Weekly Schedule
 

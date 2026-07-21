@@ -7,13 +7,14 @@
 - **Institution:** Northeastern University, Khoury College of Computer Sciences
 - **Campus:** Oakland, California
 - **Semester:** Fall 2026
-- **Term dates:** September 9 – December 13, 2026 (Finals: December 14–20)
+- **Term dates:** September 9 – December 13, 2026. **Finals:** December 14–20 (no class meetings; Project 3 is submitted during finals week).
+- **No class:** Oct 12 (Indigenous Peoples' Day), Nov 11 (Veterans Day), Nov 25–29 (Fall Break; classes resume Mon Nov 30).
 - **Sections:**
   - **Oakland / Online:** Tuesday & Friday, 10:35 AM–12:15 PM PT — _room TBD (confirm with registrar)_
   - **San Jose:** Wednesday, 1:00 PM–4:20 PM PT — _room TBD (confirm with registrar)_
 - **Prerequisites:** CS 5010 (min D) or CS 5004 (min C)
 
-> ⚠️ **Scheduling note:** The San Jose (Wednesday-only) section's Thanksgiving-week meeting (Wed **Nov 25**) falls in the recess — that section has 13 in-person meetings vs. the 14-week curriculum. Decide whether Week 12 goes async or is merged. Oakland/Online's **Fri Nov 27** is also in recess.
+> **Fall Break (Nov 25–29):** both sections pause; the schedule is week-based. Note that Week 12 (Agent Architectures & SDK) overlaps the break week — plan to run it partly async and/or move HW5 earlier.
 
 ## Instructor
 

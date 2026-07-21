@@ -9,11 +9,12 @@ const LECTURE_FOLDERS = [
   "06_IDE_AI_Coding",
   "07_Advanced_IDE_Agile",
   "08_Advanced_IDE_Features",
-  "10_Claude_Code_Foundations",
-  "11_Claude_Code_Workflows",
-  "12_Claude_Code_Extensibility",
-  "13_Agent_Architectures",
-  "14_Emerging_AI_Engineering",
+  "09_Claude_Code_Foundations",
+  "10_Claude_Code_Workflows",
+  "11_Claude_Code_Extensibility",
+  "12_Agent_Architectures",
+  "13_AI_Security_Code_Quality",
+  "14_Production_Synthesis",
 ];
 
 const EXPECTED_NAME = "John Alexis Guerra Gomez";

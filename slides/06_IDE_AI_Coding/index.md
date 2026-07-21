@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: IDE-Centric AI Coding"
+title: "CS 6983: IDE-Centric AI Coding"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 6</span>
+<span class="course-week">CS 6983 · Week 6</span>
 
 ## IDE-Centric AI Coding
 
@@ -48,7 +48,7 @@ Completions · Modes · Rules · Context
 
 | | **Claude Web** | **Antigravity** | **Claude Code** |
 |---|---|---|---|
-| **When** | Weeks 2-5 | Weeks 6-8 (intro), 8-11 (daily use) | Weeks 10+ |
+| **When** | Weeks 2-5 | Weeks 6-8 (intro), 8-10 (daily use) | Weeks 9+ |
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 

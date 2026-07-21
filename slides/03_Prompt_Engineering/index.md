@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Prompt Engineering"
+title: "CS 6983: Prompt Engineering"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 3</span>
+<span class="course-week">CS 6983 · Week 3</span>
 
 ## Prompt Engineering
 

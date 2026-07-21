@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: AI Security & Code Quality"
+title: "CS 6983: AI Security & Code Quality"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 14</span>
+<span class="course-week">CS 6983 · Week 13</span>
 
 ## AI Security & Code Quality
 
@@ -25,7 +25,7 @@ Safety · Security · Evals · Ethics
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 14 checkpoint
+1. Where We Are -- Week 13 checkpoint
 2. Agent Safety & Evaluation
 3. The Security Problem
 4. The 8-Gate Security Pipeline
@@ -40,11 +40,11 @@ Safety · Security · Evals · Ethics
 
 # Where We Are
 
-> Week 14 -- Securing AI-generated code
+> Week 13 -- Securing AI-generated code
 
 <!-- vertical -->
 
-## Recap: Week 13
+## Recap: Week 12
 
 **Agent Architectures & Agent SDK**
 
@@ -696,7 +696,7 @@ Design a 5-task eval suite for one feature in your P3:
 
 # Next Week Preview
 
-## Week 15: Production & Course Synthesis
+## Week 14: Production & Course Synthesis
 
 - Production deployment and monitoring
 - Cost optimization and model routing

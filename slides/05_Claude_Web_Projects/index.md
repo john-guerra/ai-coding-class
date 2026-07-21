@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Building with Claude Web Artifacts"
+title: "CS 6983: Building with Claude Web Artifacts"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 5</span>
+<span class="course-week">CS 6983 · Week 5</span>
 
 ## Building with Claude Web Artifacts
 

@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Agile/Scrum + Pair Workflow"
+title: "CS 6983: Agile/Scrum + Pair Workflow"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 7</span>
+<span class="course-week">CS 6983 · Week 7</span>
 
 ## Agile/Scrum + Pair Workflow
 

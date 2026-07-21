@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Claude Code Foundations"
+title: "CS 6983: Claude Code Foundations"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 10</span>
+<span class="course-week">CS 6983 · Week 9</span>
 
 ## Claude Code Foundations
 
@@ -25,7 +25,7 @@ Agentic Loop · CLAUDE.md · Tools · Context
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 10 checkpoint
+1. Where We Are -- Week 9 checkpoint
 2. How Claude Code Works
 3. Installation & Setup
 4. CLAUDE.md Deep Dive
@@ -38,7 +38,7 @@ Agentic Loop · CLAUDE.md · Tools · Context
 
 # Where We Are
 
-> Week 10 -- Entering Harness 3: Claude Code
+> Week 9 -- Entering Harness 3: Claude Code
 
 <!-- vertical -->
 
@@ -48,7 +48,7 @@ Agentic Loop · CLAUDE.md · Tools · Context
 
 **Harness 2 (Weeks 6-8):** Antigravity -- production code in the IDE, Agile workflow, pair programming
 
-**Now -- Harness 3 (Weeks 10-12):** Claude Code -- autonomous agents in your terminal
+**Now -- Harness 3 (Weeks 9-11):** Claude Code -- autonomous agents in your terminal
 
 <!-- vertical -->
 
@@ -880,7 +880,7 @@ This is the workflow you'll use daily in P3.
 
 <!-- .slide: class="dense" -->
 
-## Week 11: Claude Code Workflows & TDD
+## Week 10: Claude Code Workflows & TDD
 
 - **Explore -> Plan -> Implement -> Commit** workflow in depth
 - **TDD with Claude Code** -- red-green-refactor with AI assistance

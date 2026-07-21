@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: LLM Fundamentals"
+title: "CS 6983: LLM Fundamentals"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 2</span>
+<span class="course-week">CS 6983 · Week 2</span>
 
 ## LLM Fundamentals
 
@@ -875,9 +875,9 @@ Write tests for new functions
 | Everything is text | Prompt engineering (Week 3) |
 | Context matters | Context engineering (Week 9) |
 | RAG basics | .cursorrules, @codebase (Week 5-6) |
-| Hallucinations | Evaluation systems (Week 10-11) |
+| Hallucinations | Evaluation systems (Week 9-10) |
 | Testing as verification | TDD with AI (Week 5-6) |
-| Lazy teenager model | Why evals matter (Week 10) |
+| Lazy teenager model | Why evals matter (Week 9) |
 
 ---
 

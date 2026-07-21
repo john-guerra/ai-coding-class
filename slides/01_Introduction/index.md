@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Introduction to Vibe Coding"
+title: "CS 6983: Introduction to Vibe Coding"
 theme: white
 revealOptions:
   transition: slide
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 1</span>
+<span class="course-week">CS 6983 · Week 1</span>
 
 ## Introduction to Vibe Coding
 
@@ -38,7 +38,7 @@ Khoury College of Computer Sciences
 
 **Schedule:** Tuesday/Thursday 3:00-4:40 PM PST
 **Location:** Lucie Stern 27 for Oakland Campus Students / Remote for the rest of the Network
-**Semester:** Spring 2026
+**Semester:** Fall 2026
 
 **Communication:** Slack (primary), Canvas (submissions)
 
@@ -438,4 +438,4 @@ _Understanding how the AI actually works before we use it._
 
 # Let's Build Something Amazing 🚀
 
-Welcome to CS 7180.
+Welcome to CS 6983.

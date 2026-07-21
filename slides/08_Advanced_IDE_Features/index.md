@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Advanced IDE AI Features"
+title: "CS 6983: Advanced IDE AI Features"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 8</span>
+<span class="course-week">CS 6983 · Week 8</span>
 
 ## Advanced IDE AI Features
 
@@ -326,15 +326,15 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 
 # Looking Ahead
 
-## After Spring Break: Claude Code (Harness 3)
+## Coming Up Next: Claude Code (Harness 3)
 
-**Week 10 -- AI in the terminal**
+**Week 9 -- AI in the terminal**
 
-- **P2 is due** at the beginning of Week 10 -- submit before spring break if you can
+- **P2 is due** at the beginning of Week 9
 - **Claude Code** -- The third AI harness: autonomous agents in your terminal
 - **Agentic coding** -- Multi-file edits, automated refactoring
 - **CLAUDE.md deep dive** -- Persistent context for CLI-based AI
-- **P3 team formation** -- Form your P3 teams in Week 10
+- **P3 team formation** -- Form your P3 teams in Week 9
 
 **HW3 (Context Engineering) is due this week.** Your rules file and Scrum board should be in great shape by now.
 

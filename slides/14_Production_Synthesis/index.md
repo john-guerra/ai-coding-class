@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Production & Course Synthesis"
+title: "CS 6983: Production & Course Synthesis"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 15</span>
+<span class="course-week">CS 6983 · Week 14</span>
 
 ## Production & Course Synthesis
 
@@ -27,7 +27,7 @@ Deploy · Monitor · Optimize · Reflect
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 15 checkpoint
+1. Where We Are -- Week 14 checkpoint
 2. Production Deployment
 3. Monitoring & Observability
 4. Performance Optimization with AI
@@ -42,11 +42,11 @@ Deploy · Monitor · Optimize · Reflect
 
 # Where We Are
 
-> Week 15 -- Final week
+> Week 14 -- Final week
 
 <!-- vertical -->
 
-## Recap: Week 14
+## Recap: Week 13
 
 **Emerging AI Engineering**
 
@@ -875,7 +875,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 **About AI as a tool:**
 - When did AI help you most? When did it hinder you?
-- How did your prompting evolve from Week 1 to Week 15?
+- How did your prompting evolve from Week 1 to Week 14?
 - What would you never let AI do? What do you always let it do?
 
 <!-- vertical -->
@@ -892,7 +892,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 
 # Course Synthesis
 
-> Connecting the threads across Weeks 10-15
+> Connecting the threads across Weeks 9-14
 
 <!-- vertical -->
 
@@ -921,10 +921,10 @@ Weeks 4-5: Using AI (Claude Web)
 Weeks 6-8: Coding with AI (IDE)
   "AI is my pair programmer"
 
-Weeks 10-12: Engineering with AI (Claude Code)
+Weeks 9-11: Engineering with AI (Claude Code)
   "AI is part of my development infrastructure"
 
-Weeks 13-15: Architecting with AI (Agents & Production)
+Weeks 12-14: Architecting with AI (Agents & Production)
   "I can design and deploy AI-powered systems"
 ```
 
@@ -974,8 +974,8 @@ P3: Production Responsibility
 
 | Deliverable | Due | Details |
 |---|---|---|
-| **Project 3 Final** | End of Week 15 | Final submission with deployed URL |
-| **Demo Videos** | End of Week 15 | Async demo submissions |
+| **Project 3 Final** | End of Week 14 | Final submission with deployed URL |
+| **Demo Videos** | End of Week 14 | Async demo submissions |
 
 **P3 Final Submission Checklist:**
 

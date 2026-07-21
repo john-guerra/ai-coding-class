@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Claude Code Extensibility — Skills, MCP, Hooks & Sub-agents"
+title: "CS 6983: Claude Code Extensibility — Skills, MCP, Hooks & Sub-agents"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 12</span>
+<span class="course-week">CS 6983 · Week 11</span>
 
 ## Claude Code Extensibility
 
@@ -25,7 +25,7 @@ Skills · Hooks · MCP · Sub-agents
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 12 checkpoint
+1. Where We Are -- Week 11 checkpoint
 2. Skills & Custom Commands
 3. Hooks Deep Dive
 4. MCP Servers
@@ -39,15 +39,15 @@ Skills · Hooks · MCP · Sub-agents
 
 # Where We Are
 
-> Week 12 -- Extending Claude Code for team-scale development
+> Week 11 -- Extending Claude Code for team-scale development
 
 <!-- vertical -->
 
-## Recap: Weeks 10-11
+## Recap: Weeks 9-10
 
-**Week 10:** Claude Code foundations -- agentic loop, CLAUDE.md, tools, permissions, context management
+**Week 9:** Claude Code foundations -- agentic loop, CLAUDE.md, tools, permissions, context management
 
-**Week 11:** Workflows -- Explore-Plan-Implement-Commit, TDD, Git/GitHub integration, CI/CD, non-interactive mode
+**Week 10:** Workflows -- Explore-Plan-Implement-Commit, TDD, Git/GitHub integration, CI/CD, non-interactive mode
 
 **You know how Claude Code works and how to use it.** Now you learn to _extend_ it for your team's specific needs.
 
@@ -874,7 +874,7 @@ After 15 minutes: review, resolve conflicts, merge.
 
 # Next Week Preview
 
-## Week 13: Agent Architectures & Agent SDK
+## Week 12: Agent Architectures & Agent SDK
 
 - **Agent fundamentals** -- agent vs workflow, augmented LLM
 - **Anthropic's 6 agent patterns** -- chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer, autonomous

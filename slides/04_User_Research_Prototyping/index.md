@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: User Research & Prototyping"
+title: "CS 6983: User Research & Prototyping"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 4</span>
+<span class="course-week">CS 6983 · Week 4</span>
 
 ## User Research & Prototyping
 

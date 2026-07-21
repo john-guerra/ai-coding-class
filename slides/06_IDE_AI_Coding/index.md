@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: IDE-Centric AI Coding"
+title: "CS 6983: IDE-Centric AI Coding"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 6</span>
+<span class="course-week">CS 6983 · Week 6</span>
 
 ## IDE-Centric AI Coding
 
@@ -19,13 +19,15 @@ Completions · Modes · Rules · Context
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/06_IDE_AI_Coding/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/06_IDE_AI_Coding/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
 # What We'll Cover Today
 
-1. Where We Are -- Modality Shift
+1. Where We Are -- Harness Shift
 2. How IDE AI Tools Work
 3. Code Suggestions & Tab Completion
 4. Ways to Call AI in Your Editor
@@ -42,23 +44,23 @@ Completions · Modes · Rules · Context
 
 <!-- vertical -->
 
-## The Three Modalities
+## The Three Harnesses
 
 <!-- .slide: class="dense" -->
 
 | | **Claude Web** | **Antigravity** | **Claude Code** |
 |---|---|---|---|
-| **When** | Weeks 2-5 | Weeks 6-8 (intro), 8-11 (daily use) | Weeks 10+ |
+| **When** | Weeks 2-5 | Weeks 6-8 (intro), 8-10 (daily use) | Weeks 9+ |
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 
-Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
+Each harness builds on the last -- you don't stop using Claude Web when you start Antigravity.
 
 <!-- vertical -->
 
 <!-- .slide: class="dense" -->
 
-## The Modality Shift
+## The Harness Shift
 
 **From whiteboard to pair programmer**
 
@@ -86,7 +88,7 @@ Each modality builds on the last -- you don't stop using Claude Web when you sta
 
 <!-- vertical -->
 
-## How Context Changes Between Modalities
+## How Context Changes Between Harnesses
 
 ![Context Pipelines: Claude Web vs IDE AI](images/context-comparison.svg) <!-- .element: style="max-height: 450px;" -->
 

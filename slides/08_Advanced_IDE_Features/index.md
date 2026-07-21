@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Advanced IDE AI Features"
+title: "CS 6983: Advanced IDE AI Features"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 8</span>
+<span class="course-week">CS 6983 · Week 8</span>
 
 ## Advanced IDE AI Features
 
@@ -19,7 +19,9 @@ Memory · MCP · Browser · Debugging
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/08_Advanced_IDE_Features/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/08_Advanced_IDE_Features/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
@@ -326,15 +328,15 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 
 # Looking Ahead
 
-## After Spring Break: Claude Code (Modality 3)
+## Coming Up Next: Claude Code (Harness 3)
 
-**Week 10 -- AI in the terminal**
+**Week 9 -- AI in the terminal**
 
-- **P2 is due** at the beginning of Week 10 -- submit before spring break if you can
-- **Claude Code** -- The third AI modality: autonomous agents in your terminal
+- **P2 is due** at the beginning of Week 9
+- **Claude Code** -- The third AI harness: autonomous agents in your terminal
 - **Agentic coding** -- Multi-file edits, automated refactoring
 - **CLAUDE.md deep dive** -- Persistent context for CLI-based AI
-- **P3 team formation** -- Form your P3 teams in Week 10
+- **P3 team formation** -- Form your P3 teams in Week 9
 
 **HW3 (Context Engineering) is due this week.** Your rules file and Scrum board should be in great shape by now.
 

@@ -1,15 +1,20 @@
-# CS 7180: Vibe Coding - AI-Assisted Software Engineering
+# CS 6983: Vibe Coding - AI-Assisted Software Engineering
 
 ## Course Information
 
-- **Course Code:** CS 7180: Special Topics in AI
+- **Course Code:** CS 6983: Special Topics in AI
 - **Level:** Graduate (Master's)
 - **Institution:** Northeastern University, Khoury College of Computer Sciences
 - **Campus:** Oakland, California
-- **Semester:** Spring 2026 (Inaugural Offering)
-- **Schedule:** Tuesday/Thursday, 3:00PM-4:40PM PST
-- **Location:** Lucie Stern 27, Oakland Campus
+- **Semester:** Fall 2026
+- **Term dates:** September 9 – December 13, 2026. **Finals:** December 14–20 (no class meetings; Project 3 is submitted during finals week).
+- **No class:** Oct 12 (Indigenous Peoples' Day), Nov 11 (Veterans Day), Nov 25–29 (Fall Break; classes resume Mon Nov 30).
+- **Sections:**
+  - **Oakland / Online:** Tuesday & Friday, 10:35 AM–12:15 PM PT — _room TBD (confirm with registrar)_
+  - **San Jose:** Wednesday, 1:00 PM–4:20 PM PT — _room TBD (confirm with registrar)_
 - **Prerequisites:** CS 5010 (min D) or CS 5004 (min C)
+
+> **Fall Break (Nov 25–29):** both sections pause; the schedule is week-based. Note that Week 12 (Agent Architectures & SDK) overlaps the break week — plan to run it partly async and/or move HW5 earlier.
 
 ## Instructor
 
@@ -35,7 +40,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 |-----------|--------|---------|
 | **Participation** | 15% | 7% pre-class questions + 8% lottery points |
 | **Weekly Quizzes** | 10% | Concept quizzes on Canvas (2 lowest dropped) |
-| **Homeworks** | 25% | 6 scaffolding assignments (4-5% each) |
+| **Homeworks** | 25% | 5 scaffolding assignments (5% each) |
 | **Projects** | 50% | P1: 13%, P2: 18%, P3: 19% |
 | **TOTAL** | 100% | |
 

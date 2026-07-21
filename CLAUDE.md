@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Complete course materials for **CS 7180: Vibe Coding - AI-Assisted Software Engineering** at Northeastern University (Spring 2026). The course teaches AI-assisted development with professional engineering standards.
+Complete course materials for **CS 6983: Vibe Coding - AI-Assisted Software Engineering** at Northeastern University (Fall 2026; inaugural offering was Spring 2026 as CS 7180). The course teaches AI-assisted development with professional engineering standards.
 
 ## Build Commands
 
@@ -66,10 +66,10 @@ aiCoding_Course/
 
 **Philosophy:** "Vibe Coding" done right—AI-assisted speed with engineering quality (TDD, CI/CD, evals).
 
-**Three AI Modalities:**
+**Three AI Harnesses:**
 1. Claude Web (Weeks 4-5) - Architecture, learning, brainstorming
 2. Antigravity (Weeks 6-8) - Production code, daily workflow
-3. Claude Code (Weeks 10-15) - Agentic coding, automation, extensibility, agent architectures, production
+3. Claude Code (Weeks 9-14) - Agentic coding, automation, extensibility, agent architectures, production
 
 **Key Elements:**
 - Weekly Quizzes: 10% of grade, concept-focused assessments
@@ -80,11 +80,19 @@ aiCoding_Course/
 
 ## Course Website
 
-The course website is in `website/` (symlink to external repo).
+`website/` is a **symlink to a SEPARATE git repo** — the instructor's live personal site:
+- Target: `/Users/aguerra/workspace/homepageJohnGuerra/classes/aiCoding_fall_2026/`
+- That repo's remote: `git@github.com:john-guerra/homepageJohnGuerra.git` (branch `main`).
+- Website files are **not tracked in this (ai-coding-class) repo**; commits/pushes for them happen in the `homepageJohnGuerra` repo. The `website` symlink itself is local-only (not tracked).
+- **Per-semester folders:** each offering has its own `classes/<course>_<term>_<year>/` folder. `aiCoding_spring_2026/` is the **legacy Spring 2026 (CS 7180)** site — keep it as-is. `aiCoding_fall_2026/` is the current **Fall 2026 (CS 6983)** site the symlink points to.
+- Fall folder's own URLs use `aiCoding_fall_2026` / `slidesBase = .../aiCoding_fall2026/`. The slides deploy path in `slides/package.json` still targets `aiCoding_spring2026` — update it (and re-deploy) so the fall `slidesBase` links resolve. Also the Fall folder still carries the old `CS7180_VibeCoding_Syllabus.docx` — regenerate a CS 6983 version.
 
-**Important:** Don't modify `website/index.html` directly. Instead:
-1. Edit `website/index.pug`
-2. Regenerate HTML: `npx pug website/index.pug --out website/ --pretty`
+**⚠️ Pushing this repo publishes the instructor's live website. Do NOT push `homepageJohnGuerra` without explicit approval.** Also pull it before editing — it receives student-PR merges, so a local checkout may be stale.
+
+Editing workflow (in `website/`, i.e. the symlinked dir):
+1. Edit `website/index.pug` (schedule/readings/projects) and/or `website/timeline.js` (the D3 timeline widget: `totalWeeks`, `phases`, `projects`, `weeklyFocus`).
+2. Regenerate HTML: `npx pug website/index.pug --out website/ --pretty` — **never edit `website/index.html` directly.**
+3. Commit in the `homepageJohnGuerra` repo with explicit pathspecs (avoid its untracked `.env`/`.vscode`); push only with approval.
 
 ## Canvas LMS Integration
 
@@ -140,22 +148,24 @@ After website changes: `npx pug website/index.pug --out website/ --pretty`
 
 Use `/sync-course` skill to verify all artifacts are in sync.
 
-## Current Curriculum State (April 2026)
+## Current Curriculum State (Fall 2026)
 
-### W10-W16 Structure (Redesigned April 2026)
-- **W10**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking)
-- **W11**: Claude Code Workflows & Dev Practices (Explore→Plan→Implement→Commit, TDD, CI/CD, GitHub)
-- **W12**: Claude Code Extensibility (skills, hooks, MCP, sub-agents, plugins, parallel sessions)
-- **W13**: Agent Architectures & SDK (6 patterns, SDK, multi-agent coordination)
-- **W14**: AI Security & Code Quality (OWASP, 8-gate pipeline, slopsquatting, ethics, AI code review, evals)
-- **W15**: Production & Course Synthesis (deployment, monitoring, cost optimization, RAG, demo prep)
-- **W16**: Finals Week — P3 Due (Apr 21)
+> **Fall 2026 renumber:** The Spring 2026 15-week schedule (with a Spring Break week) was mapped onto the Fall 2026 calendar as **14 teaching weeks + Finals** (no full-week break). Old weeks 10–15 shifted down to 9–14; Finals replaces the old Week 16. Course code changed **CS 7180 → CS 6983**. Two sections: Oakland/Online (Tu/Fri) and San Jose (Wed).
+
+### W9–Finals Structure (Claude Code block)
+- **W9**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking) — **P2 due, P3 team formation**
+- **W10**: Claude Code Workflows & Dev Practices (Explore→Plan→Implement→Commit, TDD, CI/CD, GitHub)
+- **W11**: Claude Code Extensibility (skills, hooks, MCP, sub-agents, plugins, parallel sessions)
+- **W12**: Agent Architectures & SDK (6 patterns, SDK, multi-agent coordination)
+- **W13**: AI Security & Code Quality (OWASP, 8-gate pipeline, slopsquatting, ethics, AI code review, evals)
+- **W14**: Production & Course Synthesis (deployment, monitoring, cost optimization, RAG, demo prep)
+- **Finals**: Finals Week — P3 Due (Dec 14–20, 2026)
 
 ### Homework Assignments (5 total, 5% each = 25%)
 - HW1 (W4): Prompt Engineering Battle
 - HW2 (W5): Mom Test Interviews + User Stories
 - HW3 (W8): Context Engineering (Rules + Scrum)
-- HW4 (W11): Claude Code Workflow & TDD
+- HW4 (W10): Claude Code Workflow & TDD
 - HW5 (W12): Custom Skill + MCP Integration
 - No HW6 — removed to reduce load during P3 sprints
 

@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Building with Claude Web Artifacts"
+title: "CS 6983: Building with Claude Web Artifacts"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 5</span>
+<span class="course-week">CS 6983 · Week 5</span>
 
 ## Building with Claude Web Artifacts
 
@@ -19,7 +19,9 @@ Projects · Mockups · Data · AI Features
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/05_Claude_Web_Projects/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/05_Claude_Web_Projects/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
@@ -37,11 +39,11 @@ Projects · Mockups · Data · AI Features
 
 # Where We Are
 
-> Week 5 -- Deep into the Claude Web modality
+> Week 5 -- Deep into the Claude Web harness
 
 <!-- vertical -->
 
-## The Three Modalities
+## The Three Harnesses
 
 <!-- .slide: class="dense" -->
 
@@ -51,7 +53,7 @@ Projects · Mockups · Data · AI Features
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 
-Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
+Each harness builds on the last -- you don't stop using Claude Web when you start Antigravity.
 
 <!-- vertical -->
 
@@ -463,7 +465,7 @@ Speed comes from **fast iteration**, not getting it right the first time.
 
 ## Next Week: IDE-Centric AI Coding
 
-**Week 6 -- Project 1 Due + New Modality**
+**Week 6 -- Project 1 Due + New Harness**
 
 - **Project 1 is due** -- Submit your artifact
 - **IDE AI tools** -- AI moves into your code editor

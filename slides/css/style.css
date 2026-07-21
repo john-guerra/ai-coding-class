@@ -214,3 +214,15 @@
 .reveal section.dense table td {
   padding: 0.2em 0.4em;
 }
+
+/* CC BY-NC 4.0 license line on title slides */
+.reveal .cc-license {
+  display: block;
+  margin-top: 0.6em;
+  font-size: 0.5em;
+  color: #8a8a8a;
+}
+.reveal .cc-license a {
+  color: #8a8a8a;
+  text-decoration: underline;
+}

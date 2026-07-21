@@ -6,7 +6,7 @@ Usage:
     pip install reportlab markdown
     python course/generate-syllabus-pdf.py
 
-Output: course/CS7180_VibeCoding_Syllabus_v{N}.pdf (auto-increments version)
+Output: course/CS6983_VibeCoding_Syllabus_v{N}.pdf (auto-increments version)
 """
 
 import re
@@ -33,11 +33,11 @@ NU_GRAY = HexColor('#4A4A4A')
 
 def get_next_version(output_dir: Path) -> int:
     """Find the next version number based on existing PDFs."""
-    pattern = str(output_dir / "CS7180_VibeCoding_Syllabus_v*.pdf")
+    pattern = str(output_dir / "CS6983_VibeCoding_Syllabus_v*.pdf")
     existing = glob.glob(pattern)
 
     # Also check for the original non-versioned file
-    original = output_dir / "CS7180_VibeCoding_Syllabus.pdf"
+    original = output_dir / "CS6983_VibeCoding_Syllabus.pdf"
 
     if not existing and not original.exists():
         return 1
@@ -300,7 +300,7 @@ def parse_syllabus(md_content: str, styles) -> list:
             title = line[2:].strip()
             flowables.append(Paragraph(title, styles['CourseTitle']))
             flowables.append(Paragraph(
-                "Northeastern University • Spring 2026",
+                "Northeastern University • Fall 2026",
                 styles['Subtitle']
             ))
             i += 1
@@ -355,7 +355,7 @@ def add_header_footer(canvas, doc):
     canvas.drawCentredString(
         letter[0] / 2,
         0.5 * inch,
-        f"CS 7180: Vibe Coding — Page {doc.page}"
+        f"CS 6983: Vibe Coding — Page {doc.page}"
     )
 
     # Header line
@@ -405,7 +405,7 @@ def main():
 
     # Get next version number
     version = get_next_version(script_dir)
-    output_path = script_dir / f"CS7180_VibeCoding_Syllabus_v{version}.pdf"
+    output_path = script_dir / f"CS6983_VibeCoding_Syllabus_v{version}.pdf"
 
     print(f"Generating syllabus PDF version {version}...")
     generate_pdf(md_path, output_path)

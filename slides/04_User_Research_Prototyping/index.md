@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: User Research & Prototyping"
+title: "CS 6983: User Research & Prototyping"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 4</span>
+<span class="course-week">CS 6983 · Week 4</span>
 
 ## User Research & Prototyping
 
@@ -19,13 +19,15 @@ Mom Test · Design Thinking · User Stories
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/04_User_Research_Prototyping/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/04_User_Research_Prototyping/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
 # What We'll Cover Today
 
-1. AI Coding Modalities -- Your Semester Roadmap
+1. AI Coding Harnesses -- Your Semester Roadmap
 2. The Mom Test -- Customer Interviews Done Right
 3. Design Thinking for Software Engineers
 4. Claude Web Artifacts for Rapid Prototyping
@@ -35,13 +37,13 @@ Mom Test · Design Thinking · User Stories
 
 ---
 
-# AI Coding Modalities
+# AI Coding Harnesses
 
 > Three tools, three superpowers, one semester.
 
 <!-- vertical -->
 
-## The Three Modalities
+## The Three Harnesses
 
 <!-- .slide: class="dense" -->
 
@@ -51,7 +53,7 @@ Mom Test · Design Thinking · User Stories
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
 
-Each modality builds on the last -- you don't stop using Claude Web when you start Antigravity.
+Each harness builds on the last -- you don't stop using Claude Web when you start Antigravity.
 
 <!-- vertical -->
 
@@ -522,7 +524,7 @@ After building your prototype:
 
 # What to Remember
 
-- **AI Modalities:** Claude Web → Antigravity → Claude Code (each builds on the last)
+- **AI Harnesses:** Claude Web → Antigravity → Claude Code (each builds on the last)
 - **The Mom Test:** Ask about behavior, not opinions
 - **Design Thinking:** Empathize before you build
 - **Context & Projects:** Use Claude Projects to persist your PRD, tech stack, and conventions

@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: LLM Fundamentals"
+title: "CS 6983: LLM Fundamentals"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 2</span>
+<span class="course-week">CS 6983 · Week 2</span>
 
 ## LLM Fundamentals
 
@@ -19,7 +19,9 @@ Tokens · Training · Embeddings · Context
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/02_LLMs_fundamentals/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/02_LLMs_fundamentals/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
@@ -175,7 +177,7 @@ We're in the "mainframe era" — expensive, centralized, time-shared access via 
 - Software 3.0 can configure Software 2.0 (ML models)
 - Each layer subsumes the previous
 
-This is why we're learning **all three modalities** in this course!
+This is why we're learning **all three harnesses** in this course!
 
 ---
 
@@ -875,9 +877,9 @@ Write tests for new functions
 | Everything is text | Prompt engineering (Week 3) |
 | Context matters | Context engineering (Week 9) |
 | RAG basics | .cursorrules, @codebase (Week 5-6) |
-| Hallucinations | Evaluation systems (Week 10-11) |
+| Hallucinations | Evaluation systems (Week 9-10) |
 | Testing as verification | TDD with AI (Week 5-6) |
-| Lazy teenager model | Why evals matter (Week 10) |
+| Lazy teenager model | Why evals matter (Week 9) |
 
 ---
 

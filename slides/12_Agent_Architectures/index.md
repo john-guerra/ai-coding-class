@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Agent Architectures & SDK"
+title: "CS 6983: Agent Architectures & SDK"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 13</span>
+<span class="course-week">CS 6983 · Week 12</span>
 
 ## Agent Architectures & SDK
 
@@ -19,13 +19,15 @@ revealOptions:
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/13_Agent_Architectures/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/12_Agent_Architectures/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 13 checkpoint
+1. Where We Are -- Week 12 checkpoint
 2. Agent Fundamentals
 3. Anthropic's 6 Agent Patterns
 4. Claude Agent SDK
@@ -37,13 +39,13 @@ revealOptions:
 
 # Where We Are
 
-> Week 13 -- Agent architectures and the Agent SDK
+> Week 12 -- Agent architectures and the Agent SDK
 
 <!-- vertical -->
 
-## Recap: Week 12
+## Recap: Week 11
 
-**Week 12:** Claude Code Extensibility -- skills, hooks, MCP servers, custom sub-agents, parallel sessions
+**Week 11:** Claude Code Extensibility -- skills, hooks, MCP servers, custom sub-agents, parallel sessions
 
 You learned how to **extend** Claude Code. Now you learn how to **build agents from scratch** using the Agent SDK and canonical patterns.
 
@@ -544,7 +546,7 @@ Build an agent that classifies input as "bug report," "feature request," or "que
 
 # Next Week Preview
 
-## Week 14: AI Security & Code Quality
+## Week 13: AI Security & Code Quality
 
 - Security of AI-generated code (45% have OWASP vulnerabilities)
 - The 8-gate security pipeline

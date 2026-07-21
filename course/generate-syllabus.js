@@ -283,7 +283,7 @@ async function generateSyllabus() {
           // Course Outcomes
           createSectionHeader("1.1 Course Outcomes", 2),
           createBullet("Students will understand how Large Language Models work and their fundamental capabilities and limitations"),
-          createBullet("Students will master three AI coding modalities and know when to use each appropriately"),
+          createBullet("Students will master three AI coding harnesses and know when to use each appropriately"),
           createBullet("Students will engineer sophisticated prompts using advanced techniques like chain-of-thought and meta-prompting"),
           createBullet("Students will implement comprehensive evaluation systems to systematically measure AI code quality"),
           createBullet("Students will practice Test-Driven Development integrated with CI/CD pipelines for AI-generated code"),
@@ -303,12 +303,12 @@ async function generateSyllabus() {
             ["Week", "Topic Area"],
             [
               ["1", "Introduction, Mom Test, Design Thinking, LLM Fundamentals"],
-              ["2", "Modality 1: Claude Web, Requirements Gathering"],
+              ["2", "Harness 1: Claude Web, Requirements Gathering"],
               ["3", "Prompt Engineering Basics"],
               ["4", "User Research & Prototyping, Mom Test Workshop"],
-              ["5", "Modality 2: Antigravity IDE (Part 1), TDD Introduction"],
+              ["5", "Harness 2: Antigravity IDE (Part 1), TDD Introduction"],
               ["6", "Antigravity Advanced, CI/CD Fundamentals"],
-              ["7", "Project 1 Demos, Modality 3: Claude Code & Terminal AI"],
+              ["7", "Project 1 Demos, Harness 3: Claude Code & Terminal AI"],
               ["8", "Advanced Prompt Engineering"],
               ["9", "Context Engineering"],
               ["10", "Evaluations (Evals) Part 1"],
@@ -390,13 +390,13 @@ async function generateSyllabus() {
           createSectionHeader("6. Project Requirements Summary"),
 
           createSectionHeader("Project 1: Personal Utility App (13%) - Due Week 7", 2),
-          createBullet("5+ user stories, ONE modality focus"),
+          createBullet("5+ user stories, ONE harness focus"),
           createBullet("50%+ test coverage, basic CI/CD"),
           createBullet("Deployed application"),
           createBullet("5-min video, 500-word reflection"),
 
           createSectionHeader("Project 2: Full-Stack Application (18%) - Due Week 12", 2),
-          createBullet("Full-stack with auth, 3 modalities"),
+          createBullet("Full-stack with auth, 3 harnesses"),
           createBullet("80%+ coverage, TDD, comprehensive evals"),
           createBullet("Advanced CI/CD with deploy previews"),
           createBullet("2+ Agile sprints"),
@@ -410,10 +410,10 @@ async function generateSyllabus() {
           createBullet("3+ sprints, security audit"),
           createBullet("20-min presentation, blog"),
 
-          // Section 7 - The Three Modalities
-          createSectionHeader("7. The Three Modalities"),
+          // Section 7 - The Three Harnesses
+          createSectionHeader("7. The Three Harnesses"),
 
-          createSectionHeader("Modality 1: Claude Web (Week 2)", 2),
+          createSectionHeader("Harness 1: Claude Web (Week 2)", 2),
           new Paragraph({
             children: [
               new TextRun({ text: "Best for: ", bold: true, size: 24, font: "Arial" }),
@@ -422,7 +422,7 @@ async function generateSyllabus() {
             spacing: { after: 200 },
           }),
 
-          createSectionHeader("Modality 2: Antigravity IDE (Weeks 5-6)", 2),
+          createSectionHeader("Harness 2: Antigravity IDE (Weeks 5-6)", 2),
           new Paragraph({
             children: [
               new TextRun({ text: "Best for: ", bold: true, size: 24, font: "Arial" }),
@@ -431,7 +431,7 @@ async function generateSyllabus() {
             spacing: { after: 200 },
           }),
 
-          createSectionHeader("Modality 3: Claude Code (Week 7)", 2),
+          createSectionHeader("Harness 3: Claude Code (Week 7)", 2),
           new Paragraph({
             children: [
               new TextRun({ text: "Best for: ", bold: true, size: 24, font: "Arial" }),

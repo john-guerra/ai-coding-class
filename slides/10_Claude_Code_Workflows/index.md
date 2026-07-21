@@ -1,5 +1,5 @@
 ---
-title: "CS 7180: Claude Code Workflows & Development Practices"
+title: "CS 6983: Claude Code Workflows & Development Practices"
 theme: white
 revealOptions:
   transition: convex
@@ -9,7 +9,7 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 7180 · Week 11</span>
+<span class="course-week">CS 6983 · Week 10</span>
 
 ## Claude Code Workflows
 
@@ -19,13 +19,15 @@ Explore · Plan · Implement · Commit
 
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_spring_2026/) · [Slides](http://johnguerra.co/lectures/ai_assisted_coding/11_Claude_Code_Workflows/)</small>
+<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/10_Claude_Code_Workflows/)</small>
+
+<small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
 ---
 
 # What We'll Cover Today
 
-1. Where We Are -- Week 11 checkpoint
+1. Where We Are -- Week 10 checkpoint
 2. Explore -> Plan -> Implement -> Commit
 3. TDD with Claude Code
 4. Git & GitHub Integration
@@ -40,11 +42,11 @@ Explore · Plan · Implement · Commit
 
 # Where We Are
 
-> Week 11 -- Professional Workflows with Claude Code
+> Week 10 -- Professional Workflows with Claude Code
 
 <!-- vertical -->
 
-## Recap: Week 10 Foundations
+## Recap: Week 9 Foundations
 
 Last week you learned the **what** of Claude Code:
 
@@ -381,7 +383,7 @@ GitHub Issue #12: "User can filter by date range"
 
 Each git commit maps to a **verifiable acceptance criterion** from a GitHub Issue.
 
-*This works at every level of the testing pyramid — from unit tests (this week) to visual regression and E2E tests with Playwright (Week 12).*
+*This works at every level of the testing pyramid — from unit tests (this week) to visual regression and E2E tests with Playwright (Week 11).*
 
 ---
 
@@ -911,7 +913,7 @@ Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
 
 # Next Week Preview
 
-## Week 12: Claude Code Extensibility
+## Week 11: Claude Code Extensibility
 
 - **Skills & custom commands** (.claude/skills/)
 - **Hooks deep dive** -- PreToolUse, PostToolUse, Stop

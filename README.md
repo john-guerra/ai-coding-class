@@ -1,43 +1,57 @@
-# CS 7180: Vibe Coding - AI-Assisted Software Engineering
+# CS 6983: Vibe Coding — AI-Assisted Software Engineering
 
 > **Northeastern University, Khoury College of Computer Sciences**
-> Spring 2026 | Oakland Campus
+> Fall 2026 · Oakland / Online (Tue & Fri) + San Jose (Wed)
+> _Inaugural offering: Spring 2026 as CS 7180._
 
 ## Course Overview
 
-"Vibe Coding" done right: AI-assisted development speed combined with professional engineering quality. Students learn to build fast AND build right using TDD, CI/CD, and evaluation-driven development.
+"Vibe Coding" done right: AI-assisted development **speed** combined with professional engineering **quality**. Students learn to build fast *and* build right — using TDD, CI/CD, evals, and security practices alongside modern AI coding tools.
 
-**Instructor:** John Alexis Guerra Gomez ([jguerra@northeastern.edu](mailto:jguerra@northeastern.edu))
+**Instructor:** John Alexis Guerra Gómez ([jguerra@northeastern.edu](mailto:jguerra@northeastern.edu))
+
+> 🛠️ **Maintainers & AI agents:** [`CLAUDE.md`](CLAUDE.md) is the authoritative operational guide (build commands, Canvas MCP integration, content-sync rules, current curriculum state). When README and `CLAUDE.md` disagree, `CLAUDE.md` wins.
 
 ## Quick Links
 
 | Resource | Description |
 |----------|-------------|
 | [Syllabus](course/syllabus.md) | Policies, grading, academic integrity |
-| [Schedule](course/schedule.md) | 15-week schedule with deliverables |
+| [Schedule](course/schedule.md) | 15-week + finals schedule with deliverables |
 | [Readings](course/readings.md) | Required readings by week |
-| [Full Course Plan](course/COURSE_MEMORY.md) | Complete reference document |
+| [Course Memory](course/COURSE_MEMORY.md) | Complete master reference (1700+ lines) |
 
-### Projects
-- [Project 1: Personal Utility App](course/projects/project1-personal-utility.md) (15%) - Due Week 7
-- [Project 2: Full-Stack Application](course/projects/project2-full-stack.md) (20%) - Due Week 12
-- [Project 3: Team Application](course/projects/project3-team-app.md) (20%) - Due Week 15
+## The Three AI Harnesses
 
-### Assignments
-- [HW1: Prompt Engineering](course/assignments/hw2-prompt-engineering.md) - Week 4
-- [HW2: Mom Test Interviews](course/assignments/hw1-mom-test.md) - Week 5
-- [HW3: Context Engineering](course/assignments/hw3-context-engineering.md) - Week 9
-- [HW4: TDD + CI/CD + Evals](course/assignments/hw4-tdd-cicd-evals.md) - Week 11
-- [HW5: Parallel Agents](course/assignments/hw5-parallel-agents.md) - Week 14
-- [HW6: Production Readiness](course/assignments/hw6-production-readiness.md) - Week 14
+The course progresses through three AI coding *harnesses* (the agent runtime/interface around a model), from conversational to fully agentic:
 
-## The Three AI Modalities
+| Harness | Weeks | Best For |
+|---------|-------|----------|
+| **Claude Web** | 4–5 | Architecture planning, learning, brainstorming, rapid Artifact prototyping |
+| **Antigravity (IDE)** | 6–8 | Production code, daily development workflow, in-editor agents |
+| **Claude Code (CLI)** | 9–14 | Agentic coding, automation, extensibility, multi-agent architectures |
 
-| Modality | When | Best For |
-|----------|------|----------|
-| **Claude Web** | Week 2 | Architecture planning, learning, brainstorming |
-| **Cursor IDE** | Weeks 5-6 | Production code, daily development workflow |
-| **Claude Code** | Week 7+ | Automation, multi-file refactoring, DevOps |
+## Projects (50%)
+
+| Project | Weight | Due |
+|---------|--------|-----|
+| [Project 1: Personal Utility App](course/projects/project1-personal-utility.md) (Claude Web Artifact) | 13% | Week 6 |
+| [Project 2: Full-Stack Application](course/projects/project2-full-stack.md) | 18% | Week 9 |
+| [Project 3: Production App with Claude Code Mastery](course/projects/project3-team-app.md) | 19% | Finals Week (Dec 14–20, 2026) |
+
+## Homework (25%)
+
+Five scaffolding assignments that feed directly into the projects:
+
+| # | Assignment | Week |
+|---|-----------|------|
+| HW1 | [Prompt Engineering Battle](course/assignments/hw2-prompt-engineering.md) | 4 |
+| HW2 | [Mom Test Interviews + User Stories](course/assignments/hw1-mom-test.md) | 5 |
+| HW3 | [Context Engineering (Rules + Scrum)](course/assignments/hw3-context-engineering.md) | 8 |
+| HW4 | [Claude Code Workflow & TDD](course/assignments/hw4-claude-code-workflow-tdd.md) | 10 |
+| HW5 | [Custom Skill + MCP Integration](course/assignments/hw5-custom-skill-mcp.md) | 12 |
+
+> ℹ️ File names (`hw1-mom-test.md`, `hw2-prompt-engineering.md`) are swapped relative to their HW numbers for historical reasons — the links above point to the correct content.
 
 ## Assessment
 
@@ -45,15 +59,15 @@
 |-----------|--------|
 | Participation | 15% |
 | Weekly Quizzes | 10% |
-| Homeworks (6) | 25% |
+| Homeworks (5) | 25% |
 | Projects (3) | 50% |
 
-## Tech Stack
+## Tech Stack (student projects)
 
 - **Languages:** JavaScript, TypeScript
 - **Frontend:** React, Next.js, TailwindCSS
 - **Backend:** Node.js, Express
-- **Database:** PostgreSQL or MongoDB (Prisma ORM)
+- **Database:** PostgreSQL or MongoDB
 - **Testing:** Jest/Vitest, Playwright
 - **CI/CD:** GitHub Actions
 
@@ -61,32 +75,33 @@
 
 ```
 aiCoding_Course/
-├── course/                # Course definition files
-│   ├── syllabus.md
-│   ├── schedule.md
-│   ├── readings.md
-│   ├── projects/          # Project specifications
-│   └── assignments/       # Homework specifications
-├── slides/                # Lecture slides (Marp)
-├── examples/              # Example projects
-├── docs/                  # Supporting documentation
-└── other/                 # Presentation drafts
+├── course/          # Course definition (syllabus, schedule, readings, projects, assignments, COURSE_MEMORY.md)
+├── slides/          # Lecture slides (reveal-md) + build tooling
+├── examples/        # Example projects for class
+├── docs/            # Research (docs/research/) and planning (docs/planning/) notes
+├── tools/           # Tooling, incl. canvas-extras MCP server
+├── other/           # Presentation drafts
+├── website -> …     # Course website (symlink to external repo)
+└── CLAUDE.md        # Authoritative guide for maintainers & AI agents
 ```
 
-## Building Slides
+## Building the Slides
+
+All commands run from the `slides/` directory:
 
 ```bash
 cd slides
 npm install
-npm run build        # Build all slides
-npm run build:watch  # Watch mode
+npm run serve    # Live-reload dev server (http://localhost:1948)
+npm run build    # Build all slides to dist/
+npm run deploy   # Deploy to production server
 ```
 
 ## Required Tools
 
 **Paid (~$40/month):**
-- Cursor IDE (~$20/month)
-- Claude.ai Pro ($20/month)
+- Antigravity IDE
+- Claude.ai Pro ($20/month) + Claude Code
 
 **Free:**
 - GitHub account
@@ -95,8 +110,11 @@ npm run build:watch  # Watch mode
 
 ## License
 
-Apache 2.0
+- **Course materials** — slides, syllabus, schedule, readings, assignments, and project specs — are licensed under **[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE)**. You may share and adapt them with attribution, for non-commercial use.
+- **Code / tooling** — MCP servers, scripts, and build config — is licensed under **[Apache 2.0](LICENSE-CODE)**.
+
+Attribution: _"CS 6983: Vibe Coding — AI-Assisted Software Engineering" by John Alexis Guerra Gómez (Northeastern University), CC BY-NC 4.0._
 
 ---
 
-*For questions, reach out on Slack (office hours by appointment)*
+*Questions? Reach out on Slack (office hours by appointment).*

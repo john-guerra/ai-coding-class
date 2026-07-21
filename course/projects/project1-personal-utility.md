@@ -5,7 +5,7 @@
 
 ## Objective
 
-Master the Claude Web modality by building a real solution to a validated problem as a Claude artifact. Learn effective AI collaboration through iterative prompting and refinement.
+Master the Claude Web harness by building a real solution to a validated problem as a Claude artifact. Learn effective AI collaboration through iterative prompting and refinement.
 
 ## Requirements
 

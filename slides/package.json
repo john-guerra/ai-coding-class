@@ -1,5 +1,5 @@
 {
-  "name": "ai-coding-spring2026-slides",
+  "name": "ai-coding-fall2026-slides",
   "version": "1.0.0",
   "description": "Slides for CS 7180: Vibe Coding - AI-Assisted Software Engineering",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "npx playwright test",
     "serve": "reveal-md . --watch",
     "build": "reveal-md . --static dist",
-    "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_spring2026/",
+    "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_fall2026/",
     "build:workshop": "ln -sfn ../css workshop/css && ln -sfn ../js workshop/js && reveal-md workshop --static dist-workshop && perl -0777 -i -pe 's{(session\\d)/index\\.md}{$1/index.html}g' dist-workshop/*.html",
     "deploy:workshop": "npm run build:workshop && ssh johnguerra 'mkdir -p /var/www/lectures/aiCoding_workshop' && rsync -auz --partial --delete -e ssh dist-workshop/ johnguerra:/var/www/lectures/aiCoding_workshop/"
   },
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/john-guerra/ai-coding-class/issues"
   },
-  "homepage": "https://johnguerra.co/classes/aiCoding_spring_2026/",
+  "homepage": "https://johnguerra.co/classes/aiCoding_fall_2026/",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "reveal-md": "^6.1.4"

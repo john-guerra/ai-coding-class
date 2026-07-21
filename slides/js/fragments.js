@@ -9,7 +9,8 @@ Reveal.on('ready', function() {
 
     section.querySelectorAll(
       ':scope > ul > li, :scope > ol > li, :scope > p, ' +
-      ':scope > table, :scope > blockquote, :scope > small, :scope > pre'
+      ':scope > table, :scope > blockquote, :scope > small, ' +
+      ':scope > pre:not(.mermaid)'
     ).forEach(function(el) {
       el.classList.add('fragment');
     });

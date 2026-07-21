@@ -80,11 +80,18 @@ aiCoding_Course/
 
 ## Course Website
 
-The course website is in `website/` (symlink to external repo).
+`website/` is a **symlink to a SEPARATE git repo** — the instructor's live personal site:
+- Target: `/Users/aguerra/workspace/homepageJohnGuerra/classes/aiCoding_spring_2026/`
+- That repo's remote: `git@github.com:john-guerra/homepageJohnGuerra.git` (branch `main`).
+- Website files are **not tracked in this (ai-coding-class) repo**; commits/pushes for them happen in the `homepageJohnGuerra` repo.
+- The directory is still named `aiCoding_spring_2026` even for the Fall 2026 offering. Renaming it (and the `slidesBase` URL / slides deploy path) would change the live URL — treat that as a separate infra decision, not an automatic relabel.
 
-**Important:** Don't modify `website/index.html` directly. Instead:
-1. Edit `website/index.pug`
-2. Regenerate HTML: `npx pug website/index.pug --out website/ --pretty`
+**⚠️ Pushing this repo publishes the instructor's live website. Do NOT push `homepageJohnGuerra` without explicit approval.** Also pull it before editing — it receives student-PR merges, so a local checkout may be stale.
+
+Editing workflow (in `website/`, i.e. the symlinked dir):
+1. Edit `website/index.pug` (schedule/readings/projects) and/or `website/timeline.js` (the D3 timeline widget: `totalWeeks`, `phases`, `projects`, `weeklyFocus`).
+2. Regenerate HTML: `npx pug website/index.pug --out website/ --pretty` — **never edit `website/index.html` directly.**
+3. Commit in the `homepageJohnGuerra` repo with explicit pathspecs (avoid its untracked `.env`/`.vscode`); push only with approval.
 
 ## Canvas LMS Integration
 

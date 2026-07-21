@@ -110,7 +110,10 @@ npm run deploy   # Deploy to production server
 
 ## License
 
-Apache 2.0
+- **Course materials** — slides, syllabus, schedule, readings, assignments, and project specs — are licensed under **[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE)**. You may share and adapt them with attribution, for non-commercial use.
+- **Code / tooling** — MCP servers, scripts, and build config — is licensed under **[Apache 2.0](LICENSE-CODE)**.
+
+Attribution: _"CS 6983: Vibe Coding — AI-Assisted Software Engineering" by John Alexis Guerra Gómez (Northeastern University), CC BY-NC 4.0._
 
 ---
 

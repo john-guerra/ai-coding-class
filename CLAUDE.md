@@ -81,10 +81,11 @@ aiCoding_Course/
 ## Course Website
 
 `website/` is a **symlink to a SEPARATE git repo** — the instructor's live personal site:
-- Target: `/Users/aguerra/workspace/homepageJohnGuerra/classes/aiCoding_spring_2026/`
+- Target: `/Users/aguerra/workspace/homepageJohnGuerra/classes/aiCoding_fall_2026/`
 - That repo's remote: `git@github.com:john-guerra/homepageJohnGuerra.git` (branch `main`).
-- Website files are **not tracked in this (ai-coding-class) repo**; commits/pushes for them happen in the `homepageJohnGuerra` repo.
-- The directory is still named `aiCoding_spring_2026` even for the Fall 2026 offering. Renaming it (and the `slidesBase` URL / slides deploy path) would change the live URL — treat that as a separate infra decision, not an automatic relabel.
+- Website files are **not tracked in this (ai-coding-class) repo**; commits/pushes for them happen in the `homepageJohnGuerra` repo. The `website` symlink itself is local-only (not tracked).
+- **Per-semester folders:** each offering has its own `classes/<course>_<term>_<year>/` folder. `aiCoding_spring_2026/` is the **legacy Spring 2026 (CS 7180)** site — keep it as-is. `aiCoding_fall_2026/` is the current **Fall 2026 (CS 6983)** site the symlink points to.
+- Fall folder's own URLs use `aiCoding_fall_2026` / `slidesBase = .../aiCoding_fall2026/`. The slides deploy path in `slides/package.json` still targets `aiCoding_spring2026` — update it (and re-deploy) so the fall `slidesBase` links resolve. Also the Fall folder still carries the old `CS7180_VibeCoding_Syllabus.docx` — regenerate a CS 6983 version.
 
 **⚠️ Pushing this repo publishes the instructor's live website. Do NOT push `homepageJohnGuerra` without explicit approval.** Also pull it before editing — it receives student-PR merges, so a local checkout may be stale.
 

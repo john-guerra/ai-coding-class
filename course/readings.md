@@ -1,9 +1,9 @@
-# CS 7180: Vibe Coding - Required Readings & Resources
-## AI-Assisted Software Engineering - Spring 2026
+# CS 6983: Vibe Coding - Required Readings & Resources
+## AI-Assisted Software Engineering - Fall 2026
 
-**Course:** CS 7180 - Special Topics in AI  
+**Course:** CS 6983 - Special Topics in AI  
 **Instructor:** John Alexis Guerra Gomez  
-**Last Updated:** January 12, 2026
+**Last Updated:** July 20, 2026
 
 ---
 
@@ -217,7 +217,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 10: Claude Code Foundations
+## Week 9: Claude Code Foundations
 
 ### 📚 Required (Before Class)
 
@@ -250,7 +250,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 11: Claude Code Workflows & Development Practices
+## Week 10: Claude Code Workflows & Development Practices
 
 ### 📚 Required
 
@@ -277,7 +277,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 12: Claude Code Extensibility
+## Week 11: Claude Code Extensibility
 
 ### 📚 Required
 
@@ -310,7 +310,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 13: Agent Architectures & SDK
+## Week 12: Agent Architectures & SDK
 
 ### 📚 Required
 
@@ -345,7 +345,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 14: AI Security & Code Quality
+## Week 13: AI Security & Code Quality
 
 ### 📚 Required
 
@@ -386,7 +386,7 @@ All URLs have been verified as of January 2026.
 
 ---
 
-## Week 15: Production & Course Synthesis
+## Week 14: Production & Course Synthesis
 
 ### 📚 Required
 
@@ -462,12 +462,12 @@ All URLs have been verified as of January 2026.
 | 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
 | 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |
 | 8 | Advanced IDE AI Features | MCP Specification, debugging guides, Antigravity advanced docs |
-| 10 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
-| 11 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), TDD frameworks, GitHub Actions, CI/CD |
-| 12 | Claude Code Extensibility | Skilljar (MCP, Hooks, SDK), Skills, Hooks, MCP, Sub-agents |
-| 13 | Agent Architectures & SDK | Building Effective Agents, Agent SDK docs, tool use, multi-agent patterns |
-| 14 | AI Security & Code Quality | OWASP, OpenSSF guide, eval frameworks, AI code review, agent safety |
-| 15 | Production & Course Synthesis | Prompt caching, deployment, harness design, RAG, long-running agents |
+| 9 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
+| 10 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), TDD frameworks, GitHub Actions, CI/CD |
+| 11 | Claude Code Extensibility | Skilljar (MCP, Hooks, SDK), Skills, Hooks, MCP, Sub-agents |
+| 12 | Agent Architectures & SDK | Building Effective Agents, Agent SDK docs, tool use, multi-agent patterns |
+| 13 | AI Security & Code Quality | OWASP, OpenSSF guide, eval frameworks, AI code review, agent safety |
+| 14 | Production & Course Synthesis | Prompt caching, deployment, harness design, RAG, long-running agents |
 
 ---
 
@@ -492,4 +492,4 @@ All URLs have been verified as of January 2026.
 
 ---
 
-*This document is maintained as part of the CS 7180 course materials. Report broken links to jguerra@northeastern.edu*
+*This document is maintained as part of the CS 6983 course materials. Report broken links to jguerra@northeastern.edu*

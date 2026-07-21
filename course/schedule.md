@@ -1,4 +1,12 @@
-# CS 7180: Course Schedule (15 Weeks + Finals)
+# CS 6983: Course Schedule (14 Weeks + Finals)
+
+> **Fall 2026.** Two sections share this curriculum:
+> - **Oakland / Online:** Tuesday & Friday, 10:35 AM–12:15 PM PT
+> - **San Jose:** Wednesday, 1:00 PM–4:20 PM PT
+>
+> Term runs **Sep 9 – Dec 13, 2026**; **Finals Dec 14–20, 2026**. Meeting dates below are week-based (see per-section calendars in the syllabus).
+>
+> ⚠️ **Scheduling flags to resolve:** (1) The **San Jose** Wednesday section loses its **Thanksgiving-week** session (Wed **Nov 25** is a break day), leaving 13 meetings vs. the 14-week curriculum — decide whether that week goes async or content is merged. (2) Oakland/Online **Fri Nov 27** is also in the Thanksgiving recess (no class). Confirm exact per-section dates.
 
 ## Overview
 
@@ -7,52 +15,50 @@
 | 1-3   | Fundamentals: LLM basics, prompt engineering                        |
 | 4-5   | Claude Web: Artifacts, Projects, rapid prototyping                  |
 | 6-8   | IDE Assistants: Antigravity, Agile/Scrum, pairs, advanced features, **P1 & P2 start** |
-| 9     | Spring Break                                                        |
-| 10-12 | Claude Code Deep Dive: Foundations, workflows, extensibility, **P2 due & P3 start** |
-| 13-15 | Agents, Security, Production, **P3 sprints**                        |
-| 16    | Finals Week, **P3 due (Apr 21)**                                    |
+| 9-11  | Claude Code Deep Dive: Foundations, workflows, extensibility, **P2 due & P3 start** |
+| 12-14 | Agents, Security, Production, **P3 sprints**                        |
+| Finals | Finals Week (Dec 14–20), **P3 due**                                |
 
 ## Detailed Weekly Schedule
 
 | Week   | Module                            | Topics                                                                                                                                                                                    | Deliverables                                                         | Project Status                                    |
 | ------ | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------- |
 | **1**  | **Foundations**                   | Course intro & portfolio planning                                                                                                                                                         | Weekly Quiz 1, Pre-class questions                                   | **P1:** Ideation, Problem identification          |
-| **2**  | **LLM Fundamentals + Modality 1** | **LLM Fundamentals**: Transformers, tokens, context windows, hallucinations, temperature, model comparison; Mom Test & Design Thinking intro; Claude Web & Projects                       | Weekly Quiz 2                                                        | **P1:** User research begins                      |
+| **2**  | **LLM Fundamentals + Harness 1**  | **LLM Fundamentals**: Transformers, tokens, context windows, hallucinations, temperature, model comparison; Mom Test & Design Thinking intro; Claude Web & Projects                       | Weekly Quiz 2                                                        | **P1:** User research begins                      |
 | **3**  | **Prompt Engineering**            | Effective prompt structure, Few-shot learning, System vs user prompts, Iteration strategies                                                                                               | Weekly Quiz 3                                                        | **P1:** PRD & user stories, Architecture          |
 | **4**  | **User Research & Prototyping**   | Mom Test & Design Thinking workshop, Claude Web Artifacts for rapid prototyping, User story writing, PRD refinement                                                                       | **HW1 DUE:** Prompt Eng, Weekly Quiz 4                               | **P1:** User research complete, Prototyping       |
 | **5**  | **Claude Web Deep Dive**          | Building full projects with Artifacts, Mockup-to-prototype workflow, Artifact persistence & storage, AI-powered artifacts (`window.claude.complete()`), Debugging artifacts, P1 workshop   | **HW2 DUE:** Mom Test, Weekly Quiz 5                                 | **P1:** Sprint 1, Implementation begins           |
 | **6**  | **IDE-Centric AI Coding**         | **PROJECT 1 DUE**, How IDE AI tools work (architecture pipeline, context collection, indexing), Code suggestions & tab completion, Inline edit (Cmd+K), Chat panel, Modes (Ask/Write/Agent/Plan), Rules files, @ context references, Tool comparison (Antigravity vs Copilot vs Cursor), **P2 pair formation, Canvas groups** | **PROJECT 1 DUE**, Weekly Quiz 6                                      | **P1:** Final, **P2:** Starts, Form pairs          |
 | **7**  | **Agile/Scrum + Pair Workflow**   | Agile/Scrum crash course (roles, sprint cycle, ceremonies), GitHub as scrumboard (Issues, Projects board, labels, milestones), PRD → sprint backlog, Branch-per-issue workflow, Pair workflow (scrum for two, design thinking → backlog), Partner code review, Async standups | Weekly Quiz 7                                                        | **P2:** Sprint 1                                  |
 | **8**  | **Advanced IDE AI Features**      | Agent memory & persistent context, MCP servers (connecting AI to external tools), Browser mode, Mockup-to-code, Debugging with AI, Shared rules files for pairs, P2 sprint workflow       | **HW3 DUE:** Context Eng (Rules+Scrum), Weekly Quiz 8                  | **P2:** Sprint 2                                  |
-| **9**  | **Spring Break**                  | *No class - March 2-8, 2026*                                                                                                                                                              | —                                                                    | Work on P2                                        |
-| **10** | **Claude Code Foundations**       | **PROJECT 2 DUE**, How Claude Code works (agentic loop, built-in tools), Installation & setup, CLAUDE.md deep dive (@imports, hierarchy, auto-memory), Tool use system & permissions, Context management (/clear, /compact, checkpoints, --continue), Thinking & planning modes, **P3 team formation** | **PROJECT 2 DUE**, Weekly Quiz 10                                    | **P2:** Final, **P3:** Team formation & Start     |
-| **11** | **Claude Code Workflows & Dev Practices** | Explore → Plan → Implement → Commit workflow, TDD with Claude Code (red-green-refactor with AI), Git & GitHub integration (commits, PRs through CC), CI/CD via Claude Code & GitHub Actions, Visual debugging (screenshots, Chrome extension), Non-interactive mode & scripting (`claude -p`, JSON output, fan-out) | **HW4 DUE:** CC Workflow & TDD, Weekly Quiz 11         | **P3:** Sprint 1                                  |
-| **12** | **Claude Code Extensibility**     | Skills & custom commands (.claude/skills/), Hooks (PreToolUse, PostToolUse, Stop), MCP servers (connecting databases, Figma, Playwright), Custom sub-agents (.claude/agents/), Plugins & plugin marketplace, Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 12         | **P3:** Sprint 2                                  |
-| **13** | **Agent Architectures & SDK** | Agent fundamentals (agent vs workflow, augmented LLM), Anthropic's 6 agent patterns (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer, autonomous), Claude Agent SDK (Python/TypeScript, query(), hooks, sessions), Multi-agent coordination, Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Custom Skill + MCP, Weekly Quiz 13              | **P3:** Sprint 3                                  |
-| **14** | **AI Security & Code Quality** | Agent safety & evaluation, The security problem (45% of AI code has OWASP vulnerabilities), The 8-gate security pipeline, Slopsquatting, Ethics & professional responsibility, AI code review automation (Claude Code in GitHub Actions), Eval awareness & integrity | Weekly Quiz 14                                                       | **P3:** Sprint 4                                  |
-| **15** | **Production & Course Synthesis** | Production deployment (CI/CD, Vercel), Monitoring & observability (OpenTelemetry, Sentry), Cost optimization (prompt caching, model routing), RAG patterns for codebases, Future of AI engineering, Demo preparation workshop, Meta-reflection & course synthesis | Weekly Quiz 15                                                       | **P3:** Deploy & polish                           |
-| **16** | **Finals Week**                  | **PROJECT 3 DUE (Apr 21)**, Optional async demo video submissions                                                                                                                         | **PROJECT 3 DUE**                                                    | **P3:** Final                                    |
+| **9**  | **Claude Code Foundations**       | **PROJECT 2 DUE**, How Claude Code works (agentic loop, built-in tools), Installation & setup, CLAUDE.md deep dive (@imports, hierarchy, auto-memory), Tool use system & permissions, Context management (/clear, /compact, checkpoints, --continue), Thinking & planning modes, **P3 team formation** | **PROJECT 2 DUE**, Weekly Quiz 9                                     | **P2:** Final, **P3:** Team formation & Start     |
+| **10** | **Claude Code Workflows & Dev Practices** | Explore → Plan → Implement → Commit workflow, TDD with Claude Code (red-green-refactor with AI), Git & GitHub integration (commits, PRs through CC), CI/CD via Claude Code & GitHub Actions, Visual debugging (screenshots, Chrome extension), Non-interactive mode & scripting (`claude -p`, JSON output, fan-out) | **HW4 DUE:** CC Workflow & TDD, Weekly Quiz 10        | **P3:** Sprint 1                                  |
+| **11** | **Claude Code Extensibility**     | Skills & custom commands (.claude/skills/), Hooks (PreToolUse, PostToolUse, Stop), MCP servers (connecting databases, Figma, Playwright), Custom sub-agents (.claude/agents/), Plugins & plugin marketplace, Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 11        | **P3:** Sprint 2                                  |
+| **12** | **Agent Architectures & SDK** | Agent fundamentals (agent vs workflow, augmented LLM), Anthropic's 6 agent patterns (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer, autonomous), Claude Agent SDK (Python/TypeScript, query(), hooks, sessions), Multi-agent coordination, Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Custom Skill + MCP, Weekly Quiz 12             | **P3:** Sprint 3                                  |
+| **13** | **AI Security & Code Quality** | Agent safety & evaluation, The security problem (45% of AI code has OWASP vulnerabilities), The 8-gate security pipeline, Slopsquatting, Ethics & professional responsibility, AI code review automation (Claude Code in GitHub Actions), Eval awareness & integrity | Weekly Quiz 13                                                       | **P3:** Sprint 4                                  |
+| **14** | **Production & Course Synthesis** | Production deployment (CI/CD, Vercel), Monitoring & observability (OpenTelemetry, Sentry), Cost optimization (prompt caching, model routing), RAG patterns for codebases, Future of AI engineering, Demo preparation workshop, Meta-reflection & course synthesis | Weekly Quiz 14                                                       | **P3:** Deploy & polish                           |
+| **Finals** | **Finals Week**              | **PROJECT 3 DUE**, Optional async demo video submissions (Dec 14–20, 2026)                                                                                                                | **PROJECT 3 DUE**                                                    | **P3:** Final                                    |
 
 ## Key Dates Summary
 
-| Date    | Event                                   |
-| ------- | --------------------------------------- |
-| Week 4  | HW1 due (Prompt Engineering)            |
-| Week 5  | HW2 due (Mom Test)                      |
-| Week 6  | **Project 1 due**, P2 pairs formed      |
-| Week 8  | HW3 due (Context Engineering)           |
-| Week 10 | **Project 2 due**                       |
-| Week 11 | HW4 due (Claude Code Workflow & TDD) |
-| Week 13 | HW5 due (Custom Skill + MCP Integration) |
-| Week 16 (Finals) | **Project 3 due (Apr 21)**     |
+| Week    | Event                                    |
+| ------- | ---------------------------------------- |
+| Week 4  | HW1 due (Prompt Engineering)             |
+| Week 5  | HW2 due (Mom Test)                       |
+| Week 6  | **Project 1 due**, P2 pairs formed       |
+| Week 8  | HW3 due (Context Engineering)            |
+| Week 9  | **Project 2 due**, P3 team formation     |
+| Week 10 | HW4 due (Claude Code Workflow & TDD)     |
+| Week 12 | HW5 due (Custom Skill + MCP Integration) |
+| Finals (Dec 14–20) | **Project 3 due**             |
 
-## The Three AI Modalities
+## The Three AI Harnesses
 
-| Modality        | When       | Best For                                       |
+| Harness         | When       | Best For                                       |
 | --------------- | ---------- | ---------------------------------------------- |
 | **Claude Web**  | Weeks 4-5  | Architecture planning, prototyping, brainstorming |
-| **Antigravity** | Weeks 6-8 (intro), 8-11 (daily use) | Production code, daily development workflow     |
-| **Claude Code** | Weeks 10-12 (deep dive), 13-15 (agents, security & production) | Agentic coding, automation, extensibility, agent architectures |
+| **Antigravity** | Weeks 6-8 (intro), 8-10 (daily use) | Production code, daily development workflow     |
+| **Claude Code** | Weeks 9-11 (deep dive), 12-14 (agents, security & production) | Agentic coding, automation, extensibility, agent architectures |
 
 ---
 

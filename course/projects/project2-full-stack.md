@@ -1,7 +1,7 @@
 # Project 2: Full-Stack Application
 
 **Weight:** 20% of final grade
-**Due:** Week 10
+**Due:** Week 9
 
 ## Objective
 

@@ -1,7 +1,7 @@
 # Project 3: Production Application with Claude Code Mastery
 
 **Weight:** 19% of final grade | **Points:** 200
-**Due:** Finals Week — April 21, 2026
+**Due:** Finals Week — December 14–20, 2026
 
 ## Objective
 

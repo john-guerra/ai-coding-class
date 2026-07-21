@@ -1,7 +1,8 @@
-# CS 7180: Vibe Coding — AI-Assisted Software Engineering
+# CS 6983: Vibe Coding — AI-Assisted Software Engineering
 
 > **Northeastern University, Khoury College of Computer Sciences**
-> Spring 2026 · Oakland Campus
+> Fall 2026 · Oakland / Online (Tue & Fri) + San Jose (Wed)
+> _Inaugural offering: Spring 2026 as CS 7180._
 
 ## Course Overview
 
@@ -28,15 +29,15 @@ The course progresses through three AI coding *harnesses* (the agent runtime/int
 |---------|-------|----------|
 | **Claude Web** | 4–5 | Architecture planning, learning, brainstorming, rapid Artifact prototyping |
 | **Antigravity (IDE)** | 6–8 | Production code, daily development workflow, in-editor agents |
-| **Claude Code (CLI)** | 10–15 | Agentic coding, automation, extensibility, multi-agent architectures |
+| **Claude Code (CLI)** | 9–14 | Agentic coding, automation, extensibility, multi-agent architectures |
 
 ## Projects (50%)
 
 | Project | Weight | Due |
 |---------|--------|-----|
 | [Project 1: Personal Utility App](course/projects/project1-personal-utility.md) (Claude Web Artifact) | 13% | Week 6 |
-| [Project 2: Full-Stack Application](course/projects/project2-full-stack.md) | 18% | Week 10 |
-| [Project 3: Production App with Claude Code Mastery](course/projects/project3-team-app.md) | 19% | Finals Week (Apr 21, 2026) |
+| [Project 2: Full-Stack Application](course/projects/project2-full-stack.md) | 18% | Week 9 |
+| [Project 3: Production App with Claude Code Mastery](course/projects/project3-team-app.md) | 19% | Finals Week (Dec 14–20, 2026) |
 
 ## Homework (25%)
 
@@ -47,7 +48,7 @@ Five scaffolding assignments that feed directly into the projects:
 | HW1 | [Prompt Engineering Battle](course/assignments/hw2-prompt-engineering.md) | 4 |
 | HW2 | [Mom Test Interviews + User Stories](course/assignments/hw1-mom-test.md) | 5 |
 | HW3 | [Context Engineering (Rules + Scrum)](course/assignments/hw3-context-engineering.md) | 8 |
-| HW4 | [Claude Code Workflow & TDD](course/assignments/hw4-claude-code-workflow-tdd.md) | 11 |
+| HW4 | [Claude Code Workflow & TDD](course/assignments/hw4-claude-code-workflow-tdd.md) | 10 |
 | HW5 | [Custom Skill + MCP Integration](course/assignments/hw5-custom-skill-mcp.md) | 12 |
 
 > ℹ️ File names (`hw1-mom-test.md`, `hw2-prompt-engineering.md`) are swapped relative to their HW numbers for historical reasons — the links above point to the correct content.

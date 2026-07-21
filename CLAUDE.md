@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Complete course materials for **CS 7180: Vibe Coding - AI-Assisted Software Engineering** at Northeastern University (Spring 2026). The course teaches AI-assisted development with professional engineering standards.
+Complete course materials for **CS 6983: Vibe Coding - AI-Assisted Software Engineering** at Northeastern University (Fall 2026; inaugural offering was Spring 2026 as CS 7180). The course teaches AI-assisted development with professional engineering standards.
 
 ## Build Commands
 
@@ -140,22 +140,24 @@ After website changes: `npx pug website/index.pug --out website/ --pretty`
 
 Use `/sync-course` skill to verify all artifacts are in sync.
 
-## Current Curriculum State (April 2026)
+## Current Curriculum State (Fall 2026)
 
-### W10-W16 Structure (Redesigned April 2026)
-- **W10**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking)
-- **W11**: Claude Code Workflows & Dev Practices (Explore→Plan→Implement→Commit, TDD, CI/CD, GitHub)
-- **W12**: Claude Code Extensibility (skills, hooks, MCP, sub-agents, plugins, parallel sessions)
-- **W13**: Agent Architectures & SDK (6 patterns, SDK, multi-agent coordination)
-- **W14**: AI Security & Code Quality (OWASP, 8-gate pipeline, slopsquatting, ethics, AI code review, evals)
-- **W15**: Production & Course Synthesis (deployment, monitoring, cost optimization, RAG, demo prep)
-- **W16**: Finals Week — P3 Due (Apr 21)
+> **Fall 2026 renumber:** The Spring 2026 15-week schedule (with a Spring Break week) was mapped onto the Fall 2026 calendar as **14 teaching weeks + Finals** (no full-week break). Old weeks 10–15 shifted down to 9–14; Finals replaces the old Week 16. Course code changed **CS 7180 → CS 6983**. Two sections: Oakland/Online (Tu/Fri) and San Jose (Wed).
+
+### W9–Finals Structure (Claude Code block)
+- **W9**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking) — **P2 due, P3 team formation**
+- **W10**: Claude Code Workflows & Dev Practices (Explore→Plan→Implement→Commit, TDD, CI/CD, GitHub)
+- **W11**: Claude Code Extensibility (skills, hooks, MCP, sub-agents, plugins, parallel sessions)
+- **W12**: Agent Architectures & SDK (6 patterns, SDK, multi-agent coordination)
+- **W13**: AI Security & Code Quality (OWASP, 8-gate pipeline, slopsquatting, ethics, AI code review, evals)
+- **W14**: Production & Course Synthesis (deployment, monitoring, cost optimization, RAG, demo prep)
+- **Finals**: Finals Week — P3 Due (Dec 14–20, 2026)
 
 ### Homework Assignments (5 total, 5% each = 25%)
 - HW1 (W4): Prompt Engineering Battle
 - HW2 (W5): Mom Test Interviews + User Stories
 - HW3 (W8): Context Engineering (Rules + Scrum)
-- HW4 (W11): Claude Code Workflow & TDD
+- HW4 (W10): Claude Code Workflow & TDD
 - HW5 (W12): Custom Skill + MCP Integration
 - No HW6 — removed to reduce load during P3 sprints
 

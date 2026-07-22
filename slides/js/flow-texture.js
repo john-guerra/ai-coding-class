@@ -2,6 +2,13 @@
 // slide-design-system page. Faint navy streamlines traced through a
 // fractal-noise vector field, painted behind each slide's content.
 // Dividers (navy) stay clean. See docs/design/DESIGN_GUIDELINES.md.
+//
+// Resolution strategy: each slide gets a UNIQUE tile rendered at the actual
+// on-screen device resolution (reveal's fit-scale × devicePixelRatio), so the
+// streamlines stay crisp instead of being upscaled from a small thumbnail.
+// A full-res RGBA bitmap is ~10 MB decoded, so we can't keep 48 of them in
+// memory — instead we paint only a sliding window around the current slide and
+// release the rest. Re-rendering a tile on revisit is a few milliseconds.
 (function () {
   // --- value-noise / fBm ---
   function h2(x, y, s) {
@@ -22,14 +29,30 @@
     return a;
   }
 
-  // --- flow-field streamlines, cached per seed ---
-  var cache = {};
-  function flowTile(s) {
-    if (cache[s]) return cache[s];
+  // Slide design space is 960×700. `q` is how many device pixels we render per
+  // slide unit: reveal's fit-scale (slides box width ÷ 960) × devicePixelRatio,
+  // capped so 4K/retina doesn't explode memory. The whole streamline pass runs
+  // in slide coordinates via ctx.scale(q,q), so the pattern is identical to the
+  // spec — only the raster resolution changes.
+  function quality() {
+    var scale = 1;
+    var el = document.querySelector('.reveal .slides');
+    if (el) { var w = el.getBoundingClientRect().width; if (w) scale = w / 960; }
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    return Math.max(1, Math.min(2.4, scale * dpr));
+  }
+
+  // --- flow-field streamlines, rendered at quality q, cached per seed ---
+  var cache = {};       // seed -> canvas (only the live window is kept)
+  function flowTile(s, q) {
+    var key = s + '@' + q;
+    if (cache[key]) return cache[key];
     var W = 960, H = 700, c = document.createElement('canvas');
-    c.width = W; c.height = H;
+    c.width = Math.round(W * q); c.height = Math.round(H * q);
     var ctx = c.getContext('2d');
-    ctx.lineWidth = 1;
+    ctx.scale(q, q);                       // draw in slide coords, rasterize at q×
+    ctx.lineWidth = 1;                     // 1 slide-px hairline (crisp at any q)
+    ctx.lineCap = 'round';
     ctx.strokeStyle = 'rgba(22,32,46,.023)';
     var sc = 0.0023, gs = 16, gw = Math.ceil(W / gs), occ = new Uint16Array(gw * Math.ceil(H / gs)), CAP = 7;
     function field(x, y) { var a = fbm(x * sc, y * sc, s) * Math.PI * 4; return [Math.cos(a), Math.sin(a)]; }
@@ -46,41 +69,63 @@
       }
       if (drawn) ctx.stroke();
     }
-    cache[s] = c;
+    cache[key] = c;
     return c;
   }
 
   // Reveal draws each slide's background in a .slide-background element that
-  // transitions WITH the slide. Painting the flow there (as a CSS
-  // background-image data URL — one decode per tile, browser-cached) makes the
-  // texture move with the convex transition, and keeps it light. A few cycled
-  // tiles so adjacent slides differ. Navy dividers keep their clean background.
-  // A UNIQUE generative flow per slide (no repeat), painted on the slide's own
-  // background so it transitions with the slide. Each tile is downscaled to a
-  // small data URL so 48 unique textures stay memory-cheap — the texture is
-  // faint enough that the lower resolution is invisible.
-  function slideTileUrl(seed) {
-    var big = flowTile(seed);
-    var small = document.createElement('canvas');
-    small.width = 480; small.height = 350;
-    small.getContext('2d').drawImage(big, 0, 0, 480, 350);
-    delete cache[seed];               // free the full-res canvas; seeds are unique
-    return small.toDataURL('image/png');
+  // transitions WITH the slide. We paint the current slide and its immediate
+  // neighbours (so sequential nav never shows an unpainted background), and
+  // release tiles that fall outside that window to bound memory.
+  var WINDOW = 2;
+  var seedFor = function (i) { return 7 + i * 13; };   // stable, unique per slide
+  var curQ = null;
+
+  function tileUrl(seed, q) {
+    var url = flowTile(seed, q).toDataURL('image/png');
+    return url;
   }
-  function paintSlides() {
+  function paint(bg, seed, q) {
+    bg.style.backgroundImage = 'url(' + tileUrl(seed, q) + ')';
+    bg.style.backgroundSize = 'cover';
+    bg.style.backgroundPosition = 'center';
+    bg.style.backgroundRepeat = 'no-repeat';
+    bg.dataset.flowSeed = seed + '@' + q;
+  }
+  function release(bg) {
+    bg.style.backgroundImage = '';
+    delete bg.dataset.flowSeed;
+  }
+
+  function paintWindow() {
     if (typeof Reveal === 'undefined' || !Reveal.getSlideBackground) return;
-    Reveal.getSlides().forEach(function (sl, i) {
+    var slides = Reveal.getSlides();
+    var cur = slides.indexOf(Reveal.getCurrentSlide());
+    if (cur < 0) cur = 0;
+    var q = quality();
+    // If the fit-scale/dpr changed (window resize, monitor move), drop caches
+    // so tiles re-render at the new resolution.
+    if (curQ !== null && curQ !== q) cache = {};
+    curQ = q;
+    slides.forEach(function (sl, i) {
       if (sl.matches('.divider')) return;                 // keep navy dividers clean
       var bg = Reveal.getSlideBackground(sl);
-      if (!bg || bg.dataset.flowSet) return;
-      bg.style.backgroundImage = 'url(' + slideTileUrl(7 + i * 13) + ')';
-      bg.style.backgroundSize = 'cover';
-      bg.style.backgroundPosition = 'center';
-      bg.style.backgroundRepeat = 'no-repeat';
-      bg.dataset.flowSet = '1';
+      if (!bg) return;
+      var want = Math.abs(i - cur) <= WINDOW;
+      var seed = seedFor(i), tag = seed + '@' + q;
+      if (want) {
+        if (bg.dataset.flowSeed !== tag) paint(bg, seed, q);
+      } else if (bg.dataset.flowSeed) {
+        release(bg);
+        delete cache[seedFor(i) + '@' + q];               // free the bitmap
+      }
     });
   }
 
-  Reveal.on('ready', paintSlides);
-  Reveal.on('slidechanged', paintSlides); // backgrounds reveal builds lazily
+  Reveal.on('ready', paintWindow);
+  Reveal.on('slidechanged', paintWindow);
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt); rt = setTimeout(function () { curQ = null; cache = {}; paintWindow(); }, 250);
+  });
 })();

@@ -27,10 +27,9 @@ Reveal.on('ready', function() {
       fontFamily: "'Lato','Helvetica Neue',Arial,sans-serif",
       flowchart: {
         useMaxWidth: false,
-        htmlLabels: true,   // HTML labels are sized by the browser at the real
-        curve: 'basis'      // font, so node boxes fit the text (no clipping)
+        htmlLabels: false,  // pure SVG text scales cleanly with the viewBox
+        curve: 'basis'
       },
-      securityLevel: 'loose', // required for htmlLabels foreignObject rendering
       themeVariables: {
         fontFamily: "'Lato','Helvetica Neue',Arial,sans-serif",
         fontSize: '18px',
@@ -73,38 +72,26 @@ Reveal.on('ready', function() {
     }
   }
 
+  // Render each diagram with the low-level mermaid.render(): it lays out the
+  // SVG in mermaid's OWN off-DOM sandbox (on <body>, never inside reveal's
+  // transform-scaled .slides), so text is always measured at scale 1. We then
+  // inject the finished SVG, which — being pure SVG text — scales cleanly with
+  // reveal's zoom without re-measuring or cropping. Scale-independent and
+  // identical whether the slide was direct-loaded or navigated to.
+  var seq = 0;
   function renderAllStable() {
     var pending = Array.prototype.slice.call(
       document.querySelectorAll('.mermaid[data-mermaid-pending]'));
-    if (pending.length === 0) return;
-
-    var sections = document.querySelectorAll('.reveal .slides section');
-    var origDisplay = [];
-    sections.forEach(function (s) { origDisplay.push(s.style.display); s.style.display = 'block'; });
-
-    // Neutralize reveal's fit-to-window scale during rendering. Mermaid measures
-    // its HTML labels with getBoundingClientRect, which returns SCALED sizes —
-    // so under a <1 scale it makes the boxes too small and the real text is
-    // cropped. Measuring at scale 1 gives boxes that fit the text.
-    var slidesEl = document.querySelector('.reveal .slides');
-    var origTransform = slidesEl ? slidesEl.style.transform : '';
-    if (slidesEl) slidesEl.style.transform = 'none';
-
     pending.forEach(function (el) {
-      var source = el.getAttribute('data-mermaid-source');
-      if (source) el.textContent = source;
       el.removeAttribute('data-mermaid-pending');
+      var source = el.getAttribute('data-mermaid-source') || el.textContent;
+      var id = 'mmd-' + (seq++);
+      try {
+        Promise.resolve(mermaid.render(id, source)).then(function (res) {
+          el.innerHTML = res.svg;
+          if (res.bindFunctions) res.bindFunctions(el);
+        }).catch(function () {});
+      } catch (e) { /* leave source text as fallback */ }
     });
-
-    var restore = function () {
-      sections.forEach(function (s, i) { s.style.display = origDisplay[i]; });
-      if (slidesEl) slidesEl.style.transform = origTransform;
-      if (Reveal.layout) Reveal.layout();
-    };
-    try {
-      var p = mermaid.run({ nodes: pending });
-      if (p && typeof p.then === 'function') p.then(restore, restore);
-      else restore();
-    } catch (e) { restore(); }
   }
 });

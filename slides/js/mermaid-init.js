@@ -75,6 +75,14 @@ Reveal.on('ready', function() {
       el.removeAttribute('data-mermaid-pending');
     });
 
-    mermaid.run({ nodes: Array.from(pending) });
+    // Render only once the web fonts (Lato/Playfair/Plex) are actually loaded.
+    // Otherwise a direct load renders mermaid with fallback fonts, which measure
+    // wider and lay the diagram out differently than a navigated-to render.
+    var run = function () { mermaid.run({ nodes: Array.from(pending) }); };
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { requestAnimationFrame(run); });
+    } else {
+      requestAnimationFrame(run);
+    }
   }
 });

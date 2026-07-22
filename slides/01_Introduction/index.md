@@ -9,17 +9,17 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 6983 · Week 1</span>
+<span class="course-week">CS 6983 · Week 1 · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/01_Introduction/)</span>
 
 ## Introduction to Vibe Coding
 
 AI-Assisted Software Engineering
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
-
 [**John Alexis Guerra Gomez**](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/01_Introduction/)</small>
+<small>jguerra at northeastern.edu</small>
+
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" class="nu-seal">
 
 <small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
 
@@ -57,16 +57,27 @@ The idea that you can build software by _describing what you want_ to an AI and 
 
 # The Vibe Coding Hype
 
-![bg right:40% fit](images/hype-vs-reality.png)
+<div class="split">
+<div class="split-text">
 
-✅ Build apps in minutes
-✅ No need to understand code
-✅ "Anyone can be a developer"
+<p class="hype-list">
+✅ Build apps in minutes<br>
+✅ No need to understand code<br>
+✅ "Anyone can be a developer"<br>
 ✅ 10x productivity gains
+</p>
 
 **Sounds amazing, right?**
 
 <small title="Prompt: A split composition comparing 'Hype' vs 'Reality' in software development. Left side (Hype): A futuristic, glowing, perfect cyber-city with clear skies and flying cars, representing the promise of AI coding. Right side (Reality): A construction site with a beautiful modern facade but crumbling, messy bricks and duct tape behind it, representing technical debt and broken code. High quality 3D render style, cinematic lighting.">_Image generated with Nano Banana_ ℹ️</small>
+
+</div>
+<div class="split-img">
+
+![](images/hype-vs-reality.png)
+
+</div>
+</div>
 
 ---
 
@@ -100,16 +111,28 @@ Build fast **AND** build right.
 
 # Our Philosophy
 
-![bg left:35% fit](images/philosophy-balance.png)
+<div class="split">
+<div class="split-img">
 
-| Crazy Vibe Coding         | This Course                                      |
-| ------------------------- | ------------------------------------------------ |
-| Prompt and pray           | Analyze, Plan, Prompt, Test, Validate with users |
-| Ship it and forget        | CI/CD pipelines                                  |
-| Trust the AI blindly      | Evaluate systematically                          |
-| Code you don't understand | Code you can explain                             |
+![](images/philosophy-balance.png)
+
+</div>
+<div class="split-text">
+
+<table>
+<thead><tr><th>Crazy Vibe Coding</th><th>This Course</th></tr></thead>
+<tbody>
+<tr><td>Prompt and pray</td><td>Analyze, Plan, Prompt, Test, Validate with users</td></tr>
+<tr><td>Ship it and forget</td><td>CI/CD pipelines</td></tr>
+<tr><td>Trust the AI blindly</td><td>Evaluate systematically</td></tr>
+<tr><td>Code you don't understand</td><td>Code you can explain</td></tr>
+</tbody>
+</table>
 
 <small title="Prompt: A conceptual 3D illustration of a balanced scale. On one side of the scale is a glowing icon representing 'Speed' (like a lightning bolt). On the other side is an icon representing 'Engineering Rigor' (like a gear or blueprint). The scale is perfectly balanced. Minimalist, modern, clean aesthetic, soft blue and purple lighting.">_Image generated with Nano Banana_ ℹ️</small>
+
+</div>
+</div>
 
 ---
 
@@ -127,7 +150,8 @@ Build fast **AND** build right.
 
 # The Three AI Harnesses
 
-![bg right:40% fit](images/ai-modalities.png)
+<div class="split">
+<div class="split-text">
 
 How we'll structure our AI-assisted development:
 
@@ -136,6 +160,14 @@ How we'll structure our AI-assisted development:
 3. **Claude Code** — AI First Development
 
 <small title="Prompt: A set of 3 matching high-quality 3D icons on a clean background, representing three AI coding harnesses. 1. A digital brain or glowing blueprint (representing Architecture/Thinking). 2. A floating coding editor window with a hammer/tool (representing Building/Dev). 3. A robot arm interacting with gears (representing Automation/Ops). Modern, sleek, glassmorphism style.">_Image generated with Nano Banana_ ℹ️</small>
+
+</div>
+<div class="split-img">
+
+![](images/ai-modalities.png)
+
+</div>
+</div>
 
 ---
 
@@ -154,7 +186,8 @@ _Use when you need to think through a problem_
 
 # Harness 2: AI-Augmented Editor
 
-![bg right:40% fit](images/ai-augmented-editor.png)
+<div class="split">
+<div class="split-text">
 
 **Best for:** Production code, daily workflow
 
@@ -166,6 +199,14 @@ _Use when you need to think through a problem_
 _Keep your classical workflow get AI help._
 
 <small title="Prompt: A conceptual 3D illustration of an AI-augmented code editor. A high-tech monitor screen displays colorful code syntax. A translucent, glowing 'ghost text' suggestion extends from the cursor, representing AI autocomplete. Soft, intelligent lighting (teal and purple) flows from the screen, suggesting collaboration between the human developer and the AI. Modern, sleek, dark mode aesthetic.">_Image generated with Nano Banana_ ℹ️</small>
+
+</div>
+<div class="split-img">
+
+![](images/ai-augmented-editor.png)
+
+</div>
+</div>
 
 ---
 
@@ -207,27 +248,45 @@ _Use when you need to change many files_
 
 # BTactile SVG Converter
 
-**[btactile.com/toSVG](https://btactile.com/toSVG)**
+<div class="split">
+<div class="split-text">
 
-![bg right:40% fit](images/btactile-tosvg.png)
+**[btactile.com/toSVG](https://btactile.com/toSVG)**
 
 - **AI-Powered Tracing**: Uses SAM to auto-detect objects
 - **Tactile Graphics**: Converts images to optimized SVGs for embossers
 - **Interactive Controls**: "Segment All" & "Click" modes with density control
 - **Browser-Based**: Client-side processing for privacy
 
+</div>
+<div class="split-img">
+
+![](images/btactile-tosvg.png)
+
+</div>
+</div>
+
 ---
 
 # Family Board Game
 
-**[johnguerra.co/viz/YoNoFui/](https://johnguerra.co/viz/YoNoFui/)**
+<div class="split">
+<div class="split-img">
 
-![bg left:35% fit](images/yonofui-interface.png)
+![](images/yonofui-interface.png)
+
+</div>
+<div class="split-text">
+
+**[johnguerra.co/viz/YoNoFui/](https://johnguerra.co/viz/YoNoFui/)**
 
 - **Interactive Deduction Board**: Map of the house to find clues
 - **Game Management**: Digital dice, clue revealer, and accusation system
 - **Suspect Matrix**: Filter suspects by traits (glasses, hair, etc.)
 - **Hybrid Play**: Digital companion for a physical board game
+
+</div>
+</div>
 
 ---
 
@@ -407,7 +466,8 @@ But:
 
 # Silicon Valley Ready
 
-![bg right:40% fit](images/silicon-valley-ready.png)
+<div class="split">
+<div class="split-text">
 
 This course teaches **how software gets built in 2026**.
 
@@ -417,6 +477,14 @@ Not outdated practices.
 **Real tools. Real workflows. Real skills.**
 
 <small title="Prompt: A futuristic, inspiring illustration of a 'launchpad' or high-tech workspace. A laptop displays code that is transforming into a rocket ship taking off towards a bright future. Represents being 'Silicon Valley Ready' and career acceleration. Vibrant colors, optimistic technological aesthetic.">_Image generated with Nano Banana_ ℹ️</small>
+
+</div>
+<div class="split-img">
+
+![](images/silicon-valley-ready.png)
+
+</div>
+</div>
 
 ---
 

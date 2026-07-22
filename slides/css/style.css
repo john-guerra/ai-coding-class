@@ -157,26 +157,12 @@
   box-shadow: none;
 }
 
-/* Legacy Marp `![bg right:40% fit]` / `![bg left:35% fit]` syntax is
-   unsupported by reveal-md — it renders as a full-size inline <img> that
-   stacks ABOVE the text and overflows the slide. Marp's intent is "image
-   beside the text," so we float it to the correct side and cap its size;
-   the prose then flows alongside instead of below. Only matches Marp alt
-   text (`bg ...`), so no other deck's images are affected. */
+/* Safety net for any stray legacy Marp `![bg ...]` syntax (unsupported by
+   reveal-md — renders as a full-size inline <img>). Deck 01's image slides
+   were converted to the `.split` template; this only catches future pastes. */
 .reveal section img[alt^="bg "] {
-  max-height: 66vh;
+  max-height: 60vh;
   width: auto;
-  object-fit: contain;
-}
-.reveal section img[alt^="bg right"] {
-  float: right;
-  max-width: 40%;
-  margin: 0.1em 0 0.6em 1.4em;
-}
-.reveal section img[alt^="bg left"] {
-  float: left;
-  max-width: 36%;
-  margin: 0.1em 1.4em 0.6em 0;
 }
 
 /* Lists */
@@ -228,6 +214,34 @@
 }
 .reveal .svg-diagram svg text.sans {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Image + text split — replaces legacy Marp `![bg right/left:xx% fit]` slides.
+   Text and picture sit side by side; the text column is wider, the image is
+   capped so the slide stays in budget. Visual order follows DOM order, so
+   author the image div first for an image-left slide, text first otherwise. */
+.reveal .split {
+  display: flex;
+  align-items: center;
+  gap: 1.6em;
+}
+.reveal .split .split-text {
+  flex: 1.35;
+  min-width: 0;
+  text-align: left;
+}
+.reveal .split .split-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.reveal .split .split-img img {
+  max-height: 60vh;
+  width: auto;
+  border-radius: 6px;
+}
+.reveal .split .hype-list {
+  line-height: 1.7;
 }
 
 /* Two-column layout */
@@ -321,7 +335,7 @@
 /* The composition below is workshop-specific. Scope it to titles WITHOUT a
    seal image so the credit-course lecture titles (which carry the NU seal and
    a different structure) keep their normal centered layout. */
-.reveal .slides section#title:not(:has(img)).present {
+.reveal .slides section#title:not(:has(img:not(.nu-seal))).present {
   box-sizing: border-box;
   display: flex !important;
   flex-direction: column;
@@ -331,18 +345,18 @@
   top: 0 !important;
   padding: 60px 10px;
 }
-.reveal #title:not(:has(img)) .course-week { display: block; font-size: 17px; letter-spacing: 3px; margin-bottom: 24px; }
-.reveal #title:not(:has(img)) h2 {
+.reveal #title:not(:has(img:not(.nu-seal))) .course-week { display: block; font-size: 17px; letter-spacing: 3px; margin-bottom: 24px; }
+.reveal #title:not(:has(img:not(.nu-seal))) h2 {
   font-size: 116px; font-weight: 900; line-height: 0.96;
   letter-spacing: -0.02em; margin: 0; max-width: 12ch;
 }
-.reveal #title:not(:has(img)) h3 {
+.reveal #title:not(:has(img:not(.nu-seal))) h3 {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400; color: #3a4652; font-size: 33px; line-height: 1.25; margin: 18px 0 0;
 }
-.reveal #title:not(:has(img)) h3 em { font-style: italic; color: var(--ink); font-weight: 700; }
-.reveal #title:not(:has(img)) > p { font-size: 22px; color: var(--muted); margin: 12px 0 0; }
-.reveal #title:not(:has(img)) p:has(a) {
+.reveal #title:not(:has(img:not(.nu-seal))) h3 em { font-style: italic; color: var(--ink); font-weight: 700; }
+.reveal #title:not(:has(img:not(.nu-seal))) > p { font-size: 22px; color: var(--muted); margin: 12px 0 0; }
+.reveal #title:not(:has(img:not(.nu-seal))) p:has(a) {
   margin-top: auto; margin-bottom: 6px; font-size: 24px;
 }
 .reveal #title p:has(a) a {
@@ -351,6 +365,24 @@
   text-decoration-thickness: 0.08em; text-underline-offset: 0.16em;
 }
 .reveal #title small { color: var(--muted); font-size: 15px; }
+/* Class/Slides links sit inline with the Week header — blend with its mono
+   orange style but stay underlined (WCAG). */
+.reveal #title .course-week a {
+  color: inherit;
+  text-transform: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.15em;
+}
+/* NU seal sits under the email, sized ~1.5× the "John Alexis" line (33.6px). */
+.reveal #title img.nu-seal {
+  height: 52px;
+  width: auto;
+  display: block;
+  margin: 0.5em 0 0.35em;
+  border: none;
+  box-shadow: none;
+}
 
 /* Section dividers — invoke with a template class:  <!-- .slide: class="divider" -->
    Reveal mirrors the slide's class onto its .slide-background element, so the

@@ -106,13 +106,33 @@ Not a chatbot — an **agent** that loops on its own. Your job shifts from **dri
 
 One rung up the Session 1 ladder:
 
-```text
-prompt engineering  →  context engineering  →  loop engineering
-word ONE message       decide what the model     optimize the
-well                   sees AT ALL               surrounding loop
-                       include · retrieve ·      (Sessions 3–4)
-                       compress · order
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 820 170" style="height:190px;width:auto;max-width:100%;display:block;margin:0.1em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Prompt engineering leads to context engineering leads to loop engineering">
+  <g class="fragment">
+    <rect x="15" y="30" width="245" height="110" rx="12" fill="#f5f7f8"/>
+    <text x="137" y="58" font-size="11" letter-spacing="1.5" fill="#1f6f78" font-weight="700" text-anchor="middle">PROMPT</text>
+    <text x="137" y="86" class="sans" font-size="15" font-weight="700" fill="#1b1e24" text-anchor="middle">prompt engineering</text>
+    <text x="137" y="112" font-size="11" fill="#6b7280" text-anchor="middle">word one message well</text>
+  </g>
+  <g class="fragment">
+    <line x1="262" y1="85" x2="284" y2="85" stroke="#1f6f78" stroke-width="2.5"/>
+    <path d="M286 85 l-12 -7 v14 z" fill="#1f6f78"/>
+    <rect x="288" y="20" width="245" height="128" rx="12" fill="#e7f0f1" stroke="#1f6f78" stroke-width="1.5"/>
+    <text x="410" y="50" font-size="11" letter-spacing="1.5" fill="#1f6f78" font-weight="700" text-anchor="middle">CONTEXT</text>
+    <text x="410" y="78" class="sans" font-size="15" font-weight="700" fill="#1b1e24" text-anchor="middle">context engineering</text>
+    <text x="410" y="102" font-size="11" fill="#4b5563" text-anchor="middle">what the model sees at all</text>
+    <text x="410" y="122" font-size="10" fill="#6b7280" text-anchor="middle">include · retrieve · compress · order</text>
+  </g>
+  <g class="fragment">
+    <line x1="535" y1="85" x2="561" y2="85" stroke="#1f6f78" stroke-width="2.5"/>
+    <path d="M563 85 l-12 -7 v14 z" fill="#1f6f78"/>
+    <rect x="565" y="30" width="240" height="110" rx="12" fill="#f5f7f8"/>
+    <text x="685" y="58" font-size="11" letter-spacing="1.5" fill="#1f6f78" font-weight="700" text-anchor="middle">LOOP</text>
+    <text x="685" y="86" class="sans" font-size="15" font-weight="700" fill="#1b1e24" text-anchor="middle">loop engineering</text>
+    <text x="685" y="112" font-size="11" fill="#6b7280" text-anchor="middle">optimize the loop (S3–4)</text>
+  </g>
+</svg>
+</div>
 
 > Wording a message well is prompting. Deciding what the model gets to see *at all* is where real agent quality comes from.
 
@@ -122,28 +142,62 @@ well                   sees AT ALL               surrounding loop
 
 ## What the Harness Assembles Every Turn
 
-```text
-┌──────────── CONTEXT WINDOW · rebuilt every request ────────────┐
-│                                                                │
-│  1. SYSTEM PROMPT         "You are Claude Code…" identity,     │
-│                           tool-use policy, safety rules        │
-│                                                                │
-│  2. PROJECT INSTRUCTIONS  ← CLAUDE.md / .cursorrules / AGENTS  │
-│                           "Use TypeScript. Tests required."    │
-│                                                                │
-│  3. TOOL SCHEMAS          read_file, write_file, run_bash …    │
-│                                                                │
-│  4. RETRIEVED CONTEXT     @-mentioned files, search results    │
-│                                                                │
-│  5. CONVERSATION HISTORY  every prior msg + tool result        │
-│                                                                │
-│  6. CURRENT MESSAGE       "fix the failing test"               │
-│                                                                │
-└────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-                       predict next token
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 760 476" style="height:430px;width:auto;max-width:100%;display:block;margin:0.05em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six sources assembled into one context window every turn, then predict next token">
+  <rect x="20" y="8" width="720" height="396" rx="16" fill="#ffffff" stroke="#e3e6ea" stroke-width="2"/>
+  <rect x="40" y="30" width="12" height="12" rx="3" fill="#1f6f78"/>
+  <text x="62" y="44" font-size="14" letter-spacing="1" fill="#1f6f78" font-weight="600">CONTEXT WINDOW · rebuilt every request</text>
+  <line x1="40" y1="58" x2="720" y2="58" stroke="#e3e6ea" stroke-width="1"/>
+  <g class="fragment">
+    <rect x="40" y="66" width="680" height="48" rx="9" fill="#f5f7f8"/>
+    <rect x="52" y="75" width="30" height="30" rx="7" fill="#1f6f78"/>
+    <text x="67" y="96" class="sans" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="98" y="89" font-size="14" font-weight="700" fill="#1b1e24">SYSTEM PROMPT</text>
+    <text x="98" y="106" font-size="12" fill="#6b7280">identity · tool-use policy · safety rules</text>
+  </g>
+  <g class="fragment">
+    <rect x="40" y="120" width="680" height="48" rx="9" fill="#f5f7f8"/>
+    <rect x="52" y="129" width="30" height="30" rx="7" fill="#1f6f78"/>
+    <text x="67" y="150" class="sans" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="98" y="143" font-size="14" font-weight="700" fill="#1b1e24">PROJECT INSTRUCTIONS</text>
+    <text x="98" y="160" font-size="12" fill="#6b7280">CLAUDE.md · .cursorrules · AGENTS.md</text>
+  </g>
+  <g class="fragment">
+    <rect x="40" y="174" width="680" height="48" rx="9" fill="#f5f7f8"/>
+    <rect x="52" y="183" width="30" height="30" rx="7" fill="#1f6f78"/>
+    <text x="67" y="204" class="sans" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="98" y="197" font-size="14" font-weight="700" fill="#1b1e24">TOOL SCHEMAS</text>
+    <text x="98" y="214" font-size="12" fill="#6b7280">read_file, write_file, run_bash …</text>
+  </g>
+  <g class="fragment">
+    <rect x="40" y="228" width="680" height="48" rx="9" fill="#f5f7f8"/>
+    <rect x="52" y="237" width="30" height="30" rx="7" fill="#1f6f78"/>
+    <text x="67" y="258" class="sans" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="98" y="251" font-size="14" font-weight="700" fill="#1b1e24">RETRIEVED CONTEXT</text>
+    <text x="98" y="268" font-size="12" fill="#6b7280">@-mentioned files · search results</text>
+  </g>
+  <g class="fragment">
+    <rect x="40" y="282" width="680" height="48" rx="9" fill="#f5f7f8"/>
+    <rect x="52" y="291" width="30" height="30" rx="7" fill="#1f6f78"/>
+    <text x="67" y="312" class="sans" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="98" y="305" font-size="14" font-weight="700" fill="#1b1e24">CONVERSATION HISTORY</text>
+    <text x="98" y="322" font-size="12" fill="#6b7280">every prior message + tool result</text>
+  </g>
+  <g class="fragment">
+    <rect x="40" y="336" width="680" height="48" rx="9" fill="#1f6f78"/>
+    <rect x="52" y="345" width="30" height="30" rx="7" fill="#ffffff"/>
+    <text x="67" y="366" class="sans" font-size="15" font-weight="700" fill="#1f6f78" text-anchor="middle">6</text>
+    <text x="98" y="359" font-size="14" font-weight="700" fill="#ffffff">CURRENT MESSAGE</text>
+    <text x="98" y="376" font-size="12" fill="#d7e7e8">"fix the failing test"</text>
+  </g>
+  <g class="fragment">
+    <line x1="380" y1="404" x2="380" y2="424" stroke="#1f6f78" stroke-width="2.5"/>
+    <path d="M380 426 l-7 -12 h14 z" fill="#1f6f78"/>
+    <rect x="270" y="428" width="220" height="42" rx="10" fill="#1f6f78"/>
+    <text x="380" y="455" class="sans" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">predict next token</text>
+  </g>
+</svg>
+</div>
 
 > Six sources, **one finite window**, assembled fresh every turn. Deciding what goes in it is context engineering.
 
@@ -206,14 +260,38 @@ It's not a settings file the model "loads." It is **text prepended to your promp
 
 The model is **stateless** — no memory between turns. The only way it obeys your rules on turn 12 is if they're in the window *on turn 12*.
 
-```text
-Turn 1:  [system][CLAUDE.md][tools][history][msg 1]  → response
-Turn 2:  [system][CLAUDE.md][tools][history][msg 2]  → response
-Turn 3:  [system][CLAUDE.md][tools][history][msg 3]  → response
-          ▲          ▲
-          └──────────┴── re-sent EVERY turn; the model
-                         remembers nothing on its own
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 820 232" style="height:250px;width:auto;max-width:100%;display:block;margin:0.05em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Each turn re-sends the same system, CLAUDE.md, tools and history; only the message changes">
+  <g class="fragment">
+    <text x="18" y="46" font-size="13" font-weight="700" fill="#1b1e24">Turn 1</text>
+    <rect x="95" y="18" width="350" height="44" rx="9" fill="#f5f7f8"/>
+    <text x="270" y="45" font-size="12" fill="#6b7280" text-anchor="middle">system · CLAUDE.md · tools · history</text>
+    <rect x="455" y="18" width="95" height="44" rx="9" fill="#1f6f78"/>
+    <text x="502" y="45" font-size="13" fill="#ffffff" text-anchor="middle">msg 1</text>
+    <text x="565" y="45" font-size="13" fill="#1b1e24">→ response</text>
+  </g>
+  <g class="fragment">
+    <text x="18" y="108" font-size="13" font-weight="700" fill="#1b1e24">Turn 2</text>
+    <rect x="95" y="80" width="350" height="44" rx="9" fill="#f5f7f8"/>
+    <text x="270" y="107" font-size="12" fill="#6b7280" text-anchor="middle">system · CLAUDE.md · tools · history</text>
+    <rect x="455" y="80" width="95" height="44" rx="9" fill="#1f6f78"/>
+    <text x="502" y="107" font-size="13" fill="#ffffff" text-anchor="middle">msg 2</text>
+    <text x="565" y="107" font-size="13" fill="#1b1e24">→ response</text>
+  </g>
+  <g class="fragment">
+    <text x="18" y="170" font-size="13" font-weight="700" fill="#1b1e24">Turn 3</text>
+    <rect x="95" y="142" width="350" height="44" rx="9" fill="#f5f7f8"/>
+    <text x="270" y="169" font-size="12" fill="#6b7280" text-anchor="middle">system · CLAUDE.md · tools · history</text>
+    <rect x="455" y="142" width="95" height="44" rx="9" fill="#1f6f78"/>
+    <text x="502" y="169" font-size="13" fill="#ffffff" text-anchor="middle">msg 3</text>
+    <text x="565" y="169" font-size="13" fill="#1b1e24">→ response</text>
+  </g>
+  <g class="fragment">
+    <path d="M120 196 v8 M420 196 v8 M120 204 H420" stroke="#1f6f78" stroke-width="1.5" fill="none"/>
+    <text x="270" y="224" font-size="12" fill="#1f6f78" font-weight="600" text-anchor="middle">re-sent every turn — the model remembers nothing on its own</text>
+  </g>
+</svg>
+</div>
 
 > The "session" is an illusion — the harness re-stuffs the window each round trip.
 

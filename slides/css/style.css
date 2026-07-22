@@ -2,26 +2,41 @@
 /* Based on johnguerra.co web development slides */
 /* Uses Reveal.js built-in layout features: r-fit-text, r-stretch, r-stack */
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
 :root {
-  --neu-red: #c8102e;
-  --link-blue: #4a90e2;
+  /* "Graphite & Petrol" palette */
+  --ground: #ffffff;
+  --panel: #f5f7f8;
+  --ink: #1b1e24;
+  --muted: #6b7280;
+  --line: #e3e6ea;
+  --primary: #1f6f78;      /* petrol-teal — structure, emphasis, links */
+  --primary-dark: #185860; /* link hover */
+  --primary-tint: #e7f0f1;
+  --spark: #c8102e;        /* Northeastern red — reserved spark, use sparingly */
+  /* legacy aliases (kept so older rules/decks don't break) */
+  --neu-red: var(--spark);
+  --link-blue: var(--primary);
   --text-dark: #333;
   --text-gray: #666;
 }
 
-/* Typography */
+/* Typography — Technical pairing: Space Grotesk / IBM Plex Sans / IBM Plex Mono */
 .reveal {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink);
 }
 
 .reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: none;
+  color: var(--ink);
 }
 
 /* Default h1 - compact for better content fit */
@@ -39,16 +54,16 @@
 
 /* Links */
 .reveal a {
-  color: var(--link-blue);
+  color: var(--primary);
 }
 
 .reveal a:hover {
-  color: #2a70c2;
+  color: var(--primary-dark);
 }
 
-/* Strong/bold text - Northeastern red */
+/* Strong/bold text - petrol-teal emphasis */
 .reveal strong {
-  color: var(--neu-red);
+  color: var(--primary);
 }
 
 /* Code blocks */
@@ -73,7 +88,7 @@
 }
 
 .reveal code {
-  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-family: 'IBM Plex Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
 }
 
 /* Plain text code blocks: no syntax highlighting, light background */
@@ -81,14 +96,14 @@
 .reveal pre code.hljs.language-text [class^="hljs"],
 .reveal pre code.hljs.language-plaintext,
 .reveal pre code.hljs.language-plaintext [class^="hljs"] {
-  color: #333;
-  background: #f5f5f5;
+  color: var(--ink);
+  background: var(--panel);
 }
 
 /* Blockquotes */
 .reveal blockquote {
-  background: #f9f9f9;
-  border-left: 4px solid var(--neu-red);
+  background: var(--panel);
+  border-left: 4px solid var(--primary);
   padding: 0.2em 0.6em;
   font-style: italic;
   width: 90%;
@@ -104,18 +119,19 @@
 }
 
 .reveal table th {
-  background: #eee;
+  background: var(--panel);
+  color: var(--primary);
   font-weight: 700;
 }
 
 .reveal table th,
 .reveal table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--line);
   padding: 0.4em 0.8em;
 }
 
 .reveal table tr:nth-child(even) {
-  background: #f9f9f9;
+  background: var(--panel);
 }
 
 /* Images */
@@ -138,7 +154,7 @@
 
 /* Progress bar color */
 .reveal .progress {
-  color: var(--neu-red);
+  color: var(--primary);
 }
 
 /* Title slide course/week indicator */
@@ -156,6 +172,21 @@
 
 .smaller {
   font-size: 0.5em;
+}
+
+/* Inline SVG diagrams (Graphite & Petrol) */
+.reveal .svg-diagram {
+  text-align: center;
+}
+.reveal .svg-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+.reveal .svg-diagram svg text {
+  font-family: 'IBM Plex Mono', 'Fira Code', ui-monospace, Menlo, monospace;
+}
+.reveal .svg-diagram svg text.sans {
+  font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Two-column layout */

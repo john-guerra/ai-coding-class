@@ -107,20 +107,53 @@ Code tokenizes *differently* than prose — indentation, brackets, camelCase all
 
 ## Statelessness & the Context Window
 
-The model has **no memory**. The illusion of memory = the harness **re-sends the whole conversation** every request.
+**No memory.** The harness **re-sends the whole conversation** on every request.
 
-```text
-┌─────────────── CONTEXT WINDOW ───────────────┐
-│  [system prompt]                             │
-│  [turn 1: user]                              │
-│  [turn 1: assistant]                         │
-│  [turn 2: user]                              │
-│  [... everything so far ...]                 │
-│  [current user message]                      │
-└──────────────────────────────────────────────┘
-                     │
-                     ▼   predict next token
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 920 500" style="height:360px;width:auto;max-width:100%;display:block;margin:0.1em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The context window is reassembled and re-sent to the model on every request">
+  <rect x="30" y="30" width="470" height="440" rx="16" fill="#ffffff" stroke="#e3e6ea" stroke-width="2"/>
+  <rect x="54" y="54" width="12" height="12" rx="3" fill="#1f6f78"/>
+  <text x="76" y="68" font-size="15" letter-spacing="2" fill="#1f6f78" font-weight="600">CONTEXT WINDOW</text>
+  <g class="fragment" data-fragment-index="1">
+    <rect x="300" y="48" width="176" height="26" rx="13" fill="#e7f0f1" stroke="#1f6f78" stroke-width="1"/>
+    <text x="388" y="65" font-size="11" fill="#1f6f78" text-anchor="middle">↻ re-sent every turn</text>
+  </g>
+  <line x1="54" y1="84" x2="476" y2="84" stroke="#e3e6ea" stroke-width="1"/>
+  <g class="fragment">
+    <rect x="54" y="98" width="422" height="46" rx="9" fill="#f5f7f8"/>
+    <text x="74" y="127" font-size="15" fill="#1b1e24">[ system prompt ]</text>
+  </g>
+  <g class="fragment">
+    <rect x="54" y="154" width="422" height="46" rx="9" fill="#f5f7f8"/>
+    <text x="74" y="183" font-size="15" fill="#1b1e24">[ turn 1 · user ]</text>
+  </g>
+  <g class="fragment">
+    <rect x="54" y="210" width="422" height="46" rx="9" fill="#f5f7f8"/>
+    <text x="74" y="239" font-size="15" fill="#1b1e24">[ turn 1 · assistant ]</text>
+  </g>
+  <g class="fragment">
+    <rect x="54" y="266" width="422" height="46" rx="9" fill="#f5f7f8"/>
+    <text x="74" y="295" font-size="15" fill="#1b1e24">[ turn 2 · user ]</text>
+  </g>
+  <g class="fragment">
+    <rect x="54" y="322" width="422" height="46" rx="9" fill="none" stroke="#d4d7dc" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <text x="265" y="351" font-size="15" fill="#9aa0a6" text-anchor="middle">⋯ everything so far ⋯</text>
+  </g>
+  <g class="fragment">
+    <rect x="54" y="378" width="422" height="46" rx="9" fill="#1f6f78"/>
+    <text x="74" y="407" font-size="15" fill="#ffffff" font-weight="700">[ current message ]</text>
+    <rect x="408" y="391" width="54" height="20" rx="10" fill="#ffffff"/>
+    <text x="435" y="405" font-size="11" fill="#1f6f78" text-anchor="middle">NEW</text>
+  </g>
+  <g class="fragment">
+    <line x1="500" y1="250" x2="566" y2="250" stroke="#1f6f78" stroke-width="3"/>
+    <path d="M566 250 l-13 -8 v16 z" fill="#1f6f78"/>
+    <text x="578" y="214" font-size="13" fill="#6b7280">the model runs on all of it</text>
+    <rect x="578" y="224" width="312" height="56" rx="12" fill="#1f6f78"/>
+    <text x="734" y="259" class="sans" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">predict next token</text>
+  </g>
+</svg>
+</div>
 
 > The model is stateless. The **harness** carries the state forward.
 
@@ -145,14 +178,52 @@ A base model just *continues* text. Two tricks turn it into an assistant:
 
 ## The Conceptual Ladder
 
-```text
-  5 │ LOOP ENGINEERING    (optimize the harness)   │
-  4 │ AGENTIC LOOP        (think → act → observe)   │
-  3 │ TOOLS               (model → JSON → env runs) │
-  2 │ CONTEXT ENGINEERING (what goes in the window) │
-  1 │ INSTRUCTION FOLLOW  (the system prompt)       │
-  0 │ NEXT-TOKEN PREDICT  (the transformer)         │
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 780 360" style="height:330px;width:auto;max-width:100%;display:block;margin:0.1em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The conceptual ladder from next-token prediction up to loop engineering">
+  <g class="fragment">
+    <rect x="20" y="300" width="740" height="50" rx="10" fill="#1f6f78"/>
+    <rect x="32" y="307" width="36" height="36" rx="8" fill="#ffffff"/>
+    <text x="50" y="331" class="sans" font-size="18" font-weight="700" fill="#1f6f78" text-anchor="middle">0</text>
+    <text x="88" y="331" font-size="16" font-weight="600" fill="#ffffff">NEXT-TOKEN PREDICTION</text>
+    <text x="748" y="331" font-size="13" fill="#cfe3e5" text-anchor="end">the transformer</text>
+  </g>
+  <g class="fragment">
+    <rect x="20" y="242" width="740" height="50" rx="10" fill="#f5f7f8"/>
+    <rect x="32" y="249" width="36" height="36" rx="8" fill="#1f6f78"/>
+    <text x="50" y="273" class="sans" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="88" y="273" font-size="16" font-weight="600" fill="#1b1e24">INSTRUCTION FOLLOWING</text>
+    <text x="748" y="273" font-size="13" fill="#6b7280" text-anchor="end">the system prompt</text>
+  </g>
+  <g class="fragment">
+    <rect x="20" y="184" width="740" height="50" rx="10" fill="#f5f7f8"/>
+    <rect x="32" y="191" width="36" height="36" rx="8" fill="#1f6f78"/>
+    <text x="50" y="215" class="sans" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="88" y="215" font-size="16" font-weight="600" fill="#1b1e24">CONTEXT ENGINEERING</text>
+    <text x="748" y="215" font-size="13" fill="#6b7280" text-anchor="end">what goes in the window</text>
+  </g>
+  <g class="fragment">
+    <rect x="20" y="126" width="740" height="50" rx="10" fill="#f5f7f8"/>
+    <rect x="32" y="133" width="36" height="36" rx="8" fill="#1f6f78"/>
+    <text x="50" y="157" class="sans" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="88" y="157" font-size="16" font-weight="600" fill="#1b1e24">TOOLS</text>
+    <text x="748" y="157" font-size="13" fill="#6b7280" text-anchor="end">model → JSON → env runs</text>
+  </g>
+  <g class="fragment">
+    <rect x="20" y="68" width="740" height="50" rx="10" fill="#f5f7f8"/>
+    <rect x="32" y="75" width="36" height="36" rx="8" fill="#1f6f78"/>
+    <text x="50" y="99" class="sans" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="88" y="99" font-size="16" font-weight="600" fill="#1b1e24">AGENTIC LOOP</text>
+    <text x="748" y="99" font-size="13" fill="#6b7280" text-anchor="end">think → act → observe</text>
+  </g>
+  <g class="fragment">
+    <rect x="20" y="10" width="740" height="50" rx="10" fill="#f5f7f8" stroke="#1f6f78" stroke-width="1.5"/>
+    <rect x="32" y="17" width="36" height="36" rx="8" fill="#1f6f78"/>
+    <text x="50" y="41" class="sans" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="88" y="41" font-size="16" font-weight="600" fill="#1b1e24">LOOP ENGINEERING</text>
+    <text x="748" y="41" font-size="13" fill="#6b7280" text-anchor="end">optimize the harness</text>
+  </g>
+</svg>
+</div>
 
 An agent isn't a new kind of AI — it's **layer 0** with cleverer context + a loop.
 
@@ -308,18 +379,31 @@ Once `run_bash` exists, the model can run **arbitrary commands** — so the harn
 
 ## The Permission Gate
 
-```text
-   model emits write_file(...)
-             │
-             ▼
-   ┌────────────────────────┐
-   │  HARNESS PERMISSION     │ ← "Allow edit to auth.ts? [y/N]"
-   │  GATE                   │
-   └────────────────────────┘
-        │approved       │denied
-        ▼               ▼
-    execute         "user denied"  → back into context
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 860 330" style="height:300px;width:auto;max-width:100%;display:block;margin:0.1em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The harness permission gate approves or denies a tool call, and even a denial goes back into context">
+  <rect x="290" y="12" width="280" height="44" rx="10" fill="#f5f7f8"/>
+  <text x="430" y="40" font-size="15" fill="#1b1e24" text-anchor="middle">model emits write_file(…)</text>
+  <line x1="430" y1="56" x2="430" y2="82" stroke="#1f6f78" stroke-width="2.5"/>
+  <path d="M430 84 l-7 -12 h14 z" fill="#1f6f78"/>
+  <rect x="250" y="86" width="360" height="76" rx="12" fill="#ffffff" stroke="#1f6f78" stroke-width="2"/>
+  <text x="430" y="116" font-size="14" letter-spacing="1" fill="#1f6f78" font-weight="700" text-anchor="middle">HARNESS PERMISSION GATE</text>
+  <text x="430" y="142" font-size="13" fill="#6b7280" text-anchor="middle">"Allow edit to auth.ts?  [y / N]"</text>
+  <g class="fragment">
+    <line x1="405" y1="164" x2="325" y2="202" stroke="#1f6f78" stroke-width="2.5"/>
+    <path d="M322 204 l3 -14 l9 6 z" fill="#1f6f78"/>
+    <text x="332" y="188" font-size="12" fill="#1f6f78" font-weight="600">approved</text>
+    <rect x="205" y="206" width="190" height="54" rx="10" fill="#1f6f78"/>
+    <text x="300" y="240" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">execute</text>
+  </g>
+  <g class="fragment">
+    <line x1="455" y1="164" x2="560" y2="202" stroke="#6b7280" stroke-width="2.5"/>
+    <path d="M563 204 l-12 -4 l3 -9 z" fill="#6b7280"/>
+    <text x="500" y="188" font-size="12" fill="#6b7280" font-weight="600">denied</text>
+    <rect x="470" y="206" width="300" height="54" rx="10" fill="#f5f7f8" stroke="#e3e6ea" stroke-width="1"/>
+    <text x="620" y="239" font-size="13" fill="#1b1e24" text-anchor="middle">"denied" → back into context</text>
+  </g>
+</svg>
+</div>
 
 Even a **denial** goes back into context — the model reasons about it and adapts.
 
@@ -374,13 +458,32 @@ for f in files:
 
 Not three technologies — **three settings of the same dials**:
 
-```text
- human-in-loop  ◀──────────────────────────▶  autonomous
- low tool power ◀──────────────────────────▶  high tool power
-
- Claude Web          Cursor              Claude Code
- (conversation)      (IDE-native)        (terminal agent)
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 860 200" style="height:210px;width:auto;max-width:100%;display:block;margin:0.1em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Claude Web, Cursor and Claude Code placed along one spectrum from human-in-loop to autonomous">
+  <text x="20" y="90" font-size="12" fill="#6b7280">human-in-loop</text>
+  <text x="20" y="108" font-size="12" fill="#6b7280">low tool power</text>
+  <text x="840" y="90" font-size="12" fill="#6b7280" text-anchor="end">autonomous</text>
+  <text x="840" y="108" font-size="12" fill="#6b7280" text-anchor="end">high tool power</text>
+  <rect x="150" y="96" width="560" height="8" rx="4" fill="#e3e6ea"/>
+  <path d="M138 100 l14 -8 v16 z" fill="#1f6f78"/>
+  <path d="M722 100 l-14 -8 v16 z" fill="#1f6f78"/>
+  <g class="fragment">
+    <circle cx="210" cy="100" r="9" fill="#1f6f78"/>
+    <text x="210" y="140" class="sans" font-size="15" font-weight="700" fill="#1b1e24" text-anchor="middle">Claude Web</text>
+    <text x="210" y="160" font-size="12" fill="#6b7280" text-anchor="middle">conversation</text>
+  </g>
+  <g class="fragment">
+    <circle cx="430" cy="100" r="12" fill="#1f6f78"/>
+    <text x="430" y="143" class="sans" font-size="15" font-weight="700" fill="#1b1e24" text-anchor="middle">Cursor</text>
+    <text x="430" y="163" font-size="12" fill="#6b7280" text-anchor="middle">IDE-native</text>
+  </g>
+  <g class="fragment">
+    <circle cx="650" cy="100" r="15" fill="#1f6f78"/>
+    <text x="650" y="146" class="sans" font-size="15" font-weight="700" fill="#1b1e24" text-anchor="middle">Claude Code</text>
+    <text x="650" y="166" font-size="12" fill="#6b7280" text-anchor="middle">terminal agent</text>
+  </g>
+</svg>
+</div>
 
 - **How auto-managed** is the context?
 - **How autonomous** is the loop?
@@ -446,6 +549,8 @@ We make **Claude Code** the spine:
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## The Frontier: Prompt → Context → Loop
 
 The object of engineering keeps moving up the ladder:
@@ -454,10 +559,28 @@ The object of engineering keeps moving up the ladder:
 - **Context** engineering — curate the window
 - **Loop** engineering — optimize the loop itself
 
-```text
- inner loop:  think → act → observe          (one task)
- outer loop:  run tasks → analyze traces → rewrite the harness
-```
+<div class="svg-diagram">
+<svg viewBox="0 0 820 205" style="height:185px;width:auto;max-width:100%;display:block;margin:0.1em auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An inner think-act-observe loop feeds an outer loop that analyzes traces and rewrites the harness">
+  <text x="60" y="46" font-size="12" letter-spacing="1" fill="#1f6f78" font-weight="700">INNER LOOP</text>
+  <rect x="50" y="54" width="330" height="78" rx="12" fill="#f5f7f8"/>
+  <text x="215" y="90" font-size="16" fill="#1b1e24" text-anchor="middle">think → act → observe</text>
+  <text x="215" y="114" font-size="12" fill="#6b7280" text-anchor="middle">one task</text>
+  <g class="fragment">
+    <line x1="380" y1="93" x2="432" y2="93" stroke="#1f6f78" stroke-width="2.5"/>
+    <path d="M434 93 l-12 -7 v14 z" fill="#1f6f78"/>
+    <text x="406" y="82" font-size="11" fill="#6b7280" text-anchor="middle">traces</text>
+    <text x="620" y="46" font-size="12" letter-spacing="1" fill="#1f6f78" font-weight="700">OUTER LOOP</text>
+    <rect x="440" y="54" width="340" height="78" rx="12" fill="#ffffff" stroke="#1f6f78" stroke-width="2"/>
+    <text x="610" y="90" font-size="15" fill="#1b1e24" text-anchor="middle">analyze traces</text>
+    <text x="610" y="114" font-size="15" fill="#1b1e24" text-anchor="middle">→ rewrite the harness</text>
+  </g>
+  <g class="fragment">
+    <path d="M610 132 C 610 172 215 172 215 138" fill="none" stroke="#1f6f78" stroke-width="2.5"/>
+    <path d="M215 136 l-7 12 h14 z" fill="#1f6f78"/>
+    <text x="412" y="197" font-size="11" fill="#6b7280" text-anchor="middle">edits the loop itself</text>
+  </g>
+</svg>
+</div>
 
 > From the message, to the window, to the loop.
 

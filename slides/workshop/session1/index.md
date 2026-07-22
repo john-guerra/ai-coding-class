@@ -34,21 +34,35 @@ Fundamentals & Prompting
 
 ---
 
-# The Promise
+<!-- .slide: class="quote" -->
+
+<span class="course-week">The Promise</span>
 
 > "Vibe coding" done right: AI-assisted speed **with** engineering quality.
 
 <!-- vertical -->
 
-## Two Humility Anchors
+<!-- .slide: class="stat" -->
 
-We'll come back to these all workshop:
+<span class="course-week">Humility anchor · METR 2025</span>
 
-**METR (2025):** experienced devs were **~19% slower** with AI tools — while believing they were 20% *faster*.
+## 19%
 
-**Veracode:** only **~55%** of AI-generated code passes security checks — despite high syntactic correctness.
+experienced devs were **slower** with AI tools — while *believing* they were 20% faster.
 
-<small class="smaller">Sources: [METR RCT](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) · [Veracode GenAI Code Security](https://www.veracode.com/blog/genai-code-security-report/)</small>
+<small class="smaller">[METR RCT](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)</small>
+
+<!-- vertical -->
+
+<!-- .slide: class="stat" -->
+
+<span class="course-week">Humility anchor · Veracode</span>
+
+## 55%
+
+of AI-generated code **passes** security checks — despite high syntactic correctness.
+
+<small class="smaller">[Veracode GenAI Code Security](https://www.veracode.com/blog/genai-code-security-report/)</small>
 
 <!-- vertical -->
 

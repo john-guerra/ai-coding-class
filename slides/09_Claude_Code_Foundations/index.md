@@ -9,19 +9,23 @@ revealOptions:
 
 <!-- .slide: id="title" -->
 
-<span class="course-week">CS 6983 · Week 9</span>
+<span class="course-week">CS 6983 · Week 9 · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/09_Claude_Code_Foundations/)</span>
 
 ## Claude Code Foundations
 
 Agentic Loop · CLAUDE.md · Tools · Context
 
-<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" width="400">
+<div class="title-footer">
 
-[**John Alexis Guerra Gomez**](http://johnguerra.co/)
+**John Alexis Guerra Gómez** · [johnguerra.co](http://johnguerra.co/)
 
-<small>jguerra at northeastern.edu · [Class](https://johnguerra.co/classes/aiCoding_fall_2026/) · [Slides](https://johnguerra.co/lectures/aiCoding_fall2026/09_Claude_Code_Foundations/)</small>
+<small>jguerra at northeastern.edu · Northeastern University · Khoury College</small>
+
+<img src="../img/seal_logotype-768x252.png" alt="Northeastern University" class="nu-seal">
 
 <small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
+
+</div>
 
 ---
 

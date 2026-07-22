@@ -356,9 +356,20 @@
 }
 .reveal #title:not(:has(img:not(.nu-seal))) h3 em { font-style: italic; color: var(--ink); font-weight: 700; }
 .reveal #title:not(:has(img:not(.nu-seal))) > p { font-size: 22px; color: var(--muted); margin: 12px 0 0; }
-.reveal #title:not(:has(img:not(.nu-seal))) p:has(a) {
-  margin-top: auto; margin-bottom: 6px; font-size: 24px;
+/* Byline lives in the footer, pushed to the bottom of the title. Workshop
+   titles use a bare byline paragraph; lecture titles wrap all credits in
+   .title-footer. The course-week wrapper (top) also has links now, so it is
+   explicitly excluded from the auto-margin. */
+.reveal #title:not(:has(img:not(.nu-seal))) > p:has(a):not(:has(.course-week)),
+.reveal #title:not(:has(img:not(.nu-seal))) .title-footer {
+  margin-top: auto;
 }
+.reveal #title:not(:has(img:not(.nu-seal))) > p:has(a):not(:has(.course-week)) {
+  margin-bottom: 6px; font-size: 24px;
+}
+.reveal #title .title-footer { width: 100%; }
+.reveal #title .title-footer > p:first-child { font-size: 24px; margin: 0 0 4px; }
+.reveal #title .title-footer small { display: block; margin: 2px 0 0; }
 .reveal #title p:has(a) a {
   color: var(--ink); font-weight: 700;
   text-decoration: underline; text-decoration-color: var(--accent);

@@ -15,13 +15,17 @@ revealOptions:
 
 AI-Assisted Software Engineering
 
-[**John Alexis Guerra Gomez**](http://johnguerra.co/)
+<div class="title-footer">
 
-<small>jguerra at northeastern.edu</small>
+**John Alexis Guerra Gómez** · [johnguerra.co](http://johnguerra.co/)
+
+<small>jguerra at northeastern.edu · Northeastern University · Khoury College</small>
 
 <img src="../img/seal_logotype-768x252.png" alt="Northeastern University" class="nu-seal">
 
 <small class="cc-license">© 2026 John A. Guerra Gómez · Licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small>
+
+</div>
 
 ---
 

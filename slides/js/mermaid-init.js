@@ -21,11 +21,16 @@ Reveal.on('ready', function() {
     mermaid.initialize({
       startOnLoad: false,
       theme: 'base',
+      // Top-level fontFamily drives node-size MEASUREMENT. It must match the
+      // font the labels RENDER in (Lato via themeVariables) or the boxes are
+      // sized for a narrower font and the text is clipped.
+      fontFamily: "'Lato','Helvetica Neue',Arial,sans-serif",
       flowchart: {
         useMaxWidth: false,
-        htmlLabels: false,
-        curve: 'basis'
+        htmlLabels: true,   // HTML labels are sized by the browser at the real
+        curve: 'basis'      // font, so node boxes fit the text (no clipping)
       },
+      securityLevel: 'loose', // required for htmlLabels foreignObject rendering
       themeVariables: {
         fontFamily: "'Lato','Helvetica Neue',Arial,sans-serif",
         fontSize: '18px',
@@ -54,35 +59,52 @@ Reveal.on('ready', function() {
       el.setAttribute('data-mermaid-pending', 'true');
     });
 
-    // Render mermaid blocks on the current slide
-    renderCurrentSlide();
-
-    // Re-render on slide change
-    Reveal.on('slidechanged', renderCurrentSlide);
+    // Render ALL diagrams once, after the web fonts load, with every slide
+    // temporarily visible & untransformed. A mermaid diagram measures its text
+    // against the live DOM, so rendering it on a hidden slide (0-size) or
+    // mid-transition (the section carries a transform) lays the boxes out
+    // wrong — which is why direct-load and navigated-to renders differed.
+    // Doing it all up-front, in a stable state, makes every render identical
+    // and means navigation never triggers a (mis-sized) re-render.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(renderAllStable);
+    } else {
+      renderAllStable();
+    }
   }
 
-  function renderCurrentSlide() {
-    var currentSlide = Reveal.getCurrentSlide();
-    if (!currentSlide) return;
-
-    var pending = currentSlide.querySelectorAll('.mermaid[data-mermaid-pending]');
+  function renderAllStable() {
+    var pending = Array.prototype.slice.call(
+      document.querySelectorAll('.mermaid[data-mermaid-pending]'));
     if (pending.length === 0) return;
 
-    // Restore source text for pending diagrams (mermaid may have cleared it)
-    pending.forEach(function(el) {
+    var sections = document.querySelectorAll('.reveal .slides section');
+    var origDisplay = [];
+    sections.forEach(function (s) { origDisplay.push(s.style.display); s.style.display = 'block'; });
+
+    // Neutralize reveal's fit-to-window scale during rendering. Mermaid measures
+    // its HTML labels with getBoundingClientRect, which returns SCALED sizes —
+    // so under a <1 scale it makes the boxes too small and the real text is
+    // cropped. Measuring at scale 1 gives boxes that fit the text.
+    var slidesEl = document.querySelector('.reveal .slides');
+    var origTransform = slidesEl ? slidesEl.style.transform : '';
+    if (slidesEl) slidesEl.style.transform = 'none';
+
+    pending.forEach(function (el) {
       var source = el.getAttribute('data-mermaid-source');
       if (source) el.textContent = source;
       el.removeAttribute('data-mermaid-pending');
     });
 
-    // Render only once the web fonts (Lato/Playfair/Plex) are actually loaded.
-    // Otherwise a direct load renders mermaid with fallback fonts, which measure
-    // wider and lay the diagram out differently than a navigated-to render.
-    var run = function () { mermaid.run({ nodes: Array.from(pending) }); };
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () { requestAnimationFrame(run); });
-    } else {
-      requestAnimationFrame(run);
-    }
+    var restore = function () {
+      sections.forEach(function (s, i) { s.style.display = origDisplay[i]; });
+      if (slidesEl) slidesEl.style.transform = origTransform;
+      if (Reveal.layout) Reveal.layout();
+    };
+    try {
+      var p = mermaid.run({ nodes: pending });
+      if (p && typeof p.then === 'function') p.then(restore, restore);
+      else restore();
+    } catch (e) { restore(); }
   }
 });

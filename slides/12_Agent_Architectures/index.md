@@ -113,7 +113,7 @@ This is the most important distinction in this lecture.
 <!-- .slide: class="dense" -->
 
 | Dimension | Workflow | Agent |
-|-----------|----------|-------|
+| ----------- | ---------- | ------- |
 | **Control** | Developer defines steps | Model decides steps |
 | **Predictability** | High -- same input, same path | Variable -- adapts to results |
 | **Complexity** | Low-medium | Medium-high |
@@ -297,7 +297,7 @@ flowchart LR
 <!-- .slide: class="dense" -->
 
 | Pattern | Complexity | Control | Best For |
-|---------|-----------|---------|----------|
+| --------- | ----------- | --------- | ---------- |
 | Prompt Chaining | Low | High | Sequential, well-defined tasks |
 | Routing | Low | High | Varied inputs, specialized handling |
 | Parallelization | Medium | High | Independent subtasks, consensus |
@@ -483,7 +483,7 @@ Agents are powerful because they are autonomous. But autonomy means:
 <!-- .slide: class="dense" -->
 
 | Strategy | Implementation | Protection Level |
-|----------|---------------|-----------------|
+| ---------- | --------------- | ----------------- |
 | **Container isolation** | Docker, VM | Full -- agent cannot affect host system |
 | **Tool allowlists** | `allowed_tools=["read", "grep"]` | Medium -- limits what agent can do |
 | **Hooks** | `pre_tool_use` validation | Medium -- block specific actions |
@@ -573,7 +573,7 @@ Build an agent that classifies input as "bug report," "feature request," or "que
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Building Effective Agents | [anthropic.com/engineering/building-effective-agents](https://www.anthropic.com/engineering/building-effective-agents) |
 | Claude Agent SDK Overview | [platform.claude.com/docs/en/agent-sdk/overview](https://platform.claude.com/docs/en/agent-sdk/overview) |
 | Claude Agent SDK Quick Start | [platform.claude.com/docs/en/agent-sdk/quickstart](https://platform.claude.com/docs/en/agent-sdk/quickstart) |
@@ -586,7 +586,7 @@ Build an agent that classifies input as "bug report," "feature request," or "que
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Claude Agent SDK Demos | [github.com/anthropics/claude-agent-sdk-demos](https://github.com/anthropics/claude-agent-sdk-demos) |
 | Prompt Chaining Guide | [docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-prompts) |
 | Building a C Compiler with Parallel Claudes | [anthropic.com/engineering/building-c-compiler](https://www.anthropic.com/engineering/building-c-compiler) |
@@ -600,7 +600,7 @@ Build an agent that classifies input as "bug report," "feature request," or "que
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Mapping the Mind of a Large Language Model | [anthropic.com/research/mapping-mind-language-model](https://www.anthropic.com/research/mapping-mind-language-model) |
 | Tracing the Thoughts of a Large Language Model | [anthropic.com/research/tracing-thoughts-language-model](https://www.anthropic.com/research/tracing-thoughts-language-model) |
 | Constitutional AI | [anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) |

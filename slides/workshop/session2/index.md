@@ -89,7 +89,7 @@ Not a chatbot — an **agent** that loops on its own. Your job shifts from **dri
 ## Driving → Supervising
 
 | Chatbot | Agent |
-|---|---|
+| --- | --- |
 | You type every step | It plans its own steps |
 | You paste in context | It reads files & runs tools |
 | You copy output back | It writes files directly |
@@ -232,7 +232,7 @@ well                   sees AT ALL               surrounding loop
 ## Three Layers, One Token Stream
 
 | Layer | Who writes it | Scope |
-|---|---|---|
+| --- | --- | --- |
 | **System prompt** | Tool builder (Anthropic) | Every chat in the product |
 | **Project instructions** (`CLAUDE.md`) | You, per repo | Every request in this project |
 | **User message** | You, per turn | This one turn |
@@ -349,7 +349,7 @@ Follow the style rules in @.config/conventions.md.
 Every serious harness has a rules file:
 
 | Tool | Rules file |
-|---|---|
+| --- | --- |
 | **Claude Code** | `CLAUDE.md` |
 | **Cursor** | `.cursorrules` |
 | **Antigravity** | `.antigravityrules` |
@@ -365,7 +365,7 @@ Every serious harness has a rules file:
 What the agent sees, in priority order:
 
 | # | Source | Weight |
-|---|---|---|
+| --- | --- | --- |
 | 1 | **Rules files** (CLAUDE.md) | Always included · highest |
 | 2 | **Explicit @-references** | You pointed at it |
 | 3 | **Current file** | What you're on |
@@ -397,7 +397,7 @@ The harness doesn't paste the whole repo — it **retrieves only relevant slices
 Pull exactly what you need into context:
 
 | Mention | Pulls in |
-|---|---|
+| --- | --- |
 | `@file` | A specific file |
 | `@folder` | A directory of files |
 | `@docs` | Documentation |
@@ -414,7 +414,7 @@ Pull exactly what you need into context:
 ## Managing Context
 
 | Command | Does | Metaphor |
-|---|---|---|
+| --- | --- | --- |
 | `/clear` | Throw everything away | Close all browser tabs |
 | `/compact` | Keep only what matters | Tidy the desk |
 | `/context` | Show what's loaded now | Check your tabs |
@@ -468,7 +468,7 @@ Each `/clear` resets the noise; the **doc** carries the signal forward.
 ## IDE Autonomy Modes (the on-ramp)
 
 | Mode | Autonomy | Does | Your control |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Ask** | Lowest | Explains code · never edits | Read-only |
 | **Write** | Medium | Edits you review | Accept / reject |
 | **Agent** | High | Multi-step, multi-file | Approve the plan |
@@ -485,7 +485,7 @@ Each `/clear` resets the noise; the **doc** carries the signal forward.
 Autonomy = **which actions need a "yes":**
 
 | Mode | Behavior | When |
-|---|---|---|
+| --- | --- | --- |
 | **Ask each time** | Prompts `y/n/always` | New / untrusted repo |
 | **Allowlist** | Pre-approve safe cmds | Known repo |
 | **Plan mode** | No edits until approved | Risky / >3 files |
@@ -528,7 +528,7 @@ authorize.
 Not "approve everything" — **triage**:
 
 | Tier | Actions | Handling |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Reads, navigation, todos | **Safe allowlist** |
 | 2 | In-project file edits | Reviewable via version control |
 | 3 | Shell, external, outside project | → **Transcript classifier** |
@@ -624,7 +624,7 @@ Frontend in public/ talks to /api.
 Toggle **one** live action through every mode — e.g. "add a `/health` endpoint":
 
 | Step | Mode | What you feel |
-|---|---|---|
+| --- | --- | --- |
 | 1 | **Ask** | It explains, edits nothing |
 | 2 | **Allowlist** | Safe cmds run; edits still prompt |
 | 3 | **Plan** | A plan appears; no edits yet |

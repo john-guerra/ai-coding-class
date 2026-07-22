@@ -272,7 +272,7 @@ An agent isn't a new kind of AI — it's **layer 0** with cleverer context + a l
 Treat the model like a **brilliant but lazy teammate** who does the *minimum* to look done.
 
 | It will... | So you... |
-|---|---|
+| --- | --- |
 | Take shortcuts | Be specific |
 | Not verify its work | Write tests first (TDD) |
 | Invent plausible details | Demand sources / run the code |
@@ -488,7 +488,7 @@ for f in files:
 ## A Mental Picture
 
 | Harness | It's like... | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **Claude Web** | A whiteboard with a mentor | Ideation, architecture, learning |
 | **IDE agent** <br><small>(Antigravity/Cursor/Copilot)</small> | A pair programmer in your editor | Daily coding in your classical workflow |
 | **Claude Code** | A build crew that follows blueprints | Multi-file changes, automation, agentic work |
@@ -553,7 +553,7 @@ Not three technologies — **three settings of the same dials**:
 ## The Dials, Side by Side
 
 | Dial | Claude Web | Cursor | Claude Code |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Who closes the loop | Human | Human + agent | Agent |
 | Context mgmt | Manual (+Projects) | Vector retrieval + `.cursorrules` | `CLAUDE.md` + cache + subagents |
 | Tool power | Sandboxed | Editor + shell (scoped) | Full local: files, shell, MCP |
@@ -576,7 +576,7 @@ Not three technologies — **three settings of the same dials**:
 ## Which Tool for Which Task?
 
 | Task | Reach for... |
-|---|---|
+| --- | --- |
 | Think through a problem / architecture | Claude Web |
 | Quick shareable page or prototype | Claude Web (Artifacts) |
 | Edit code in your normal flow | IDE agent |
@@ -693,7 +693,7 @@ Examples:  Similar to shadcn/ui form patterns.
 ## Four Patterns
 
 | Pattern | Use it for |
-|---|---|
+| --- | --- |
 | **Zero- vs few-shot** | Formatting, classification, consistent style |
 | **Chain-of-thought** | Complex logic, multi-step reasoning |
 | **Role prompting** | "You are a security expert reviewing..." |

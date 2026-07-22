@@ -229,12 +229,12 @@ _Use when you need to change many files_
 
 # Knowing Which Tool to Use
 
-| Task                             | Harness                |
-| -------------------------------- | ----------------------- |
-| Project ideation                 | Claude Web              |
-| Image generation or manipulation | Nano Bananna (Gemini)   |
-| Generate test cases              | Claude Code             |
-| Create a quick page to share     | Gemini (better sharing) |
+| Task | Harness |
+| --- | --- |
+| Project ideation | Claude Web |
+| Image generation or manipulation | Nano Bananna (Gemini) |
+| Generate test cases | Claude Code |
+| Create a quick page to share | Gemini (better sharing) |
 
 ---
 
@@ -296,14 +296,14 @@ _Use when you need to change many files_
 
 # Assessment Overview
 
-| Component      | Weight |
+| Component | Weight |
 | -------------- | ------ |
-| Participation  | 15%    |
-| Weekly Quizzes | 10%    |
-| Homeworks (5)  | 25%    |
-| Project 1      | 13%    |
-| Project 2      | 18%    |
-| Project 3      | 19%    |
+| Participation | 15% |
+| Weekly Quizzes | 10% |
+| Homeworks (5) | 25% |
+| Project 1 | 13% |
+| Project 2 | 18% |
+| Project 3 | 19% |
 
 ---
 

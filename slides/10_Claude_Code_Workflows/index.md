@@ -215,7 +215,7 @@ This workflow is a **best practice pattern**, not a built-in feature.
 Claude Code provides the **building blocks**:
 
 | Phase | Tool Support |
-|-------|-------------|
+| ------- | ------------- |
 | Explore | Subagents, `@` references, Plan Mode (read-only) |
 | Plan | Plan Mode (`Ctrl+G`), edit plans in your editor |
 | Implement | Normal Mode, tests, screenshots, hooks |
@@ -353,7 +353,7 @@ Testkube identifies three key risks when AI generates tests:
 <small>Source: [Testing AI-Generated Code](https://testkube.io/blog/testing-ai-generated-code) — Testkube</small>
 
 | Risk | Description | Mitigation |
-|------|-------------|------------|
+| ------ | ------------- | ------------ |
 | **Business logic gaps** | AI tests the code, not the requirement. Tests verify implementation details instead of business rules | Write test descriptions yourself; let AI implement |
 | **Dependency drift** | AI mocks dependencies based on current behavior, not contracts. Mocks become stale | Use integration tests for critical paths; update mocks in CI |
 | **Subtle logic errors** | Tests pass but encode wrong assumptions (off-by-one, timezone, encoding) | Review test assertions carefully; use property-based testing |
@@ -369,7 +369,7 @@ Testkube identifies three key risks when AI generates tests:
 In W07 you learned Scrum artifacts. TDD is **how you verify them**:
 
 | Scrum (W07) | TDD (W11) |
-|-------------|-----------|
+| ------------- | ----------- |
 | Acceptance criterion | Failing test (**RED**) |
 | Sprint dev work | Implement to pass (**GREEN**) |
 | Code review / PR | Tests prove criteria met |
@@ -448,13 +448,13 @@ main
 The quality of your GitHub Issues determines the quality of your tests.
 
 | ❌ Weak Issue | ✅ Strong Issue |
-|--------------|----------------|
+| -------------- | ---------------- |
 | **Title:** Add search | **Title:** Add search by name and email |
 | **Body:** Users should be able to search. | **Acceptance Criteria:** |
-| | ☐ Search by name returns partial matches |
-| | ☐ Search by email returns exact match |
-| | ☐ Empty query returns all users |
-| | ☐ No results shows "No users found" |
+|  | ☐ Search by name returns partial matches |
+|  | ☐ Search by email returns exact match |
+|  | ☐ Empty query returns all users |
+|  | ☐ No results shows "No users found" |
 
 **Each checkbox becomes a test:**
 
@@ -596,7 +596,7 @@ Claude wants to edit a file
 <!-- .slide: class="dense" -->
 
 | Hook | When It Runs | Use Cases |
-|------|-------------|-----------|
+| ------ | ------------- | ----------- |
 | **PreToolUse** | Before a tool executes | Block writes to sensitive files, enforce naming, validate commands |
 | **PostToolUse** | After a tool completes | Auto-format code, run linting, update imports |
 | **Stop** | Before Claude's final response | Validate output, check for todos, ensure tests pass |
@@ -662,7 +662,7 @@ Every time Claude Code edits or creates a file, Prettier auto-formats it. No mor
 <!-- .slide: class="dense" -->
 
 | Aspect | Hooks | CLAUDE.md |
-|--------|-------|-----------|
+| -------- | ------- | ----------- |
 | **Enforcement** | Deterministic -- always runs | Advisory -- AI may ignore |
 | **Reliability** | 100% -- exit code 2 = blocked | ~90% -- depends on context |
 | **Flexibility** | Rigid -- same rule every time | Flexible -- AI applies judgment |
@@ -833,7 +833,7 @@ to the nested loop. Consider using a Set for O(n)."
 <!-- .slide: class="dense" -->
 
 | Bias | Description | Impact |
-|------|-------------|--------|
+| ------ | ------------- | -------- |
 | **Position bias** | Prefers the first option in comparisons | Swap order and average scores |
 | **Verbosity bias** | Rates longer responses higher | Normalize for length |
 | **Self-enhancement** | Rates its own model's output higher | Use a different model as judge |
@@ -938,7 +938,7 @@ Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Claude Code in Action (Custom Commands, GitHub) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
 | Jest Documentation | [jestjs.io/docs/getting-started](https://jestjs.io/docs/getting-started) |
 | Vitest Documentation | [vitest.dev/guide](https://vitest.dev/guide/) |
@@ -952,7 +952,7 @@ Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Claude Code CLI Reference | [code.claude.com/docs/en/cli-reference](https://code.claude.com/docs/en/cli-reference) |
 | Claude Code Hooks | [code.claude.com/docs/en/hooks](https://code.claude.com/docs/en/hooks) |
 | Testing Library (React) | [testing-library.com/docs](https://testing-library.com/docs/) |

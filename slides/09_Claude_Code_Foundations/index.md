@@ -96,7 +96,7 @@ flowchart LR
 <!-- .slide: class="dense" -->
 
 | Tool | Purpose | Example |
-|------|---------|---------|
+| ------ | --------- | --------- |
 | **Read** | Read file contents | Read a config file to understand project setup |
 | **Edit** | Make targeted edits | Replace a function, fix a bug |
 | **Write** | Create or overwrite files | Generate a new component from scratch |
@@ -114,7 +114,7 @@ Claude Code selects and chains these tools autonomously to complete your task.
 <!-- .slide: class="dense" -->
 
 | Dimension | IDE Chat (Antigravity) | Claude Code |
-|-----------|----------------------|-------------|
+| ----------- | ---------------------- | ------------- |
 | **Interface** | Editor sidebar | Terminal |
 | **Interaction** | Turn-based (you prompt, it responds) | Agentic loop (it keeps going) |
 | **File access** | Current file + context you provide | Full project via tools |
@@ -151,8 +151,8 @@ This is a different skill. You need to get good at:
 <!-- .slide: class="dense" -->
 
 | Method | How |
-|---|---|
-| **Native Install** (recommended) | `curl -fsSL https://claude.ai/install.sh \| bash` |
+| --- | --- |
+| **Native Install** (recommended) | `curl -fsSL https://claude.ai/install.sh \ | bash` |
 | **VS Code Extension** | Search "Claude Code" in Extensions marketplace |
 | **Desktop App** | Download from [claude.ai/download](https://claude.ai/download) |
 
@@ -421,7 +421,7 @@ Allow? (y/n/always)
 **Three permission levels:**
 
 | Level | Behavior | When to Use |
-|-------|----------|-------------|
+| ------- | ---------- | ------------- |
 | **Ask every time** | Approve each tool call | Learning, unfamiliar projects |
 | **Allowlist** | Auto-approve specific tools/commands | Daily workflow, trusted commands |
 | **YOLO mode** | Auto-approve everything | Sandboxed environments only |
@@ -612,7 +612,7 @@ claude --model claude-opus-4-6
 <div class="column">
 
 | Model | Best for |
-|-------|----------|
+| ------- | ---------- |
 | **Opus** | Complex refactors, architecture decisions |
 | **Sonnet** | Daily coding, default balance |
 | **Haiku** | Quick lookups, fast iteration |
@@ -773,7 +773,7 @@ You'll see a thinking indicator while it works through the problem.
 <!-- .slide: class="dense" -->
 
 | Task | Mode | Why |
-|------|------|-----|
+| ------ | ------ | ----- |
 | Fix a typo | Normal | One file, obvious change |
 | Add a test | Normal | Well-scoped, single file |
 | New API endpoint | Plan | Multiple files (route, handler, test, types) |
@@ -907,7 +907,7 @@ This is the workflow you'll use daily in P3.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Claude Code in Action (Intro, Setup, Context) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
 | Claude Code Overview | [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overview) |
 | CLAUDE.md Documentation | [code.claude.com/docs/en/claude-md](https://code.claude.com/docs/en/claude-md) |
@@ -921,7 +921,7 @@ This is the workflow you'll use daily in P3.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Claude Code Best Practices | [code.claude.com/docs/en/best-practices](https://code.claude.com/docs/en/best-practices) |
 | Writing a Good CLAUDE.md | [humanlayer.dev/blog/writing-a-good-claude-md](https://humanlayer.dev/blog/writing-a-good-claude-md) |
 | Effective Context Engineering | [anthropic.com/engineering/effective-context-engineering-for-ai-agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) |

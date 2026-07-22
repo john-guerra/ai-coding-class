@@ -125,7 +125,7 @@ Reviewers test the PR live before merging. No branch pulling needed.
 **Never commit secrets to git.**
 
 | Environment | Where secrets live |
-|---|---|
+| --- | --- |
 | Local dev | `.env.local` (gitignored) |
 | Preview | Vercel dashboard > Settings > Env Vars |
 | Production | Vercel dashboard > Settings > Env Vars |
@@ -164,7 +164,7 @@ main branch push -> CI/CD runs -> All pass? -> Deploy
 <!-- .slide: class="dense" -->
 
 | Stage | Tool | What it catches |
-|---|---|---|
+| --- | --- | --- |
 | 1. Lint | ESLint, Prettier | Style violations, unused imports |
 | 2. Typecheck | `tsc --noEmit` | Type errors tests might miss |
 | 3. Unit Tests | Jest / Vitest | Logic bugs in isolated functions |
@@ -215,7 +215,7 @@ jobs:
 ## The Three Pillars
 
 | Pillar | What it tells you | Tool |
-|---|---|---|
+| --- | --- | --- |
 | **Logs** | What happened | Structured logging (JSON) |
 | **Metrics** | How much / how fast | Uptime monitors |
 | **Errors** | What went wrong | Sentry |
@@ -338,7 +338,7 @@ cat report.json | claude -p \
 ## Common Performance Patterns
 
 | Pattern | Problem | AI-Assisted Fix |
-|---|---|---|
+| --- | --- | --- |
 | **DB queries** | N+1 queries, missing indexes | Claude analyzes query logs, suggests indexes |
 | **Bundle size** | Large JS bundles | Claude identifies heavy imports, suggests tree-shaking |
 | **Images** | Unoptimized images | Claude suggests next/image, WebP conversion |
@@ -393,7 +393,7 @@ Second call (same system prompt):
 <!-- .slide: class="dense" -->
 
 | Aspect | Detail |
-|---|---|
+| --- | --- |
 | **Cache hit** | System prompt matches exactly -> reuse |
 | **Cache miss** | Any change to cached prefix -> recompute |
 | **TTL** | ~5 minutes of inactivity |
@@ -412,7 +412,7 @@ Second call (same system prompt):
 **Not every task needs the most powerful model.**
 
 | Model | Best for | Cost | Speed |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Opus** | Complex architecture, multi-file refactoring | $$$ | Slower |
 | **Sonnet** | Daily coding, PR reviews, standard features | $$ | Medium |
 | **Haiku** | Simple tasks, classification, batch processing | $ | Fast |
@@ -506,7 +506,7 @@ This maps directly to your CI/CD pipeline: **the code author should not be the o
 <!-- .slide: class="dense" -->
 
 | Approach | Time | Cost | Quality |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Solo agent** | 20 min | $9 | Broken mechanics, incomplete features |
 | **Full harness** (Planner + Generator + Evaluator) | 6 hrs | $200 | Functional gameplay, polished output |
 | **Opus 4.6 harness** (DAW example) | 3 hrs 50 min | $125 | Eliminated sprint decomposition, maintained quality |
@@ -551,7 +551,7 @@ Structured verification criteria prevent agents from declaring victory early.
 ## Four Failure Modes of Long-Running Agents
 
 | Failure Mode | Prevention |
-|---|---|
+| --- | --- |
 | **Early victory declarations** — Agent claims "done" with broken output | Feature list with verification criteria |
 | **Undocumented broken states** — Tests fail silently, agent moves on | Browser automation (Puppeteer/Playwright) |
 | **Premature feature completion** — Marks complete without testing | Separate evaluator agent |
@@ -570,7 +570,7 @@ Structured verification criteria prevent agents from declaring victory early.
 ## The Context Problem at Scale
 
 | Codebase | Files | Tokens |
-|---|---|---|
+| --- | --- | --- |
 | Small project | ~50 files | ~100K tokens |
 | Medium project | ~500 files | ~1M tokens |
 | Enterprise monorepo | ~50,000 files | ~100M tokens |
@@ -635,7 +635,7 @@ When Claude Code processes your request:
 ## Embedding Models
 
 | Embedding Model | Dimensions | Best For |
-|---|---|---|
+| --- | --- | --- |
 | OpenAI text-embedding-3-small | 1536 | General purpose, good quality/cost |
 | Voyage Code 3 | 1024 | Code-specific, understands syntax |
 | Nomic Embed | 768 | Open source, self-hostable |
@@ -647,7 +647,7 @@ When Claude Code processes your request:
 **Where embeddings live so you can search them fast.**
 
 | Database | Type | Best For |
-|---|---|---|
+| --- | --- | --- |
 | **pgvector** | Postgres extension | Already using Postgres, simple setup |
 | **Chroma** | Lightweight, local | Prototyping, small projects |
 | **Pinecone** | Managed cloud | Production scale, zero ops |
@@ -677,7 +677,7 @@ FROM docs ORDER BY embedding <=> query_vec LIMIT 5;
 **How you split your data determines retrieval quality.**
 
 | Strategy | How it works | Best for |
-|---|---|---|
+| --- | --- | --- |
 | **Fixed-size** | Split every N tokens with overlap | Documents, articles |
 | **Semantic** | Split at paragraph/section boundaries | Structured docs, markdown |
 | **AST-based** | Split at function/class boundaries | Source code |
@@ -722,7 +722,7 @@ flowchart LR
 ## RAG Pitfalls
 
 | Pitfall | Problem |
-|---|---|
+| --- | --- |
 | **Chunks too large** | Noisy results dilute relevance |
 | **Chunks too small** | Missing context, incomplete answers |
 | **No overlap** | Missed boundaries between chunks |
@@ -766,7 +766,7 @@ flowchart LR
 ## Career Implications
 
 | Old World | New World |
-|---|---|
+| --- | --- |
 | Write code from scratch | Direct AI to write code, review output |
 | Memorize syntax | Understand architecture and systems |
 | Individual productivity | Orchestrate AI agents and human teams |
@@ -787,7 +787,7 @@ flowchart LR
 **Each team gets 8-10 minutes.**
 
 | Section | Time | Focus |
-|---|---|---|
+| --- | --- | --- |
 | Problem Statement | 1 min | What problem? Who cares? |
 | Architecture Overview | 2 min | Mermaid diagram, tech stack |
 | Live Demo | 3 min | Core user flow, working app |
@@ -846,7 +846,7 @@ Highlight tech stack choices, key decisions, where AI agents fit.
 <!-- .slide: class="dense" -->
 
 | Criterion | Excellent (5) | Good (3-4) | Needs Work (1-2) |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Clarity** | Problem and solution immediately clear | Mostly clear, minor confusion | Hard to understand |
 | **Technical Depth** | Architecture well-explained | Some depth, some hand-waving | Surface level only |
 | **Demo Quality** | Smooth, real data, core flow | Minor hiccups, mostly smooth | Broken, unprepared |
@@ -907,7 +907,7 @@ Students who reflect on their learning retain information 23% better, transfer s
 <!-- .slide: class="dense" -->
 
 | Practice | W10 | W11 | W12 | W13 | W14 | W15 |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | **Testing & CI/CD** | Tool permissions | TDD, GitHub Actions | Hooks enforce CI | Agent evals | Security review | Full pipeline deploy |
 | **Code Review** | CLAUDE.md standard | PR workflow via CC | Writer/reviewer agents | Multi-agent review | AI review at scale | Production monitoring |
 | **System Design** | Agentic loop | Explore-Plan-Implement | Skills, hooks, MCP | 6 agent patterns | Model routing | Harness design, RAG |
@@ -979,7 +979,7 @@ P3: Production Responsibility
 ## This Week
 
 | Deliverable | Due | Details |
-|---|---|---|
+| --- | --- | --- |
 | **Project 3 Final** | End of Week 14 | Final submission with deployed URL |
 | **Demo Videos** | End of Week 14 | Async demo submissions |
 
@@ -1006,7 +1006,7 @@ P3: Production Responsibility
 <!-- .slide: class="dense" -->
 
 | Resource | Description | URL |
-|---|---|---|
+| --- | --- | --- |
 | Vercel Deployment Docs | Production deployment | vercel.com/docs |
 | GitHub Actions Docs | CI/CD pipeline reference | docs.github.com/en/actions |
 | Sentry for Next.js | Error monitoring setup | docs.sentry.io/platforms/javascript/guides/nextjs/ |
@@ -1019,7 +1019,7 @@ P3: Production Responsibility
 <!-- .slide: class="dense" -->
 
 | Resource | Description | URL |
-|---|---|---|
+| --- | --- | --- |
 | Harness Design for Long-Running Apps | Planner/Generator/Evaluator architecture | anthropic.com/engineering/harness-design-long-running-apps |
 | Effective Harnesses for Long-Running Agents | One-feature-per-session, feature lists | anthropic.com/engineering/effective-harnesses-for-long-running-agents |
 | OWASP Top 10 | Security best practices for web apps | owasp.org/www-project-top-ten/ |

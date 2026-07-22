@@ -78,7 +78,7 @@ Each phase is a **checkpoint** — a chance to catch the agent before a mistake 
 ## Why Four Phases
 
 | Phase | Catches the wrong... |
-|---|---|
+| --- | --- |
 | **Explore** | assumptions |
 | **Plan** | approaches |
 | **Implement** | code |
@@ -267,7 +267,7 @@ You:   npm test
 ## Sampling vs Comprehensive
 
 | Review style | When | Risk |
-|---|---|---|
+| --- | --- | --- |
 | **Sampling** — skim, spot-check | Low-stakes, throwaway | Misses the 30% |
 | **Comprehensive** — read every line | Auth, money, data, migrations | Slower, but the only safe choice |
 
@@ -342,7 +342,7 @@ Constraints:
 Hooks run **shell commands** at lifecycle points. Unlike CLAUDE.md (advisory), hooks are **deterministic** — they always fire.
 
 | Event | Fires... |
-|---|---|
+| --- | --- |
 | **PreToolUse** | before a tool runs |
 | **PostToolUse** | after a tool completes |
 | **Stop** | before the agent's final reply |
@@ -352,7 +352,7 @@ Hooks run **shell commands** at lifecycle points. Unlike CLAUDE.md (advisory), h
 ## Exit Codes
 
 | Exit code | Effect |
-|---|---|
+| --- | --- |
 | **0** | Continue normally |
 | **2** | **Block** the tool; stdout is fed back to Claude |
 | other | Error reported, execution continues |
@@ -405,8 +405,8 @@ exit 0
 
 <!-- .slide: class="dense" -->
 
-| | CLAUDE.md | Hook |
-|---|---|---|
+|  | CLAUDE.md | Hook |
+| --- | --- | --- |
 | **Enforcement** | Advisory — AI *should* follow | Deterministic — always runs |
 | **Reliability** | ~90% (can be forgotten) | 100% (guaranteed) |
 | **Mechanism** | Natural-language instruction | Shell command + exit code |

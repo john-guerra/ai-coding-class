@@ -26,7 +26,7 @@ A hands-on workshop on AI-assisted software engineering
 ## The Four Sessions
 
 | # | Session | Focus |
-|---|---|---|
+| --- | --- | --- |
 | 1 | [**Fundamentals & Prompting**](session1/index.md) | LLM basics · the 3 harnesses · prompt engineering |
 | 2 | [**Context, Memory & Modes**](session2/index.md) | CLAUDE.md · `@`-mentions · modes incl. auto mode |
 | 3 | [**Build & Verify + Skills/Hooks**](session3/index.md) | EPIC · TDD · the 70% problem · skills + hooks |

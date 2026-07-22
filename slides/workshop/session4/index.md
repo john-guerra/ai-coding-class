@@ -147,7 +147,7 @@ Wire format **JSON-RPC 2.0** · transports **stdio** (local) & **HTTP/SSE** (rem
 A server exposes two kinds of capability:
 
 | Capability | What it is | Example |
-|---|---|---|
+| --- | --- | --- |
 | **Tools** | callable **actions** the model invokes | `query_db(sql)` |
 | **Resources** | readable **data / context** | a schema, a doc |
 
@@ -357,7 +357,7 @@ claude --worktree     # run this session in its own git worktree
 A plugin is a **shareable bundle** of the pieces you've learned:
 
 | Piece | What it adds |
-|---|---|
+| --- | --- |
 | **Skill** | reusable slash commands |
 | **Hook** | deterministic automation |
 | **MCP** | external tool connections |
@@ -418,7 +418,7 @@ Callback from Session 1's **hallucinations** — now weaponized.
 ## Defenses
 
 | Defense | Why it works |
-|---|---|
+| --- | --- |
 | **Registry verification** | confirm the package actually exists |
 | **Lockfiles + hash checks** | pin known-good versions in CI |
 | **Allowlists** | only approved dependencies build |
@@ -464,7 +464,7 @@ Any single one is fine. **Together**, an attacker can read your data and send it
 By design — that's why it's our lab:
 
 | Trifecta leg | In Linkstash |
-|---|---|
+| --- | --- |
 | **Private data** | your private notes |
 | **Untrusted content** | it **fetches arbitrary URLs** |
 | **External comms** | the **share / export** feature |
@@ -543,7 +543,7 @@ Cover three things:
 Where to go after this workshop:
 
 | Topic | What's there |
-|---|---|
+| --- | --- |
 | **Agent SDK** | build agents in code; the **6 agent patterns** |
 | **Production** | deploy, monitoring, **RAG**, cost optimization |
 | **Full plugins** | package & distribute your workflow |

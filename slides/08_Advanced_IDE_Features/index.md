@@ -97,7 +97,7 @@ It doesn't remember:
 <!-- .slide: class="dense" -->
 
 | Tool | Memory File | What to Include |
-|---|---|---|
+| --- | --- | --- |
 | **Antigravity** | `.antigravityrules` | Project patterns, conventions, do's/don'ts |
 | **Claude Code** | `CLAUDE.md` | Build commands, architecture, project context |
 | **Cursor** | `.cursorrules` | Same as above |
@@ -144,7 +144,7 @@ External Service (database, API, docs, etc.)
 <!-- .slide: class="dense" -->
 
 | MCP Server | What It Connects To | Use Case |
-|---|---|---|
+| --- | --- | --- |
 | **Database** | PostgreSQL, MongoDB | "What's the schema for the users table?" |
 | **GitHub** | Issues, PRs, Actions | "What's failing in CI right now?" |
 | **Docs** | API documentation | "How does the Stripe webhook API work?" |
@@ -355,7 +355,7 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | MCP Specification | [modelcontextprotocol.io](https://modelcontextprotocol.io/) |
 | Antigravity Advanced Docs | [antigravity.google/docs/get-started](https://antigravity.google/docs/get-started) |
 
@@ -366,7 +366,7 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | MCP GitHub Repository | [github.com/modelcontextprotocol](https://github.com/modelcontextprotocol) |
 | Chrome DevTools Debugging Guide | [developer.chrome.com/docs/devtools](https://developer.chrome.com/docs/devtools/) |
 | Node.js Debugging Guide | [nodejs.org/en/learn/getting-started/debugging](https://nodejs.org/en/learn/getting-started/debugging) |

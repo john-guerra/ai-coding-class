@@ -51,8 +51,8 @@ revealOptions:
 
 <!-- .slide: class="dense" -->
 
-| | **Claude Web** | **Antigravity** | **Claude Code** |
-|---|---|---|---|
+|  | **Claude Web** | **Antigravity** | **Claude Code** |
+| --- | --- | --- | --- |
 | **When** | Weeks 2-5 | Weeks 6-11 | Week 7+ |
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
@@ -383,7 +383,7 @@ When an artifact has an error:
 <!-- .slide: class="dense" -->
 
 | Error | Cause | Fix |
-|-------|-------|-----|
+| ------- | ------- | ----- |
 | Smart quotes | Copy-paste from docs/chat | Replace with straight quotes |
 | Sandbox restrictions | Using blocked APIs | Use artifact-specific alternatives |
 | Missing imports | Forgot a library | Ask Claude to add the import |
@@ -492,7 +492,7 @@ Speed comes from **fast iteration**, not getting it right the first time.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Prototype AI-Powered Apps | [support.claude.com](https://support.claude.com/en/articles/11649438-prototype-ai-powered-apps-with-claude-artifacts) |
 | Claude-Powered Artifacts Announcement | [anthropic.com](https://www.anthropic.com/news/claude-powered-artifacts) |
 | Claude Artifacts Guide | [support.claude.com](https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code) |
@@ -504,7 +504,7 @@ Speed comes from **fast iteration**, not getting it right the first time.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | How to Use Claude Artifacts (Zapier) | [zapier.com](https://zapier.com/blog/how-to-use-claude-artifacts-to-create-web-apps/) |
 | Claude Artifacts 101 (DataCamp) | [datacamp.com](https://www.datacamp.com/blog/claude-artifacts-introduction) |
 | Everything I Built with Artifacts (Simon Willison) | [simonwillison.net](https://simonwillison.net/2024/Oct/21/claude-artifacts/) |

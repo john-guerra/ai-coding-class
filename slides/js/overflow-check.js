@@ -56,6 +56,42 @@ function checkOverflow() {
   _overflowActive = true;
 }
 
+// Detect markdown tables that failed to parse and leaked into the slide as
+// raw "| ... |" text. The usual cause is column-aligned tables: reveal-md
+// collapses the long internal space runs into newlines, which splits a table
+// row across lines and invalidates the whole table. Fix = compact rows
+// ("| a | b |", single spaces). A left-over delimiter row (| --- |) in a slide
+// with no <table> is the reliable signature.
+function checkBrokenTables(mark) {
+  var broken = [];
+  Reveal.getSlides().forEach(function (slide) {
+    if (slide.querySelector('table')) return;
+    if (/\|\s*:?-{2,}:?\s*\|/.test(slide.textContent || '')) {
+      var indices = Reveal.getIndices(slide);
+      var heading = slide.querySelector('h1, h2, h3, h4');
+      broken.push({
+        h: indices.h,
+        v: indices.v,
+        heading: heading ? heading.textContent.trim() : '(no heading)',
+      });
+      if (mark) {
+        slide.style.outline = '3px dashed #f5811f';
+        slide.style.outlineOffset = '-3px';
+      }
+    }
+  });
+  if (broken.length > 0) {
+    console.warn(
+      'BROKEN TABLE(S): markdown table rendered as raw text on ' +
+        broken.length +
+        ' slide(s). Cause: column-aligned padding breaks reveal-md table ' +
+        'parsing — use compact "| a | b |" rows (see CLAUDE.md).'
+    );
+    console.table(broken);
+  }
+  return broken;
+}
+
 function clearOverflow() {
   Reveal.getSlides().forEach(function (slide) {
     slide.style.outline = '';
@@ -67,6 +103,9 @@ function clearOverflow() {
 }
 
 Reveal.on('ready', function () {
+  // Always scan for broken (unparsed) markdown tables — cheap and high-signal.
+  checkBrokenTables(_overflowCheck);
+
   // Auto-run if ?overflow is in the query string
   if (_overflowCheck) checkOverflow();
 

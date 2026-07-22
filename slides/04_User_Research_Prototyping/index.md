@@ -51,8 +51,8 @@ revealOptions:
 
 <!-- .slide: class="dense" -->
 
-| | **Claude Web** | **Antigravity** | **Claude Code** |
-|---|---|---|---|
+|  | **Claude Web** | **Antigravity** | **Claude Code** |
+| --- | --- | --- | --- |
 | **When** | Weeks 2-4 | Weeks 5-6 | Week 7+ |
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
@@ -99,7 +99,7 @@ People lie to be nice.
 <!-- .slide: class="dense" -->
 
 | Rule | What It Means |
-|------|---------------|
+| ------ | --------------- |
 | **1. Talk about their life** | Not your idea. Ask about their problems, routines, and frustrations. |
 | **2. Ask about specifics in the past** | Not generics about the future. "Last time you..." not "Would you ever..." |
 | **3. Talk less, listen more** | You should be talking less than 30% of the time. |
@@ -154,7 +154,7 @@ People lie to be nice.
 <!-- .slide: class="dense" -->
 
 | Phase | Time | Do |
-|-------|------|----|
+| ------- | ------ | ---- |
 | **Before** | 5 min | Set context: "I'm exploring [problem space]." No product pitch. |
 | **During** | 15-20 min | Start broad, dig into specifics. Follow emotional reactions. Note behaviors, not opinions. |
 | **After** | 5 min | Ask who else to talk to. Thank them. |
@@ -205,7 +205,7 @@ The Mom Test gives you the raw material. User stories structure it for building.
 <!-- .slide: class="dense" -->
 
 | Phase | Activity | Output |
-|-------|----------|--------|
+| ------- | ---------- | -------- |
 | **Empathize** | Observe and interview users | Interview notes, empathy maps |
 | **Define** | Synthesize findings into a clear problem | Problem statement, personas |
 | **Ideate** | Generate many possible solutions | Brainstorm list, sketches |
@@ -374,7 +374,7 @@ Every message you send **and** every response Claude gives consumes tokens.
 **Projects** give Claude a persistent knowledge base across conversations.
 
 | Feature | What It Does |
-|---------|--------------|
+| --------- | -------------- |
 | **Project Knowledge** | Upload files (PRDs, docs, code) that Claude can reference in every conversation |
 | **Custom Instructions** | Set project-specific guidelines ("Always use TypeScript", "Follow our API conventions") |
 | **RAG Auto-Activation** | Claude automatically searches uploaded files when relevant -- no manual prompting needed |
@@ -390,7 +390,7 @@ Projects don't consume your per-conversation context window -- they act as an ex
 Claude Web offers three levels of customization:
 
 | Layer | Scope | Example |
-|-------|-------|---------|
+| ------- | ------- | --------- |
 | **Profile** | All conversations | "I'm a grad student. I prefer concise answers." |
 | **Project Instructions** | All conversations in a project | "Use React + TypeScript. Follow Airbnb style guide." |
 | **Styles** | Per-conversation or project | "Respond like a senior engineer doing code review." |
@@ -444,7 +444,7 @@ Good user stories are:
 <!-- .slide: class="dense" -->
 
 | Criterion | Meaning |
-|-----------|---------|
+| ----------- | --------- |
 | **I**ndependent | Can be built in any order |
 | **N**egotiable | Details can be discussed |
 | **V**aluable | Delivers value to the user |
@@ -459,7 +459,7 @@ Good user stories are:
 <!-- .slide: class="dense" -->
 
 | Priority | Meaning | Example |
-|----------|---------|---------|
+| ---------- | --------- | --------- |
 | **Must Have** | App doesn't work without it | User login, core CRUD |
 | **Should Have** | Important but not critical | Search, filtering |
 | **Could Have** | Nice to have | Dark mode, animations |

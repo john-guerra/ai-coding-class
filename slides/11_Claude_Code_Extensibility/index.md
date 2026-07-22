@@ -131,7 +131,7 @@ Constraints:
 <!-- .slide: class="dense" -->
 
 | Aspect | CLAUDE.md | Skills |
-|--------|-----------|--------|
+| -------- | ----------- | -------- |
 | **Loaded** | Every session, automatically | On demand, when invoked |
 | **Purpose** | Project context and rules | Task-specific workflows |
 | **Scope** | Universal project knowledge | One specific workflow |
@@ -244,7 +244,7 @@ Hook exit codes control what happens next:
 <!-- .slide: class="dense" -->
 
 | Exit Code | Meaning | Effect |
-|-----------|---------|--------|
+| ----------- | --------- | -------- |
 | **0** | Success | Continue normally |
 | **2** | Block with feedback | Tool call is blocked; stdout is shown to Claude as feedback |
 | **Non-zero (other)** | Error | Hook failure is reported, execution continues |
@@ -285,7 +285,7 @@ Exit code 2 blocks the edit and feeds the message back to Claude. Exit code 0 me
 <!-- .slide: class="dense" -->
 
 | Aspect | CLAUDE.md | Hooks |
-|--------|-----------|-------|
+| -------- | ----------- | ------- |
 | **Enforcement** | Advisory -- Claude _should_ follow | Deterministic -- always executes |
 | **Mechanism** | Natural language instructions | Shell commands |
 | **Reliability** | ~90% (can be forgotten) | 100% (guaranteed) |
@@ -389,7 +389,7 @@ Commit to git -- every teammate gets the same MCP connections automatically.
 E2E tests verify **user stories**, not functions. Each acceptance criterion (W11) becomes a browser-level test:
 
 | Issue #15 Acceptance Criteria | Playwright Test |
-|-------------------------------|-----------------|
+| ------------------------------- | ----------------- |
 | ☐ Search by name returns partial matches | `test('search filters by name')` |
 | ☐ No results shows "No users found" | `test('shows empty state message')` |
 
@@ -546,7 +546,7 @@ Sub-agent worktree: ~/project/.claude/
 <!-- .slide: class="dense" -->
 
 | Feature | Skills | Sub-agents |
-|---------|--------|------------|
+| --------- | -------- | ------------ |
 | **Runs in** | Your main context | Isolated context window |
 | **File access** | Your working tree | Own worktree (if isolated) |
 | **Best for** | Defined step-by-step workflows | Open-ended review, analysis |
@@ -752,7 +752,7 @@ A structured approach to reviewing AI-generated code:
 <!-- .slide: class="dense" -->
 
 | Step | What to Check | AI-Specific Risk |
-|------|---------------|------------------|
+| ------ | --------------- | ------------------ |
 | **Context** | Fits conventions? Uses right patterns? | AI may invent its own conventions |
 | **Logic** | Edge cases? Error handling? | AI often handles happy path only |
 | **Evidence** | Tests exist? Tests are meaningful? | AI writes tests that pass but don't verify behavior |
@@ -899,7 +899,7 @@ After 15 minutes: review, resolve conflicts, merge.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Claude Code in Action (MCP, Hooks & SDK) | [anthropic.skilljar.com/claude-code-in-action](https://anthropic.skilljar.com/claude-code-in-action) |
 | Skills Documentation | [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) |
 | Hooks Documentation | [code.claude.com/docs/en/hooks](https://code.claude.com/docs/en/hooks) |
@@ -913,7 +913,7 @@ After 15 minutes: review, resolve conflicts, merge.
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | MCP Specification | [modelcontextprotocol.io](https://modelcontextprotocol.io/) |
 | MCP GitHub Repository | [github.com/modelcontextprotocol](https://github.com/modelcontextprotocol) |
 | Playwright MCP Server | [github.com/anthropics/mcp-servers/tree/main/playwright](https://github.com/anthropics/mcp-servers/tree/main/playwright) |

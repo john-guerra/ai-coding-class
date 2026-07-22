@@ -97,7 +97,7 @@ Agile gives you the _structure_, your partner gives you _accountability_, and AI
 <!-- .slide: class="dense" -->
 
 | Role | Responsibility | In This Course |
-|---|---|---|
+| --- | --- | --- |
 | **Product Owner** | Decides _what_ to build, prioritizes backlog | One partner takes lead (rotate per sprint) |
 | **Scrum Master** | Facilitates process, removes blockers | The other partner (rotate per sprint) |
 | **Development Team** | Builds the product | Both partners + your AI tools |
@@ -131,7 +131,7 @@ The key insight: you commit to a _small, achievable_ set of work each sprint.
 <!-- .slide: class="dense" -->
 
 | Ceremony | When | Duration | Purpose |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Sprint Planning** | Start of sprint | 30-60 min | Pick issues for this sprint |
 | **Daily Standup** | Every day | 5-15 min | What did I do? What will I do? Blockers? |
 | **Sprint Review** | End of sprint | 30 min | Demo working software |
@@ -166,7 +166,7 @@ For P2: Document your planning and retro in your README or project wiki. Partner
 **GitHub Projects (Board view) gives you a Kanban board:**
 
 | Backlog | Sprint Todo | In Progress | In Review | Done |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Future work | This sprint's work | Actively coding | PR open | Merged & deployed |
 
 **Setup:**
@@ -316,7 +316,7 @@ git push -u origin feature/42-add-login-page
 **Your pair runs scrum, AI assists both partners:**
 
 | Activity | How It Works | AI's Role |
-|---|---|---|
+| --- | --- | --- |
 | **Sprint Planning** | Meet together, pick issues from backlog | Helps break down stories into tasks |
 | **Development** | Each partner owns assigned issues | Real-time coding assistance per partner |
 | **Code Review** | Every PR reviewed by your partner | Pre-review via AI, human catches intent |
@@ -437,7 +437,7 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | The Scrum Guide (official) | [scrumguides.org](https://scrumguides.org/) |
 | GitHub Projects Documentation | [docs.github.com/issues/planning-and-tracking-with-projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects) |
 | GitHub Issues Documentation | [docs.github.com/issues](https://docs.github.com/en/issues) |
@@ -449,7 +449,7 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Scrum by Jeff Sutherland (course textbook) | Required book for the course |
 | Atlassian Agile Coach | [atlassian.com/agile](https://www.atlassian.com/agile) |
 | GitHub Flow Guide | [docs.github.com/get-started/using-github/github-flow](https://docs.github.com/en/get-started/using-github/github-flow) |

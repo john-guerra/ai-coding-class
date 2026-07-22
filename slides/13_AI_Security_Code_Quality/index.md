@@ -128,7 +128,7 @@ Two metrics for non-deterministic AI outputs:
 ## Three Grader Types
 
 | Grader | Strengths | Weaknesses |
-|--------|-----------|------------|
+| -------- | ----------- | ------------ |
 | **Code-based** | Fast, objective, deterministic | Brittle, only checks exact criteria |
 | **Model-based** | Nuanced, understands intent | Needs calibration, costs tokens |
 | **Human** | Gold standard, catches subtleties | Expensive, slow, doesn't scale |
@@ -181,7 +181,7 @@ Two metrics for non-deterministic AI outputs:
 **Veracode 2025 Study:**
 
 | Metric | Result |
-|--------|--------|
+| -------- | -------- |
 | AI code with OWASP Top 10 vulnerabilities | **45%** |
 | Java code failure rate | **72%** |
 | XSS vulnerability rate | **86%** |
@@ -529,7 +529,7 @@ This applies to your course too -- AI can find leaked quiz answers and shared so
 **Infrastructure configuration creates performance differences that exceed model leaderboard gaps.**
 
 | Finding | Data |
-|---------|------|
+| --------- | ------ |
 | Performance spread from infrastructure alone | **6 percentage points** (p < 0.01) |
 | Error rate under strict resource enforcement | 5.8% |
 | Error rate when resources uncapped | 0.5% |
@@ -547,7 +547,7 @@ This applies to your course too -- AI can find leaked quiz answers and shared so
 **What makes an evaluation resistant to AI gaming?**
 
 | Strategy | Why It Works |
-|----------|-------------|
+| ---------- | ------------- |
 | **Out-of-distribution problems** | Novel constraints the model hasn't seen |
 | **Process-over-output** | Evaluate reasoning, not just answers |
 | **Longer time horizons** | Sustained effort, not pattern matching |
@@ -723,7 +723,7 @@ Design a 5-task eval suite for one feature in your P3:
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | OWASP Top 10 | [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/) |
 | Demystifying Evals for AI Agents | [anthropic.com/engineering/demystifying-evals-for-ai-agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) |
 | OpenSSF AI Code Security Guide | [best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions](https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions) |
@@ -736,7 +736,7 @@ Design a 5-task eval suite for one feature in your P3:
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Eval Awareness in BrowseComp | [anthropic.com/engineering/eval-awareness-browsecomp](https://www.anthropic.com/engineering/eval-awareness-browsecomp) |
 | Infrastructure Noise in Evals | [anthropic.com/engineering/infrastructure-noise](https://www.anthropic.com/engineering/infrastructure-noise) |
 | Designing AI-Resistant Evaluations | [anthropic.com/engineering/AI-resistant-technical-evaluations](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations) |

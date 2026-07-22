@@ -52,8 +52,8 @@ revealOptions:
 
 <!-- .slide: class="dense" -->
 
-| | **Claude Web** | **Antigravity** | **Claude Code** |
-|---|---|---|---|
+|  | **Claude Web** | **Antigravity** | **Claude Code** |
+| --- | --- | --- | --- |
 | **When** | Weeks 2-5 | Weeks 6-8 (intro), 8-10 (daily use) | Weeks 9+ |
 | **Best For** | Architecture, research, prototyping | Production code, daily workflow | Automation, multi-file refactoring |
 | **Analogy** | Whiteboard with a mentor | Pair programmer in your editor | Build crew that follows blueprints |
@@ -69,7 +69,7 @@ Each harness builds on the last -- you don't stop using Claude Web when you star
 **From whiteboard to pair programmer**
 
 | Claude Web | IDE AI |
-|---|---|
+| --- | --- |
 | You describe what you want | AI sees your actual code |
 | One conversation at a time | AI is always running beside you |
 | Copy-paste between chat and editor | Suggestions appear in-place |
@@ -104,8 +104,8 @@ Each harness builds on the last -- you don't stop using Claude Web when you star
 
 <!-- .slide: class="dense" -->
 
-| | **Claude Web** | **IDE AI** |
-|---|---|---|
+|  | **Claude Web** | **IDE AI** |
+| --- | --- | --- |
 | **Context source** | You describe it in conversation | AI reads your actual codebase |
 | **What AI sees** | Only what you paste/upload | Current file + open tabs + project index + rules |
 | **Context window** | Entire conversation history | Assembled prompt (curated snippets) |
@@ -159,7 +159,7 @@ Open tabs + editor data + vector DB → **prompt library** → **contextual filt
 <!-- .slide: class="dense" -->
 
 | Strategy | What It Captures | Example |
-|---|---|---|
+| --- | --- | --- |
 | **Cursor context** | Lines around your cursor | 50 lines above/below |
 | **Open tabs** | Files you have open | Related components |
 | **Import graph** | Files connected by imports | Dependencies of current file |
@@ -282,7 +282,7 @@ Tips for better autocomplete:
 <!-- .slide: class="dense" -->
 
 | Mode | How to Invoke | Best For |
-|---|---|---|
+| --- | --- | --- |
 | **Suggestions** | Just type -- AI offers completions | Writing new code, boilerplate, repetitive patterns |
 | **Inline Edit (Cmd+K)** | Select code → Cmd+K → describe change | Targeted edits, refactoring a specific block |
 | **Chat Panel** | Open sidebar or Cmd+Shift+I | Longer discussions, architecture questions, debugging |
@@ -329,7 +329,7 @@ The chat panel sees your current file and can reference others with @ mentions.
 <!-- .slide: class="dense" -->
 
 | Mode | Autonomy | What AI Does | You Control |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Ask** | Lowest | Answers questions, explains code | Everything -- AI never touches files |
 | **Write** | Medium | Generates or edits code you review | Accept/reject each change |
 | **Agent** | High | Plans and executes multi-step tasks | Approve or stop the plan |
@@ -403,7 +403,7 @@ It answers: "How do we do things around here?"
 <!-- .slide: class="dense" -->
 
 | Tool | File Name | Scope |
-|---|---|---|
+| --- | --- | --- |
 | **Antigravity** | `.antigravityrules` | Project root |
 | **GitHub Copilot** | `.github/copilot-instructions.md` | Repository |
 | **Cursor** | `.cursorrules` | Project root |
@@ -444,7 +444,7 @@ Same concept, different file names. The content is similar across all tools.
 Most IDE AI tools support **@ mentions** to pull specific context into the conversation:
 
 | Reference | What It Does | Example |
-|---|---|---|
+| --- | --- | --- |
 | `@file` | Includes a specific file | `@src/auth/login.ts` |
 | `@folder` | Includes files in a directory | `@src/components/` |
 | `@docs` | Searches official documentation | `@docs Next.js routing` |
@@ -519,7 +519,7 @@ This is why rules files and @ mentions are so powerful -- you control what the A
 > Antigravity vs GitHub Copilot vs Cursor
 
 | Feature | **Antigravity** | **GitHub Copilot** | **Cursor** |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Base Editor** | VS Code fork | VS Code extension | VS Code fork |
 | **Default Model** | Gemini (Google) | GPT-4o / Claude | Claude / GPT-4o |
 | **Tab Completion** | Yes | Yes | Yes |
@@ -534,7 +534,7 @@ This is why rules files and @ mentions are so powerful -- you control what the A
 ## Tool Comparison (cont.)
 
 | Feature | **Antigravity** | **GitHub Copilot** | **Cursor** |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Rules File** | `.antigravityrules` | `.github/copilot-instructions.md` | `.cursorrules` |
 | **@ References** | @file, @folder, @docs, @codebase, @web | @file, @workspace | @file, @folder, @docs, @codebase, @web, @git |
 | **Project Indexing** | Yes | Yes (workspace) | Yes |
@@ -627,7 +627,7 @@ Both partners take turns driving priorities. Your **design thinking** and **mom 
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Antigravity Docs (Getting Started) | [antigravity.google/docs/get-started](https://antigravity.google/docs/get-started) |
 | GitHub Copilot Guide | [docs.github.com/copilot](https://docs.github.com/copilot) |
 | Cursor Documentation | [docs.cursor.com](https://docs.cursor.com) |
@@ -639,7 +639,7 @@ Both partners take turns driving priorities. Your **design thinking** and **mom 
 <!-- .slide: class="dense" -->
 
 | Resource | URL |
-|----------|-----|
+| ---------- | ----- |
 | Inside GitHub Copilot (GitHub Blog) | [github.blog](https://github.blog/ai-and-ml/github-copilot/inside-github-copilot-how-github-copilot-works/) |
 | How Copilot Understands Your Code (GitHub Blog) | [github.blog](https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/) |
 | GitHub's New Embedding Model (InfoQ) | [infoq.com](https://www.infoq.com/news/2025/10/github-embedding-model/) |

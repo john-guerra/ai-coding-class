@@ -13,7 +13,7 @@ revealOptions:
 
 ## Production & Course Synthesis
 
-Deploy · Monitor · Optimize · Reflect
+### Deploy · Monitor · Optimize · Reflect
 
 <div class="title-footer">
 

@@ -13,7 +13,7 @@ revealOptions:
 
 ## Building with Claude Web Artifacts
 
-Projects · Mockups · Data · AI Features
+### Projects · Mockups · Data · AI Features
 
 <div class="title-footer">
 

@@ -13,7 +13,7 @@ revealOptions:
 
 ## LLM Fundamentals
 
-Tokens · Training · Embeddings · Context
+### Tokens · Training · Embeddings · Context
 
 <div class="title-footer">
 

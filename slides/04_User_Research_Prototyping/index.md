@@ -13,7 +13,7 @@ revealOptions:
 
 ## User Research & Prototyping
 
-Mom Test · Design Thinking · User Stories
+### Mom Test · Design Thinking · User Stories
 
 <div class="title-footer">
 

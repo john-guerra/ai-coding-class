@@ -13,7 +13,7 @@ revealOptions:
 
 ## Advanced IDE AI Features
 
-Memory · MCP · Browser · Debugging
+### Memory · MCP · Browser · Debugging
 
 <div class="title-footer">
 

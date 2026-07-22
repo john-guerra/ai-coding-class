@@ -13,7 +13,7 @@ revealOptions:
 
 ## IDE-Centric AI Coding
 
-Completions · Modes · Rules · Context
+### Completions · Modes · Rules · Context
 
 <div class="title-footer">
 

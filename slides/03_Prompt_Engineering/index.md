@@ -13,7 +13,7 @@ revealOptions:
 
 ## Prompt Engineering
 
-Patterns · Techniques · Artifacts
+### Patterns · Techniques · Artifacts
 
 <div class="title-footer">
 

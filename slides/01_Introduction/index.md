@@ -13,7 +13,7 @@ revealOptions:
 
 ## Introduction to Vibe Coding
 
-AI-Assisted Software Engineering
+### AI-Assisted Software Engineering
 
 <div class="title-footer">
 

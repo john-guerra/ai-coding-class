@@ -13,7 +13,7 @@ revealOptions:
 
 ## AI Security & Code Quality
 
-Safety · Security · Evals · Ethics
+### Safety · Security · Evals · Ethics
 
 <div class="title-footer">
 

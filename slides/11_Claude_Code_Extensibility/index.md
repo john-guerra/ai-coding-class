@@ -13,7 +13,7 @@ revealOptions:
 
 ## Claude Code Extensibility
 
-Skills · Hooks · MCP · Sub-agents
+### Skills · Hooks · MCP · Sub-agents
 
 <div class="title-footer">
 

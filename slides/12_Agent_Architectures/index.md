@@ -13,7 +13,7 @@ revealOptions:
 
 ## Agent Architectures & SDK
 
-6 Patterns · SDK · Multi-Agent
+### 6 Patterns · SDK · Multi-Agent
 
 <div class="title-footer">
 

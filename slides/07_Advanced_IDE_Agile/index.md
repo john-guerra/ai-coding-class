@@ -13,7 +13,7 @@ revealOptions:
 
 ## Agile/Scrum + Pair Workflow
 
-Sprints · GitHub · PRs · Code Review
+### Sprints · GitHub · PRs · Code Review
 
 <div class="title-footer">
 

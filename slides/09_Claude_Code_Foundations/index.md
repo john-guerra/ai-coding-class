@@ -13,7 +13,7 @@ revealOptions:
 
 ## Claude Code Foundations
 
-Agentic Loop · CLAUDE.md · Tools · Context
+### Agentic Loop · CLAUDE.md · Tools · Context
 
 <div class="title-footer">
 

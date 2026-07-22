@@ -30,8 +30,8 @@
     c.width = W; c.height = H;
     var ctx = c.getContext('2d');
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(22,32,46,.008)';
-    var sc = 0.0016, gs = 16, gw = Math.ceil(W / gs), occ = new Uint16Array(gw * Math.ceil(H / gs)), CAP = 8;
+    ctx.strokeStyle = 'rgba(22,32,46,.023)';
+    var sc = 0.0023, gs = 16, gw = Math.ceil(W / gs), occ = new Uint16Array(gw * Math.ceil(H / gs)), CAP = 7;
     function field(x, y) { var a = fbm(x * sc, y * sc, s) * Math.PI * 4; return [Math.cos(a), Math.sin(a)]; }
     for (var i = 0; i < 760; i++) {
       var x = h2(i, i * 3, s) * W, y = h2(i * 7, i, s + 9) * H, len = 80 + h2(i, 99, s) * 150;

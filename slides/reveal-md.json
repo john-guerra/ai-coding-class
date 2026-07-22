@@ -6,6 +6,7 @@
   "highlightTheme": "monokai",
   "revealOptions": {
     "transition": "convex",
+    "backgroundTransition": "convex",
     "slideNumber": false,
     "hash": true,
     "history": true,

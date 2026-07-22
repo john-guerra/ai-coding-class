@@ -61,7 +61,7 @@
 .reveal .slides section p,
 .reveal .slides section li {
   font-size: 0.8em;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 /* Links — distinguishable by more than color (WCAG 1.4.1): always underlined */
@@ -157,6 +157,28 @@
   box-shadow: none;
 }
 
+/* Legacy Marp `![bg right:40% fit]` / `![bg left:35% fit]` syntax is
+   unsupported by reveal-md — it renders as a full-size inline <img> that
+   stacks ABOVE the text and overflows the slide. Marp's intent is "image
+   beside the text," so we float it to the correct side and cap its size;
+   the prose then flows alongside instead of below. Only matches Marp alt
+   text (`bg ...`), so no other deck's images are affected. */
+.reveal section img[alt^="bg "] {
+  max-height: 66vh;
+  width: auto;
+  object-fit: contain;
+}
+.reveal section img[alt^="bg right"] {
+  float: right;
+  max-width: 40%;
+  margin: 0.1em 0 0.6em 1.4em;
+}
+.reveal section img[alt^="bg left"] {
+  float: left;
+  max-width: 36%;
+  margin: 0.1em 1.4em 0.6em 0;
+}
+
 /* Lists */
 .reveal ul,
 .reveal ol {
@@ -166,7 +188,7 @@
 }
 
 .reveal li {
-  margin: 0.2em 0;
+  margin: 0.14em 0;
 }
 
 /* Progress bar color */
@@ -296,7 +318,10 @@
 /* Title slide — full composition: eyebrow, dominant title + accent rule,
    sans subtitle, byline pushed to the bottom. Full-height flex only while
    the slide is present (so hidden-slide display:none still wins). */
-.reveal .slides section#title.present {
+/* The composition below is workshop-specific. Scope it to titles WITHOUT a
+   seal image so the credit-course lecture titles (which carry the NU seal and
+   a different structure) keep their normal centered layout. */
+.reveal .slides section#title:not(:has(img)).present {
   box-sizing: border-box;
   display: flex !important;
   flex-direction: column;
@@ -306,18 +331,18 @@
   top: 0 !important;
   padding: 60px 10px;
 }
-.reveal #title .course-week { display: block; font-size: 17px; letter-spacing: 3px; margin-bottom: 24px; }
-.reveal #title h2 {
+.reveal #title:not(:has(img)) .course-week { display: block; font-size: 17px; letter-spacing: 3px; margin-bottom: 24px; }
+.reveal #title:not(:has(img)) h2 {
   font-size: 116px; font-weight: 900; line-height: 0.96;
   letter-spacing: -0.02em; margin: 0; max-width: 12ch;
 }
-.reveal #title h3 {
+.reveal #title:not(:has(img)) h3 {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400; color: #3a4652; font-size: 33px; line-height: 1.25; margin: 18px 0 0;
 }
-.reveal #title h3 em { font-style: italic; color: var(--ink); font-weight: 700; }
-.reveal #title > p { font-size: 22px; color: var(--muted); margin: 12px 0 0; }
-.reveal #title p:has(a) {
+.reveal #title:not(:has(img)) h3 em { font-style: italic; color: var(--ink); font-weight: 700; }
+.reveal #title:not(:has(img)) > p { font-size: 22px; color: var(--muted); margin: 12px 0 0; }
+.reveal #title:not(:has(img)) p:has(a) {
   margin-top: auto; margin-bottom: 6px; font-size: 24px;
 }
 .reveal #title p:has(a) a {

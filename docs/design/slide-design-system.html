@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Slide Design System · Vibe Coding</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{
+  --paper:#f7f6f2; --surface:#ffffff; --ink:#1d2733; --navy:#16202e; --muted:#626b77;
+  --line:#e7e5de; --accent:#f5811f; --accent-soft:#fdecd9; --link:#1257c9;
+  --v-blue:#5a6e8c; --v-green:#5c9e5a; --v-gold:#e3b23c; --v-orange:#e2812e; --v-plum:#8a5fa6;
+  --u:8px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Lato',system-ui,sans-serif;line-height:1.5;}
+a{color:var(--link);}
+h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif;}
+.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);font-weight:600;}
+
+/* ---- cover ---- */
+.cover{background:var(--navy);color:#fff;padding:84px 0 72px;}
+.cover .wrap{max-width:1180px;}
+.cover .eyebrow{color:var(--accent);}
+.cover h1{font-size:66px;line-height:1.04;margin:14px 0 10px;font-weight:800;color:#fff;letter-spacing:-.01em;}
+.cover .tag{font-size:22px;color:#c7cdd6;max-width:720px;margin:0;}
+.cover .rule{width:64px;height:5px;background:var(--accent);border-radius:3px;margin:28px 0 0;}
+.cover .meta{margin-top:30px;font-size:15px;color:#94a0af;}
+
+/* ---- section scaffolding ---- */
+section.block{padding:64px 0;border-bottom:1px solid var(--line);}
+.kicker{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
+.kicker .no{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--accent);font-weight:600;}
+.block h2{font-size:38px;margin:0 0 6px;font-weight:800;letter-spacing:-.01em;}
+.block .lede{font-size:20px;color:var(--muted);max-width:760px;margin:0 0 36px;}
+
+/* ---- rationale ---- */
+.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:20px 24px;font-size:16px;color:var(--ink);max-width:900px;}
+.note b{color:var(--ink);}
+
+/* ---- swatches ---- */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;}
+.sw{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.sw .chip{height:78px;}
+.sw .meta{padding:10px 12px;}
+.sw .nm{font-weight:700;font-size:14px;}
+.sw .hex{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
+.sw .use{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.35;}
+.palette-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:28px 0 12px;}
+.vizrow{display:flex;gap:12px;flex-wrap:wrap;}
+.vizrow .v{width:88px;}
+.vizrow .v .chip{height:56px;border-radius:8px;}
+.vizrow .v .hex{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:5px;text-align:center;}
+
+/* ---- type specimens ---- */
+.type-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px 28px;margin-bottom:16px;}
+.type-card .role{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.type-card .spec{font-size:13px;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:8px;}
+.scale-tbl{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px;}
+.scale-tbl th,.scale-tbl td{padding:11px 16px;text-align:left;border-bottom:1px solid var(--line);}
+.scale-tbl th{background:#faf9f6;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.scale-tbl td.mono{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:13px;}
+.scale-tbl tr:last-child td{border-bottom:none;}
+
+/* ---- principles ---- */
+.principles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
+.pr{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
+.pr .n{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--accent);line-height:1;}
+.pr h3{font-size:20px;margin:10px 0 6px;font-weight:700;}
+.pr p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.5;}
+
+/* ---- slide gallery ---- */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:28px;}
+.g-item .cap{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
+.g-item .cap .t{font-weight:700;font-size:16px;}
+.g-item .cap .w{font-size:13px;color:var(--muted);}
+.frame{width:100%;aspect-ratio:960/700;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(20,30,45,.08);position:relative;background:#fff;}
+.frame .slide{position:absolute;top:0;left:0;width:960px;height:700px;transform-origin:top left;}
+
+/* ---- the slide look (spec, 960x700) ---- */
+.slide{background:var(--paper);color:var(--ink);font-family:'Lato',sans-serif;padding:64px 72px;display:flex;flex-direction:column;}
+.slide .s-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:17px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.slide h2{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;letter-spacing:-.01em;margin:6px 0 0;color:var(--ink);}
+.slide .s-lead{font-size:31px;line-height:1.32;margin:26px 0 0;color:var(--ink);font-weight:400;}
+.slide .s-body{font-size:24px;line-height:1.4;color:#39424e;}
+.slide strong{color:var(--ink);font-weight:700;}
+.slide .s-small{font-size:17px;color:var(--muted);}
+.slide .s-rule{width:72px;height:6px;background:var(--accent);border-radius:3px;}
+
+/* title slide */
+.slide.title{justify-content:center;}
+.slide.title h1{font-family:'Playfair Display',serif;font-size:96px;font-weight:900;line-height:1;margin:14px 0 12px;letter-spacing:-.015em;}
+.slide.title .sub{font-size:34px;color:#39424e;}
+.slide.title .by{margin-top:auto;font-size:20px;color:var(--muted);}
+.slide.title .by b{color:var(--ink);}
+.slide.title .credit{font-size:15px;color:var(--muted);margin-top:6px;}
+
+/* section divider (navy) */
+.slide.divider{background:var(--navy);color:#fff;justify-content:center;}
+.slide.divider .idx{font-family:'Playfair Display',serif;font-size:150px;font-weight:900;color:var(--accent);opacity:.9;line-height:.9;}
+.slide.divider h2{color:#fff;font-size:66px;margin-top:8px;}
+.slide.divider .d-sub{font-size:26px;color:#aeb8c4;margin-top:14px;max-width:700px;}
+
+/* stat / humility anchor */
+.slide .stat{font-family:'Playfair Display',serif;font-size:120px;font-weight:800;color:var(--accent);line-height:1;}
+.slide .stat-label{font-size:26px;color:#39424e;margin-top:6px;max-width:640px;}
+
+/* data table slide */
+.slide table.data{width:100%;border-collapse:collapse;font-size:23px;margin-top:20px;}
+.slide table.data th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:0 0 12px;border-bottom:2px solid var(--ink);}
+.slide table.data td{padding:15px 0;border-bottom:1px solid var(--line);color:#2b3641;}
+.slide table.data td.tool{font-weight:700;color:var(--ink);}
+
+/* code slide */
+.slide pre{background:var(--navy);color:#e8ebf0;border-radius:12px;padding:22px 26px;font-family:'IBM Plex Mono',monospace;font-size:19px;line-height:1.55;overflow:hidden;margin:22px 0 0;}
+.slide pre .k{color:#f5b169;}
+.slide pre .s{color:#9ad0a6;}
+.slide pre .c{color:#8794a6;}
+
+/* quote slide */
+.slide.quote{justify-content:center;}
+.slide.quote blockquote{font-family:'Playfair Display',serif;font-size:52px;line-height:1.18;font-weight:700;margin:0;color:var(--ink);}
+.slide.quote blockquote .hl{color:var(--accent);}
+.slide.quote .attr{margin-top:26px;font-size:20px;color:var(--muted);}
+
+/* two-column */
+.slide .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:24px;}
+.slide .col h3{font-family:'Playfair Display',serif;font-size:30px;margin:0 0 12px;}
+.slide .col ul{margin:0;padding-left:22px;}
+.slide .col li{font-size:22px;line-height:1.5;margin:8px 0;color:#2b3641;}
+
+/* footer */
+footer{background:var(--navy);color:#aeb8c4;padding:40px 0;font-size:14px;}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer b{color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="eyebrow">Design System · Ink &amp; Ochre</div>
+    <h1>The Slide Design System</h1>
+    <p class="tag">A look-and-feel for the Vibe Coding / Agentic Engineering decks — the calm precision of a good visualization, in service of &ldquo;speed <em>with</em> quality.&rdquo;</p>
+    <div class="rule"></div>
+    <div class="meta">Grounded in johnguerra.co · Playfair Display + Lato · navy &amp; orange · InfoVis palette</div>
+  </div>
+</header>
+
+<section class="block"><div class="wrap">
+  <div class="kicker"><span class="no">00</span><div class="eyebrow">Rationale</div></div>
+  <h2>Where this comes from</h2>
+  <p class="lede">A style guide should not be invented; it should be excavated from work that already has a voice.</p>
+  <div class="note">
+    <p style="margin:0 0 10px">This system is rooted in <b>johnguerra.co</b> and the brief: <b>modern, elegant, academic, HCI / InfoVis, clean, professional</b>, with <b>sparse, presenter-support</b> slides on a <b>light-but-not-white</b> ground, its <b>own identity</b> (Northeastern as a credit).</p>
+    <p style="margin:0">So the DNA carries over directly: <b>Playfair Display</b> for headings and <b>Lato</b> for body (the site's exact pairing), a <b>navy &times; orange</b> signature (the course bar + badge), <b>blue</b> for links, and a <b>categorical InfoVis palette</b> echoing the bubble charts — reserved for diagrams. Red is retired; orange is the single warm spark.</p>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="kicker"><span class="no">01</span><div class="eyebrow">Principles</div></div>
+  <h2>Six ideas, everywhere</h2>
+  <p class="lede">Contrast, Repetition, Alignment, Proximity — plus hierarchy and restraint. The grammar every slide obeys.</p>
+  <div class="principles">
+    <div class="pr"><div class="n">C</div><h3>Contrast</h3><p>One thing is biggest, darkest, or orange — never two. Navy on paper for calm; orange only where the eye must land.</p></div>
+    <div class="pr"><div class="n">R</div><h3>Repetition</h3><p>Same eyebrow, same rule, same margins on every slide. Consistency is what makes a deck read as one voice.</p></div>
+    <div class="pr"><div class="n">A</div><h3>Alignment</h3><p>A single left edge for text; nothing floats. Invisible lines connect the eyebrow, title, and body.</p></div>
+    <div class="pr"><div class="n">P</div><h3>Proximity</h3><p>Group what belongs together, separate what doesn't. White space is structure, not leftover.</p></div>
+    <div class="pr"><div class="n">H</div><h3>Hierarchy</h3><p>Serif title &rarr; large statement &rarr; quiet caption. The size order is the reading order.</p></div>
+    <div class="pr"><div class="n">·</div><h3>Restraint</h3><p>One idea per slide, few words, generous space. If a mark doesn't carry meaning, cut it.</p></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="kicker"><span class="no">02</span><div class="eyebrow">Color</div></div>
+  <h2>Paper, navy, one orange</h2>
+  <p class="lede">A warm paper ground and a navy anchor carry 95% of every slide. Orange is the spark; blue is for links; the InfoVis palette is reserved for diagrams.</p>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#f7f6f2"></div><div class="meta"><div class="nm">Paper</div><div class="hex">#F7F6F2</div><div class="use">Slide ground — not boring white</div></div></div>
+    <div class="sw"><div class="chip" style="background:#ffffff;border-bottom:1px solid #e7e5de"></div><div class="meta"><div class="nm">Surface</div><div class="hex">#FFFFFF</div><div class="use">Cards &amp; panels that float on paper</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1d2733"></div><div class="meta"><div class="nm">Ink</div><div class="hex">#1D2733</div><div class="use">Titles &amp; body text</div></div></div>
+    <div class="sw"><div class="chip" style="background:#16202e"></div><div class="meta"><div class="nm">Navy</div><div class="hex">#16202E</div><div class="use">Dividers, footers, the spine</div></div></div>
+    <div class="sw"><div class="chip" style="background:#f5811f"></div><div class="meta"><div class="nm">Orange · spark</div><div class="hex">#F5811F</div><div class="use">Emphasis, one mark per slide</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1257c9"></div><div class="meta"><div class="nm">Link</div><div class="hex">#1257C9</div><div class="use">Hyperlinks only</div></div></div>
+    <div class="sw"><div class="chip" style="background:#626b77"></div><div class="meta"><div class="nm">Muted</div><div class="hex">#626B77</div><div class="use">Captions, secondary text</div></div></div>
+    <div class="sw"><div class="chip" style="background:#e7e5de"></div><div class="meta"><div class="nm">Hairline</div><div class="hex">#E7E5DE</div><div class="use">Rules, borders, dividers</div></div></div>
+  </div>
+  <div class="palette-label">InfoVis categorical — diagrams &amp; charts only</div>
+  <div class="vizrow">
+    <div class="v"><div class="chip" style="background:#5a6e8c"></div><div class="hex">#5A6E8C</div></div>
+    <div class="v"><div class="chip" style="background:#5c9e5a"></div><div class="hex">#5C9E5A</div></div>
+    <div class="v"><div class="chip" style="background:#e3b23c"></div><div class="hex">#E3B23C</div></div>
+    <div class="v"><div class="chip" style="background:#e2812e"></div><div class="hex">#E2812E</div></div>
+    <div class="v"><div class="chip" style="background:#8a5fa6"></div><div class="hex">#8A5FA6</div></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="kicker"><span class="no">03</span><div class="eyebrow">Typography</div></div>
+  <h2>A serif that thinks, a sans that speaks</h2>
+  <p class="lede">Playfair Display gives headings an academic, editorial elegance; Lato keeps body text plain and legible; IBM Plex Mono carries code and data.</p>
+  <div class="type-card">
+    <div class="role">Display — Playfair Display</div>
+    <div class="pf" style="font-size:52px;font-weight:800;letter-spacing:-.01em;line-height:1.05">Statelessness &amp; the context window</div>
+    <div class="spec">Playfair Display · 800 · titles 40–52px, cover 76–96px</div>
+  </div>
+  <div class="type-card">
+    <div class="role">Body — Lato</div>
+    <div style="font-size:24px;line-height:1.45;max-width:820px">The harness re-sends the whole conversation on every request. The model is stateless; the loop is its memory.</div>
+    <div class="spec">Lato · 400 / 700 · body 22–24px, small 16–18px</div>
+  </div>
+  <div class="type-card">
+    <div class="role">Mono — IBM Plex Mono</div>
+    <div class="mono" style="font-size:20px;color:#2b3641">claude mcp add playwright</div>
+    <div class="spec">IBM Plex Mono · 400 / 600 · code 18–20px, eyebrows 14–17px tracked</div>
+  </div>
+  <table class="scale-tbl" style="margin-top:16px">
+    <thead><tr><th>Role</th><th>Face</th><th>Size @960×700</th><th>Weight</th></tr></thead>
+    <tbody>
+      <tr><td>Cover title</td><td>Playfair Display</td><td class="mono">76–96</td><td class="mono">900</td></tr>
+      <tr><td>Slide title (h2)</td><td>Playfair Display</td><td class="mono">44–52</td><td class="mono">800</td></tr>
+      <tr><td>Lead statement</td><td>Lato</td><td class="mono">28–31</td><td class="mono">400</td></tr>
+      <tr><td>Body / list</td><td>Lato</td><td class="mono">22–24</td><td class="mono">400</td></tr>
+      <tr><td>Eyebrow / label</td><td>IBM Plex Mono</td><td class="mono">15–17</td><td class="mono">600</td></tr>
+      <tr><td>Caption / credit</td><td>Lato</td><td class="mono">15–17</td><td class="mono">400</td></tr>
+      <tr><td>Code / data</td><td>IBM Plex Mono</td><td class="mono">18–20</td><td class="mono">400</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="kicker"><span class="no">04</span><div class="eyebrow">Space &amp; grid</div></div>
+  <h2>Air is the material</h2>
+  <p class="lede">An 8px rhythm, a generous 64px margin, and a reserved base. Sparse slides need the empty space to do the work.</p>
+  <div class="principles">
+    <div class="pr"><div class="n mono" style="font-family:'IBM Plex Mono',monospace;font-size:24px">8px</div><h3>Base unit</h3><p>All spacing is a multiple of 8 (8 / 16 / 24 / 32 / 48 / 64). One rhythm, no arbitrary gaps.</p></div>
+    <div class="pr"><div class="n mono" style="font-family:'IBM Plex Mono',monospace;font-size:24px">64px</div><h3>Slide margin</h3><p>A 64px frame on every edge; content never touches the bezel. The eyebrow marks the top-left origin.</p></div>
+    <div class="pr"><div class="n">≡</div><h3>One left edge</h3><p>Eyebrow, title and body share a single left alignment. Centered layout is reserved for title, divider, and quote.</p></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="kicker"><span class="no">05</span><div class="eyebrow">Slide templates</div></div>
+  <h2>The system, on real slides</h2>
+  <p class="lede">Every layout from the slide-layout playbook, using real deck content. Each slide does one job.</p>
+  <div class="gallery">
+
+    <div class="g-item"><div class="cap"><span class="t">Title</span><span class="w">opens a deck</span></div>
+      <div class="frame"><div class="slide title">
+        <div class="s-eyebrow">CS 6983 · Workshop</div>
+        <h1>Agentic Engineering</h1>
+        <div class="sub">Speed <em>with</em> quality — AI-assisted software engineering.</div>
+        <div class="by"><b>John Alexis Guerra Gómez</b> · johnguerra.co</div>
+        <div class="credit">Northeastern University · Khoury College</div>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Section divider</span><span class="w">navy, resets attention</span></div>
+      <div class="frame"><div class="slide divider">
+        <div class="idx">01</div>
+        <h2>Context Engineering</h2>
+        <div class="d-sub">The model only knows what's in its window. Curate it.</div>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Statement (sparse)</span><span class="w">one idea, big</span></div>
+      <div class="frame"><div class="slide">
+        <div class="s-eyebrow">The Promise</div>
+        <h2>Speed <span style="color:var(--accent)">with</span> quality</h2>
+        <div class="s-lead">&ldquo;Vibe coding&rdquo; done right: AI-assisted speed <strong>with</strong> engineering discipline — tests, review, and verification under throughput pressure.</div>
+        <div class="s-rule" style="margin-top:32px"></div>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Stat / anchor</span><span class="w">a number that lands</span></div>
+      <div class="frame"><div class="slide" style="justify-content:center">
+        <div class="s-eyebrow">Humility anchor · METR 2025</div>
+        <div class="stat">19%</div>
+        <div class="stat-label">slower with AI tools — while <strong>believing</strong> they were 20% faster. Speed &ne; speedup.</div>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Diagram</span><span class="w">SVG + navy/orange</span></div>
+      <div class="frame"><div class="slide">
+        <div class="s-eyebrow">Statelessness</div>
+        <h2 style="font-size:44px">The context window</h2>
+        <svg viewBox="0 0 760 300" style="width:100%;margin-top:18px" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="470" height="284" rx="14" fill="#fff" stroke="#e7e5de" stroke-width="2"/>
+          <text x="30" y="42" font-family="IBM Plex Mono,monospace" font-size="16" fill="#16202e" font-weight="600">CONTEXT WINDOW</text>
+          <rect x="30" y="58" width="426" height="40" rx="8" fill="#f2f1ec"/><text x="46" y="84" font-family="IBM Plex Mono,monospace" font-size="15" fill="#39424e">[ system prompt ]</text>
+          <rect x="30" y="106" width="426" height="40" rx="8" fill="#f2f1ec"/><text x="46" y="132" font-family="IBM Plex Mono,monospace" font-size="15" fill="#39424e">[ history … ]</text>
+          <rect x="30" y="154" width="426" height="40" rx="8" fill="none" stroke="#cfd3cb" stroke-dasharray="5 5"/><text x="140" y="180" font-family="IBM Plex Mono,monospace" font-size="15" fill="#9aa0a6">⋯ everything so far ⋯</text>
+          <rect x="30" y="202" width="426" height="40" rx="8" fill="#f5811f"/><text x="46" y="228" font-family="IBM Plex Mono,monospace" font-size="15" fill="#fff" font-weight="700">[ current message ]</text>
+          <line x1="478" y1="150" x2="540" y2="150" stroke="#16202e" stroke-width="2.5"/><path d="M542 150 l-12 -7 v14 z" fill="#16202e"/>
+          <rect x="548" y="126" width="204" height="48" rx="10" fill="#16202e"/><text x="650" y="156" font-family="Lato,sans-serif" font-size="18" fill="#fff" font-weight="700" text-anchor="middle">predict next token</text>
+        </svg>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Code</span><span class="w">navy block, mono</span></div>
+      <div class="frame"><div class="slide">
+        <div class="s-eyebrow">A tool is a contract</div>
+        <h2 style="font-size:44px">The schema the model sees</h2>
+        <pre>{
+  <span class="s">"name"</span>: <span class="s">"read_file"</span>,
+  <span class="s">"description"</span>: <span class="s">"Read a file. Use before editing."</span>,
+  <span class="s">"input_schema"</span>: {
+    <span class="s">"path"</span>: { <span class="s">"type"</span>: <span class="s">"string"</span> }
+  }
+}</pre>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Data table</span><span class="w">rules, not a grid</span></div>
+      <div class="frame"><div class="slide">
+        <div class="s-eyebrow">Decision guide</div>
+        <h2 style="font-size:44px">Which tool for which task?</h2>
+        <table class="data">
+          <thead><tr><th>Task</th><th>Reach for</th></tr></thead>
+          <tbody>
+            <tr><td>Think through architecture</td><td class="tool">Claude Web</td></tr>
+            <tr><td>Edit in your normal flow</td><td class="tool">IDE agent</td></tr>
+            <tr><td>Change many files, automate</td><td class="tool">Claude Code</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Two-column</span><span class="w">compare / contrast</span></div>
+      <div class="frame"><div class="slide">
+        <div class="s-eyebrow">Delegate</div>
+        <h2 style="font-size:44px">Skills vs. subagents</h2>
+        <div class="cols">
+          <div class="col"><h3>Skills</h3><ul><li>Reusable recipes</li><li>Run in <em>your</em> context</li><li>Invoked as commands</li></ul></div>
+          <div class="col"><h3>Subagents</h3><ul><li>A separate specialist</li><li>Its <em>own</em> context window</li><li>Returns only a summary</li></ul></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="g-item"><div class="cap"><span class="t">Quote / takeaway</span><span class="w">closes a beat</span></div>
+      <div class="frame"><div class="slide quote">
+        <blockquote>The scarce skill isn't typing. It's <span class="hl">verification under throughput pressure.</span></blockquote>
+        <div class="attr">— the thesis of the whole course</div>
+      </div></div>
+    </div>
+
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div>Slide Design System &ldquo;Ink &amp; Ochre&rdquo; · <b>Vibe Coding — Agentic Engineering</b></div>
+  <div>Grounded in <b>johnguerra.co</b> · Playfair Display + Lato + IBM Plex Mono</div>
+</div></footer>
+
+<script>
+// scale each 960x700 slide to fit its frame
+function fit(){document.querySelectorAll('.frame').forEach(f=>{const s=f.querySelector('.slide');if(!s)return;const k=f.clientWidth/960;s.style.transform='scale('+k+')';});}
+window.addEventListener('resize',fit);window.addEventListener('load',fit);fit();
+</script>
+</body>
+</html>

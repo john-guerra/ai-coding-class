@@ -2,29 +2,41 @@
 /* Based on johnguerra.co web development slides */
 /* Uses Reveal.js built-in layout features: r-fit-text, r-stretch, r-stack */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* "Graphite & Petrol" palette */
-  --ground: #ffffff;
-  --panel: #f5f7f8;
-  --ink: #1b1e24;
-  --muted: #6b7280;
-  --line: #e3e6ea;
-  --primary: #1f6f78;      /* petrol-teal — structure, emphasis, links */
-  --primary-dark: #185860; /* link hover */
-  --primary-tint: #e7f0f1;
-  --spark: #c8102e;        /* Northeastern red — reserved spark, use sparingly */
-  /* legacy aliases (kept so older rules/decks don't break) */
-  --neu-red: var(--spark);
-  --link-blue: var(--primary);
+  /* "Ink & Ochre" — grounded in johnguerra.co (Playfair + Lato, navy & orange) */
+  --paper: #f7f6f2;        /* slide ground — light, not white */
+  --surface: #ffffff;      /* cards / panels that float on paper */
+  --panel: #f2f1ec;        /* subtle fills: table rows, callouts */
+  --ink: #1d2733;          /* titles & body text */
+  --navy: #16202e;         /* dividers, footers, the spine */
+  --muted: #626b77;        /* captions, secondary text */
+  --line: #e7e5de;         /* hairlines, borders */
+  --accent: #f5811f;       /* orange — the single warm spark */
+  --accent-dark: #d96f12;
+  --link: #1257c9;         /* hyperlinks only */
+  --link-dark: #0e469e;
+  /* InfoVis categorical — diagrams & charts only */
+  --v-blue: #5a6e8c; --v-green: #5c9e5a; --v-gold: #e3b23c; --v-orange: #e2812e; --v-plum: #8a5fa6;
+  /* legacy aliases so older rules/decks don't break */
+  --ground: var(--paper);
+  --primary: var(--accent);
+  --primary-dark: var(--accent-dark);
+  --primary-tint: #fdecd9;
+  --spark: var(--accent);
+  --neu-red: var(--accent);
+  --link-blue: var(--link);
   --text-dark: #333;
-  --text-gray: #666;
+  --text-gray: var(--muted);
 }
 
-/* Typography — Technical pairing: Space Grotesk / IBM Plex Sans / IBM Plex Mono */
+/* Slide ground — light paper, not white */
+.reveal-viewport { background-color: var(--paper) !important; }
+
+/* Typography — johnguerra.co pairing: Playfair Display + Lato + IBM Plex Mono */
 .reveal {
-  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   color: var(--ink);
 }
 
@@ -32,9 +44,9 @@
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   text-transform: none;
   color: var(--ink);
 }
@@ -52,18 +64,23 @@
   line-height: 1.3;
 }
 
-/* Links */
+/* Links — distinguishable by more than color (WCAG 1.4.1): always underlined */
 .reveal a {
-  color: var(--primary);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.15em;
 }
 
 .reveal a:hover {
-  color: var(--primary-dark);
+  color: var(--link-dark);
+  text-decoration-thickness: 0.12em;
 }
 
-/* Strong/bold text - petrol-teal emphasis */
+/* Strong/bold — ink emphasis (weight, not color). Orange is reserved for accents. */
 .reveal strong {
-  color: var(--primary);
+  color: var(--ink);
+  font-weight: 700;
 }
 
 /* Code blocks */
@@ -100,10 +117,10 @@
   background: var(--panel);
 }
 
-/* Blockquotes */
+/* Blockquotes — the one orange spark per takeaway */
 .reveal blockquote {
   background: var(--panel);
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--accent);
   padding: 0.2em 0.6em;
   font-style: italic;
   width: 90%;
@@ -120,7 +137,7 @@
 
 .reveal table th {
   background: var(--panel);
-  color: var(--primary);
+  color: var(--ink);
   font-weight: 700;
 }
 
@@ -157,12 +174,14 @@
   color: var(--primary);
 }
 
-/* Title slide course/week indicator */
+/* Title slide course/week indicator — the eyebrow */
 .reveal .course-week {
-  font-size: 1.1em;
-  font-weight: 400;
-  color: var(--text-gray);
-  letter-spacing: 0.05em;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 /* Utility classes */
@@ -174,7 +193,7 @@
   font-size: 0.5em;
 }
 
-/* Inline SVG diagrams (Graphite & Petrol) */
+/* Inline SVG diagrams (Ink & Ochre) */
 .reveal .svg-diagram {
   text-align: center;
 }
@@ -186,7 +205,7 @@
   font-family: 'IBM Plex Mono', 'Fira Code', ui-monospace, Menlo, monospace;
 }
 .reveal .svg-diagram svg text.sans {
-  font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Two-column layout */
@@ -257,3 +276,120 @@
   color: #8a8a8a;
   text-decoration: underline;
 }
+
+/* ============================================================
+   Slide templates — "Ink & Ochre" (centralized; applied by
+   structure, never by editing individual slides).
+   See docs/design/DESIGN_GUIDELINES.md.
+   ============================================================ */
+
+/* Left-aligned headers + body (the single left edge) */
+.reveal .slides section { text-align: left; }
+.reveal .slides section > *:first-child { margin-top: 0; }
+
+/* Vertical rhythm (8px- based) */
+.reveal h1, .reveal h2, .reveal h3 { margin-top: 0; }
+.reveal ul, .reveal ol { margin: 0.4em 0; }
+.reveal li { margin: 0.25em 0; }
+.reveal blockquote { text-align: left; }
+
+/* Title slide — full composition: eyebrow, dominant title + accent rule,
+   sans subtitle, byline pushed to the bottom. Full-height flex only while
+   the slide is present (so hidden-slide display:none still wins). */
+.reveal .slides section#title.present {
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  top: 0 !important;
+  padding: 60px 10px;
+}
+.reveal #title .course-week { display: block; font-size: 17px; letter-spacing: 3px; margin-bottom: 24px; }
+.reveal #title h2 {
+  font-size: 116px; font-weight: 900; line-height: 0.96;
+  letter-spacing: -0.02em; margin: 0; max-width: 12ch;
+}
+.reveal #title h3 {
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400; color: #3a4652; font-size: 33px; line-height: 1.25; margin: 18px 0 0;
+}
+.reveal #title h3 em { font-style: italic; color: var(--ink); font-weight: 700; }
+.reveal #title > p { font-size: 22px; color: var(--muted); margin: 12px 0 0; }
+.reveal #title p:has(a) {
+  margin-top: auto; margin-bottom: 6px; font-size: 24px;
+}
+.reveal #title p:has(a) a {
+  color: var(--ink); font-weight: 700;
+  text-decoration: underline; text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.08em; text-underline-offset: 0.16em;
+}
+.reveal #title small { color: var(--muted); font-size: 15px; }
+
+/* Section dividers — invoke with a template class:  <!-- .slide: class="divider" -->
+   Reveal mirrors the slide's class onto its .slide-background element, so the
+   full-bleed navy is pure CSS. Auto orange index via a CSS counter. */
+.reveal .slides { counter-reset: dv-idx; }
+.reveal .backgrounds .slide-background.divider { background-color: var(--navy); }
+.reveal section.divider { counter-increment: dv-idx; padding: 0 1.2em; }
+.reveal section.divider h1 {
+  color: #ffffff; font-size: 1.9em; line-height: 1.05; margin: 0.1em 0 0;
+}
+.reveal section.divider h1::before {
+  content: counter(dv-idx, decimal-leading-zero);
+  display: block; font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900; font-size: 2em; line-height: 0.85;
+  color: var(--accent); margin-bottom: 0.05em;
+}
+.reveal section.divider p,
+.reveal section.divider li { color: #c9d0da; }
+.reveal section.divider strong { color: #ffffff; }
+.reveal section.divider a { color: #ffd8b0; }
+.reveal section.divider small { color: #9aa6b4; }
+.reveal section.divider blockquote {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: var(--accent);
+  color: #e7eaf0;
+}
+
+/* Quote / takeaway — <!-- .slide: class="quote" --> : big centered Playfair */
+.reveal section.quote { text-align: left; }
+.reveal section.quote blockquote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 46px; line-height: 1.2; font-weight: 700; font-style: normal;
+  color: var(--ink); background: none; border-left: none;
+  width: 100%; max-width: 22ch; margin: 0 auto; padding: 0;
+}
+.reveal section.quote blockquote strong,
+.reveal section.quote blockquote em { color: var(--accent); font-style: normal; }
+
+/* Stat / anchor — <!-- .slide: class="stat" --> : the h2 is the big number */
+.reveal section.stat h2 { font-size: 128px; font-weight: 900; color: var(--accent); line-height: 0.95; }
+.reveal section.stat p { font-size: 28px; color: #39424e; max-width: 24ch; }
+.reveal section.stat strong { color: var(--ink); }
+
+/* Statement (sparse) — <!-- .slide: class="statement" --> : one large idea */
+.reveal section.statement h2 { font-size: 58px; }
+.reveal section.statement p { font-size: 30px; line-height: 1.35; color: var(--ink); max-width: 28ch; }
+
+/* Tables — rules, not a grid (the elegant "data" treatment) */
+.reveal table th {
+  background: none; color: var(--muted);
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 0.62em; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+  border: none; border-bottom: 2px solid var(--ink); padding: 0 0.7em 0.5em;
+}
+.reveal table td { border: none; border-bottom: 1px solid var(--line); }
+.reveal table tr:nth-child(even) { background: none; }
+
+/* Two-column — Playfair sub-heads */
+.reveal .columns .column h3,
+.reveal .columns .column h4 { font-family: 'Playfair Display', Georgia, serif; }
+
+/* Navigation arrows + progress — subtle, on-palette */
+.reveal .controls { color: var(--muted); opacity: 0.55; }
+.reveal .controls button { color: var(--muted); }
+.reveal .controls button.enabled:hover,
+.reveal .controls button:focus { color: var(--accent); opacity: 1; }
+.reveal .controls:hover { opacity: 0.9; }

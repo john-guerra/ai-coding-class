@@ -53,6 +53,8 @@ For **Linkstash** — our small link-saver app — we captured:
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 1 — Explore → Plan → Implement → Commit
 
 > The core workflow. Slow down to speed up.
@@ -148,6 +150,8 @@ flowchart LR
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 2 — TDD with Claude Code
 
 > The heart of the quality thesis.
@@ -223,6 +227,8 @@ You:   npm test
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 3 — Reviewing AI Output
 
 > Where the real work lives.
@@ -281,6 +287,8 @@ The Linkstash starter ships with **one subtle planted bug**.
 > This is the whole session in miniature: *read → spec → let the agent fix.*
 
 ---
+
+<!-- .slide: class="divider" -->
 
 # Part 4 — Extensibility I: Skills + Hooks
 

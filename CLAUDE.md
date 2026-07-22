@@ -24,6 +24,16 @@ npm run build
 npm run deploy
 ```
 
+## Browser Automation
+
+**Always use `claude-in-chrome` (`mcp__claude-in-chrome__*`) for browser automation. Do NOT use Playwright.** Invoke the `claude-in-chrome` skill first, then use its tools for everything: checking rendered slides (the reveal dev server at `http://localhost:1948`), screenshots, console reads, and overflow checks (`?overflow` on a deck, or evaluate the overflow script). It reuses the user's Chrome session and is far more token-efficient than Playwright's per-navigation snapshots.
+
+This applies to **all** browser work, including verifying Claude Design artifacts — open the `render_preview` `serve_url` in claude-in-chrome. Only fall back to Playwright if claude-in-chrome is genuinely unavailable in the session, and say so explicitly first.
+
+## Slide Design System
+
+Slide look-and-feel follows the **"Ink & Ochre"** system — documented in `docs/design/DESIGN_GUIDELINES.md` (canonical, agent-readable reference) and `docs/design/slide-design-system.html` (rendered visual guide). Grounded in johnguerra.co: **Playfair Display + Lato + IBM Plex Mono**, a warm **paper** ground (`#F7F6F2`), **navy** structure, and a **single orange spark** per slide (`#F5811F`; red is retired, emphasis is ink-bold). Implemented in `slides/css/style.css` (tokens + chrome) and `slides/js/mermaid-init.js` (mermaid theme). When creating or editing slides/diagrams, follow it. The `slide-layout` skill still governs layout & overflow budgets — use both.
+
 ## Repository Structure
 
 ```

@@ -16,16 +16,35 @@ Reveal.on('ready', function() {
   document.head.appendChild(script);
 
   function initMermaid() {
+    // "Ink & Ochre" mermaid theme — matches the slide design system
+    // (paper ground, navy structure, Lato labels). See css/style.css tokens.
     mermaid.initialize({
       startOnLoad: false,
-      theme: 'default',
+      theme: 'base',
       flowchart: {
         useMaxWidth: false,
         htmlLabels: false,
         curve: 'basis'
       },
       themeVariables: {
-        fontSize: '18px'
+        fontFamily: "'Lato','Helvetica Neue',Arial,sans-serif",
+        fontSize: '18px',
+        primaryColor: '#f2f1ec',        // node fill (panel)
+        primaryTextColor: '#1d2733',    // node text (ink)
+        primaryBorderColor: '#16202e',  // node border (navy)
+        secondaryColor: '#eef0f3',
+        secondaryTextColor: '#1d2733',
+        secondaryBorderColor: '#16202e',
+        tertiaryColor: '#ffffff',
+        tertiaryTextColor: '#1d2733',
+        tertiaryBorderColor: '#e7e5de',
+        lineColor: '#3a4655',           // edges / arrows (navy-grey)
+        mainBkg: '#f2f1ec',
+        nodeBorder: '#16202e',
+        clusterBkg: '#f7f6f2',
+        clusterBorder: '#e7e5de',
+        edgeLabelBackground: '#f7f6f2',
+        titleColor: '#1d2733'
       }
     });
 

@@ -55,6 +55,8 @@ Two things are still missing:
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 1 — MCP Servers
 
 > Give the agent hands. Same model, more reach.
@@ -247,6 +249,8 @@ MCP **didn't change how the model calls tools**.
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 2 — Subagents & Parallel Work
 
 > Delegate to a specialist instead of doing it all in one thread.
@@ -340,6 +344,8 @@ claude --worktree     # run this session in its own git worktree
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 3 — Plugins (Awareness)
 
 > Not a lab — the packaging story for later.
@@ -376,6 +382,8 @@ CLAUDE.md          # project memory
 > This layout **is** the packaging story. Full plugins = further study.
 
 ---
+
+<!-- .slide: class="divider" -->
 
 # Part 4 — Security: The Payoff
 
@@ -476,6 +484,8 @@ By design — that's why it's our lab:
 
 ---
 
+<!-- .slide: class="divider" -->
+
 # Part 5 — Oral-Defense Capstone
 
 > Never ship code you can't explain.
@@ -503,6 +513,8 @@ Cover three things:
 > The deliverable of AI coding isn't code. It's **understanding you can defend.**
 
 ---
+
+<!-- .slide: class="divider" -->
 
 # Part 6 — Your AI-Use Framework
 

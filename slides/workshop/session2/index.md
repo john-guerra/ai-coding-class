@@ -563,6 +563,12 @@ flowchart LR
 
 Slide **rightward as trust builds** — and keep oversight where the **blast radius is large**.
 
+<!-- vertical -->
+
+<!-- .slide: class="quote" -->
+
+<span class="course-week">Auto mode · the honest frame</span>
+
 > The goal is **appropriate reliance**, not maximal trust.
 
 ---

@@ -158,11 +158,11 @@ flowchart LR
 
 ---
 
-## Tests Are the Specification
+<!-- .slide: class="quote" -->
 
-Don't ask the AI to write code *and* the tests that judge it.
+<span class="course-week">TDD · the load-bearing rule</span>
 
-> The failing test becomes the **specification**. You own the spec; the AI owns the implementation — so it **can't validate its own bugs**.
+> The failing test is the **specification**. You own the spec; the AI owns the implementation — so it **can't validate its own bugs**.
 
 <!-- vertical -->
 

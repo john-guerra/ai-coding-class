@@ -510,6 +510,12 @@ Cover three things:
 - Your partner is the **fresh-eyes reviewer** — the human step, live.
 - This is the habit that survives every model upgrade.
 
+<!-- vertical -->
+
+<!-- .slide: class="quote" -->
+
+<span class="course-week">The deliverable</span>
+
 > The deliverable of AI coding isn't code. It's **understanding you can defend.**
 
 ---

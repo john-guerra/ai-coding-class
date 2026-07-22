@@ -69,7 +69,14 @@ We'll come back to these all workshop:
 
 ## Everything Is Tokens
 
-LLMs don't see characters or words — they see **tokens** (~4 chars each).
+LLMs don't see characters or words — they see **tokens**, sub-word chunks from a BPE tokenizer.
+
+```text
+"unhappiness"  →  ["un", "happ", "iness"]
+"def foo():"   →  ["def", " foo", "()", ":"]
+```
+
+Code tokenizes *differently* than prose — indentation, brackets, camelCase all cost tokens.
 
 **Live demo:** [tiktokenizer.vercel.app](https://tiktokenizer.vercel.app/)
 
@@ -93,6 +100,63 @@ LLMs don't see characters or words — they see **tokens** (~4 chars each).
 - **"Lost in the middle"** — models attend least to the center of long contexts.
 
 > Put the important stuff **first**.
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## Statelessness & the Context Window
+
+The model has **no memory**. The illusion of memory = the harness **re-sends the whole conversation** every request.
+
+```text
+┌─────────────── CONTEXT WINDOW ───────────────┐
+│  [system prompt]                             │
+│  [turn 1: user]                              │
+│  [turn 1: assistant]                         │
+│  [turn 2: user]                              │
+│  [... everything so far ...]                 │
+│  [current user message]                      │
+└──────────────────────────────────────────────┘
+                     │
+                     ▼   predict next token
+```
+
+> The model is stateless. The **harness** carries the state forward.
+
+<!-- vertical -->
+
+## From Raw Completion to Assistant
+
+A base model just *continues* text. Two tricks turn it into an assistant:
+
+```text
+<|system|>You are a helpful coding assistant.<|end|>
+<|user|>Write a function to reverse a string.<|end|>
+<|assistant|>
+```
+
+**(1)** A **chat template** makes assistant-like text the likeliest completion.
+**(2)** **RLHF / instruction tuning** makes helpful, honest answers more probable.
+
+> Same mechanism — we only changed the prefix.
+
+<!-- vertical -->
+
+## The Conceptual Ladder
+
+```text
+  5 │ LOOP ENGINEERING    (optimize the harness)   │
+  4 │ AGENTIC LOOP        (think → act → observe)   │
+  3 │ TOOLS               (model → JSON → env runs) │
+  2 │ CONTEXT ENGINEERING (what goes in the window) │
+  1 │ INSTRUCTION FOLLOW  (the system prompt)       │
+  0 │ NEXT-TOKEN PREDICT  (the transformer)         │
+```
+
+An agent isn't a new kind of AI — it's **layer 0** with cleverer context + a loop.
+
+> This whole workshop climbs the ladder.
 
 ---
 
@@ -134,6 +198,151 @@ flowchart LR
 The **model** reasons. The **harness** is the scaffolding around it — the loop, tools, memory, and
 guardrails. Today we compare three harnesses.
 
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## The Model Emits Text. The Harness Acts.
+
+The model can't touch your terminal, files, or the web. It only emits **text**.
+
+When Claude Code "reads your file":
+
+1. Model emits text *describing* a read request
+2. The **harness** (a normal program) parses it
+3. The harness calls the OS to read the file
+4. The harness puts the contents **back into the context**
+5. Next turn, the model sees them as input
+
+> The model never touched your disk. A program did — because the model asked.
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## A Tool = Schema + Implementation + Wiring
+
+A "tool" is a contract between model and harness:
+
+1. **Schema** — machine-readable description + arguments (JSON Schema)
+2. **Implementation** — actual code that performs the action
+3. **Wiring** — how the model *requests* it, how the harness *returns* the result
+
+The schema is **injected into the context window** — that's how the model "knows" the tool exists.
+
+> It knows the tool the same way it knows anything: it's in the context.
+
+<!-- vertical -->
+
+## The Tool Schema (what the model sees)
+
+```json
+{
+  "name": "read_file",
+  "description": "Read a file from the local filesystem. Use before editing a file.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "path": { "type": "string", "description": "Absolute path to the file." }
+    },
+    "required": ["path"]
+  }
+}
+```
+
+> The `description` field is prompt engineering — it decides tool selection.
+
+<!-- vertical -->
+
+## Think → Act → Observe
+
+```python
+# context = [user_message]   ← setup elided
+while True:
+    resp = model.create(tools=SCHEMAS, messages=context)
+    context.append(resp)                # the request
+    calls = [b for b in resp.content
+             if b.type == "tool_use"]
+    if not calls:
+        return resp                     # done — no tool call
+    for c in calls:
+        out = TOOLS[c.name](**c.input)  # HARNESS runs it
+        context.append(out)             # observation back in
+```
+
+> Each lap appends an observation — that's how a *stateless* model makes progress.
+
+<!-- vertical -->
+
+## The Loop Is the Memory
+
+- **Think** — the model emits a tool call
+- **Act** — the *harness* runs the function
+- **Observe** — the result is appended to context
+- Loop until there's no tool call
+
+> The model is stateless; the **loop is its memory**.
+
+<!-- vertical -->
+
+## Modifying the Environment
+
+Reading is safe. The power *and* danger = tools that **change state**:
+
+```python
+def write_file(path, content):
+    open(path, "w").write(content)
+    return f"wrote {path}"
+
+def run_bash(command):
+    r = subprocess.run(command, shell=True,
+                       capture_output=True, text=True)
+    return r.stdout + r.stderr
+```
+
+Once `run_bash` exists, the model can run **arbitrary commands** — so the harness pauses to ask.
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## The Permission Gate
+
+```text
+   model emits write_file(...)
+             │
+             ▼
+   ┌────────────────────────┐
+   │  HARNESS PERMISSION     │ ← "Allow edit to auth.ts? [y/N]"
+   │  GATE                   │
+   └────────────────────────┘
+        │approved       │denied
+        ▼               ▼
+    execute         "user denied"  → back into context
+```
+
+Even a **denial** goes back into context — the model reasons about it and adapts.
+
+> The approval gate lives in the *harness*, not the model.
+
+<!-- vertical -->
+
+## Two Ways to "Call" a Tool
+
+**(a) Structured tool calling** — the model emits a JSON `tool_use` block; the API routes it. (Anthropic, OpenAI.)
+
+**(b) Code-as-action** — the model writes *code* that calls tools; the harness runs it. One block chains many calls:
+
+```python
+# One code block instead of 4 JSON calls + 4 round-trips:
+files = list_dir("src/")
+for f in files:
+    if f.endswith(".test.js"):
+        run_bash(f"npx jest {f}")
+```
+
+> Different action representations reshape the loop — a preview of loop engineering.
+
 ---
 
 # Part 2 — The Three Harnesses
@@ -158,6 +367,49 @@ guardrails. Today we compare three harnesses.
 - **Autonomy / leash length** — you approve each step → it runs many steps → it opens a PR.
 
 > The harness sets the leash. The model is the same underneath.
+
+<!-- vertical -->
+
+## One Design Space, Three Dials
+
+Not three technologies — **three settings of the same dials**:
+
+```text
+ human-in-loop  ◀──────────────────────────▶  autonomous
+ low tool power ◀──────────────────────────▶  high tool power
+
+ Claude Web          Cursor              Claude Code
+ (conversation)      (IDE-native)        (terminal agent)
+```
+
+- **How auto-managed** is the context?
+- **How autonomous** is the loop?
+- **How much human** per lap?
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## The Dials, Side by Side
+
+| Dial | Claude Web | Cursor | Claude Code |
+|---|---|---|---|
+| Who closes the loop | Human | Human + agent | Agent |
+| Context mgmt | Manual (+Projects) | Vector retrieval + `.cursorrules` | `CLAUDE.md` + cache + subagents |
+| Tool power | Sandboxed | Editor + shell (scoped) | Full local: files, shell, MCP |
+| Latency priority | Low | **Very high (Tab)** | Throughput over latency |
+| Sweet spot | Think / plan / learn | Daily coding | Autonomous multi-step |
+
+<!-- vertical -->
+
+## Same Engine, Different Dials
+
+- Same **engine** — tokens (Part 1)
+- Same **tool mechanism** — schema + harness execution
+- Same **context assembly** — stuff the window every call
+- Same **loop** — think → act → observe
+
+> The products differ only in *how they set the dials.*
 
 ---
 
@@ -191,6 +443,23 @@ We make **Claude Code** the spine:
 - **S2** — memory & modes (drive it well)
 - **S3** — spec → TDD → build + skills/hooks
 - **S4** — MCP, subagents, and security
+
+<!-- vertical -->
+
+## The Frontier: Prompt → Context → Loop
+
+The object of engineering keeps moving up the ladder:
+
+- **Prompt** engineering — craft the message
+- **Context** engineering — curate the window
+- **Loop** engineering — optimize the loop itself
+
+```text
+ inner loop:  think → act → observe          (one task)
+ outer loop:  run tasks → analyze traces → rewrite the harness
+```
+
+> From the message, to the window, to the loop.
 
 ---
 

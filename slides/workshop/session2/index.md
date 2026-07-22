@@ -102,6 +102,69 @@ Not a chatbot — an **agent** that loops on its own. Your job shifts from **dri
 
 ---
 
+## Prompt → Context → Loop
+
+One rung up the Session 1 ladder:
+
+```text
+prompt engineering  →  context engineering  →  loop engineering
+word ONE message       decide what the model     optimize the
+well                   sees AT ALL               surrounding loop
+                       include · retrieve ·      (Sessions 3–4)
+                       compress · order
+```
+
+> Wording a message well is prompting. Deciding what the model gets to see *at all* is where real agent quality comes from.
+
+---
+
+<!-- .slide: class="dense" -->
+
+## What the Harness Assembles Every Turn
+
+```text
+┌──────────── CONTEXT WINDOW · rebuilt every request ────────────┐
+│                                                                │
+│  1. SYSTEM PROMPT         "You are Claude Code…" identity,     │
+│                           tool-use policy, safety rules        │
+│                                                                │
+│  2. PROJECT INSTRUCTIONS  ← CLAUDE.md / .cursorrules / AGENTS  │
+│                           "Use TypeScript. Tests required."    │
+│                                                                │
+│  3. TOOL SCHEMAS          read_file, write_file, run_bash …    │
+│                                                                │
+│  4. RETRIEVED CONTEXT     @-mentioned files, search results    │
+│                                                                │
+│  5. CONVERSATION HISTORY  every prior msg + tool result        │
+│                                                                │
+│  6. CURRENT MESSAGE       "fix the failing test"               │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                       predict next token
+```
+
+> Six sources, **one finite window**, assembled fresh every turn. Deciding what goes in it is context engineering.
+
+---
+
+<!-- .slide: class="dense" -->
+
+## Three Layers, One Token Stream
+
+| Layer | Who writes it | Scope |
+|---|---|---|
+| **System prompt** | Tool builder (Anthropic) | Every chat in the product |
+| **Project instructions** (`CLAUDE.md`) | You, per repo | Every request in this project |
+| **User message** | You, per turn | This one turn |
+
+All three get **concatenated into one window**. The model doesn't truly separate "system" from "user" — the split is a **harness convention**, collapsed into one stream at send time.
+
+> Same stream. Different authors, different scope.
+
+---
+
 ## Memory: The CLAUDE.md Hierarchy
 
 <pre class="mermaid">
@@ -123,7 +186,36 @@ overrides the global.
 - **Conventions** — naming, structure, style
 - **A "Do NOT" list** — the guardrails that matter
 
-> Keep it under **~200 lines**. It's a briefing, not a manual.
+> **The test for every line:** would removing it make the model make a mistake? If not, cut it. Keep it under **~200 lines** — a briefing, not a manual.
+
+<!-- vertical -->
+
+## CLAUDE.md Is Not Magic Config
+
+It's not a settings file the model "loads." It is **text prepended to your prompt** — item #2 in the context window, on every request.
+
+- The model reads it exactly like the system prompt
+- It "works" only because it's *in the window*
+- It competes for the same token budget as your code
+
+> No hidden mechanism. Just text, pasted in, every turn.
+
+<!-- vertical -->
+
+## Re-Sent Every Turn
+
+The model is **stateless** — no memory between turns. The only way it obeys your rules on turn 12 is if they're in the window *on turn 12*.
+
+```text
+Turn 1:  [system][CLAUDE.md][tools][history][msg 1]  → response
+Turn 2:  [system][CLAUDE.md][tools][history][msg 2]  → response
+Turn 3:  [system][CLAUDE.md][tools][history][msg 3]  → response
+          ▲          ▲
+          └──────────┴── re-sent EVERY turn; the model
+                         remembers nothing on its own
+```
+
+> The "session" is an illusion — the harness re-stuffs the window each round trip.
 
 <!-- vertical -->
 
@@ -173,6 +265,20 @@ What the agent sees, in priority order:
 
 > You control the top of the list. **Be explicit.**
 
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## Retrieval, Not Dumping
+
+The harness doesn't paste the whole repo — it **retrieves only relevant slices**.
+
+- **Vector index** — code embedded as vectors; nearest-neighbor pulls the files that match your query (Cursor does exactly this)
+- **Ordering matters** — models attend to the **start and end** more than the middle ("lost in the middle"). Put critical rules first or last.
+- **Compression** — when history overflows, the harness **summarizes** old turns instead of dropping them blindly
+
+> Curate and place — not dump.
+
 ---
 
 <!-- .slide: class="dense" -->
@@ -192,6 +298,8 @@ Pull exactly what you need into context:
 
 <small>Explicit beats ambient — an `@file` outranks a merely open tab.</small>
 
+> `@file` is **you doing manual context engineering** — telling the harness exactly what to retrieve.
+
 ---
 
 ## Managing Context
@@ -203,6 +311,8 @@ Pull exactly what you need into context:
 | `/context` | Show what's loaded now | Check your tabs |
 
 > Context is a **budget**, not a bucket. Spend it deliberately.
+
+<small>`/compact` is **summarization** — the same move the harness makes automatically when history overflows the window.</small>
 
 <!-- vertical -->
 
@@ -228,6 +338,7 @@ Each `/clear` resets the noise; the **doc** carries the signal forward.
 > "I'll just paste the whole repo in so it has everything."
 
 - More tokens ≠ more understanding.
+- Every extra line **competes with your code** for the same finite window — on *every* request.
 - Signal drowns in noise → **"lost in the middle"** (S1).
 - Slower, pricier, *worse* answers.
 

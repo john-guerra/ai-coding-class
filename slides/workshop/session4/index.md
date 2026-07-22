@@ -75,6 +75,87 @@ Before USB-C, every device had its own plug. MCP is the **standard port** — wr
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
+## The M×N Problem MCP Solves
+
+Without a standard, **N agents × M tools = N×M** bespoke integrations.
+
+<div class="columns">
+<div class="column">
+
+**Before MCP**
+
+<pre class="mermaid">
+%%{init: {'theme':'default','flowchart':{'nodeSpacing':15,'rankSpacing':20}}}%%
+flowchart LR
+  A1[Agent] --> T1[GitHub]
+  A1 --> T2[Postgres]
+  A2[Agent] --> T1
+  A2 --> T2
+</pre>
+
+Every pair wired by hand.
+
+</div>
+<div class="column">
+
+**With MCP**
+
+<pre class="mermaid">
+%%{init: {'theme':'default','flowchart':{'nodeSpacing':15,'rankSpacing':20}}}%%
+flowchart LR
+  A1[Agent] --> M{{MCP}}
+  A2[Agent] --> M
+  M --> T1[GitHub]
+  M --> T2[Postgres]
+</pre>
+
+One server, any client.
+
+</div>
+</div>
+
+> N+M plugs instead of N×M. Tools become **pluggable**.
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## How MCP Works
+
+**Client–host–server** — the host runs one MCP *client* per connected server:
+
+<pre class="mermaid">
+%%{init: {'theme':'default','flowchart':{'nodeSpacing':12,'rankSpacing':45}}}%%
+flowchart LR
+  H["Host · Claude Code<br/>(1 client per server)"] -->|JSON-RPC| G[GitHub server]
+  H -->|JSON-RPC| P[Postgres server]
+  H -->|JSON-RPC| F[filesystem server]
+</pre>
+
+Wire format **JSON-RPC 2.0** · transports **stdio** (local) & **HTTP/SSE** (remote).
+
+> One client per server; each server exposes its own capabilities.
+
+<!-- vertical -->
+
+## Tools vs. Resources
+
+A server exposes two kinds of capability:
+
+| Capability | What it is | Example |
+|---|---|---|
+| **Tools** | callable **actions** the model invokes | `query_db(sql)` |
+| **Resources** | readable **data / context** | a schema, a doc |
+
+- **Tools** *do* things — run and return a result.
+- **Resources** *are* things — data the model reads into context.
+
+> Actions vs. context: a server can offer both.
+
+<!-- vertical -->
+
 ## Cross-Vendor Infrastructure
 
 In 2026, MCP is **not** an Anthropic-only feature.
@@ -152,6 +233,18 @@ server.tool(
 
 > A tool = name + description + schema + handler. That's it.
 
+<!-- vertical -->
+
+## The Real Aha
+
+MCP **didn't change how the model calls tools**.
+
+- The model still just sees **tool schemas** in its context…
+- …and still emits **tool-call JSON** (Session 1's mechanism).
+- MCP standardized the **distribution** — how schemas get *in*, how calls get routed *out*.
+
+> Tool builders write **one** MCP server, not **N** integrations. That's the whole win.
+
 ---
 
 # Part 2 — Subagents & Parallel Work
@@ -160,10 +253,13 @@ server.tool(
 
 ---
 
+<!-- .slide: class="dense" -->
+
 ## Skills vs. Subagents
 
 - **Skills are recipes** — reusable instructions in *your* context.
 - **Subagents are specialists** — a *separate* agent with its own context window and job.
+- Each does its detailed work in that **own** window and returns only a **summary** — keeping the parent's context clean.
 
 <pre class="mermaid">
 flowchart LR

@@ -20,7 +20,8 @@ project ("Linkstash") end to end.
 
 - `index.html` — the **landing hub** (hand-authored, self-contained; deployed as the site root).
 - `session1/index.md` … `session4/index.md` — reveal-md decks (one per session).
-- `handouts/*.md` — five participant reference cards (built as decks).
+- `handouts/*.md` — six participant reference cards, published as **standalone printable HTML** (via `build-handouts.mjs`), not reveal.js decks.
+- `build-handouts.mjs` — renders the handout Markdown into the Ink & Ochre printable template.
 - `facilitator-guide.md` — run-of-show with timings, talking points, and cut-lines. **Facilitator-only — stripped from the public build** (see Deploying).
 - Reference: `../../docs/research/claude_code_modes_2026.md` — modes / auto mode grounding.
 
@@ -48,15 +49,16 @@ npm run deploy:workshop   # build + rsync to johnguerra:/var/www/lectures/aiCodi
 ```
 
 The build serves the `workshop/` folder as its own root. The hand-authored `index.html` hub is
-copied in as the site root; sessions live at `/session1/` … `/session4/` and handouts at
-`/handouts/`. Internal `.md` links are rewritten to `.html` (static form) during the build, and the
-facilitator guide + internal READMEs are **stripped** so they never ship publicly.
+copied in as the site root; sessions live at `/session1/` … `/session4/` and handouts render as
+printable HTML at `/handouts/`. Deck links use directory-style paths (`session1/`) that resolve in
+both the dev server and the static build, and the facilitator guide + internal READMEs are
+**stripped** so they never ship publicly.
 
 ## Done
 
 - **[Linkstash starter repo](https://github.com/john-guerra/linkstash)** — small link-saver with a
   built-in lethal-trifecta surface, a tested URL-validation core, real dependencies, an
   `npm run setup` smoke test, and one planted subtle bug. Students clone it directly.
-- **Participant handouts** — prompt-anatomy · memory & modes · security card · slopsquatting
-  checklist · personal AI-use framework worksheet (in `handouts/`).
+- **Participant handouts** (6, printable HTML) — harness fundamentals · prompt-anatomy · memory &
+  modes · security card · slopsquatting checklist · personal AI-use framework worksheet.
 - **Landing hub** — `index.html`, linking sessions · handouts · the Linkstash repo.

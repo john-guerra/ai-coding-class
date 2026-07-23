@@ -458,6 +458,6 @@ Solo, on **Linkstash**:
 
 **MCP, Subagents & Security**
 
-[**Next: Session 4 →**](../session4/index.md) · [Workshop index ↑](../index.html)
+[**Next: Session 4 →**](../session4/) · [Workshop index ↑](../)
 
 <small>[johnguerra.co](http://johnguerra.co/)</small>

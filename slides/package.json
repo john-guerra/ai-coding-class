@@ -8,7 +8,8 @@
     "serve": "reveal-md . --watch",
     "build": "reveal-md . --static dist",
     "deploy": "rsync -auvz --exclude=.git/ --exclude=node_modules --partial -e ssh dist/* johnguerra:/var/www/lectures/aiCoding_fall2026/",
-    "build:workshop": "ln -sfn ../css workshop/css && ln -sfn ../js workshop/js && reveal-md workshop --static dist-workshop && find dist-workshop -name '*.html' -print0 | xargs -0 perl -0777 -i -pe 's{(session\\d)/index\\.md}{$1/index.html}g' && cp workshop/index.html dist-workshop/index.html && rm -f dist-workshop/facilitator-guide.html dist-workshop/README.html dist-workshop/handouts/README.html",
+    "build:workshop": "ln -sfn ../css workshop/css && ln -sfn ../js workshop/js && reveal-md workshop --static dist-workshop && cp workshop/index.html dist-workshop/index.html && node workshop/build-handouts.mjs && rm -f dist-workshop/facilitator-guide.html dist-workshop/README.html dist-workshop/handouts/README.html",
+    "serve:workshop": "npm run build:workshop && echo '\\nWorkshop preview → http://localhost:8890/\\n' && python3 -m http.server 8890 --directory dist-workshop",
     "deploy:workshop": "npm run build:workshop && ssh johnguerra 'mkdir -p /var/www/lectures/aiCoding_workshop' && rsync -auz --partial --delete -e ssh dist-workshop/ johnguerra:/var/www/lectures/aiCoding_workshop/"
   },
   "repository": {

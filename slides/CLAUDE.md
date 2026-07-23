@@ -24,15 +24,20 @@ Content here
 
 # New Section (horizontal)
 
-----
+<!-- vertical -->
 
 ## Sub-slide (vertical)
 ```
 
 ## Separators
 
-- `---` creates a new horizontal slide (new topic)
-- `----` creates a vertical slide (subtopic under current section)
+This project overrides reveal-md's defaults (see `reveal-md.json`:
+`separator: "^---$"`, `verticalSeparator: "^<!-- vertical -->$"`):
+
+- `---` (on its own line) creates a new horizontal slide (new topic)
+- `<!-- vertical -->` (on its own line) creates a vertical slide (subtopic
+  under the current section) — **not** `----`, which is the reveal-md default
+  and does nothing here
 
 ## Reveal.js Built-in Classes
 

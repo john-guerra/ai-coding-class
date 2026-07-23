@@ -52,6 +52,6 @@ site root and sessions live at `/session1/` … `/session4/`. Internal links are
 ## Still to produce
 
 - **Linkstash starter repo** — small link-saver with a built-in lethal-trifecta surface, a testable
-  URL-validation core, real dependencies, a `make setup` smoke test, and one planted subtle bug.
+  URL-validation core, real dependencies, an `npm run setup` smoke test, and one planted subtle bug.
 - **Participant handouts** — prompt-anatomy card · memory-file/modes cheat-sheet · lethal-trifecta /
   Rule-of-Two card · slopsquatting checklist · personal AI-use framework worksheet.

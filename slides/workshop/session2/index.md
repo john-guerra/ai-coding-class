@@ -674,4 +674,6 @@ git commit -m "Add Linkstash project memory for Claude Code"
 
 **Spec-Driven Development: TDD with the Agent**
 
+[**Next: Session 3 →**](../session3/index.md) · [Workshop index ↑](../index.md)
+
 <small>[johnguerra.co](http://johnguerra.co/)</small>

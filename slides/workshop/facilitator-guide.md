@@ -18,7 +18,7 @@ the live-demo / lab steps, and **cut-lines** (what to drop first if you're behin
 - **Session 1 needs NO setup** — deliberately, to lower the barrier to the first sitting. It runs on
   a browser (tiktokenizer, Claude Web) only.
 - **Pre-work before Session 2** (send after S1): install & authenticate **Claude Code**; clone the
-  **Linkstash** starter repo; run `make setup` (or `npm run setup`) smoke test. Offer a 15-min
+  **Linkstash** starter repo; run `npm run setup` smoke test. Offer a 15-min
   office-hours slot before S2 to catch install failures — this is the #1 derailer.
 - **Room:** each participant on their own machine; you on a projector. Have a **backup recording**
   of each live demo in case a tool misbehaves.
@@ -134,7 +134,7 @@ short; it's the emotional and pedagogical payoff.
 
 ## Linkstash reference — FACILITATOR ONLY (keep out of the student clone)
 
-**Repo:** `github.com/john-guerra/linkstash` (students clone this) · **Setup:** `make setup` → `make test` (5 green) → `make dev` (:3000).
+**Repo:** `github.com/john-guerra/linkstash` (students clone this) · **Setup:** `npm run setup` → `npm test` (5 green) → `npm run dev` (:3000).
 Stack: Node 20+ · Express · SQLite · Vitest. A fresh clone tests green.
 
 ### The lethal trifecta, by design

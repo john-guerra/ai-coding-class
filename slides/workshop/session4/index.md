@@ -568,4 +568,6 @@ Where to go after this workshop:
 
 <small>Speed *with* quality. Verify everything.</small>
 
+[↑ Workshop index](../index.md) · [↺ Restart: Session 1](../session1/index.md)
+
 <small>[johnguerra.co](http://johnguerra.co/)</small>

@@ -18,8 +18,10 @@ project ("Linkstash") end to end.
 
 ## Files
 
+- `index.html` — the **landing hub** (hand-authored, self-contained; deployed as the site root).
 - `session1/index.md` … `session4/index.md` — reveal-md decks (one per session).
-- `facilitator-guide.md` — run-of-show with timings, talking points, and cut-lines.
+- `handouts/*.md` — five participant reference cards (built as decks).
+- `facilitator-guide.md` — run-of-show with timings, talking points, and cut-lines. **Facilitator-only — stripped from the public build** (see Deploying).
 - Reference: `../../docs/research/claude_code_modes_2026.md` — modes / auto mode grounding.
 
 ## Running the slides
@@ -45,13 +47,16 @@ npm run build:workshop    # self-contained static build → dist-workshop/ (asse
 npm run deploy:workshop   # build + rsync to johnguerra:/var/www/lectures/aiCoding_workshop/
 ```
 
-The build serves the `workshop/` folder as its own root, so the landing deck (`index.md`) is the
-site root and sessions live at `/session1/` … `/session4/`. Internal links are rewritten from
-`.md` (dev-server form) to `.html` (static form) during the build.
+The build serves the `workshop/` folder as its own root. The hand-authored `index.html` hub is
+copied in as the site root; sessions live at `/session1/` … `/session4/` and handouts at
+`/handouts/`. Internal `.md` links are rewritten to `.html` (static form) during the build, and the
+facilitator guide + internal READMEs are **stripped** so they never ship publicly.
 
-## Still to produce
+## Done
 
-- **Linkstash starter repo** — small link-saver with a built-in lethal-trifecta surface, a testable
-  URL-validation core, real dependencies, an `npm run setup` smoke test, and one planted subtle bug.
-- **Participant handouts** — prompt-anatomy card · memory-file/modes cheat-sheet · lethal-trifecta /
-  Rule-of-Two card · slopsquatting checklist · personal AI-use framework worksheet.
+- **[Linkstash starter repo](https://github.com/john-guerra/linkstash)** — small link-saver with a
+  built-in lethal-trifecta surface, a tested URL-validation core, real dependencies, an
+  `npm run setup` smoke test, and one planted subtle bug. Students clone it directly.
+- **Participant handouts** — prompt-anatomy · memory & modes · security card · slopsquatting
+  checklist · personal AI-use framework worksheet (in `handouts/`).
+- **Landing hub** — `index.html`, linking sessions · handouts · the Linkstash repo.

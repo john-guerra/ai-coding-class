@@ -800,6 +800,6 @@ We'll discuss **2–3 of the best prompts**.
 
 **Driving Claude Code: Context, Memory & Modes**
 
-[**Next: Session 2 →**](../session2/index.md) · [Workshop index ↑](../index.md)
+[**Next: Session 2 →**](../session2/index.md) · [Workshop index ↑](../index.html)
 
 <small>[johnguerra.co](http://johnguerra.co/)</small>

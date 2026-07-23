@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agentic Engineering — Workshop</title>
+  <meta name="description" content="A hands-on workshop on AI-assisted software engineering. Speed with quality: 4 sessions × 2 hours." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f7f6f2;
+      --surface: #ffffff;
+      --panel: #f2f1ec;
+      --ink: #1d2733;
+      --navy: #16202e;
+      --muted: #626b77;
+      --line: #e7e5de;
+      --accent: #f5811f;
+      --accent-dark: #d96f12;
+      --link: #1257c9;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+      --maxw: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* ---- Hero ---- */
+    .hero {
+      position: relative;
+      padding: 76px 0 60px;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .hero::before {
+      /* single warm spark: a soft ochre glow, top-right */
+      content: "";
+      position: absolute;
+      top: -140px; right: -120px;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(245,129,31,0.16), rgba(245,129,31,0) 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .eyebrow b { color: var(--accent); font-weight: 600; }
+    h1 {
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(2.6rem, 6vw, 4.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--navy);
+    }
+    .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      color: var(--accent-dark);
+      margin: 6px 0 0;
+    }
+    .lede {
+      max-width: 44ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 22px 0 30px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5em;
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent-dark);
+      transition: transform 0.08s ease, background 0.15s ease;
+    }
+    .btn:hover { background: var(--accent-dark); text-decoration: none; transform: translateY(-1px); }
+    .live {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .live a { color: var(--navy); border-bottom: 1px solid var(--line); }
+
+    /* ---- Flow strip ---- */
+    .flow {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      margin: 34px 0 0;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .flow .node {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 5px 12px;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .flow .arr { color: var(--accent); font-weight: 700; }
+
+    /* ---- Section ---- */
+    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 0 0 26px; flex-wrap: wrap; }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--navy);
+      margin: 0;
+      letter-spacing: -0.005em;
+    }
+    h2 .spark { color: var(--accent); }
+    .sec-note { color: var(--muted); font-size: 0.95rem; margin: 0; max-width: 40ch; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid.cards4 { grid-template-columns: repeat(4, 1fr); }
+    .grid.cards5 { grid-template-columns: repeat(3, 1fr); }
+
+    /* ---- Cards ---- */
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 20px 18px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+      color: inherit;
+    }
+    a.card:hover {
+      text-decoration: none;
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(29,39,51,0.08);
+      transform: translateY(-2px);
+    }
+    .card .num {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .card h3 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.18rem;
+      color: var(--navy);
+      margin: 8px 0 8px;
+      line-height: 1.18;
+    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
+    .card .go {
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--link);
+    }
+    a.card:hover .go { color: var(--accent-dark); }
+    .card .tag {
+      align-self: flex-start;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 2px 8px;
+      margin-bottom: 4px;
+    }
+
+    /* ---- Project (feature) card ---- */
+    .project {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 16px;
+      padding: 30px 32px;
+    }
+    .project h3 { font-family: var(--serif); font-weight: 800; font-size: 1.6rem; color: var(--navy); margin: 0 0 10px; }
+    .project p { margin: 0 0 12px; color: var(--ink); }
+    .project .privacy { color: var(--muted); font-size: 0.9rem; }
+    .project .aside {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 22px;
+      color: #eef1f4;
+    }
+    .project .aside .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9fb0c3; margin: 0 0 12px; }
+    pre.code {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      background: #0f1722;
+      color: #d7e2ee;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 0 0 16px;
+      overflow-x: auto;
+      line-height: 1.7;
+    }
+    pre.code .c { color: #7f93a8; }
+    .repo-btn {
+      display: inline-flex; align-items: center; gap: 0.5em;
+      font-family: var(--mono); font-weight: 600; font-size: 0.85rem;
+      color: #fff; background: transparent;
+      border: 1px solid #3a4a5e; border-radius: 999px;
+      padding: 9px 18px;
+    }
+    .repo-btn:hover { border-color: var(--accent); text-decoration: none; }
+
+    /* ---- Footer ---- */
+    footer { padding: 44px 0 56px; text-align: center; }
+    footer .mark { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--navy); }
+    footer .by { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin-top: 10px; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 860px) {
+      .grid.cards4 { grid-template-columns: repeat(2, 1fr); }
+      .grid.cards5 { grid-template-columns: repeat(2, 1fr); }
+      .project { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      body { font-size: 16px; }
+      .hero { padding: 52px 0 44px; }
+      .grid.cards4, .grid.cards5 { grid-template-columns: 1fr; }
+      section { padding: 44px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Workshop · <b>4 × 2 hours</b> · Hands-on</p>
+      <h1>Agentic Engineering</h1>
+      <p class="tagline">Speed <em>with</em> Quality</p>
+      <p class="lede">A hands-on workshop on AI-assisted software engineering — strong fundamentals up front, verification discipline throughout. Session 1 needs no setup; Sessions 2–4 build one small project end to end.</p>
+      <div class="cta-row">
+        <a class="btn" href="session1/index.html">Start: Session 1 &rarr;</a>
+        <span class="live">Live · <a href="https://johnguerra.co/lectures/aiCoding_workshop/">johnguerra.co/lectures/aiCoding_workshop</a></span>
+      </div>
+      <div class="flow" aria-label="Session progression">
+        <span class="node">S1 · Fundamentals</span><span class="arr">&rarr;</span>
+        <span class="node">S2 · Memory &amp; Modes</span><span class="arr">&rarr;</span>
+        <span class="node">S3 · Build &amp; Verify</span><span class="arr">&rarr;</span>
+        <span class="node">S4 · Extend &amp; Secure</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sessions -->
+    <section id="sessions">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>The Four <span class="spark">Sessions</span></h2>
+          <p class="sec-note">Prompt engineering → context engineering → agent engineering, then extend &amp; secure.</p>
+        </div>
+        <div class="grid cards4">
+          <a class="card" href="session1/index.html">
+            <span class="num">SESSION 1</span>
+            <h3>Fundamentals &amp; Prompting</h3>
+            <p>LLM basics by doing · the 3 harnesses compared · prompt engineering. No setup needed.</p>
+            <span class="go">Open deck &rarr;</span>
+          </a>
+          <a class="card" href="session2/index.html">
+            <span class="num">SESSION 2</span>
+            <h3>Context, Memory &amp; Modes</h3>
+            <p>CLAUDE.md hierarchy · <code>@</code>-mentions · <code>/clear</code> &amp; <code>/compact</code> · the modes tour, incl. auto mode.</p>
+            <span class="go">Open deck &rarr;</span>
+          </a>
+          <a class="card" href="session3/index.html">
+            <span class="num">SESSION 3</span>
+            <h3>Build &amp; Verify + Skills/Hooks</h3>
+            <p>Explore-Plan-Implement-Commit · TDD · the 70% problem · skills &amp; hooks.</p>
+            <span class="go">Open deck &rarr;</span>
+          </a>
+          <a class="card" href="session4/index.html">
+            <span class="num">SESSION 4</span>
+            <h3>MCP, Subagents &amp; Security</h3>
+            <p>MCP servers · subagents · a security audit + the oral-defense capstone.</p>
+            <span class="go">Open deck &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project -->
+    <section id="project">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>The <span class="spark">Project</span> — Linkstash</h2>
+          <p class="sec-note">One small app you drive an agent across, Sessions 2–4.</p>
+        </div>
+        <div class="project">
+          <div>
+            <h3>A link-saver you can hold in your head</h3>
+            <p>Save URLs with a title, tags, and a private note; it auto-fetches each page's title, and you can share a digest. Small on purpose — real dependencies, a tested core, and a security surface that's there <em>by design</em>.</p>
+            <p class="privacy">Node 20 · Express · SQLite · Vitest. A fresh clone tests green.</p>
+          </div>
+          <div class="aside">
+            <p class="label">Clone &amp; smoke-test</p>
+            <pre class="code"><span class="c"># get it</span>
+git clone github.com/john-guerra/linkstash
+cd linkstash
+npm run setup   <span class="c"># deps + seed</span>
+npm test        <span class="c"># 5 green ✓</span></pre>
+            <a class="repo-btn" href="https://github.com/john-guerra/linkstash">github.com/john-guerra/linkstash &nearr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Handouts -->
+    <section id="handouts">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Participant <span class="spark">Handouts</span></h2>
+          <p class="sec-note">Five one-page reference cards. Hand out per session or as a packet.</p>
+        </div>
+        <div class="grid cards5">
+          <a class="card" href="handouts/prompt-anatomy.html">
+            <span class="tag">S1</span>
+            <h3>Prompt Anatomy</h3>
+            <p>The 5-component prompt structure, the 4 patterns, the iteration loop.</p>
+            <span class="go">Open card &rarr;</span>
+          </a>
+          <a class="card" href="handouts/memory-and-modes.html">
+            <span class="tag">S2</span>
+            <h3>Memory, Context &amp; Modes</h3>
+            <p>CLAUDE.md hierarchy, context engineering, the modes tour + auto mode.</p>
+            <span class="go">Open card &rarr;</span>
+          </a>
+          <a class="card" href="handouts/security-card.html">
+            <span class="tag">S4</span>
+            <h3>AI Code Security</h3>
+            <p>Lethal trifecta, Rule of Two, the audit tools, risk-tiered gates.</p>
+            <span class="go">Open card &rarr;</span>
+          </a>
+          <a class="card" href="handouts/slopsquatting-checklist.html">
+            <span class="tag">S4</span>
+            <h3>Slopsquatting Defense</h3>
+            <p>Hallucinated-package supply-chain defense checklist.</p>
+            <span class="go">Open card &rarr;</span>
+          </a>
+          <a class="card" href="handouts/ai-use-framework.html">
+            <span class="tag">Close</span>
+            <h3>Personal AI-Use Framework</h3>
+            <p>Your fill-in AI-use framework + anti-deskilling habits.</p>
+            <span class="go">Open card &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="mark">Speed <em>with</em> quality. Verify everything.</p>
+      <p class="by"><a href="http://johnguerra.co/">John Alexis Guerra Gomez</a> · johnguerra.co</p>
+    </div>
+  </footer>
+
+</body>
+</html>

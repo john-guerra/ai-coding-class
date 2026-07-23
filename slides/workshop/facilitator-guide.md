@@ -134,7 +134,7 @@ short; it's the emotional and pedagogical payoff.
 
 ## Linkstash reference — FACILITATOR ONLY (keep out of the student clone)
 
-**Repo:** `examples/linkstash/` · **Setup:** `make setup` → `make test` (5 green) → `make dev` (:3000).
+**Repo:** `github.com/john-guerra/linkstash` (students clone this) · **Setup:** `make setup` → `make test` (5 green) → `make dev` (:3000).
 Stack: Node 20+ · Express · SQLite · Vitest. A fresh clone tests green.
 
 ### The lethal trifecta, by design

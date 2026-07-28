@@ -26,12 +26,13 @@ Build & Verify + Extensibility I
 # What We'll Cover Today
 
 1. Recap — the CLAUDE.md we wrote last session
-2. **Explore → Plan → Implement → Commit** (EPIC)
-3. **TDD** with Claude Code — the quality thesis
-4. Reviewing AI output — the **70% problem**
-5. Extensibility I — **skills + hooks** (solo lab)
+2. **Spec** — deciding what to build, in writing
+3. **Explore → Plan → Implement → Commit** (EPIC)
+4. **TDD** with Claude Code — the quality thesis
+5. Reviewing AI output — the **70% problem**
+6. Extensibility I — **skills + hooks** (solo lab)
 
-<small>Session 3 goal: run the core **spec → TDD → build** loop without letting the agent grade its own work.</small>
+<small>Session 3 goal: run the full **spec → EPIC → TDD → verify** loop without letting the agent grade its own work.</small>
 
 ---
 
@@ -55,9 +56,130 @@ For **Linkstash** — our small link-saver app — we captured:
 
 <!-- .slide: class="divider" -->
 
-# Part 1 — Explore → Plan → Implement → Commit
+# Part 1 — Spec
 
-> The core workflow. Slow down to speed up.
+> Before you plan *how*, decide *what*. In writing.
+
+---
+
+## Three Things Called "Spec"
+
+You'll hear the word three times today. They are **not** the same:
+
+| What | Who writes it | Answers |
+| --- | --- | --- |
+| **`SPEC.md`** | you, with the agent | *what* we're building |
+| **The plan** | the agent | *how* it'll be built |
+| **The failing test** | you | *did it work* |
+
+> A test encodes behavior you **already decided**. The spec is where you decide it.
+
+<!-- vertical -->
+
+## Two Altitudes
+
+<pre class="mermaid">
+%%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 14, 'rankSpacing': 22}}}%%
+flowchart LR
+  I["INTERVIEW"] --> S["SPEC.md"]
+  S --> P["PLAN.md"]
+  P --> E["EPIC × N"]
+  E --> V["VERIFY vs SPEC"]
+</pre>
+
+**Outer loop** — once per *feature*. You own it.
+**Inner loop** — once per *plan item*. The agent owns it.
+
+> The spec is the only thing that survives to the end and gets checked against.
+
+<!-- vertical -->
+
+## When to Skip It
+
+> "If you could describe the diff in **one sentence**, skip the plan."
+
+Anthropic's own guidance — and it applies one altitude up too.
+
+- Typo, log line, rename → just ask.
+- Feature you can't describe in one sentence → **spec first**.
+
+Over-specifying is a real cost: too much implementation detail up front **propagates your errors downstream**.
+
+<small>Source: [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) · [Harness design for long-running apps](https://www.anthropic.com/engineering/harness-design-long-running-apps)</small>
+
+<!-- vertical -->
+
+## Let the Agent Interview You
+
+A blank `SPEC.md` is as hard as a blank page. So don't start there:
+
+```text
+> I want to build [brief description]. Interview me in
+  detail using the AskUserQuestion tool.
+
+  Ask about technical implementation, UI/UX, edge cases,
+  concerns, and tradeoffs. Don't ask obvious questions,
+  dig into the hard parts I might not have considered.
+
+  Keep interviewing until we've covered everything, then
+  write a complete spec to SPEC.md.
+```
+
+<small>Verbatim from [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)</small>
+
+<!-- vertical -->
+
+## What Makes a Spec Good
+
+Score your own `SPEC.md` against four criteria:
+
+| ✓ | The spec... |
+| --- | --- |
+| 1 | is **self-contained** — readable with no chat history |
+| 2 | **names the files and interfaces** involved |
+| 3 | **states what is out of scope** |
+| 4 | ends with an **end-to-end verification step** |
+
+> "Time spent making the spec precise pays off more than time spent watching the implementation."
+
+<!-- vertical -->
+
+## Then Clear, Then Build
+
+Same move as S2's document-then-implement — now with a better document.
+
+```text
+> /clear
+> Implement SPEC.md
+```
+
+A fresh session carries the **spec** and nothing else: no interview transcript, no rejected ideas, no dead ends competing with your code for the window.
+
+<small>The docs say it plainly: *"start a fresh session to execute it."*</small>
+
+---
+
+## Lab — Write a Spec (15 min)
+
+<!-- .slide: class="dense" -->
+
+Solo, on the **Linkstash** feature you brought:
+
+1. Paste the **interview prompt**. Answer honestly — argue back when the agent guesses wrong.
+2. Let it write `SPEC.md`. **Read it.**
+3. Score it against the **four criteria**. Missing one? Say so and have it revised.
+4. `git add SPEC.md && git commit` — the spec ships *before* the code.
+5. `/clear`, then `> Implement SPEC.md`
+
+<small>Success = a committed spec whose out-of-scope section says something you'd otherwise have discovered halfway through.</small>
+
+---
+
+<!-- .slide: class="divider" -->
+
+# Part 2 — Explore → Plan → Implement → Commit
+
+> The inner loop. Slow down to speed up.
 
 ---
 
@@ -152,7 +274,7 @@ flowchart LR
 
 <!-- .slide: class="divider" -->
 
-# Part 2 — TDD with Claude Code
+# Part 3 — TDD with Claude Code
 
 > The heart of the quality thesis.
 
@@ -229,7 +351,7 @@ You:   npm test
 
 <!-- .slide: class="divider" -->
 
-# Part 3 — Reviewing AI Output
+# Part 4 — Reviewing AI Output
 
 > Where the real work lives.
 
@@ -275,6 +397,33 @@ You:   npm test
 
 <!-- vertical -->
 
+## Review the Diff *Against the Spec*
+
+You wrote the criteria down. Now make something else check them:
+
+```text
+> Use a subagent to review the diff against SPEC.md.
+  Check that every requirement is implemented, the listed
+  edge cases have tests, and nothing outside the task's
+  scope changed. Report gaps, not style preferences.
+```
+
+A subagent sees **only the diff and the criteria** — not the reasoning that produced the change. That's the whole point: the agent that did the work isn't the one grading it.
+
+<!-- vertical -->
+
+## But Don't Chase Every Finding
+
+> A reviewer told to find gaps **will** find some — even when the work is sound. That's what you asked it to do.
+
+Chasing all of them buys you over-engineering: extra abstraction, defensive code, tests for cases that can't happen.
+
+**Fix what breaks correctness or a stated requirement. Treat the rest as optional.**
+
+<small>Source: [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — "Add an adversarial review step"</small>
+
+<!-- vertical -->
+
 ## Hunt the Planted Bug (10 min)
 
 The Linkstash starter ships with **one subtle planted bug**.
@@ -290,7 +439,7 @@ The Linkstash starter ships with **one subtle planted bug**.
 
 <!-- .slide: class="divider" -->
 
-# Part 4 — Extensibility I: Skills + Hooks
+# Part 5 — Extensibility I: Skills + Hooks
 
 > Teach the agent your recipes; enforce your rules.
 
@@ -436,10 +585,11 @@ Solo, on **Linkstash**:
 
 ## What to Remember
 
-1. **EPIC** — Explore, Plan, Implement, Commit. Checkpoints catch mistakes early.
-2. **TDD** — you own the spec, the AI owns the code; mind the **verification gap**.
-3. **70% problem** — the last 30% is the real work; review comprehensively.
-4. **Skills = recipes**; **hooks = rules** you can't afford to have forgotten.
+1. **Spec first** — if you can't say it in one sentence, write it down before planning.
+2. **EPIC** — Explore, Plan, Implement, Commit. Checkpoints catch mistakes early.
+3. **TDD** — you own the spec, the AI owns the code; mind the **verification gap**.
+4. **70% problem** — the last 30% is the real work; review the diff *against the spec*.
+5. **Skills = recipes**; **hooks = rules** you can't afford to have forgotten.
 
 <!-- vertical -->
 

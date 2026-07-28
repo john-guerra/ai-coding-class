@@ -13,7 +13,7 @@ revealOptions:
 
 ## Claude Code Workflows
 
-### Explore · Plan · Implement · Commit
+### Spec · Explore · Plan · Implement · Commit
 
 <div class="title-footer">
 

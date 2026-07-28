@@ -470,7 +470,7 @@ All URLs have been verified as of January 2026.
 | 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |
 | 8 | Advanced IDE AI Features | MCP Specification, debugging guides, Antigravity advanced docs |
 | 9 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
-| 10 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), TDD frameworks, GitHub Actions, CI/CD |
+| 10 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), spec-driven development (best-practices, harness design, Böckeler), TDD frameworks, GitHub Actions, CI/CD |
 | 11 | Claude Code Extensibility | Skilljar (MCP, Hooks, SDK), Skills, Hooks, MCP, Sub-agents |
 | 12 | Agent Architectures & SDK | Building Effective Agents, Agent SDK docs, tool use, multi-agent patterns |
 | 13 | AI Security & Code Quality | OWASP, OpenSSF guide, eval frameworks, AI code review, agent safety |

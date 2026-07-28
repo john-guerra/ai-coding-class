@@ -260,6 +260,13 @@ All URLs have been verified as of January 2026.
 | Custom Commands | Creating reusable command workflows | https://anthropic.skilljar.com/claude-code-in-action |
 | GitHub Integration | Automated PR reviews and issue handling | https://anthropic.skilljar.com/claude-code-in-action |
 
+**Spec-Driven Development**
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Claude Code Best Practices — "Let Claude interview you" | The interview prompt and what makes a spec self-contained | https://code.claude.com/docs/en/best-practices |
+| Harness Design for Long-Running Applications | Planner/generator/evaluator, sprint contracts, context resets | https://www.anthropic.com/engineering/harness-design-long-running-apps |
+| Böckeler, "Spec-driven development: 3 levels" (2025-10-15) | spec-first → spec-anchored → spec-as-source, and the MDD warning | https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html |
+
 **TDD & CI/CD**
 | Resource | Description | URL |
 |----------|-------------|-----|

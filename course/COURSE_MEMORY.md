@@ -104,7 +104,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair workflow (scrum for two, design thinking → backlog)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
 | **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
 | **9** | **Claude Code Foundations** | • **PROJECT 2 DUE**<br>• How Claude Code works (agentic loop, built-in tools: Read, Edit, Bash, Glob, Grep, WebFetch)<br>• Installation & setup (CLI, VS Code, Desktop)<br>• CLAUDE.md deep dive (@imports, hierarchy, auto-memory, `/init`)<br>• Tool use system & permission model (allowlists, sandboxing)<br>• Context management (`/clear`, `/compact`, checkpoints, `--continue`, `--resume`)<br>• Thinking & planning modes (Plan mode, `Ctrl+G`, extended thinking)<br>• **P3 team formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 9 | **P2:** Final<br>**P3:** Team formation & Start |
-| **10** | **Claude Code Workflows & Dev Practices** | • Explore → Plan → Implement → Commit workflow<br>• TDD with Claude Code (write failing tests → AI implements → refactor)<br>• Git & GitHub integration (commits, branches, PRs through CC)<br>• CI/CD via Claude Code & GitHub Actions (`claude -p` for PR review)<br>• Visual debugging (screenshots, Chrome extension)<br>• Non-interactive mode & scripting (`claude -p`, JSON output, fan-out patterns) | **HW4 DUE:** CC Workflow & TDD<br>Weekly Quiz 10 | **P3:** Sprint 1 |
+| **10** | **Claude Code Workflows & Dev Practices** | • **Spec-driven development** (interview → SPEC.md → plan; spec-first/anchored/as-source; Spec Kit)<br>• Explore → Plan → Implement → Commit workflow<br>• TDD with Claude Code (write failing tests → AI implements → refactor)<br>• Git & GitHub integration (commits, branches, PRs through CC)<br>• CI/CD via Claude Code & GitHub Actions (`claude -p` for PR review)<br>• Visual debugging (screenshots, Chrome extension)<br>• Non-interactive mode & scripting (`claude -p`, JSON output, fan-out patterns) | **HW4 DUE:** CC Workflow & TDD<br>Weekly Quiz 10 | **P3:** Sprint 1 |
 | **11** | **Claude Code Extensibility** | • Skills & custom commands (`.claude/skills/`, slash commands)<br>• Hooks (PreToolUse, PostToolUse, Stop — deterministic vs advisory)<br>• MCP servers (Model Context Protocol, `claude mcp add`, databases, Figma, Playwright)<br>• Custom sub-agents (`.claude/agents/`, isolated context, specialized reviewers)<br>• Plugins & plugin marketplace<br>• Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 11 | **P3:** Sprint 2 |
 | **12** | **Agent Architectures & SDK** | • Agent fundamentals (agent vs workflow, augmented LLM)<br>• Anthropic's 6 agent patterns:<br>&nbsp;&nbsp;- Prompt Chaining, Routing, Parallelization<br>&nbsp;&nbsp;- Orchestrator-Workers, Evaluator-Optimizer, Autonomous<br>• Claude Agent SDK (Python/TypeScript, `query()`, hooks, sessions)<br>• Multi-agent coordination & message passing<br>• Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Skill + MCP<br>Weekly Quiz 12 | **P3:** Sprint 3 |
 | **13** | **AI Security & Code Quality** | • Agent safety & evaluation<br>• The security problem (45% of AI code has OWASP vulnerabilities)<br>• The 8-gate security pipeline<br>• Slopsquatting<br>• Ethics & professional responsibility<br>• AI code review automation (Claude Code in GitHub Actions)<br>• Eval awareness & integrity | Weekly Quiz 13 | **P3:** Sprint 4 |
@@ -490,13 +490,15 @@ Set up Claude Code for your P3 project:
 - Demonstrate `/init` output and iterate on CLAUDE.md based on it
 - Show context management strategy (`/clear`, `/compact`, `--continue`)
 
-**Part 2: Explore → Plan → Implement → Commit (30%)**
-Use Claude Code's recommended 4-phase workflow on a real P3 feature:
+**Part 2: Spec → Explore → Plan → Implement → Commit (30%)**
+Pick a P3 feature you cannot describe in one sentence, then run both loops:
+- **Spec:** Run the interview prompt; commit `SPEC.md` **before any implementation commit**; `/clear` and implement from the spec alone
+- Spec graded on four criteria: self-contained · names files & interfaces · states out-of-scope · ends with an end-to-end verification step
 - **Explore:** Use Glob, Grep, Read to understand existing code
 - **Plan:** Use Plan mode to design the approach
 - **Implement:** Execute the plan with Claude Code
 - **Commit:** Create clean commits with meaningful messages
-- Git history must clearly show this workflow
+- Git history must clearly show this workflow and the spec-before-code ordering
 
 **Part 3: TDD with Claude Code (30%)**
 Build a P3 feature using strict TDD through Claude Code:
@@ -508,18 +510,20 @@ Build a P3 feature using strict TDD through Claude Code:
 
 **Part 4: Reflection (15%)**
 - How does the Explore→Plan→Implement→Commit workflow compare to your previous approach?
+- Did writing the spec change what you built, compared to going straight to a plan?
 - What context management strategies worked best?
 - Annotated Claude Code session log showing your workflow
 
 **Deliverables:**
 - P3 repository with CLAUDE.md and permissions config
+- `SPEC.md`, committed before the first implementation commit
 - Feature code with TDD git history (red-green-refactor commits)
 - Annotated Claude Code session log
 - Reflection document (1-2 pages)
 
 **Rubric (50 points):**
 - CLAUDE.md & project setup: 25%
-- Explore→Plan→Implement→Commit workflow: 30%
+- Spec→Explore→Plan→Implement→Commit workflow: 30%
 - TDD process through Claude Code: 30%
 - Reflection & session log: 15%
 

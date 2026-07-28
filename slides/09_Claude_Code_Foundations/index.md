@@ -863,6 +863,8 @@ Try this four-step workflow on a simple task:
 
 This is the workflow you'll use daily in P3.
 
+<small>For features too big to describe in one sentence, a **written spec** sits one altitude above this loop -- next week.</small>
+
 ---
 
 # This Week's Deliverables
@@ -888,6 +890,7 @@ This is the workflow you'll use daily in P3.
 
 ## Week 10: Claude Code Workflows & TDD
 
+- **Specs before plans** -- writing the spec the plan is generated from
 - **Explore -> Plan -> Implement -> Commit** workflow in depth
 - **TDD with Claude Code** -- red-green-refactor with AI assistance
 - **Git & GitHub integration** -- commits, PRs, code review through Claude Code

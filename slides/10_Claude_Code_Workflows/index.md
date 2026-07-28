@@ -32,15 +32,16 @@ revealOptions:
 # What We'll Cover Today
 
 1. Where We Are -- Week 10 checkpoint
-2. Explore -> Plan -> Implement -> Commit
-3. TDD with Claude Code
-4. Git & GitHub Integration
-5. CI/CD as Claude Code Workflows
-6. Hooks for Quality Enforcement
-7. Visual Communication & Debugging
-8. Non-Interactive Mode & Scripting
-9. Evaluation Systems (LLM-as-Judge)
-10. Hands-on Lab
+2. **Specs Before Plans**
+3. Explore -> Plan -> Implement -> Commit
+4. TDD with Claude Code
+5. Git & GitHub Integration
+6. CI/CD as Claude Code Workflows
+7. Hooks for Quality Enforcement
+8. Visual Communication & Debugging
+9. Non-Interactive Mode & Scripting
+10. Evaluation Systems (LLM-as-Judge)
+11. Hands-on Lab
 
 ---
 
@@ -76,6 +77,197 @@ Today's workflows are what you'll use **daily** for the rest of P3.
 
 ---
 
+# Specs Before Plans
+
+> Where does the plan come from?
+
+<!-- vertical -->
+
+## Three Things Called "Spec"
+
+| What | Who writes it | Answers |
+| --- | --- | --- |
+| **`SPEC.md`** | you, with the agent | *what* we're building |
+| **The plan** | the agent | *how* it'll be built |
+| **The failing test** | you | *did it work* |
+
+A test encodes behavior you **already decided**. The spec is where you decide it.
+
+<!-- vertical -->
+
+## Two Altitudes
+
+<pre class="mermaid">
+%%{init: {'theme': 'default', 'flowchart': {'nodeSpacing': 14, 'rankSpacing': 22}}}%%
+flowchart LR
+  I["INTERVIEW"] --> S["SPEC.md"]
+  S --> P["PLAN.md"]
+  P --> E["EPIC × N"]
+  E --> V["VERIFY vs SPEC"]
+</pre>
+
+**Outer loop** -- once per *feature*. The human owns it.
+**Inner loop** -- once per *plan item*. The agent owns it.
+
+<small>Matches what Anthropic measured across ~400k sessions: humans make **~70%** of planning decisions, agents **~80%** of execution decisions. <a href="https://www.anthropic.com/research/claude-code-expertise">Source</a></small>
+
+<!-- vertical -->
+
+## When NOT to Write a Spec
+
+> "If you could describe the diff in **one sentence**, skip the plan."
+
+The same test one altitude up gives you the spec trigger.
+
+| Situation | Do |
+| --- | --- |
+| Typo, log line, rename | Just ask |
+| Multi-file, unfamiliar, risky | Plan mode |
+| Can't describe it in one sentence | **Spec first** |
+
+Over-specifying has a cost too: premature implementation detail **propagates your errors downstream**.
+
+<small>Source: [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic</small>
+
+<!-- vertical -->
+
+## Let the Agent Interview You
+
+A blank `SPEC.md` is as hard as a blank page:
+
+```text
+> I want to build [brief description]. Interview me in
+  detail using the AskUserQuestion tool.
+
+  Ask about technical implementation, UI/UX, edge cases,
+  concerns, and tradeoffs. Don't ask obvious questions,
+  dig into the hard parts I might not have considered.
+
+  Keep interviewing until we've covered everything, then
+  write a complete spec to SPEC.md.
+```
+
+<small>Verbatim from [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic</small>
+
+<!-- vertical -->
+
+## What Makes a Spec Good
+
+| # | The spec... |
+| --- | --- |
+| 1 | is **self-contained** -- readable with no chat history |
+| 2 | **names the files and interfaces** involved |
+| 3 | **states what is out of scope** |
+| 4 | ends with an **end-to-end verification step** |
+
+> "Time spent making the spec precise pays off more than time spent watching the implementation."
+
+Then `/clear` and implement from the spec alone -- *"start a fresh session to execute it."*
+
+<!-- vertical -->
+
+## Böckeler's Maturity Ladder
+
+<!-- .slide: class="dense" -->
+
+| Level | The spec is... |
+| --- | --- |
+| **spec-first** | written first, used for the task at hand |
+| **spec-anchored** | kept after the task, for evolution & maintenance |
+| **spec-as-source** | the main source file; the human never touches code |
+
+> Spec-as-source risks combining "the downsides of both MDD and LLMs: **Inflexibility *and* non-determinism**."
+
+**This course targets spec-first**; spec-anchored is the team practice for P3. The ladder is a set of tradeoffs, not a staircase to climb.
+
+<small>Source: [Birgitta Böckeler, 2025-10-15](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) — martinfowler.com</small>
+
+<!-- vertical -->
+
+## The Artifact Lifecycle
+
+```text
+specs/            durable -- the WHY
+  004-tagging.md      <- cited by src/tags.ts
+plans/            executable -- spent on merge
+  004-tagging-plan.md
+completed_plans/  history
+```
+
+- Source files cite their spec; the spec index marks which specs are **overtaken**.
+- A shipped or abandoned plan **must leave** the "what to build next" folder.
+- A stale entry point is **worse than none**.
+
+<!-- vertical -->
+
+## Spec Kit -- The Pattern, Productized
+
+GitHub's SDD toolkit (MIT, 124.3k stars) makes every step a committed markdown file:
+
+```text
+/speckit.constitution  ->  project principles
+/speckit.specify       ->  requirements & user stories
+/speckit.plan          ->  technical strategy
+/speckit.tasks         ->  actionable task list
+/speckit.implement     ->  execute
+```
+
+Its rule for the spec phase is the same separation: **"focus on the *what* and *why*, not the tech stack."**
+
+<small>Source: [github/spec-kit](https://github.com/github/spec-kit) · awareness, not a required tool</small>
+
+<!-- vertical -->
+
+## The Plan Is Becoming an Artifact Too
+
+<!-- .slide: class="dense" -->
+
+**ultraplan** (research preview) drafts a plan in a cloud session, then:
+
+- **Comment on individual sections** -- plan review as *document* review.
+- **Approve → new session** -- "begin fresh with only the plan as context."
+- **Cancel** -- the plan is **saved to a file**.
+
+Locally: `Ctrl+G` edits the plan in your editor; `showClearContextOnPlanAccept` adds "approve **and clear the planning context**."
+
+<small>Source: [ultraplan](https://code.claude.com/docs/en/ultraplan) · [Permission modes](https://code.claude.com/docs/en/permission-modes) — Anthropic</small>
+
+<!-- vertical -->
+
+## Verify the Diff *Against* the Spec
+
+```text
+> Use a subagent to review the diff against SPEC.md.
+  Check that every requirement is implemented, the listed
+  edge cases have tests, and nothing outside the task's
+  scope changed. Report gaps, not style preferences.
+```
+
+A fresh reviewer sees **only the diff and the criteria** -- not the reasoning that produced the change.
+
+> But a reviewer told to find gaps **will** find some. Fix what breaks correctness or a stated requirement; chasing the rest buys over-engineering.
+
+<small>Source: [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic</small>
+
+<!-- vertical -->
+
+## Which Scaffolding Survives?
+
+Anthropic built a planner/generator/**evaluator** harness. When Opus 4.6 shipped, the evaluator became **optional**.
+
+> "Every component in a harness encodes an assumption about what the model **can't do on its own**."
+
+| Component compensates for... | Fate |
+| --- | --- |
+| A **model** limitation | Dissolves as models improve |
+| Information **only the human has** | Survives |
+
+The evaluator was the first. **The spec is the second.**
+
+<small>Multi-agent harnesses in depth: **Week 12**. Source: [Harness design](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic</small>
+
+---
+
 # Explore -> Plan -> Implement -> Commit
 
 > Anthropic's recommended 4-phase development pattern
@@ -96,7 +288,7 @@ flowchart LR
 
 Each phase has a different **mental mode** and **Claude Code usage pattern**.
 
-<small>Source: [Best Practices for Claude Code](https://docs.anthropic.com/en/docs/claude-code/best-practices) — Anthropic</small>
+<small>Source: [Best Practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic</small>
 
 <!-- vertical -->
 
@@ -237,7 +429,7 @@ Skills and plugins can add more structure — but the pattern starts with you.
 
 Anthropic calls giving Claude verification **"the single highest-leverage thing"** you can do when coding with AI. TDD is the most powerful form of this.
 
-<small>Source: [Best Practices for Claude Code](https://docs.anthropic.com/en/docs/claude-code/best-practices) — Anthropic</small>
+<small>Source: [Best Practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic</small>
 
 **Why?** AI-generated code needs a **verification mechanism**:
 
@@ -245,6 +437,8 @@ Anthropic calls giving Claude verification **"the single highest-leverage thing"
 - With tests: you run them and **know** if it's correct
 
 Tests are the **specification**. Claude Code writes code to meet the spec.
+
+<small>Both senses of "spec" have a job: `SPEC.md` **decides** the behavior, the test **encodes** it. The test is the part the agent can't argue with.</small>
 
 <!-- vertical -->
 

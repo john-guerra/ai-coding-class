@@ -496,6 +496,20 @@ Autonomy = **which actions need a "yes":**
 
 <!-- vertical -->
 
+## A Plan Is an Artifact, Not a Reply
+
+The plan is a **document you can edit** — not a message to accept or reject.
+
+- `Ctrl+G` — open it in your editor, change it, then approve.
+- Approving can **clear the planning context** — implementation starts clean.
+- Cancel and it's **saved to a file** for later.
+
+> Which raises next session's question: *where does the plan come from?*
+
+<small>Source: [Permission modes](https://code.claude.com/docs/en/permission-modes) · [ultraplan](https://code.claude.com/docs/en/ultraplan) (research preview)</small>
+
+<!-- vertical -->
+
 ## Plan Mode Is the Pro Habit
 
 `Shift+Tab` → the agent explores and proposes a plan, **makes no edits** until you approve.
@@ -661,10 +675,10 @@ git commit -m "Add Linkstash project memory for Claude Code"
 ## Before Session 3 (pre-work)
 
 - Make sure your **Linkstash `CLAUDE.md`** is committed.
-- Skim the current Linkstash features — bring one you'd like to add.
+- Bring **one feature you'd like to add** — and *don't* design it yet. We'll do that together.
 - Try one task in **plan mode** before next time.
 
-> Next time: **spec → tests → let the agent build to green.**
+> Next time: **spec → EPIC → tests → let the agent build to green.**
 
 ---
 

@@ -9,7 +9,7 @@ from the CS 7180 "Vibe Coding" course. Delivered as **4 sessions × 2 hours**.
 |---|---|---|---|
 | **1** | Fundamentals & Prompting | LLM basics by doing · the 3 harnesses compared (≥30 min) · prompt engineering | Prompt lab (no setup needed) |
 | **2** | Context, Memory & Modes | CLAUDE.md hierarchy · `@`-mentions · `/clear`/`/compact` · modes tour incl. **auto mode** | CLAUDE.md build-along |
-| **3** | Build & Verify + Skills/Hooks | Explore-Plan-Implement-Commit · TDD ("do not modify the tests") · the 70% problem | TDD build-along + skills/hooks lab |
+| **3** | Build & Verify + Skills/Hooks | Spec authoring (interview → `SPEC.md`) · Explore-Plan-Implement-Commit · TDD ("do not modify the tests") · the 70% problem | Spec lab + TDD build-along + skills/hooks lab |
 | **4** | MCP, Subagents & Security | MCP servers · subagents · plugins (awareness) · security audit + lethal trifecta | MCP build-along + oral-defense capstone |
 
 **Through-line:** the *buildable* Claude Code layer, with strong fundamentals up front and
@@ -20,7 +20,7 @@ project ("Linkstash") end to end.
 
 - `index.html` — the **landing hub** (hand-authored, self-contained; deployed as the site root).
 - `session1/index.md` … `session4/index.md` — reveal-md decks (one per session).
-- `handouts/*.md` — six participant reference cards, published as **standalone printable HTML** (via `build-handouts.mjs`), not reveal.js decks.
+- `handouts/*.md` — seven participant reference cards, published as **standalone printable HTML** (via `build-handouts.mjs`), not reveal.js decks.
 - `build-handouts.mjs` — renders the handout Markdown into the Ink & Ochre printable template.
 - `facilitator-guide.md` — run-of-show with timings, talking points, and cut-lines. **Facilitator-only — stripped from the public build** (see Deploying).
 - Reference: `../../docs/research/claude_code_modes_2026.md` — modes / auto mode grounding.

@@ -81,20 +81,28 @@ loop*. Keep CLAUDE.md under ~200 lines.
 
 ## SESSION 3 — Build & Verify + Extensibility I
 
-**Goal:** run the core spec→TDD→build loop without letting the agent grade its own work; build a
-first real extension (a skill + hooks).
+**Goal:** run the full spec→EPIC→TDD→verify loop without letting the agent grade its own work; build
+a first real extension (a skill + hooks).
 
 | Time | Segment | Notes |
 |---|---|---|
 | 0:00–0:05 | Recap | Callback to CLAUDE.md; today we *use* it. |
-| 0:05–1:00 | **Spec → TDD → build** | **Explore-Plan-Implement-Commit** on a Linkstash feature. TDD: write a failing test, then *"implement to green — do not modify the tests."* The load-bearing rule: *you own the spec, the AI owns the implementation, so it can't validate its own bugs.* Then review AI output → the **70% problem** → hunt the **planted bug**. |
+| 0:05–0:20 | **Spec** *(new)* | Name the vocabulary collision first — `SPEC.md` / the plan / the failing test are three different things. **Two altitudes**: the spec loop runs once per feature, EPIC runs once per plan item inside it. Trigger rule: *"if you could describe the diff in one sentence, skip it."* Run the **interview prompt** live, then have participants score their own `SPEC.md` against the **four criteria** (self-contained · names files & interfaces · states out-of-scope · ends in an end-to-end verification step). Commit the spec, `/clear`, then implement. |
+| 0:20–1:00 | **EPIC → TDD → review** | **Explore-Plan-Implement-Commit** on the specced Linkstash feature. TDD: write a failing test, then *"implement to green — do not modify the tests."* The load-bearing rule: *you own the spec, the AI owns the implementation, so it can't validate its own bugs.* Then review AI output → **review the diff against `SPEC.md`** with a subagent (and the don't-chase-every-finding caveat) → the **70% problem** → hunt the **planted bug**. |
 | 1:00–1:10 | **Break** | |
 | 1:10–1:55 | **Extensibility I: Skills + Hooks** *(solo lab)* | Build a **skill** (`fix-issue`-style, `.claude/skills/`). Wire a **PostToolUse** Prettier hook + a **PreToolUse** protected-file block (`.env`, exit code 2). Test both. Framing: **CLAUDE.md is advisory (~90%); a hook is deterministic (100%)** — "if you'd be upset when the rule is broken, use a hook." |
 | 1:55–2:00 | Wrap + preview | "Next: connect the agent to real tools (MCP) + delegate to subagents, then secure it all." |
 
-**Cut-lines:** the planted-bug hunt can shrink to a 3-min demo; the hook lab can drop the
-protected-file block and keep just Prettier. **Protect** the TDD "do not modify the tests" beat —
-it's the spine of the whole workshop's quality thesis.
+**Cut-lines:** the spec lab can shrink to a 5-min live demo of the interview (participants watch, then
+reuse the prompt at home); the planted-bug hunt can shrink to a 3-min demo; the hook lab can drop the
+protected-file block and keep just Prettier. **Protect** two beats — the **four criteria** applied to
+the participant's own spec, and the TDD "do not modify the tests" line. Those are the spine of the
+whole workshop's quality thesis: the human owns the criteria, the agent owns the code, and the agent
+never grades itself.
+
+**Timing risk:** this session is the fullest of the four. The 15 minutes for the spec segment come out
+of what used to be a 55-minute build block — if the room is slow on setup, cut the spec *lab*, not the
+four-criteria explanation.
 
 ---
 

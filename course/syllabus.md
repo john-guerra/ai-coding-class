@@ -1,21 +1,50 @@
-**CS 6983: Special Topics in AI**
-**Vibe Coding — AI-Assisted Software Engineering**
+<!--
+The title block is raw OpenXML, copied from the formatting of the instructor's
+original Word document: centred 16pt bold title, centred affiliation, then a
+left-aligned bold-label block. Markdown cannot express centring or hard line
+breaks inside a paragraph, and plain markdown collapsed all of these onto one
+line. Edit the text inside the <w:t> elements; leave the structure alone.
+Remember to XML-escape: & becomes &amp;.
+-->
 
-Graduate Course, Khoury College of Computer Sciences
-Northeastern University, Oakland Campus
-Fall 2026 Semester
-
-**Term:** September 9 – December 13, 2026. **Finals:** December 14–20, 2026 (no class meetings; Project 3 is submitted during finals week).
-
-**Sections:**
-
-- **Oakland / Online:** Tuesday & Friday, 10:35 AM–12:15 PM PT — room TBD
-- **San Jose:** Wednesday, 1:00 PM–4:20 PM PT — room TBD
-
-**No class:** Oct 12 (Indigenous Peoples' Day), Nov 11 (Veterans Day), Nov 25–29 (Fall Break; classes resume Mon Nov 30).
-
-**Instructor:** John Alexis Guerra Gomez
-**Email:** jguerra@northeastern.edu
+```{=openxml}
+<w:p>
+  <w:pPr><w:jc w:val="center"/></w:pPr>
+  <w:r><w:rPr><w:b/><w:bCs/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr><w:t>CS 6983: Special Topics in AI</w:t></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr><w:t>Vibe Coding - AI-Assisted Software Engineering</w:t></w:r>
+</w:p>
+<w:p>
+  <w:pPr><w:jc w:val="center"/></w:pPr>
+  <w:r><w:t>Graduate Course, Khoury College of Computer Sciences</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:t>Northeastern University, Oakland Campus</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:t>Fall 2026 Semester</w:t></w:r>
+</w:p>
+<w:p>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">Class Hours: </w:t></w:r>
+  <w:r><w:t>Oakland / Online - Tuesday &amp; Friday, 10:35 AM-12:15 PM PT</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">                     </w:t></w:r>
+  <w:r><w:t>San Jose - Wednesday, 1:00 PM-4:20 PM PT</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">Class Location: </w:t></w:r>
+  <w:r><w:t>Rooms TBD (confirm with the registrar)</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">Term: </w:t></w:r>
+  <w:r><w:t>September 9 - December 13, 2026. Finals: December 14-20, 2026 (no class meetings; Project 3 is submitted during finals week).</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">No class: </w:t></w:r>
+  <w:r><w:t>Oct 12 (Indigenous Peoples' Day), Nov 11 (Veterans Day), Nov 25-29 (Fall Break; classes resume Mon Nov 30).</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">Instructor: </w:t></w:r>
+  <w:r><w:t>John Alexis Guerra Gomez</w:t></w:r>
+  <w:r><w:br/></w:r>
+  <w:r><w:rPr><w:b/><w:bCs/></w:rPr><w:t xml:space="preserve">Email: </w:t></w:r>
+  <w:r><w:t>jguerra@northeastern.edu</w:t></w:r>
+</w:p>
+```
 
 # 1. Objectives and Course Description
 
@@ -79,9 +108,9 @@ Week 12 is shortened by Fall Break (Nov 25–29): only Monday and Tuesday are cl
 
 # 3. Course Assessment
 
-**Participation (15%):** 7% pre-class questions + 8% lottery points
-**Weekly Quizzes (10%):** Concept quizzes on Canvas (2 lowest dropped)
-**Homeworks (25%):** 5 assignments (5% each) building toward projects
+**Participation (15%):** 7% pre-class questions + 8% lottery points\
+**Weekly Quizzes (10%):** Concept quizzes on Canvas (2 lowest dropped)\
+**Homeworks (25%):** 5 assignments (5% each) building toward projects\
 **Projects (50%):** Project 1 (13%), Project 2 (18%), Project 3 (19%)
 
 ## Considerations
@@ -335,11 +364,3 @@ Critical module covering transformer architecture, tokens, context windows, hall
 This demanding course requires strong time management. Don't hesitate to ask for help. Extensions available for legitimate reasons. Mental health resources through university counseling.
 
 By the end of this course, you will have a portfolio of 3 production-ready applications, mastery of AI-assisted development tools, and the professional engineering practices needed to succeed in Silicon Valley. Let's build something amazing!
-
-**Version History**
-
-| Version | Date | Changes |
-|---------|------|---------|
-| v1.0 | January 2026 | Initial syllabus with No-AI Challenge (pass/fail midterm) |
-| v2.0 | January 22, 2026 | Replaced No-AI Challenge with Weekly Quizzes (10%). Adjusted grading: Participation 20%→15%, Projects 55%→50% |
-| v3.0 | August 7, 2026 | Fall 2026 offering. CS 7180 → CS 6983. 14 weeks + Finals. The three AI coding paradigms are now called *harnesses*. Homeworks 6 → 5 (5% each). Grade scale corrected: F is 0.00–64.99, closing an unmapped 60–64.99 band. Cursor replaced by Antigravity. Two sections (Oakland/Online, San Jose) |

@@ -159,6 +159,7 @@ course/assessments/*-answer-key.md
 
 # Generated PDFs
 course/*.pdf
+course/archive/**/*.pdf
 
 # Playwright test results
 slides/test-results/

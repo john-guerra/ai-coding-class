@@ -50,8 +50,8 @@ aiCoding_Course/
 │   ├── handouts/                 # Supplementary handouts (PDF + source)
 │   │   └── public-api-guide.md   # P2 Public API requirements guide
 │   └── assignments/              # Homework specifications
-│       ├── hw1-mom-test.md
-│       ├── hw2-prompt-engineering.md
+│       ├── hw1-prompt-engineering.md
+│       ├── hw2-mom-test.md
 │       ├── hw3-context-engineering.md
 │       ├── hw4-claude-code-workflow-tdd.md
 │       └── hw5-custom-skill-mcp.md
@@ -95,7 +95,7 @@ aiCoding_Course/
 - That repo's remote: `git@github.com:john-guerra/homepageJohnGuerra.git` (branch `main`).
 - Website files are **not tracked in this (ai-coding-class) repo**; commits/pushes for them happen in the `homepageJohnGuerra` repo. The `website` symlink itself is local-only (not tracked).
 - **Per-semester folders:** each offering has its own `classes/<course>_<term>_<year>/` folder. `aiCoding_spring_2026/` is the **legacy Spring 2026 (CS 7180)** site — keep it as-is. `aiCoding_fall_2026/` is the current **Fall 2026 (CS 6983)** site the symlink points to.
-- Fall folder's own URLs use `aiCoding_fall_2026` / `slidesBase = .../aiCoding_fall2026/`. The slides deploy path in `slides/package.json` now targets `aiCoding_fall2026` (matches the website `slidesBase` — done in commit `aadf85e`), so the lecture links resolve; run `npm run deploy` to publish the lectures there. Still open: the Fall folder carries the old `CS7180_VibeCoding_Syllabus.docx` — regenerate a CS 6983 version.
+- Fall folder's own URLs use `aiCoding_fall_2026` / `slidesBase = .../aiCoding_fall2026/`. The slides deploy path in `slides/package.json` now targets `aiCoding_fall2026` (matches the website `slidesBase` — done in commit `aadf85e`), so the lecture links resolve; run `npm run deploy` to publish the lectures there. Still open: the Fall folder carries the old `CS7180_VibeCoding_Syllabus.docx` — replace it with `course/CS6983_VibeCoding_Syllabus_f26.docx` (built from `course/syllabus.md`; see `course/CLAUDE.md`).
 
 **⚠️ Pushing this repo publishes the instructor's live website. Do NOT push `homepageJohnGuerra` without explicit approval.** Also pull it before editing — it receives student-PR merges, so a local checkout may be stale.
 

@@ -1,6 +1,6 @@
 # HW2: Mom Test Interviews + User Stories
 
-**Weight:** 4% of final grade
+**Weight:** 5% of final grade
 **Due:** Week 5
 
 ## Objective

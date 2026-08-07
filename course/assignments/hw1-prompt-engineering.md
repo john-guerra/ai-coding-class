@@ -1,6 +1,6 @@
 # HW1: Prompt Engineering Battle
 
-**Weight:** 4% of final grade
+**Weight:** 5% of final grade
 **Due:** Week 4
 
 ## Objective

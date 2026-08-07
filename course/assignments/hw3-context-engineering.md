@@ -1,6 +1,6 @@
 # HW3: Context Engineering — Rules & Process for Your P2 Project
 
-**Weight:** 4% of final grade
+**Weight:** 5% of final grade
 **Due:** Week 8
 
 ## Objective

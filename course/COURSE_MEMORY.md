@@ -81,7 +81,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 - C+: 73-76
 - C: 69-72
 - C-: 65-68
-- F: 0-59
+- F: 0-64
 
 ### Late Policy
 - **Homeworks:** 10% off per day (max 3 days)
@@ -189,7 +189,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ## 5. PROJECTS (55% of Grade)
 
-### Project 1: Personal Utility App — Claude Web Artifact (15%) - Due Week 6
+### Project 1: Personal Utility App — Claude Web Artifact (13%) - Due Week 6
 
 **Objective:** Master the Claude Web harness by building a real solution as an artifact
 

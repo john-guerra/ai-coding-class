@@ -45,13 +45,11 @@ Five scaffolding assignments that feed directly into the projects:
 
 | # | Assignment | Week |
 |---|-----------|------|
-| HW1 | [Prompt Engineering Battle](course/assignments/hw2-prompt-engineering.md) | 4 |
-| HW2 | [Mom Test Interviews + User Stories](course/assignments/hw1-mom-test.md) | 5 |
+| HW1 | [Prompt Engineering Battle](course/assignments/hw1-prompt-engineering.md) | 4 |
+| HW2 | [Mom Test Interviews + User Stories](course/assignments/hw2-mom-test.md) | 5 |
 | HW3 | [Context Engineering (Rules + Scrum)](course/assignments/hw3-context-engineering.md) | 8 |
 | HW4 | [Claude Code Workflow & TDD](course/assignments/hw4-claude-code-workflow-tdd.md) | 10 |
 | HW5 | [Custom Skill + MCP Integration](course/assignments/hw5-custom-skill-mcp.md) | 12 |
-
-> ℹ️ File names (`hw1-mom-test.md`, `hw2-prompt-engineering.md`) are swapped relative to their HW numbers for historical reasons — the links above point to the correct content.
 
 ## Assessment
 

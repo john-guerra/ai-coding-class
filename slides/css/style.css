@@ -441,7 +441,10 @@
 
 /* Stat / anchor — <!-- .slide: class="stat" --> : the h2 is the big number */
 .reveal section.stat h2 { font-size: 128px; font-weight: 900; color: var(--accent); line-height: 0.95; }
-.reveal section.stat p { font-size: 28px; color: #39424e; max-width: 24ch; }
+.reveal section.stat p { font-size: 28px; color: #39424e; max-width: 34ch; }
+/* the eyebrow and the source/caption line are labels, not prose — no measure cap */
+.reveal section.stat p:has(.course-week),
+.reveal section.stat p:has(> small) { max-width: none; }
 .reveal section.stat strong { color: var(--ink); }
 
 /* Statement (sparse) — <!-- .slide: class="statement" --> : one large idea */

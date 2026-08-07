@@ -95,9 +95,12 @@ check("1. all 11 sections present", not missing, f"missing: {missing}" if missin
 gone = [b for b in BOILERPLATE if b not in text]
 check("2. NU boilerplate present", not gone, f"missing: {gone}" if gone else "")
 
-# Check 2b: stale terminology is gone
-stale = [f for f in FORBIDDEN if f.lower() in text.lower()]
-check("2b. no stale terminology", not stale, f"found: {stale}" if stale else "")
+# Check 2b: stale terminology is gone from the BODY.
+# The Version History table legitimately names what changed ("CS 7180 -> CS 6983",
+# "Replaced No-AI Challenge"), so it is excluded from this check.
+body = text.split("Version History")[0]
+stale = [f for f in FORBIDDEN if f.lower() in body.lower()]
+check("2b. no stale terminology in body", not stale, f"found: {stale}" if stale else "")
 
 # Check 3: style fidelity -- semantic, not byte-wise.
 # pandoc reserializes XML (attribute order, self-closing whitespace) and appends

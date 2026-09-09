@@ -16,7 +16,9 @@
 - **Institution:** Northeastern University, Khoury College of Computer Sciences
 - **Campus:** Oakland, California
 - **Semester:** Fall 2026 (term: Sep 9 – Dec 13, 2026; Finals Dec 14–20)
-- **Sections:** Oakland/Online — Tue & Fri 10:35 AM–12:15 PM PT; San Jose — Wed 1:00–4:20 PM PT
+- **Sections:** Oakland/Online (hybrid: in-person + live remote across the NEU network) — Tue & Fri 10:35 AM–12:15 PM PT; San Jose (in person) — Wed 1:00–4:20 PM PT
+- **Slack workspaces:** Oakland/Hybrid → `aicodingneu` (aicodingneu.slack.com); San Jose → `aicodingneusj` (aicodingneusj.slack.com)
+- **Canvas courses:** one per section — **`270068`** *Fall 2026 AI Coding Oak/Hybrid* (`CS6983.MERGED`) and **`270077`** *Fall2026 AI Coding San Jose* (`CS6983.24548.202710`). ⚠️ Always pass `course_id` explicitly; the legacy `246270` is the **Spring 2026** course and has student submissions.
 - **Location:** _rooms TBD (confirm with registrar)_
 - **Prerequisites:** CS 5010 (min D) or CS 5004 (min C)
 - **Instructor:** John Alexis Guerra Gomez
@@ -800,9 +802,18 @@ Connect at least one MCP server to your Claude Code workflow:
 ### Primary Channels
 
 **Slack (Main Communication)**
-Workspace: [Link provided in Canvas]
 
-Channels:
+Each section has its **own workspace** — students join the one for their section,
+and every announcement must be posted to **both**:
+
+| Section | Workspace | URL |
+|---------|-----------|-----|
+| Oakland / Hybrid (Tue & Fri) | `aicodingneu` | https://aicodingneu.slack.com |
+| San Jose (Wed) | `aicodingneusj` | https://aicodingneusj.slack.com |
+
+Join links are posted in each section's Canvas course.
+
+Channels (same set in both workspaces):
 - `#general` - General questions
 - `#projects` - Project help and approval (ALL projects need approval)
 - `#resources` - Shared tools, articles, prompts
@@ -810,15 +821,14 @@ Channels:
 - `#random` - Off-topic, memes, community
 - `#classchat` - Class discussion topics
 
-**Canvas**
+**Canvas** (one course per section: `270068` *Fall 2026 AI Coding Oak/Hybrid*, `270077` *Fall2026 AI Coding San Jose*)
 - Assignment submissions
 - Grades
 - Weekly quizzes
 - Official course materials
 
 **Office Hours**
-- Instructor: Tuesdays 2-4PM (Carnegie 201)
-- On-demand via Slack
+- Instructor: **by appointment via Slack** — message the instructor to arrange a time
 - TA hours (posted on Slack)
 
 ### Support Resources

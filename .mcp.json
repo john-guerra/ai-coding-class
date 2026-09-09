@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "canvas-lms": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "canvas-mcp-server@2.2.3"
+      ],
+      "env": {
+        "CANVAS_DOMAIN": "${CANVAS_DOMAIN}",
+        "CANVAS_API_TOKEN": "${CANVAS_API_TOKEN}"
+      }
+    },
+    "canvas-extras": {
+      "command": "node",
+      "args": [
+        "tools/canvas-extras-mcp/index.js"
+      ],
+      "env": {
+        "CANVAS_DOMAIN": "${CANVAS_DOMAIN}",
+        "CANVAS_API_TOKEN": "${CANVAS_API_TOKEN}",
+        "CANVAS_SECTIONS": "{\"oak\": \"270068\", \"sj\": \"270077\"}"
+      }
+    }
+  }
+}

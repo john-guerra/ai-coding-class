@@ -6,7 +6,45 @@ import { z } from "zod";
 
 const CANVAS_DOMAIN = process.env.CANVAS_DOMAIN;
 const CANVAS_API_TOKEN = process.env.CANVAS_API_TOKEN;
-const DEFAULT_COURSE_ID = "246270";
+// Named sections come from the environment so this server stays course-agnostic.
+// e.g. CANVAS_SECTIONS='{"oak":"270068","sj":"270077"}'
+// Unset is fine: callers then pass an explicit course_id.
+let SECTIONS = {};
+try {
+  SECTIONS = JSON.parse(process.env.CANVAS_SECTIONS || "{}");
+} catch {
+  console.error("canvas-extras: CANVAS_SECTIONS is not valid JSON; ignoring it.");
+}
+const SECTION_KEYS = Object.keys(SECTIONS);
+
+const sectionSchema = () =>
+  (SECTION_KEYS.length ? z.enum(SECTION_KEYS) : z.string())
+    .optional()
+    .describe(
+      SECTION_KEYS.length
+        ? `Named section: ${SECTION_KEYS.join(" | ")}. Use this instead of course_id.`
+        : "Named section (none configured; set CANVAS_SECTIONS)."
+    );
+
+const courseIdSchema = () =>
+  z.string().optional().describe("Explicit Canvas course ID (alternative to section).");
+
+// Resolve exactly one course per call. Never guesses.
+function resolveCourse({ section, course_id }) {
+  if (section && course_id)
+    throw new Error("Pass either section or course_id, not both.");
+  if (section) {
+    if (!(section in SECTIONS))
+      throw new Error(`Unknown section "${section}". Configured: ${SECTION_KEYS.join(", ") || "(none)"}.`);
+    return SECTIONS[section];
+  }
+  if (course_id) return course_id;
+  throw new Error(
+    SECTION_KEYS.length
+      ? `Specify a section (${SECTION_KEYS.join(" | ")}) or an explicit course_id.`
+      : "Specify a course_id (or set CANVAS_SECTIONS to use named sections)."
+  );
+}
 
 async function canvas(method, path, body) {
   const url = `https://${CANVAS_DOMAIN}/api/v1${path}`;
@@ -34,7 +72,8 @@ server.tool(
   "canvas_create_discussion_topic",
   "Create a discussion topic in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     title: z.string().describe("Discussion topic title"),
     message: z.string().optional().describe("Discussion topic body (HTML)"),
     discussion_type: z.enum(["side_comment", "threaded"]).default("threaded").describe("Discussion type"),
@@ -47,7 +86,8 @@ server.tool(
       assignment_group_id: z.number().optional().describe("Assignment group ID"),
     }).optional().describe("Assignment settings to create a graded discussion"),
   },
-  async ({ course_id, title, message, discussion_type, published, allow_rating, require_initial_post, assignment }) => {
+  async ({ section, course_id, title, message, discussion_type, published, allow_rating, require_initial_post, assignment }) => {
+    course_id = resolveCourse({ section, course_id });
     const body = {
       title,
       message,
@@ -67,10 +107,12 @@ server.tool(
   "canvas_delete_discussion_topic",
   "Delete a discussion topic from a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     topic_id: z.string().describe("Discussion topic ID to delete"),
   },
-  async ({ course_id, topic_id }) => {
+  async ({ section, course_id, topic_id }) => {
+    course_id = resolveCourse({ section, course_id });
     const result = await canvas("DELETE", `/courses/${course_id}/discussion_topics/${topic_id}`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
@@ -81,7 +123,8 @@ server.tool(
   "canvas_create_quiz",
   "Create a new quiz in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     title: z.string().describe("Quiz title"),
     description: z.string().optional().describe("Quiz description/instructions (HTML)"),
     quiz_type: z.enum(["practice_quiz", "assignment", "graded_survey", "survey"]).default("assignment").describe("Quiz type"),
@@ -92,7 +135,8 @@ server.tool(
     cant_go_back: z.boolean().default(false).describe("Lock questions after answering"),
     published: z.boolean().default(false).describe("Whether to publish immediately"),
   },
-  async ({ course_id, title, description, quiz_type, time_limit, shuffle_answers, allowed_attempts, one_question_at_a_time, cant_go_back, published }) => {
+  async ({ section, course_id, title, description, quiz_type, time_limit, shuffle_answers, allowed_attempts, one_question_at_a_time, cant_go_back, published }) => {
+    course_id = resolveCourse({ section, course_id });
     const quiz = { title, quiz_type, shuffle_answers, allowed_attempts, one_question_at_a_time, cant_go_back, published };
     if (description) quiz.description = description;
     if (time_limit != null) quiz.time_limit = time_limit;
@@ -106,9 +150,11 @@ server.tool(
   "canvas_list_quizzes",
   "List all quizzes in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
   },
-  async ({ course_id }) => {
+  async ({ section, course_id }) => {
+    course_id = resolveCourse({ section, course_id });
     const result = await canvas("GET", `/courses/${course_id}/quizzes`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
@@ -119,10 +165,12 @@ server.tool(
   "canvas_list_quiz_questions",
   "List all questions in a Canvas quiz",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     quiz_id: z.string().describe("Canvas quiz ID"),
   },
-  async ({ course_id, quiz_id }) => {
+  async ({ section, course_id, quiz_id }) => {
+    course_id = resolveCourse({ section, course_id });
     const result = await canvas("GET", `/courses/${course_id}/quizzes/${quiz_id}/questions?per_page=50`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
@@ -133,7 +181,8 @@ server.tool(
   "canvas_create_quiz_question",
   "Add a question to a Canvas quiz",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     quiz_id: z.string().describe("Canvas quiz ID"),
     question_name: z.string().optional().describe("Question title/name"),
     question_text: z.string().describe("The question body (HTML)"),
@@ -164,7 +213,8 @@ server.tool(
       .optional()
       .describe("Answer choices (for MC, TF, multiple-answer, short-answer types)"),
   },
-  async ({ course_id, quiz_id, question_name, question_text, question_type, points_possible, position, answers }) => {
+  async ({ section, course_id, quiz_id, question_name, question_text, question_type, points_possible, position, answers }) => {
+    course_id = resolveCourse({ section, course_id });
     const question = { question_name, question_text, question_type, points_possible };
     if (position != null) question.position = position;
     if (answers) question.answers = answers;
@@ -178,9 +228,11 @@ server.tool(
   "canvas_list_discussion_topics",
   "List all discussion topics in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
   },
-  async ({ course_id }) => {
+  async ({ section, course_id }) => {
+    course_id = resolveCourse({ section, course_id });
     const result = await canvas("GET", `/courses/${course_id}/discussion_topics?per_page=50`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
@@ -191,10 +243,12 @@ server.tool(
   "canvas_get_discussion_topic",
   "Get a specific discussion topic by ID",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     topic_id: z.string().describe("Discussion topic ID"),
   },
-  async ({ course_id, topic_id }) => {
+  async ({ section, course_id, topic_id }) => {
+    course_id = resolveCourse({ section, course_id });
     const result = await canvas("GET", `/courses/${course_id}/discussion_topics/${topic_id}`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
@@ -205,13 +259,15 @@ server.tool(
   "canvas_update_discussion_topic",
   "Update an existing discussion topic in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     topic_id: z.string().describe("Discussion topic ID to update"),
     title: z.string().optional().describe("New title for the discussion topic"),
     message: z.string().optional().describe("New body/message (HTML) for the discussion topic"),
     published: z.boolean().optional().describe("Whether the discussion is published"),
   },
-  async ({ course_id, topic_id, title, message, published }) => {
+  async ({ section, course_id, topic_id, title, message, published }) => {
+    course_id = resolveCourse({ section, course_id });
     const body = {};
     if (title != null) body.title = title;
     if (message != null) body.message = message;
@@ -226,7 +282,8 @@ server.tool(
   "canvas_create_rubric",
   "Create a rubric and optionally associate it with an assignment for grading",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     title: z.string().describe("Rubric title"),
     criteria: z
       .array(
@@ -248,7 +305,8 @@ server.tool(
     association_type: z.enum(["Assignment", "Course"]).default("Assignment").describe("Type of association"),
     use_for_grading: z.boolean().default(true).describe("Whether to use this rubric for grading"),
   },
-  async ({ course_id, title, criteria, association_id, association_type, use_for_grading }) => {
+  async ({ section, course_id, title, criteria, association_id, association_type, use_for_grading }) => {
+    course_id = resolveCourse({ section, course_id });
     // Convert array-based criteria to Canvas indexed-hash format
     const criteriaHash = {};
     criteria.forEach((c, i) => {
@@ -286,7 +344,8 @@ server.tool(
   "canvas_update_rubric",
   "Update an existing rubric's criteria and rating descriptions",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     rubric_id: z.string().describe("Rubric ID to update"),
     title: z.string().optional().describe("New rubric title"),
     criteria: z
@@ -308,7 +367,8 @@ server.tool(
       )
       .describe("Full criteria array — include all criteria, not just changed ones"),
   },
-  async ({ course_id, rubric_id, title, criteria }) => {
+  async ({ section, course_id, rubric_id, title, criteria }) => {
+    course_id = resolveCourse({ section, course_id });
     const criteriaHash = {};
     criteria.forEach((c, i) => {
       const ratingsHash = {};
@@ -338,7 +398,8 @@ server.tool(
   "canvas_update_quiz",
   "Update an existing quiz in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     quiz_id: z.string().describe("Quiz ID to update"),
     title: z.string().optional().describe("Quiz title"),
     description: z.string().optional().describe("Quiz description/instructions (HTML)"),
@@ -349,7 +410,8 @@ server.tool(
     cant_go_back: z.boolean().optional().describe("Lock questions after answering"),
     published: z.boolean().optional().describe("Whether to publish the quiz"),
   },
-  async ({ course_id, quiz_id, title, description, time_limit, allowed_attempts, shuffle_answers, one_question_at_a_time, cant_go_back, published }) => {
+  async ({ section, course_id, quiz_id, title, description, time_limit, allowed_attempts, shuffle_answers, one_question_at_a_time, cant_go_back, published }) => {
+    course_id = resolveCourse({ section, course_id });
     const quiz = {};
     if (title != null) quiz.title = title;
     if (description != null) quiz.description = description;
@@ -369,7 +431,8 @@ server.tool(
   "canvas_update_quiz_question",
   "Update an existing question in a Canvas quiz",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     quiz_id: z.string().describe("Canvas quiz ID"),
     question_id: z.string().describe("Question ID to update"),
     question_name: z.string().optional().describe("Question title/name"),
@@ -402,7 +465,8 @@ server.tool(
       .optional()
       .describe("Answer choices"),
   },
-  async ({ course_id, quiz_id, question_id, question_name, question_text, question_type, points_possible, position, answers }) => {
+  async ({ section, course_id, quiz_id, question_id, question_name, question_text, question_type, points_possible, position, answers }) => {
+    course_id = resolveCourse({ section, course_id });
     const question = {};
     if (question_name != null) question.question_name = question_name;
     if (question_text != null) question.question_text = question_text;
@@ -420,9 +484,11 @@ server.tool(
   "canvas_list_group_categories",
   "List all group categories (group sets) in a Canvas course",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
   },
-  async ({ course_id }) => {
+  async ({ section, course_id }) => {
+    course_id = resolveCourse({ section, course_id });
     const result = await canvas("GET", `/courses/${course_id}/group_categories`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
@@ -466,13 +532,15 @@ server.tool(
   "canvas_update_assignment",
   "Update an existing assignment with fields not supported by canvas-lms (e.g. assignment_group_id)",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     assignment_id: z.string().describe("Assignment ID to update"),
     assignment_group_id: z.number().optional().describe("Assignment group ID to move the assignment into"),
     name: z.string().optional().describe("Assignment name"),
     position: z.number().optional().describe("Position within the assignment group"),
   },
-  async ({ course_id, assignment_id, assignment_group_id, name, position }) => {
+  async ({ section, course_id, assignment_id, assignment_group_id, name, position }) => {
+    course_id = resolveCourse({ section, course_id });
     const assignment = {};
     if (assignment_group_id != null) assignment.assignment_group_id = assignment_group_id;
     if (name != null) assignment.name = name;
@@ -487,7 +555,8 @@ server.tool(
   "canvas_set_discussion_checkpoints",
   "Enable checkpoints on a graded discussion, setting separate due dates for the initial post and peer replies",
   {
-    course_id: z.string().default(DEFAULT_COURSE_ID).describe("Canvas course ID"),
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
     topic_id: z.string().describe("Discussion topic ID"),
     reply_to_topic_due_at: z.string().describe("Due date for the initial post (ISO 8601)"),
     reply_to_entry_due_at: z.string().describe("Due date for peer replies (ISO 8601)"),
@@ -495,7 +564,8 @@ server.tool(
     points_reply_to_topic: z.number().default(2).describe("Points for initial post checkpoint"),
     points_reply_to_entry: z.number().default(2).describe("Points for peer replies checkpoint"),
   },
-  async ({ course_id, topic_id, reply_to_topic_due_at, reply_to_entry_due_at, replies_required, points_reply_to_topic, points_reply_to_entry }) => {
+  async ({ section, course_id, topic_id, reply_to_topic_due_at, reply_to_entry_due_at, replies_required, points_reply_to_topic, points_reply_to_entry }) => {
+    course_id = resolveCourse({ section, course_id });
     // Canvas uses GraphQL (not REST) for discussion checkpoint management.
     // The REST API silently ignores discussion_checkpoints; the UI uses the
     // updateDiscussionTopic GraphQL mutation with assignment.forCheckpoints=true.

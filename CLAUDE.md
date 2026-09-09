@@ -106,10 +106,19 @@ Editing workflow (in `website/`, i.e. the symlinked dir):
 
 ## Canvas LMS Integration
 
-**Course ID:** 246270 (Spring 2026 AI Coding CS7180)
 **Canvas Domain:** northeastern.instructure.com
 
-Two MCP servers are configured globally at `~/.claude.json`:
+**Course IDs (Fall 2026 — two sections, two courses):**
+
+| Section | Course ID | Canvas name | Code |
+|---------|-----------|-------------|------|
+| Oakland / Hybrid | `270068` | Fall 2026 AI Coding Oak/Hybrid | `CS6983.MERGED` |
+| San Jose | `270077` | Fall2026 AI Coding San Jose | `CS6983.24548.202710` |
+
+⚠️ `246270` is the **Spring 2026** course (CS7180) and has student submissions — never write to it.
+
+Two MCP servers are configured for this project in `.mcp.json` (repo root; they read
+`CANVAS_DOMAIN` and `CANVAS_API_TOKEN` from the environment — no token is stored in the repo):
 
 **`canvas-lms`** (`canvas-mcp-server@2.2.3`) — primary server for:
 - Assignments and quizzes
@@ -132,7 +141,16 @@ Two MCP servers are configured globally at `~/.claude.json`:
 
 **Quiz creation workflow:** Use `canvas-extras` (not `canvas-lms`) for creating quizzes and adding questions. The `canvas-extras` server provides the full quiz creation pipeline: `canvas_create_quiz` → `canvas_create_quiz_question` (repeat) → `canvas_list_quiz_questions` (verify). Note: `canvas_list_quiz_questions` paginates at 10 results by default.
 
-All tools default to `course_id = 246270`.
+**⚠️ Every call names its section.** Neither server guesses a course:
+
+- **`canvas-extras`** takes `section: "oak" | "sj"` (preferred) or an explicit `course_id` — never
+  both, and never neither. There is no default; omitting both returns an error rather than writing
+  somewhere unintended. The section→ID map is **not in the code**: it comes from `CANVAS_SECTIONS`
+  in `.mcp.json`, so the server stays reusable by any course. Add a key there to reach another
+  course (e.g. `"spring": "246270"` for read-only lookups of the archived term).
+- **`canvas-lms`** already requires a numeric `course_id` on every tool — pass `270068` or `270077`.
+
+Most Canvas work for Fall 2026 must be done **twice**, once per section.
 
 **Safety rule:** Never delete or modify Canvas content (assignments, quizzes, discussions) that already has student submissions.
 

@@ -71,7 +71,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
   - 5-10 questions, 10 minutes
   - Open 48 hours after lecture
   - Can take twice (higher score counts)
-  - 14 total, drop lowest 2
+  - 13 total (Weeks 2–14; no quiz in Week 1), drop lowest 2
   - Average of best 12 contributes to participation
 
 ### Grade Scale
@@ -614,7 +614,16 @@ Connect at least one MCP server to your Claude Code workflow:
 
 ### Weekly Quizzes (10%)
 **Format:** Auto-graded Canvas quizzes covering course concepts
-**Frequency:** Weekly (14 total, drop lowest 2)
+**Frequency:** Weekly (13 total, Weeks 2–14; no quiz in Week 1), drop lowest 2
+
+**Timing (Fall 2026):** Quizzes and the pre-class reading discussions are **due before
+the week's first class**, so students arrive having done the reading:
+- **Oakland / Hybrid:** Tuesday 10:35 AM PT
+- **San Jose:** Wednesday 1:00 PM PT
+
+Each section's Canvas course carries its own due dates. Quizzes and reading discussions
+are kept **unpublished until the week they are needed** (Week 2 published; Week 3 onward
+released as the term progresses).
 
 **Purpose:**
 - Validate understanding of course concepts
@@ -1482,7 +1491,7 @@ Track changes semester-to-semester:
 | Component | Weight | Count |
 |-----------|--------|-------|
 | Participation | 15% | Weekly (pre-class + lottery) |
-| Weekly Quizzes | 10% | 14 quizzes (drop lowest 2) |
+| Weekly Quizzes | 10% | 13 quizzes (drop lowest 2) |
 | Homeworks | 25% | 5 assignments (5% each) |
 | Projects | 50% | 3 projects |
 

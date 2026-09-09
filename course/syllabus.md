@@ -334,7 +334,7 @@ Five assignments scaffold toward project success. Each is worth 5% of the final 
 
 ## Weekly Quizzes (10%)
 
-Weekly concept quizzes on Canvas verify understanding of course material. Topics include LLM fundamentals, prompt engineering, TDD principles, CI/CD workflows, agent architectures, AI security, and evaluation methodology. 14 quizzes total, lowest 2 dropped.
+Weekly concept quizzes on Canvas verify understanding of course material. Topics include LLM fundamentals, prompt engineering, TDD principles, CI/CD workflows, agent architectures, AI security, and evaluation methodology. 13 quizzes total (Weeks 2–14), lowest 2 dropped.
 
 ## LLM Fundamentals (Week 2)
 

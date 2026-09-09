@@ -1,4 +1,4 @@
-# Week 13: Agent Architectures & Security Quiz
+# Week 12: Agent Architectures & Security Quiz
 
 ## Quiz Settings (Configure in Canvas)
 
@@ -11,15 +11,15 @@
 | **Shuffle Answers** | Yes |
 | **Show One Question at a Time** | Yes |
 | **Lock Questions After Answering** | Yes |
-| **Due Date** | Tuesday, Week 13 at 2:59 PM PT |
-| **Available From** | After Week 13 lecture |
+| **Due Date** | Before the week's first class: Tue 10:35 AM PT (Oak/Hybrid) · Wed 1:00 PM PT (San Jose) |
+| **Available From** | Start of the week (quiz + readings are pre-class) |
 | **Published** | No (until ready) |
 
 ---
 
 ## Quiz Instructions
 
-This quiz assesses your understanding of agent architectures and AI code security covered in Week 13 lectures and readings.
+This quiz assesses your understanding of agent architectures and AI code security covered in Week 12 lectures and readings.
 
 **Instructions:**
 - **Time Limit:** 15 minutes

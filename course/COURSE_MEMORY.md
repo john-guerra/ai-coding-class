@@ -625,6 +625,35 @@ Each section's Canvas course carries its own due dates. Quizzes and reading disc
 are kept **unpublished until the week they are needed** (Week 2 published; Week 3 onward
 released as the term progresses).
 
+**⚠️ Quiz authoring standards (added 2026-09-09 after a real failure):**
+
+The Week 2 quiz shipped with the correct answer being the **longest option in 13 of 14
+questions (93%, vs 25% by chance)** — correct answers averaged 1.59x the length of their
+distractors. Students noticed and told the instructor: you could score 93% by picking the
+longest option without knowing any LLM content. Answer shuffling does **not** help, because
+the length cue travels with the text.
+
+The cause is structural, not carelessness: a correct answer accumulates qualifiers so it is
+unambiguously true, while distractors get written quickly and stay short. Every quiz drifts
+this way unless checked.
+
+Rules for writing or reviewing any quiz in `course/assessments/`:
+1. **Match distractor length to the correct answer** (aim within ~±15%). Lengthen the
+   distractors — never shorten the correct answer, which costs precision.
+2. **Distractors must be specific and mechanism-bearing**, not vague. A good wrong answer
+   states a plausible causal claim that is simply false, so it tempts a student who
+   half-knows the material.
+3. **Spread the correct letter across A/B/C/D.** In the same Week 2 quiz, D was never
+   correct and B was correct 7/14 times. Shuffling masks this in Canvas, but the pattern
+   shows in the source file and in any printed version.
+4. **Verify before publishing.** Measure it — for each question, compare the correct
+   answer's length to its distractors and count how often the correct one is longest.
+   Target ≈25% (chance), not 90%.
+
+Fix the questions in `course/assessments/` first (the source of truth), then push to both
+Canvas courses. Never edit quiz content in Canvas alone; it will be overwritten and the
+repo will silently disagree with what students see.
+
 **Purpose:**
 - Validate understanding of course concepts
 - Encourage consistent engagement with material

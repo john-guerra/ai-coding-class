@@ -5,7 +5,7 @@
 | Setting | Value |
 |---------|-------|
 | **Quiz Type** | Graded Quiz |
-| **Points** | 15 points |
+| **Points** | 22 points |
 | **Time Limit** | 15 minutes |
 | **Allowed Attempts** | 1 |
 | **Shuffle Answers** | Yes |
@@ -23,7 +23,7 @@ This quiz assesses your understanding of LLM fundamentals covered in Week 2 lect
 
 **Instructions:**
 - **Time Limit:** 15 minutes
-- **Questions:** 10 questions (15 points total)
+- **Questions:** 15 questions (22 points total)
 - **Attempts:** One attempt only
 - **Tools Required:** For question 9, you will need to use an external tool (Tiktokenizer)
 
@@ -51,10 +51,10 @@ This quiz assesses your understanding of LLM fundamentals covered in Week 2 lect
 
 According to Karpathy's framework, what distinguishes Software 3.0 from Software 2.0?
 
-- A) Software 3.0 uses more parameters
+- A) Software 3.0 runs on substantially more model parameters
 - B) Software 3.0 is programmed via natural language prompts
-- C) Software 3.0 requires less training data
-- D) Software 3.0 only works with code, not text
+- C) Software 3.0 requires far less curated training data
+- D) Software 3.0 applies to source code but never to prose
 
 ---
 
@@ -87,10 +87,10 @@ You're using an LLM to fix a bug in production code. What temperature setting wo
 
 What does the "lost in the middle" phenomenon refer to?
 
-- A) LLMs forget their training over time
+- A) Model weights gradually drift away from their original training
 - B) Information in the middle of long prompts gets less attention
-- C) Tokenization errors in the middle of code blocks
-- D) Models lose accuracy after 50% of context is filled
+- C) Tokenizers systematically corrupt the middle of long code blocks
+- D) Accuracy degrades sharply once context is more than half full
 
 ---
 
@@ -99,10 +99,10 @@ What does the "lost in the middle" phenomenon refer to?
 
 What makes LLM hallucinations in code particularly difficult to detect compared to hallucinations in prose?
 
-- A) Hallucinated code always produces runtime errors
+- A) Hallucinated code reliably raises a runtime exception the first time it executes
 - B) Hallucinated code is often syntactically correct and follows plausible patterns
-- C) Code editors automatically highlight hallucinated code
-- D) Hallucinated code only occurs in dynamically-typed languages
+- C) Modern editors automatically flag hallucinated API calls during static analysis
+- D) Hallucinations occur only in dynamically typed languages, never in typed ones
 
 ---
 
@@ -116,9 +116,9 @@ What makes LLM hallucinations in code particularly difficult to detect compared 
 You ask Claude to help with a Svelte component. The code looks correct syntactically but uses an API method that doesn't exist in Svelte's documentation. What's the most likely explanation?
 
 - A) Claude's training data had more React/Vue examples than Svelte, causing it to blend patterns
-- B) Claude is intentionally providing wrong answers
-- C) The Svelte documentation is out of date
-- D) You need to increase the temperature setting
+- B) Claude deliberately withholds correct Svelte APIs unless you cite a documentation version
+- C) Svelte's published documentation lags behind its releases, so the method exists but is undocumented
+- D) The temperature setting was too low, causing a fallback to an older Svelte API surface
 
 ---
 
@@ -127,10 +127,10 @@ You ask Claude to help with a Svelte component. The code looks correct syntactic
 
 A developer notices their Python code uses significantly more tokens than similar JavaScript code of the same length. The Python code uses significant whitespace indentation. Why might Python be more token-expensive?
 
-- A) Python is a less popular language
+- A) Python appears less often in the tokenizer's training corpus
 - B) Each indentation level and whitespace consumes additional tokens
-- C) Python keywords are longer than JavaScript keywords
-- D) The JavaScript tokenizer is more efficient
+- C) Python's keywords are longer on average than JavaScript's keywords
+- D) JavaScript is processed by a separate, more efficient tokenizer
 
 ---
 
@@ -139,10 +139,10 @@ A developer notices their Python code uses significantly more tokens than simila
 
 Your company builds a coding assistant that helps developers with your proprietary API. The LLM has no knowledge of your API from training. How does the assistant provide accurate help?
 
-- A) Fine-tuning the model on your API documentation
-- B) Using higher temperature to encourage creativity
+- A) Fine-tuning the base model on your complete internal API documentation set
+- B) Raising the temperature so the model infers the missing API surface
 - C) Retrieving relevant API docs and including them in the prompt context
-- D) Training a new model from scratch
+- D) Training a replacement model from scratch on your internal codebase
 
 ---
 
@@ -169,10 +169,10 @@ Select the **GPT-4** tokenizer (cl100k_base). How many tokens does this code use
 
 Which of the following tasks is the LEAST appropriate use of a generative AI coding assistant?
 
-- A) Generating boilerplate code for a new Express.js REST endpoint
+- A) Generating boilerplate for a new Express.js REST endpoint with standard middleware
 - B) Verifying that a critical financial calculation matches regulatory specifications exactly
-- C) Writing unit tests for a React component
-- D) Refactoring a function to improve readability
+- C) Writing unit tests for a React component whose rendering behavior is already well understood
+- D) Refactoring a long function for readability without altering its observable behavior
 
 ---
 
@@ -185,10 +185,10 @@ Which of the following tasks is the LEAST appropriate use of a generative AI cod
 
 In the AI/ML/DL/LLM hierarchy, which statement is correct?
 
-- A) All AI systems use deep learning
+- A) Every AI system in production today is built on some form of deep learning
 - B) LLMs are a subset of deep learning, which is a subset of machine learning
-- C) Machine learning and deep learning are the same thing
-- D) LLMs don't use neural networks
+- C) Machine learning and deep learning describe the same set of techniques
+- D) LLMs are built on statistical n-gram models rather than neural networks
 
 ---
 
@@ -197,10 +197,10 @@ In the AI/ML/DL/LLM hierarchy, which statement is correct?
 
 Why is it accurate to describe LLMs as "autocomplete on steroids"?
 
-- A) They only work in text editors
+- A) They operate only inside text editors and IDE-based completion widgets
 - B) They fundamentally predict the most likely next token given previous tokens
-- C) They are faster than traditional autocomplete
-- D) They only complete code, not natural language
+- C) They complete text far faster than traditional autocomplete implementations do
+- D) They can complete source code but never natural-language sentences
 
 ---
 
@@ -209,10 +209,10 @@ Why is it accurate to describe LLMs as "autocomplete on steroids"?
 
 What do embeddings represent?
 
-- A) The position of words in a sentence
-- B) The frequency of words in a corpus
+- A) The ordinal position of each word within a sentence
+- B) The raw frequency of each word across a large training corpus
 - C) Semantic meaning as vectors in a high-dimensional space
-- D) The physical location of data in memory
+- D) The physical memory address where a token is stored
 
 ---
 
@@ -223,10 +223,10 @@ What do embeddings represent?
 
 You're using an LLM to implement a common sorting algorithm. The code looks correct. When should you be MOST skeptical?
 
-- A) When the code has good formatting
-- B) When the code includes comments
+- A) When the code is consistently formatted and cleanly indented
+- B) When the code includes thorough explanatory comments throughout
 - C) When the code handles edge cases you didn't explicitly mention
-- D) When the code uses standard library functions
+- D) When the code relies on well-known standard library functions
 
 ---
 
@@ -235,10 +235,10 @@ You're using an LLM to implement a common sorting algorithm. The code looks corr
 
 You're building a RAG system to help answer questions about a large codebase. Given the "lost in the middle" phenomenon, how should you structure retrieved content?
 
-- A) Put all retrieved content at the start of the prompt
-- B) Put all retrieved content at the end of the prompt
+- A) Place all retrieved content at the very start of the prompt, before the question
+- B) Place all retrieved content at the very end of the prompt, after the question
 - C) Put the most relevant content at the start and end, less relevant in the middle
-- D) Randomly order the retrieved content
+- D) Shuffle the retrieved content randomly to neutralize any position bias
 
 ---
 
@@ -256,7 +256,7 @@ You're building a RAG system to help answer questions about a large codebase. Gi
 
 ## Anti-Cheating Measures Implemented
 
-1. **Time pressure** - 15 minutes for 10 questions limits research time
+1. **Time pressure** - 15 minutes for 15 questions limits research time
 2. **Question pools** - Random selection from larger pool
 3. **Answer shuffling** - Different order for each student
 4. **Scenario-based** - Requires understanding, not just recall

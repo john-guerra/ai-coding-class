@@ -14,8 +14,18 @@
     "center": true,
     "controls": true,
     "progress": true,
-    "pdfSeparateFragments": false
+    "pdfSeparateFragments": false,
+    "markdown": {
+      "breaks": true
+    }
   },
-  "css": ["css/style.css"],
-  "scripts": ["js/fragments.js", "js/mermaid-init.js", "js/overflow-check.js", "js/flow-texture.js"]
+  "css": [
+    "css/style.css"
+  ],
+  "scripts": [
+    "js/fragments.js",
+    "js/mermaid-init.js",
+    "js/overflow-check.js",
+    "js/flow-texture.js"
+  ]
 }

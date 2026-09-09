@@ -29,7 +29,27 @@ revealOptions:
 
 ---
 
-# Your Instructor
+# What We'll Cover Today
+
+1. Welcome & Logistics
+2. **What is "Vibe Coding"?** — the hype and the reality
+3. A Different Approach — speed *and* engineering
+4. The Three AI Harnesses
+5. Vibe Coding in the Wild
+6. Grading & Assessment
+7. The Three Projects
+8. Tools & Materials
+9. Course Policies
+
+---
+
+# Welcome
+
+> Who's teaching this, when we meet, and how to reach us
+
+<!-- vertical -->
+
+## Your Instructor
 
 **John Alexis Guerra Gomez**
 Associate Teaching Professor
@@ -38,13 +58,17 @@ Khoury College of Computer Sciences
 📧 jguerra@northeastern.edu
 🕐 Office Hours: By appointment via Slack
 
----
+<!-- vertical -->
 
-# Course Logistics
+## Course Logistics
 
-**Schedule:** Tuesday/Thursday 3:00-4:40 PM PST
-**Location:** Lucie Stern 27 for Oakland Campus Students / Remote for the rest of the Network
-**Semester:** Fall 2026
+| Section | Meets | Where |
+| --- | --- | --- |
+| **Oakland / Hybrid** | Tue & Fri, 10:35 AM–12:15 PM PT | Lucie Stern 27 + live remote (NEU network) |
+| **San Jose** | Wed, 1:00–4:20 PM PT | SJ1012 |
+
+**Term:** Sep 9 – Dec 13, 2026 · **Finals:** Dec 14–20 (Project 3 due)
+**No class:** Oct 12 · Nov 11 · Nov 25–29 (Fall Break)
 
 **Communication:** Slack (primary), Canvas (submissions)
 
@@ -52,14 +76,20 @@ Khoury College of Computer Sciences
 
 # What is "Vibe Coding"?
 
+> The promise, the reality, and why the gap matters
+
+<!-- vertical -->
+
+## The Definition
+
 > "You see something, say something, run it, and then fix it based on vibes."
 > — Andrej Karpathy
 
 The idea that you can build software by _describing what you want_ to an AI and iterating on the results.
 
----
+<!-- vertical -->
 
-# The Vibe Coding Hype
+## The Hype
 
 <div class="split">
 <div class="split-text">
@@ -83,19 +113,19 @@ The idea that you can build software by _describing what you want_ to an AI and 
 </div>
 </div>
 
----
+<!-- vertical -->
 
-# The Vibe Coding Reality
+## The Reality
 
-😬 Code that works... until it doesn't
-😬 Technical debt accumulates fast
-😬 Hallucinations go undetected
-😬 Security vulnerabilities everywhere
-😬 "It works on my machine"
+- 😬 Code that works... until it doesn't
+- 😬 Technical debt accumulates fast
+- 😬 Hallucinations go undetected
+- 😬 Security vulnerabilities everywhere
+- 😬 "It works on my machine"
 
----
+<!-- vertical -->
 
-# The Problem with "Crazy" Vibe Coding
+## The Problem with "Crazy" Vibe Coding
 
 - No tests → bugs ship to production
 - No understanding → can't debug
@@ -105,15 +135,15 @@ The idea that you can build software by _describing what you want_ to an AI and 
 
 ---
 
-# This Course: A Different Approach
+# A Different Approach
 
-## Vibe Coding + Software Engineering
+> Vibe Coding **+** Software Engineering — build fast **AND** build right
 
-Build fast **AND** build right.
+<!-- vertical -->
 
----
+<!-- .slide: class="dense" -->
 
-# Our Philosophy
+## Our Philosophy
 
 <div class="split">
 <div class="split-img">
@@ -138,9 +168,9 @@ Build fast **AND** build right.
 </div>
 </div>
 
----
+<!-- vertical -->
 
-# What You'll Learn
+## What You'll Learn
 
 - **LLM Fundamentals** — How AI really works
 - **Three AI Harnesses** — Right tool for the job
@@ -153,6 +183,12 @@ Build fast **AND** build right.
 ---
 
 # The Three AI Harnesses
+
+> Right tool for the job — and knowing which is which
+
+<!-- vertical -->
+
+## The Three Harnesses
 
 <div class="split">
 <div class="split-text">
@@ -173,9 +209,9 @@ How we'll structure our AI-assisted development:
 </div>
 </div>
 
----
+<!-- vertical -->
 
-# Harness 1: Claude Web
+## Harness 1: Claude Web
 
 **Best for:** Architecture, learning, brainstorming
 
@@ -186,9 +222,11 @@ How we'll structure our AI-assisted development:
 
 _Use when you need to think through a problem_
 
----
+<!-- vertical -->
 
-# Harness 2: AI-Augmented Editor
+<!-- .slide: class="dense" -->
+
+## Harness 2: AI-Augmented Editor
 
 <div class="split">
 <div class="split-text">
@@ -212,9 +250,9 @@ _Keep your classical workflow get AI help._
 </div>
 </div>
 
----
+<!-- vertical -->
 
-# Harness 3: Claude Code
+## Harness 3: Claude Code
 
 **Best for:** Automation, refactoring, DevOps
 
@@ -225,9 +263,9 @@ _Keep your classical workflow get AI help._
 
 _Use when you need to change many files_
 
----
+<!-- vertical -->
 
-# Knowing Which Tool to Use
+## Knowing Which Tool to Use
 
 | Task | Harness |
 | --- | --- |
@@ -238,9 +276,13 @@ _Use when you need to change many files_
 
 ---
 
-# Some examples
+# Vibe Coding in the Wild
 
-## My nephews' games
+> Three things I actually built this way
+
+<!-- vertical -->
+
+## My Nephews' Games
 
 - My nephews were bored.
 - Instead of giving them a tablet, I helped them build games.
@@ -248,9 +290,9 @@ _Use when you need to change many files_
 - From my phone
 - Gemini Web
 
----
+<!-- vertical -->
 
-# BTactile SVG Converter
+## BTactile SVG Converter
 
 <div class="split">
 <div class="split-text">
@@ -270,9 +312,9 @@ _Use when you need to change many files_
 </div>
 </div>
 
----
+<!-- vertical -->
 
-# Family Board Game
+## Family Board Game
 
 <div class="split">
 <div class="split-img">
@@ -294,7 +336,13 @@ _Use when you need to change many files_
 
 ---
 
-# Assessment Overview
+# Grading & Assessment
+
+> How the 100% breaks down
+
+<!-- vertical -->
+
+## Assessment Overview
 
 | Component | Weight |
 | -------------- | ------ |
@@ -305,9 +353,9 @@ _Use when you need to change many files_
 | Project 2 | 18% |
 | Project 3 | 19% |
 
----
+<!-- vertical -->
 
-# Participation (15%)
+## Participation (15%)
 
 **Pre-class questions (7%)**
 
@@ -319,9 +367,54 @@ _Use when you need to change many files_
 - Random cold-calling
 - Tests engagement and understanding
 
+<!-- vertical -->
+
+## Weekly Concept Quizzes (10%)
+
+Weekly quizzes covering course concepts:
+
+- LLM fundamentals & limitations
+- Prompt engineering techniques
+- TDD principles
+- CI/CD workflows
+- Evaluation methodology
+
+**2 lowest scores dropped.**
+
+<!-- vertical -->
+
+## Why Concept Quizzes?
+
+Understanding the "why" matters:
+
+- Debug AI-generated code effectively
+- Know when AI is wrong
+- Make informed architecture decisions
+- Be trusted with production systems
+
+**AI assists. It doesn't replace understanding.**
+
+<!-- vertical -->
+
+## Homework Assignments
+
+5 assignments building toward projects:
+
+1. Prompt Engineering Battle (Week 4)
+2. Mom Test Interviews + User Stories (Week 5)
+3. Context Engineering — Rules + Scrum (Week 8)
+4. Claude Code Workflow & TDD (Week 10)
+5. Custom Skill + MCP Integration (Week 12)
+
 ---
 
 # The Three Projects
+
+> Three portfolio-worthy applications, each harder than the last
+
+<!-- vertical -->
+
+## What You'll Build
 
 You will build **3 portfolio-worthy applications**:
 
@@ -329,9 +422,9 @@ You will build **3 portfolio-worthy applications**:
 2. **Full-Stack Application** (Week 9)
 3. **Team Application** (Finals Week)
 
----
+<!-- vertical -->
 
-# Project 1: Personal Utility App
+## Project 1: Personal Utility App
 
 **Due Week 6 • 13%**
 
@@ -342,9 +435,9 @@ You will build **3 portfolio-worthy applications**:
 - CI/CD pipeline
 - Deployed & accessible
 
----
+<!-- vertical -->
 
-# Project 2: Full-Stack Application
+## Project 2: Full-Stack Application
 
 **Due Week 9 • 18%**
 
@@ -355,9 +448,9 @@ You will build **3 portfolio-worthy applications**:
 - Comprehensive evals
 - 2+ Agile sprints
 
----
+<!-- vertical -->
 
-# Project 3: Team Application
+## Project 3: Team Application
 
 **Due Finals Week • 19%**
 
@@ -370,57 +463,22 @@ You will build **3 portfolio-worthy applications**:
 
 ---
 
-# Weekly Concept Quizzes
+# Tools & Materials
 
-## 10% of Your Grade
+> What to install and what to read
 
-Weekly quizzes covering course concepts:
+<!-- vertical -->
 
-- LLM fundamentals & limitations
-- Prompt engineering techniques
-- TDD principles
-- CI/CD workflows
-- Evaluation methodology
-
-**2 lowest scores dropped.**
-
----
-
-# Why Concept Quizzes?
-
-Understanding the "why" matters:
-
-- Debug AI-generated code effectively
-- Know when AI is wrong
-- Make informed architecture decisions
-- Be trusted with production systems
-
-**AI assists. It doesn't replace understanding.**
-
----
-
-# Homework Assignments
-
-5 assignments building toward projects:
-
-1. Prompt Engineering Battle (Week 4)
-2. Mom Test Interviews + User Stories (Week 5)
-3. Context Engineering — Rules + Scrum (Week 8)
-4. Claude Code Workflow & TDD (Week 10)
-5. Custom Skill + MCP Integration (Week 12)
-
----
-
-# Recommended Tools
+## Recommended Tools
 
 **Paid (~$20/month):**
 
 - Antigravity (Or cursor $20/month)
 - Claude Code ($20-$200/month)
 
----
+<!-- vertical -->
 
-# Tech Stack
+## Tech Stack
 
 **Languages:** JavaScript, TypeScript
 
@@ -430,9 +488,9 @@ Understanding the "why" matters:
 **Testing:** Jest/Vitest, Playwright
 **CI/CD:** GitHub Actions
 
----
+<!-- vertical -->
 
-# Required Books
+## Required Books
 
 1. **The Mom Test** — Rob Fitzpatrick
    _How to validate ideas_
@@ -445,7 +503,13 @@ Understanding the "why" matters:
 
 ---
 
-# Academic Integrity
+# Course Policies
+
+> Using AI is required — understanding it is too
+
+<!-- vertical -->
+
+## Academic Integrity
 
 This course **REQUIRES** AI tool use.
 
@@ -456,19 +520,42 @@ But:
 - Never commit code you can't explain
 - Master the concepts (weekly quizzes)
 
+<!-- vertical -->
+
+## Course Communication
+
+Each section has its **own Slack workspace** — join the one for your section:
+
+| Section | Slack workspace |
+| --- | --- |
+| **Oakland / Hybrid** | [aicodingneu.slack.com](https://aicodingneu.slack.com) |
+| **San Jose** | [aicodingneusj.slack.com](https://aicodingneusj.slack.com) |
+
+**Slack** — Questions, discussions, resources (primary channel)
+**Canvas** — Submissions, grades, quizzes
+**Office Hours** — By appointment via Slack
+
+Don't wait until the deadline to ask for help.
+
 ---
 
-# What You'll Have by the End
+# Wrapping Up
 
-📱 **3 production-ready apps**
-💼 **Professional GitHub profile**
-✍️ **Technical blog posts**
-🎥 **Demo videos**
-🧠 **Real understanding of AI + Engineering**
+> Where this course leaves you
 
----
+<!-- vertical -->
 
-# Silicon Valley Ready
+## What You'll Have by the End
+
+- 📱 **3 production-ready apps**
+- 💼 **Professional GitHub profile**
+- ✍️ **Technical blog posts**
+- 🎥 **Demo videos**
+- 🧠 **Real understanding of AI + Engineering**
+
+<!-- vertical -->
+
+## Silicon Valley Ready
 
 <div class="split">
 <div class="split-text">
@@ -490,19 +577,9 @@ Not outdated practices.
 </div>
 </div>
 
----
+<!-- vertical -->
 
-# Course Communication
-
-**Slack** — Questions, discussions, resources
-**Canvas** — Submissions, grades, quizzes
-**Office Hours** — By appointment via Slack
-
-Don't wait until the deadline to ask for help.
-
----
-
-# Questions?
+## Questions?
 
 **Next up:** LLM Fundamentals
 

@@ -87,5 +87,39 @@ class TestMeasure(unittest.TestCase):
         self.assertEqual(m.letter_spread, {"A": 1, "B": 1, "C": 0, "D": 0})
 
 
+MISMATCHED = QUIZ.replace("| **Points** | 3 points |", "| **Points** | 22 points |")
+
+
+class TestHeaderPoints(unittest.TestCase):
+    def test_matching_header_returns_equal_values(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            claimed, actual = vq.check_header_points(write(tmp, "q.md", QUIZ))
+        self.assertEqual((claimed, actual), (3, 3))
+
+    def test_detects_the_week9_week10_mismatch_shape(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            claimed, actual = vq.check_header_points(write(tmp, "q.md", MISMATCHED))
+        self.assertEqual(claimed, 22)
+        self.assertEqual(actual, 3)
+        self.assertNotEqual(claimed, actual)
+
+    def test_counts_questions_parse_quiz_drops(self):
+        # week2 Q9 is a numeric-answer question: points, but no A-D options.
+        # parse_quiz drops it; the header total must still include it.
+        numeric = QUIZ + '''
+---
+
+#### Q3: Numeric Thing (4 points)
+**Type:** Numeric Answer
+
+How many?
+'''
+        with tempfile.TemporaryDirectory() as tmp:
+            p = write(tmp, "q.md", numeric)
+            self.assertEqual(len(vq.parse_quiz(p)), 2)   # Q3 dropped: no options
+            claimed, actual = vq.check_header_points(p)
+        self.assertEqual(actual, 7)                      # 1 + 2 + 4, Q3 counted
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

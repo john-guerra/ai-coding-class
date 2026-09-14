@@ -76,3 +76,16 @@ def measure(questions: list, key: dict) -> Metrics:
         mean_ratio=(sum(ratios) / n) if n else 0.0,
         letter_spread={L: letters.count(L) for L in "ABCD"},
     )
+
+
+def check_header_points(path: Path) -> tuple:
+    """Compare the header's claimed total against every question heading.
+
+    Counts headings directly rather than parse_quiz output: numeric and essay
+    questions carry points but have no lettered options, so parse_quiz drops them.
+    """
+    text = path.read_text()
+    m = re.search(r"\|\s*\*\*Points\*\*\s*\|\s*(\d+)\s*points?\s*\|", text)
+    claimed = int(m.group(1)) if m else None
+    headings = re.findall(r"^#### Q\d+:[^\n(]*\((\d+) points?\)", text, flags=re.M)
+    return claimed, sum(int(p) for p in headings)

@@ -29,7 +29,7 @@ revealOptions:
 
 ---
 
-# What We'll Cover Today
+## What We'll Cover Today
 
 1. Why Prompts Matter
 2. Anatomy of a Good Prompt
@@ -39,13 +39,13 @@ revealOptions:
 
 ---
 
-# Prompt Engineering
+## Prompt Engineering
 
 > "A prompt is a program written in natural language."
 
 <!-- vertical -->
 
-# Why Prompts Matter
+## Why Prompts Matter
 
 **Same model, different prompts:**
 
@@ -63,7 +63,7 @@ Result: Specific, testable, documented
 
 <!-- vertical -->
 
-# The Prompting Paradox
+## The Prompting Paradox
 
 > "The better you understand programming, the better you can prompt."
 
@@ -75,7 +75,7 @@ Result: Specific, testable, documented
 
 <!-- vertical -->
 
-# Anatomy of a Good Prompt
+## Anatomy of a Good Prompt
 
 **Five components:**
 
@@ -91,7 +91,7 @@ Not every prompt needs all five, but more context = better results.
 
 <!-- .slide: class="dense" -->
 
-# Claude 4 Best Practices
+## Claude 4 Best Practices
 
 **What's different with Claude 4:**
 
@@ -111,7 +111,7 @@ Not every prompt needs all five, but more context = better results.
 
 <!-- vertical -->
 
-# Context Windows
+## Context Windows
 
 **Claude's "working memory"** — everything it can see at once.
 
@@ -124,7 +124,7 @@ Not every prompt needs all five, but more context = better results.
 
 <!-- vertical -->
 
-# Example: Building a Prompt
+## Example: Building a Prompt
 
 **Bad prompt:**
 ```text
@@ -148,7 +148,7 @@ Examples: Similar to shadcn/ui form patterns.
 
 <!-- .slide: class="dense" -->
 
-# System vs User Prompts
+## System vs User Prompts
 
 **System prompt:**
 - Sets the AI's "personality" and rules
@@ -167,7 +167,7 @@ Examples: Similar to shadcn/ui form patterns.
 
 <!-- vertical -->
 
-# The Iteration Loop
+## The Iteration Loop
 
 ```text
 1. Write initial prompt
@@ -187,13 +187,13 @@ Examples: Similar to shadcn/ui form patterns.
 
 ---
 
-# Prompt Patterns
+## Prompt Patterns
 
 Techniques that consistently improve results.
 
 <!-- vertical -->
 
-# Zero-Shot vs Few-Shot
+## Zero-Shot vs Few-Shot
 
 **Zero-shot:** Just ask, no examples
 
@@ -214,7 +214,7 @@ Convert dates to ISO format:
 
 <!-- vertical -->
 
-# Chain-of-Thought
+## Chain-of-Thought
 
 **Force the AI to think step-by-step:**
 
@@ -234,7 +234,7 @@ Before writing code, analyze this problem:
 
 <!-- vertical -->
 
-# Role Prompting
+## Role Prompting
 
 **Give the AI a persona:**
 
@@ -257,7 +257,7 @@ Review this function for:
 
 <!-- .slide: class="dense" -->
 
-# Structured Output
+## Structured Output
 
 **Request specific formats:**
 
@@ -282,7 +282,7 @@ Return your analysis as JSON:
 
 <!-- .slide: class="dense" -->
 
-# Combining Patterns
+## Combining Patterns
 
 **Real-world prompt using multiple patterns:**
 
@@ -306,13 +306,13 @@ Input: function fetchUser(id){...}
 
 ---
 
-# Artifacts in Claude Web
+## Artifacts in Claude Web
 
 > "Interactive apps that emerge from your conversations with Claude."
 
 <!-- vertical -->
 
-# What Are Artifacts?
+## What Are Artifacts?
 
 **Artifacts are live, interactive outputs:**
 
@@ -326,7 +326,7 @@ Input: function fetchUser(id){...}
 
 <!-- vertical -->
 
-# Artifact Use Cases
+## Artifact Use Cases
 
 - **Prototypes** — Landing pages, signup flows
 - **Tools** — Calculators, converters, trackers
@@ -340,7 +340,7 @@ Input: function fetchUser(id){...}
 
 <!-- .slide: class="dense" -->
 
-# Creating Artifacts
+## Creating Artifacts
 
 **The workflow:**
 
@@ -362,7 +362,7 @@ Input: function fetchUser(id){...}
 
 <!-- .slide: class="dense" -->
 
-# Iterating on Artifacts
+## Iterating on Artifacts
 
 **Refinement through conversation:**
 
@@ -379,7 +379,7 @@ Good: "When I click submit with empty fields, nothing happens"
 
 <!-- vertical -->
 
-# Sharing Artifacts
+## Sharing Artifacts
 
 **Once created, you can:**
 
@@ -395,13 +395,13 @@ Good: "When I click submit with empty fields, nothing happens"
 
 ---
 
-# Hands-On Lab
+## Hands-On Lab
 
 Time to practice!
 
 <!-- vertical -->
 
-# Exercise 1: Email Validator
+## Exercise 1: Email Validator
 
 **Challenge:** Write a prompt that generates an email validation function.
 
@@ -419,7 +419,7 @@ Time to practice!
 
 <!-- .slide: class="dense" -->
 
-# Exercise 2: Iterate & Improve
+## Exercise 2: Iterate & Improve
 
 **Take your v1 prompt and improve it:**
 
@@ -436,7 +436,7 @@ Time to practice!
 
 <!-- vertical -->
 
-# Discussion: What Worked?
+## Discussion: What Worked?
 
 **Share your findings:**
 
@@ -450,7 +450,7 @@ Time to practice!
 
 <!-- .slide: class="dense" -->
 
-# What to Remember
+## What to Remember
 
 1. **Good prompts:** Context + Task + Format + Constraints + Examples
 2. **Patterns:** Few-shot, chain-of-thought, role prompting, structured output
@@ -459,7 +459,7 @@ Time to practice!
 
 ---
 
-# Looking Ahead
+## Looking Ahead
 
 **Next class: User Research & Prototyping**
 - Mom Test & Design Thinking workshop
@@ -470,7 +470,7 @@ Time to practice!
 
 ---
 
-# Resources
+## Resources
 
 **Claude Web & Artifacts:**
 - [Claude Artifacts Guide](https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code)

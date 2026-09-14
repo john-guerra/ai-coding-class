@@ -29,7 +29,7 @@ revealOptions:
 
 ---
 
-# How to Use GenAI Effectively
+## How to Use GenAI Effectively
 
 - You can quickly validate the output
   - You know the answer
@@ -42,7 +42,7 @@ revealOptions:
 
 ---
 
-# What We'll Cover Today
+## What We'll Cover Today
 
 
 1. What's AI? Where LLMs Fit In
@@ -259,7 +259,7 @@ This is why we're learning **all three harnesses** in this course!
 
 <!-- vertical -->
 
-# Required Viewing (Did You Watch?)
+## Required Viewing (Did You Watch?)
 
 <!-- .slide: class="dense" -->
 
@@ -274,7 +274,7 @@ This is why we're learning **all three harnesses** in this course!
 
 ---
 
-# LLMs = Autocomplete on Steroids
+## LLMs = Autocomplete on Steroids
 
 <!-- .slide: class="dense" --> 
 
@@ -286,7 +286,7 @@ This is why we're learning **all three harnesses** in this course!
 
 <!-- vertical -->
 
-# Training: Predict Next Token
+## Training: Predict Next Token
 
 <!-- .slide: class="dense" -->
 
@@ -304,7 +304,7 @@ Target: "\n    return a + b"
 
 <!-- vertical -->
 
-# How LLMs Are Built
+## How LLMs Are Built
 
 <!-- .slide: class="dense" -->
 
@@ -318,7 +318,7 @@ Three phases of training:
 
 <!-- vertical -->
 
-# The Crucial Distinction
+## The Crucial Distinction
 
 <!-- .slide: class="dense" -->
 
@@ -330,7 +330,7 @@ Three phases of training:
 
 <!-- vertical -->
 
-# Stochastic Parrots
+## Stochastic Parrots
 
 > "A parrot can say 'I'm hungry' without experiencing hunger. LLMs can write 'this code handles edge cases' without understanding what edge cases are."
 
@@ -343,7 +343,7 @@ Three phases of training:
 
 <!-- .slide: class="dense" -->
 
-# When to Trust AI
+## When to Trust AI
 
 | LLMs Excel At | LLMs Struggle With |
 | --- | --- |
@@ -355,7 +355,7 @@ Three phases of training:
 
 <!-- vertical -->
 
-# Discussion Question
+## Discussion Question
 
 > "If LLMs don't 'understand,' how do they write working code?"
 
@@ -363,7 +363,7 @@ Take 2 minutes with your neighbor.
 
 <!-- vertical -->
 
-# Tokens: The Atoms of LLM Input
+## Tokens: The Atoms of LLM Input
 
 - LLMs don't see characters or words
 - They see **tokens**: pieces of text
@@ -378,7 +378,7 @@ Take 2 minutes with your neighbor.
 
 <!-- vertical -->
 
-# DEMO: Tokenization in Action
+## DEMO: Tokenization in Action
 
 <!-- .slide: class="dense" -->
 
@@ -399,7 +399,7 @@ Take 2 minutes with your neighbor.
 
 <!-- vertical -->
 
-# Tokenization Gotchas
+## Tokenization Gotchas
 
 ```python
 # This simple function
@@ -414,7 +414,7 @@ def greet(name):
 
 <!-- vertical -->
 
-# How Token Selection Works
+## How Token Selection Works
 
 <!-- .slide: class="dense" -->
 
@@ -432,7 +432,7 @@ Model predicts probability distribution over ALL possible tokens.
 
 ---
 
-# Temperature: Randomness
+## Temperature: Randomness
 
 - Temperature = how "creative" vs. "deterministic"
 - **Temperature 0**: Always pick highest probability
@@ -442,7 +442,7 @@ Model predicts probability distribution over ALL possible tokens.
 <!-- TODO: add image temperature-distributions.png -->
 
 <!-- vertical -->
-# Temperature Settings for Coding
+## Temperature Settings for Coding
 
 <!-- .slide: class="dense" -->
 
@@ -459,7 +459,7 @@ Best practices for different tasks:
 
 <!-- vertical -->
 
-# Other Sampling Parameters
+## Other Sampling Parameters
 
 - **Top-p (nucleus sampling)**: Only consider tokens in top p% probability mass
 - **Top-k**: Only consider top k most likely tokens
@@ -469,7 +469,7 @@ Best practices for different tasks:
 **Most important for coding:** Temperature and top-p
 
 <!-- vertical -->
-# Weights = Compressed Knowledge
+## Weights = Compressed Knowledge
 
 <!-- .slide: class="dense" -->
 
@@ -481,7 +481,7 @@ Best practices for different tasks:
 - Retrieval is **reconstruction**, not recall
 
 <!-- vertical -->
-# You Are What You Eat
+## You Are What You Eat
 
 - LLMs learn patterns from training data
 - Training data biases become model biases
@@ -493,7 +493,7 @@ Best practices for different tasks:
 <!-- vertical -->
 <!-- .slide: class="dense" -->
 
-# Examples of Bias
+## Examples of Bias
 
 | Bias Type | Example |
 | --- | --- |
@@ -506,7 +506,7 @@ Best practices for different tasks:
 <!-- vertical -->
 <!-- .slide: class="dense" -->
 
-# Vibe Coding Implications
+## Vibe Coding Implications
 
 - Less popular language/framework? Expect more errors
 - Niche domain? Model may be guessing
@@ -516,7 +516,7 @@ Best practices for different tasks:
 
 <!-- vertical -->
 
-# Training Data Cutoff
+## Training Data Cutoff
 
 - Models are trained on data up to a certain date
 - New libraries, APIs, frameworks = unknown
@@ -534,7 +534,7 @@ Best practices for different tasks:
 
 <!-- vertical -->
 
-# Embeddings: Meaning as Math
+## Embeddings: Meaning as Math
 
 - Embeddings = dense vector representations
 - Every word/token gets a vector of numbers
@@ -549,7 +549,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# Distance = Similarity
+## Distance = Similarity
 
 - Close vectors = similar meaning
 - Far vectors = different meaning
@@ -562,7 +562,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# DEMO: Embedding Projector
+## DEMO: Embedding Projector
 
 **Tool:** https://projector.tensorflow.org/
 
@@ -576,7 +576,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# Code Embeddings
+## Code Embeddings
 
 - Code can be embedded too!
 - Similar functions = similar vectors
@@ -590,7 +590,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# Storing Embeddings
+## Storing Embeddings
 
 - Vector databases: Pinecone, Weaviate, Chroma
 - Store embeddings for fast similarity search
@@ -606,7 +606,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# How Embeddings Work
+## How Embeddings Work
 
 - LLMs use embeddings internally
 - Every token becomes a vector
@@ -622,7 +622,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# The Memory Illusion
+## The Memory Illusion
 
 > "LLMs have no memory between API calls. Every request starts fresh."
 
@@ -633,7 +633,7 @@ king - man + woman ≈ queen
 
 <!-- vertical -->
 
-# Key Insight: Everything is Text
+## Key Insight: Everything is Text
 
 - Your prompt = text
 - Conversation history = text
@@ -645,7 +645,7 @@ This is crucial for understanding how AI coding tools work.
 
 <!-- vertical -->
 
-# Chatbots: Faking Memory
+## Chatbots: Faking Memory
 
 ```text
 [Previous messages get prepended to every new request]
@@ -661,7 +661,7 @@ The "memory" is just including conversation history in the prompt!
 
 <!-- vertical -->
 
-# Context Windows
+## Context Windows
 
 <!-- .slide: class="dense" -->
 
@@ -681,7 +681,7 @@ How much can models "remember"? (Jan 2026)
 
 <!-- vertical -->
 
-# "Lost in the Middle"
+## "Lost in the Middle"
 
 - LLMs pay more attention to beginning and end
 - Information in the middle may be "forgotten"
@@ -693,7 +693,7 @@ How much can models "remember"? (Jan 2026)
 
 <!-- vertical -->
 
-# LLMs + Your Data
+## LLMs + Your Data
 
 **Problem:**
 
@@ -705,7 +705,7 @@ How much can models "remember"? (Jan 2026)
 
 <!-- vertical -->
 
-# RAG: The Concept
+## RAG: The Concept
 
 ```text
 1. User asks a question
@@ -722,7 +722,7 @@ How much can models "remember"? (Jan 2026)
 
 <!-- vertical -->
 
-# Under the Hood: Cursor
+## Under the Hood: Cursor
 
 ```text
 [System Prompt]
@@ -744,7 +744,7 @@ Here are the user's preferences from .cursorrules:
 
 <!-- vertical -->
 
-# .cursorrules & Context
+## .cursorrules & Context
 
 - `.cursorrules` = always-included instructions
 - `@file` = explicitly include specific files
@@ -762,7 +762,7 @@ Write tests for new functions
 
 ---
 
-# RAG Limitations
+## RAG Limitations
 
 - Retrieval quality depends on embedding quality
 - May retrieve irrelevant chunks
@@ -777,7 +777,7 @@ Write tests for new functions
 
 <!-- vertical -->
 
-# Hallucinations
+## Hallucinations
 
 > "LLMs are trained to sound confident, not to be correct. They will confidently describe API functions that don't exist."
 
@@ -787,7 +787,7 @@ Write tests for new functions
 
 <!-- vertical -->
 
-# The Numbers Are Sobering
+## The Numbers Are Sobering
 
 **Research findings:**
 
@@ -801,7 +801,7 @@ Write tests for new functions
 
 <!-- .slide: class="dense" -->
 
-# Hallucination Patterns
+## Hallucination Patterns
 
 | Type | Example |
 | --- | --- |
@@ -813,7 +813,7 @@ Write tests for new functions
 
 <!-- vertical -->
 
-# How to Catch AI Lies
+## How to Catch AI Lies
 
 **Verification strategies:**
 
@@ -827,7 +827,7 @@ Write tests for new functions
 
 <!-- vertical -->
 
-# Discussion Question
+## Discussion Question
 
 > "When should you trust AI-generated code? When should you be skeptical?"
 
@@ -839,7 +839,7 @@ Write tests for new functions
 
 ---
 
-# The "Lazy Genius"
+## The "Lazy Genius"
 
 > "LLMs are like brilliant but lazy teenagers who want to do the minimum work to seem like they completed the task. If you don't check their work, they'll cut corners. If you give them clear expectations and test their outputs, they do much better."
 
@@ -847,7 +847,7 @@ Write tests for new functions
 
 <!-- .slide: class="dense" -->
 
-# Working with AI
+## Working with AI
 
 | The Problem | The Solution |
 | --- | --- |
@@ -860,7 +860,7 @@ Write tests for new functions
 
 ---
 
-# What to Remember
+## What to Remember
 
 1. LLMs are autocomplete, not reasoning engines
 2. Everything is text — code, prompts, context
@@ -874,7 +874,7 @@ Write tests for new functions
 
 <!-- .slide: class="dense" -->
 
-# Looking Ahead
+## Looking Ahead
 
 | Today's Concept | Later Application |
 | --- | --- |
@@ -887,7 +887,7 @@ Write tests for new functions
 
 ---
 
-# Go Deeper
+## Go Deeper
 
 <!-- .slide: class="dense" -->
 
@@ -908,7 +908,7 @@ Write tests for new functions
 
 ---
 
-# Next: Claude Web
+## Next: Claude Web
 
 - Hands-on with Claude Projects
 - Artifacts for prototyping

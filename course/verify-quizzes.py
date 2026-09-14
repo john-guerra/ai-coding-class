@@ -46,3 +46,33 @@ def load_key(path: Path) -> dict:
         for line in path.read_text().splitlines()
         if (m := re.match(r"\|\s*(Q\d+)\s*\|\s*([A-D])\s*\|", line.strip()))
     }
+
+
+class Metrics(NamedTuple):
+    n: int
+    longest_hits: int
+    longest_rate: float
+    mean_ratio: float
+    letter_spread: dict
+
+
+def measure(questions: list, key: dict) -> Metrics:
+    hits, ratios, letters = 0, [], []
+    for q in questions:
+        correct = key.get(q.qid)
+        if not correct or correct not in q.options:
+            continue
+        letters.append(correct)
+        clen = len(q.options[correct])
+        others = [len(v) for k, v in q.options.items() if k != correct]
+        if clen > max(others):
+            hits += 1
+        ratios.append(clen / (sum(others) / len(others)))
+    n = len(ratios)
+    return Metrics(
+        n=n,
+        longest_hits=hits,
+        longest_rate=(hits / n) if n else 0.0,
+        mean_ratio=(sum(ratios) / n) if n else 0.0,
+        letter_spread={L: letters.count(L) for L in "ABCD"},
+    )

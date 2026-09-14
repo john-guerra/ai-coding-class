@@ -67,5 +67,25 @@ class TestParse(unittest.TestCase):
         self.assertEqual(key, {"Q1": "B", "Q2": "A"})
 
 
+class TestMeasure(unittest.TestCase):
+    def test_flags_correct_answer_that_is_longest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            qs = vq.parse_quiz(write(tmp, "q.md", QUIZ))
+            key = vq.load_key(write(tmp, "k.md", KEY))
+        m = vq.measure(qs, key)
+        self.assertEqual(m.n, 2)
+        # Q1's correct answer (B) is the longest; Q2's (A) is not.
+        self.assertEqual(m.longest_hits, 1)
+        self.assertAlmostEqual(m.longest_rate, 0.5)
+        self.assertGreater(m.mean_ratio, 1.0)
+
+    def test_letter_spread_counts_correct_letters(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            qs = vq.parse_quiz(write(tmp, "q.md", QUIZ))
+            key = vq.load_key(write(tmp, "k.md", KEY))
+        m = vq.measure(qs, key)
+        self.assertEqual(m.letter_spread, {"A": 1, "B": 1, "C": 0, "D": 0})
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

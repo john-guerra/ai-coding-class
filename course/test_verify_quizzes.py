@@ -121,5 +121,26 @@ How many?
         self.assertEqual(actual, 7)                      # 1 + 2 + 4, Q3 counted
 
 
+class TestMain(unittest.TestCase):
+    def test_missing_header_row_yields_none_claimed(self):
+        # main() branches on `claimed is None`; nothing else exercises that path.
+        with tempfile.TemporaryDirectory() as tmp:
+            headerless = QUIZ.replace("| **Points** | 3 points |", "")
+            claimed, actual = vq.check_header_points(write(tmp, "q.md", headerless))
+        self.assertIsNone(claimed)
+        self.assertEqual(actual, 3)
+
+    def test_real_assessments_directory_is_scannable(self):
+        # Week 2 was fixed in a85d8dc and must stay clean; it is the regression guard.
+        quiz = vq.ASSESSMENTS / "week2-llm-fundamentals-quiz.md"
+        key = vq.ASSESSMENTS / "week2-answer-key.md"
+        if not quiz.exists() or not key.exists():
+            self.skipTest("week2 source or gitignored answer key not present")
+        m = vq.measure(vq.parse_quiz(quiz), vq.load_key(key))
+        self.assertGreater(m.n, 0)
+        self.assertLessEqual(m.longest_rate, vq.MAX_LONGEST_RATE)
+        self.assertLessEqual(m.mean_ratio, vq.MAX_LENGTH_RATIO)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

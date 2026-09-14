@@ -2,8 +2,9 @@
 
 **Date:** 2026-09-14
 **Status:** draft, pending review
-**Ships as:** a `quiz-adversary` subagent, a `quiz-lint` measurement harness, a
-W12/W13 content split, and a per-quiz audit rollout across 11 quizzes.
+**Ships as:** a `quiz-integrity` skill, a `quiz-adversary` subagent, a `quiz-lint`
+measurement harness, a W12/W13 content split, and a per-quiz audit rollout across
+11 quizzes.
 
 ---
 
@@ -81,7 +82,7 @@ order:
 | Rank | Source | Authority |
 | --- | --- | --- |
 | 1 | `slides/NN_*/index.md` | **What was actually taught.** Authoritative. |
-| 2 | `COURSE_MEMORY.md` §7 | Quiz-authoring standards from the W2 failure. |
+| 2 | `quiz-integrity` skill (§4) | Quiz-authoring standards, carried forward from the W2 failure. |
 | 3 | `docs/planning/slides_ground_truth_review.md` | Known deck-vs-doc divergences. |
 | 4 | `course/schedule.md`, `course/readings.md` | May lag the decks. Mismatch = flag, not defect. |
 | 5 | Cited statistics | Route to `/verify-references`. Never re-argue inline. |
@@ -115,7 +116,53 @@ the same four findings on every run and the report stops being read.
 
 ---
 
-## 4. The `quiz-adversary` subagent
+## 4. The `quiz-integrity` skill
+
+`.claude/skills/quiz-integrity/SKILL.md`, alongside the existing `verify-references`,
+`sync-course`, `slide-layout` and `deploy-slides` skills. Its closest sibling is
+`verify-references`: an authoring-time standard, not a one-off task.
+
+**This is the artifact that addresses the actual root cause.** The quiz-authoring
+standards already exist — `COURSE_MEMORY.md` §7 has carried them since the Week 2 fix
+in `a85d8dc`, including length parity, mechanism-bearing distractors, letter spread,
+and "measure before publishing". Every quiz from Week 3 to Week 14 still measures at
+70–100%. The rules did not fail because they were wrong; they failed because prose at
+line 625 of a 1,643-line reference file is not loaded at the moment someone writes a
+distractor. This session is itself evidence: the source-first rule was violated in
+Canvas hours before the rule was discovered.
+
+A skill's `description` is the trigger that closes that gap.
+
+```
+---
+name: quiz-integrity
+description: Use when creating, editing, or reviewing any quiz in course/assessments/ —
+  enforces distractor length parity, answer-key ground truth, and source-first Canvas sync
+---
+```
+
+**Carries:** the ground-truth hierarchy (§3) including both false-positive traps; the
+lengthen-never-trim rule and why (§2); the source-first mandate and the Canvas push
+procedure for both sections; when to run `quiz-lint` and when to dispatch
+`quiz-adversary`; and the point/question budgets (15 q / 22 pts, or 10 q / 14 pts for
+the short quizzes).
+
+**Supersedes** `COURSE_MEMORY.md` §7 as the operational reference. That section stays,
+reduced to the incident record and a pointer to the skill — the history is worth
+keeping, the instructions belong where they load.
+
+### What the skill deliberately does not absorb
+
+| Artifact | Job | Why it cannot be the skill |
+| --- | --- | --- |
+| `quiz-adversary` subagent | Adversarial review | Needs a context that never saw the author's reasoning. Reviewing in-context is self-certification — the Writer/Reviewer anti-pattern taught in Week 11. |
+| `quiz-lint` script | Measurement | Length ratios and point sums are deterministic arithmetic. Making them a judgment call reintroduces the drift being fixed. |
+
+The skill orchestrates both; it does not replace either.
+
+---
+
+## 5. The `quiz-adversary` subagent
 
 `.claude/agents/quiz-adversary.md`. **Read-only tools only** — it proposes, it never
 writes.
@@ -149,7 +196,7 @@ holds the correct letters), `slides/NN_*/index.md`, plus the ground-truth source
 
 ---
 
-## 5. `quiz-lint` measurement harness
+## 6. `quiz-lint` measurement harness
 
 `tools/quiz-lint/`. Promotes the throwaway script used to produce the table in §1
 into something that runs before and after every pass, so improvement is measured
@@ -171,7 +218,7 @@ all 12 quizzes without false positives.
 
 ---
 
-## 6. The W12/W13 split
+## 7. The W12/W13 split
 
 Per `COURSE_MEMORY` §7: **source files first, Canvas second.** Never Canvas alone.
 
@@ -218,7 +265,7 @@ W12 keeps its existing dates in both sections.
 
 ---
 
-## 7. Rollout
+## 8. Rollout
 
 Ordered by due date, since an unpublished quiz due sooner is the one that matters.
 **W3 is due Sep 22, eight days out.**
@@ -232,9 +279,9 @@ answer key → `quiz-lint` again → push to **both** Canvas sections.
 | 2 | W4 | Sep 29 | |
 | 3 | W5, W6 | Oct 6, 13 | 10-question quizzes |
 | 4 | W7, W8 | Oct 20, 27 | |
-| 5 | W9, W10 | Nov 3, 10 | also sync the Q15 point drift (§8) |
+| 5 | W9, W10 | Nov 3, 10 | also sync the Q15 point drift (§9) |
 | 6 | W11 | Nov 17 | |
-| 7 | **W12 + W13** | Nov 24, Dec 1 | the split, §6 |
+| 7 | **W12 + W13** | Nov 24, Dec 1 | the split, §7 |
 | 8 | W14 | Dec 8 | B correct 14/15 |
 
 **Checkpoint:** after W3, the proposed rewrites get reviewed by the instructor before
@@ -244,7 +291,7 @@ re-measuring catches length regressions, not that.
 
 ---
 
-## 8. Debt this repairs along the way
+## 9. Debt this repairs along the way
 
 **Q15 point drift.** Canvas was edited directly earlier today to make W9 Q15 and W10
 Q15 worth 2 points each, resolving a 21-vs-22 mismatch. The source files were not
@@ -258,7 +305,7 @@ Fixed in the W9/W10 pass, along with their answer-key point columns.
 
 ---
 
-## 9. Risks
+## 10. Risks
 
 | Risk | Mitigation |
 | --- | --- |
@@ -270,7 +317,7 @@ Fixed in the W9/W10 pass, along with their answer-key point columns.
 
 ---
 
-## 10. Open questions
+## 11. Open questions
 
 1. Should `quiz-lint` eventually gate commits touching `course/assessments/`, or stay
    a manual command? Deferred until it has run clean against all 12.

@@ -560,7 +560,7 @@ Build an agent that classifies input as "bug report," "feature request," or "que
 - Prompt caching & cost optimization
 - **Demo preparation workshop** for P3
 
-**P3 Sprint 4 -- deploy & polish.**
+**P3 Sprint 4.**
 
 ---
 

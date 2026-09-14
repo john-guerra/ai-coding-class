@@ -942,7 +942,7 @@ Weeks 12-14: Architecting with AI (Agents & Production)
 
 ```text
 P1: Individual Mastery
-  Solo project, Claude Web, basic engineering
+  Solo project, Claude Web artifact, AI features
   "Can I build something useful with AI?"
 
 P2: Team Development
@@ -980,15 +980,14 @@ P3: Production Responsibility
 
 | Deliverable | Due | Details |
 | --- | --- | --- |
-| **Project 3 Final** | End of Week 14 | Final submission with deployed URL |
-| **Demo Videos** | End of Week 14 | Async demo submissions |
+| **Project 3 Final** | Finals Week (Dec 14–20) | Final submission with deployed URL |
+| **Demo Videos** | Finals Week (Dec 14–20) | Optional async demo submissions |
 
 **P3 Final Submission Checklist:**
 
 - [ ] App deployed to production (Vercel or similar)
 - [ ] CI/CD pipeline passing all stages
 - [ ] Environment variables properly configured
-- [ ] Error monitoring set up (Sentry or equivalent)
 - [ ] README with setup instructions and live URL
 - [ ] Demo video recorded
 - [ ] Architecture diagram (Mermaid) in repo

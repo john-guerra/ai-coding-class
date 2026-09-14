@@ -88,7 +88,7 @@ Agile gives you the _structure_, your partner gives you _accountability_, and AI
 - Agile gives you **short feedback loops** to course-correct
 - Perfect fit: sprints align with project milestones in this course
 
-**P2 requires 2 documented sprints. P3 requires 4.**
+**P2 requires 2+ documented sprints. P3 requires 3+.**
 
 <!-- vertical -->
 
@@ -102,7 +102,7 @@ Agile gives you the _structure_, your partner gives you _accountability_, and AI
 | **Scrum Master** | Facilitates process, removes blockers | The other partner (rotate per sprint) |
 | **Development Team** | Builds the product | Both partners + your AI tools |
 
-In P2, you split roles between partners. In P3 teams, you'll have more flexibility.
+In P2 and P3 (both pairs), you split roles between partners and rotate each sprint.
 
 <!-- vertical -->
 

@@ -429,11 +429,10 @@ You will build **3 portfolio-worthy applications**:
 **Due Week 6 • 13%**
 
 - Solve a real problem (validated!)
-- 5+ user stories with CRUD
-- ONE primary harness
-- 50%+ test coverage
-- CI/CD pipeline
-- Deployed & accessible
+- 5+ user stories with CRUD (browser)
+- ONE primary harness (Web)
+- Artifacts
+- AI Features
 
 <!-- vertical -->
 
@@ -443,10 +442,9 @@ You will build **3 portfolio-worthy applications**:
 
 - Frontend + Backend + Database
 - User authentication
-- ALL 3 harnesses
-- 80%+ test coverage (TDD)
-- Comprehensive evals
+- TDD
 - 2+ Agile sprints
+- Team of 2
 
 <!-- vertical -->
 
@@ -454,10 +452,9 @@ You will build **3 portfolio-worthy applications**:
 
 **Due Finals Week • 19%**
 
-- Team of 2-3
+- Team of 2
 - Parallel agentic programming
-- Enterprise CI/CD
-- Production monitoring
+- CI/CD
 - Security audit
 - 3+ sprints
 

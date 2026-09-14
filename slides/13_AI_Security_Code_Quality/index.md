@@ -708,9 +708,9 @@ Design a 5-task eval suite for one feature in your P3:
 - Cost optimization and model routing
 - RAG and vector databases
 - Demo preparation and course reflection
-- **P3 final submission**
+- **P3 deploy & polish** (P3 due Finals Week)
 
-**P3 Sprint 5 -- deploy, polish, and present.**
+**P3: deploy, polish, and prepare your demo.**
 
 ---
 

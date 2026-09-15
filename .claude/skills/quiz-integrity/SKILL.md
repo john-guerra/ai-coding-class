@@ -79,6 +79,11 @@ worked example of why: deck 01 claimed P1 needed 50%+ coverage and CI/CD, deck
 against the current specs. A question validated against a deck on a logistics
 question can certify a wrong answer as correct.
 
+**Cited statistics (rank 5).** Any claim resting on a statistic — Veracode's
+45%, LLM-as-Judge's 85% vs. 81% human agreement, the 23-37% property-testing
+figure — routes to `/verify-references`. Do not re-argue the number inline;
+that skill owns URL and source-match verification.
+
 **Two traps that produce false positives** — check these before flagging a
 quiz question as wrong:
 
@@ -119,6 +124,14 @@ python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
 2. Dispatch the `quiz-adversary` subagent to attempt the quiz using only the
    tells (length, letter position, phrasing) — no course content. A quiz it
    beats above chance has a defect the linter's thresholds didn't catch.
+   *"I wrote these distractors carefully, a review is redundant" is
+   self-certification — the author is the one person who cannot audit their
+   own blind spot, which is exactly the Writer/Reviewer split this course
+   teaches in Week 11.*
 3. Apply fixes to the source file (§1, §2).
 4. Re-run the linter until it exits 0.
+   *"I applied the fixes, it's obviously better now" is not verification —
+   lengthening three distractors can still leave the correct answer longest;
+   the ratio is arithmetic, not a judgment call. Exit 0 is the claim;
+   anything else is an assertion.*
 5. Push to **both** Canvas sections — never one.

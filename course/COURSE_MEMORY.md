@@ -189,7 +189,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 
 ---
 
-## 5. PROJECTS (55% of Grade)
+## 5. PROJECTS (50% of Grade)
 
 ### Project 1: Personal Utility App — Claude Web Artifact (13%) - Due Week 6
 
@@ -238,7 +238,7 @@ Students must submit a **single PDF/document** containing:
 
 ### Project 2: Full-Stack Application (18%) - Due Week 9
 
-**Objective:** Integrate multiple harnesses with professional practices as a pair
+**Objective:** Build a full-stack app as a pair, applying the IDE harness with professional practices (TDD, CI/CD, Agile)
 
 **Team Structure:**
 - P2 is a **pair project** (2 students)
@@ -257,26 +257,19 @@ Students must submit a **single PDF/document** containing:
   - Professional UI/UX
 
 - **Technical:**
-  - Use all 3 harnesses appropriately
+  - Primary harness: AI IDE (Antigravity), guided by the shared rules file (HW3)
   - Tech stack:
     - Frontend: React/Next.js + TailwindCSS
     - Backend: Node.js/Express OR Next.js API routes
     - Database: PostgreSQL or MongoDB
     - Auth: JWT or OAuth
   - **Test-Driven Development:**
-    - 80%+ coverage
+    - TDD workflow (red-green-refactor): failing tests committed before implementation
     - Unit + Integration + E2E tests (Playwright/Cypress)
-  - **Evaluation Suite:**
-    - Automated test runs
-    - Code quality metrics
-    - Security scanning
-    - Performance benchmarks
-    - Custom semantic evals
-    - Eval dashboard
   - **Advanced CI/CD:**
     - Multi-stage pipeline
     - Deploy previews for PRs
-    - Coverage reporting (CodeCov)
+    - Tests run on every PR
     - Security scanning in CI
     - Automated deployment
     - Environment management
@@ -310,10 +303,9 @@ Students must submit a **single PDF/document** containing:
 **Deliverables:**
 1. GitHub repository (with visible commit history from both partners)
 2. Deployed app (production URL)
-3. Eval dashboard (live or screenshots)
-4. Complete documentation package
-5. Demo video
-6. Individual reflections (one per partner, submitted separately)
+3. Complete documentation package
+4. Demo video
+5. Individual reflections (one per partner, submitted separately)
 
 **Rubric (200 points):**
 - Functionality: 45 pts
@@ -352,7 +344,7 @@ Students must submit a **single PDF/document** containing:
   - **Security (W13):** 4+ gates from 8-gate pipeline, OWASP in CLAUDE.md
 
 - **Team Process:**
-  - 2 sprints documented (planning + retrospective each)
+  - 3+ sprints documented (planning + retrospective each)
   - Branch-per-issue workflow, async standups (3+/sprint/partner)
   - C.L.E.A.R. framework in PR reviews, peer evaluations
 
@@ -1535,7 +1527,7 @@ Track changes semester-to-semester:
 ### For Students
 
 **By End of Course:**
-- 3 deployed applications
+- 3 portfolio applications (P2 and P3 deployed; P1 as a shareable Claude artifact)
 - Professional GitHub profile
 - Technical blog posts
 - Strong AI tool proficiency
@@ -1543,8 +1535,8 @@ Track changes semester-to-semester:
 - Job interview materials
 
 **Key Performance Indicators:**
-- All projects deployed
-- 80%+ test coverage (P2, P3)
+- P2 and P3 deployed; P1 shared as a working artifact
+- TDD evidence in P2 and P3 (P3: 70%+ coverage)
 - Strong quiz performance
 - Active Slack participation
 - Consistent homework completion

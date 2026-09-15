@@ -100,8 +100,11 @@ def week_of(path: Path) -> str:
 def main(argv: list) -> int:
     quizzes = sorted(ASSESSMENTS.glob("week*-quiz.md"))
     if argv:
-        wanted = {a.lstrip("w").lstrip("eek").zfill(2) for a in argv}
+        wanted = {re.sub(r"^week", "", a, flags=re.I).zfill(2) for a in argv}
         quizzes = [q for q in quizzes if week_of(q)[4:].zfill(2) in wanted]
+        if not quizzes:
+            print(f"no quizzes matched {argv}", file=sys.stderr)
+            return 1
     failed = False
     print(f"{'quiz':<8} {'n':>3} {'longest':>12} {'ratio':>8}  {'pts':>9}  spread")
     print("-" * 74)

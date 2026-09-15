@@ -45,6 +45,43 @@ KEY = """# Week 99 ANSWER KEY
 | Q2 | A | 2 | Second Thing |
 """
 
+CLEAN_QUIZ = """# Week 99: Clean Fixture
+
+| **Points** | 3 points |
+
+## Questions
+
+#### Q1: Balanced One (1 point)
+**Type:** Multiple Choice
+
+Which statement is accurate?
+
+- A) The cache is invalidated whenever a write occurs
+- B) The cache is refreshed on a fixed timed interval
+- C) The cache persists until the process is restarted
+- D) The cache is discarded when memory pressure rises
+
+---
+
+#### Q2: Balanced Two (2 points)
+**Type:** Multiple Choice
+
+Which mechanism applies here?
+
+- A) Requests are queued and retried with a backoff
+- B) Requests are dropped once the buffer is saturated
+- C) Requests are routed to a secondary replica set
+- D) Requests are batched before the flush is issued
+"""
+
+CLEAN_KEY = """# Week 99 ANSWER KEY
+
+| Question | Answer | Points | Topic |
+|----------|--------|--------|-------|
+| Q1 | B | 1 | Balanced One |
+| Q2 | A | 2 | Balanced Two |
+"""
+
 
 def write(tmp, name, body):
     p = Path(tmp) / name
@@ -123,7 +160,8 @@ How many?
 
 class TestMain(unittest.TestCase):
     def test_missing_header_row_yields_none_claimed(self):
-        # main() branches on `claimed is None`; nothing else exercises that path.
+        # Verifies check_header_points' claimed=None path, which main() branches
+        # on via `pts_ok = claimed is None or claimed == actual`.
         with tempfile.TemporaryDirectory() as tmp:
             headerless = QUIZ.replace("| **Points** | 3 points |", "")
             claimed, actual = vq.check_header_points(write(tmp, "q.md", headerless))
@@ -140,6 +178,38 @@ class TestMain(unittest.TestCase):
         self.assertGreater(m.n, 0)
         self.assertLessEqual(m.longest_rate, vq.MAX_LONGEST_RATE)
         self.assertLessEqual(m.mean_ratio, vq.MAX_LENGTH_RATIO)
+
+
+class TestMainExitCodes(unittest.TestCase):
+    def setUp(self):
+        self._saved = vq.ASSESSMENTS
+        self._tmp = tempfile.TemporaryDirectory()
+        vq.ASSESSMENTS = Path(self._tmp.name)
+        (vq.ASSESSMENTS / "week99-fixture-quiz.md").write_text(CLEAN_QUIZ)
+        (vq.ASSESSMENTS / "week99-answer-key.md").write_text(CLEAN_KEY)
+
+    def tearDown(self):
+        vq.ASSESSMENTS = self._saved
+        self._tmp.cleanup()
+
+    def test_returns_zero_when_every_quiz_passes(self):
+        self.assertEqual(vq.main([]), 0)
+
+    def test_returns_one_when_filter_matches_nothing(self):
+        # A mistyped filter must fail loudly, never report a vacuous all-clear.
+        self.assertEqual(vq.main(["Week404"]), 1)
+
+    def test_filter_accepts_bare_and_prefixed_week_forms(self):
+        for arg in ("99", "week99", "Week99"):
+            with self.subTest(arg=arg):
+                self.assertEqual(vq.main([arg]), 0)
+
+    def test_returns_one_when_a_quiz_has_the_tell(self):
+        # QUIZ is the demonstrates-the-defect fixture: Q1's correct answer is
+        # the longest option. A gate that only ever returns 0 proves nothing.
+        (vq.ASSESSMENTS / "week98-telling-quiz.md").write_text(QUIZ)
+        (vq.ASSESSMENTS / "week98-answer-key.md").write_text(KEY)
+        self.assertEqual(vq.main([]), 1)
 
 
 if __name__ == "__main__":

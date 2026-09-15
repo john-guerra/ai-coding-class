@@ -51,7 +51,49 @@ then push to **both** Canvas sections (Oakland and San Jose have separate
 courses; a source fix pushed to only one still leaves the other silently
 wrong).
 
-## 2. The Tell and Its Fix Direction
+## 2. Per-Answer Feedback
+
+Every option can carry the rationale a student sees after answering it, as an
+indented blockquote directly under the option it explains:
+
+```markdown
+- A) Background clue given
+  > "Background clue given" restates Context, one of the five components
+  > under Anatomy of a Good Prompt — it's not the odd one out, it belongs
+  > on the list.
+```
+
+**Why indented and blockquoted, specifically:** `verify-quizzes.py`'s
+`parse_quiz` matches options with `^-\s*([A-D])\)\s*(.+?)\s*$` — a line that
+must *start* with `-`. A feedback line indented two spaces and led with `>`
+can never match that anchor, so it is structurally invisible to the option
+parser — not "usually skipped," but incapable of matching regardless of
+content. Never write feedback as an unindented `- ` line, and never put it on
+the same line as the option text; either would risk the parser measuring
+feedback prose as if it were the option, corrupting every length ratio in the
+bank (see §3 below). This is proven by a regression test
+(`TestPerAnswerFeedbackIsInert` in `course/test_verify_quizzes.py`), not just
+by inspection — it constructs a deliberately-broken parser variant that folds
+the blockquote into the option text and confirms the test fails against it.
+
+Only `course/assessments/week3-prompt-engineering-quiz.md` carries this field
+so far (backfilled after the loss below). The other eleven quizzes still rely
+solely on Canvas for feedback text — treat that as a known gap, not a
+model to copy from, until they are backfilled too.
+
+**Hard rule: never push `answers` to `canvas_update_quiz_question` without
+`answer_comment` for every option.** On 2026-09-14, a Canvas push for Week 3
+sent only `answer_text` and `answer_weight` for each option and silently
+cleared every per-answer feedback comment in both sections — the push itself
+wasn't reverted or reviewed for this side effect because Canvas gave no
+warning that omitting `answer_comment` deletes existing feedback rather than
+leaving it alone. The comment field is not additive: whatever the call
+doesn't send, Canvas erases. If a question's source has no `> ` feedback
+lines yet (any of the other eleven quizzes), the fix is to read the current
+comments back from Canvas first and round-trip them in the same call — not to
+send `answers` alone and assume the rest is untouched.
+
+## 3. The Tell and Its Fix Direction
 
 Measure every question: does the correct answer's length exceed every
 distractor's? Compare its length to the mean of the distractors. If the
@@ -69,7 +111,7 @@ student could believe). Also spread the correct letter across A/B/C/D;
 shuffling in Canvas does not fix a skewed source-file pattern, since students
 comparing notes see the underlying skew.
 
-## 3. Ground Truth Hierarchy
+## 4. Ground Truth Hierarchy
 
 When checking whether a question's claim is actually correct, rank sources —
 but the ranking **splits by claim type**. Decks are authoritative on what was
@@ -131,7 +173,7 @@ quiz question as wrong:
   of these three shows up in an audit, cite the review doc and move on — do
   not re-report it as a quiz defect or a doc gap on every run.
 
-## 4. Budgets
+## 5. Budgets
 
 | Weeks | Questions | Points |
 |-------|-----------|--------|
@@ -142,7 +184,7 @@ quiz question as wrong:
 question points; it does not check question/point *counts* against this
 table, so confirm the budget by eye when adding or removing a question.
 
-## 5. Workflow
+## 6. Workflow
 
 ```bash
 python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
@@ -175,7 +217,7 @@ python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
    blind guesser would ask (e.g. a 93% correct-is-longest rate already tells
    you longest-picking scores ~93%). Recorded here as a future enhancement,
    not a defect.
-3. Apply fixes to the source file (§1, §2).
+3. Apply fixes to the source file (§1, §3).
 4. Re-run the linter until it exits 0.
    *"I applied the fixes, it's obviously better now" is not verification —
    lengthening three distractors can still leave the correct answer longest;

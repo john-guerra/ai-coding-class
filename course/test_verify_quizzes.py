@@ -126,6 +126,36 @@ class TestMeasure(unittest.TestCase):
 
 MISMATCHED = QUIZ.replace("| **Points** | 3 points |", "| **Points** | 22 points |")
 
+# Task 7b regression fixture: a short option paired with a deliberately long
+# per-option feedback line (the `  > ...` blockquote syntax added to the
+# source format). If parse_quiz ever started folding this line into the
+# option text, A's measured length would balloon past its true 5 chars and
+# both the option value and the length metrics below would be wrong.
+FEEDBACK_QUIZ = """# Week 97: Feedback Fixture
+
+| **Points** | 1 points |
+
+## Questions
+
+#### Q1: Feedback Regression (1 point)
+**Type:** Multiple Choice
+
+Which one is correct?
+
+- A) Short
+  > This is a deliberately long per-answer feedback line, far longer than any of the four option texts on this question, written to prove that the parser never folds indented blockquote feedback into the measured option length or option value.
+- B) Also short
+- C) Still short
+- D) Short too
+"""
+
+FEEDBACK_KEY = """# Week 97 ANSWER KEY
+
+| Question | Answer | Points | Topic |
+|----------|--------|--------|-------|
+| Q1 | A | 1 | Feedback Regression |
+"""
+
 
 class TestHeaderPoints(unittest.TestCase):
     def test_matching_header_returns_equal_values(self):
@@ -156,6 +186,42 @@ How many?
             self.assertEqual(len(vq.parse_quiz(p)), 2)   # Q3 dropped: no options
             claimed, actual = vq.check_header_points(p)
         self.assertEqual(actual, 7)                      # 1 + 2 + 4, Q3 counted
+
+
+class TestPerAnswerFeedbackIsInert(unittest.TestCase):
+    """Task 7b: `  > feedback` lines must never be measured as option text.
+
+    Per-option feedback is a new field, added because the Week 3 Canvas push
+    (2026-09-14) cleared every answer's feedback comment — Canvas was the
+    only place that content lived, since the source format had no field for
+    it. That incident was about Canvas losing content on push, not about
+    this parser; but the fix (writing feedback into the source) creates a
+    new failure mode this parser must resist: if it ever folded a feedback
+    line into the option text it captures, the same length-ratio defect this
+    whole linter exists to catch (a85d8dc) would resurface via a different
+    path. A test that only confirms parsing still works would pass even if
+    that were happening. These assertions fail loudly if it is.
+    """
+
+    def test_option_value_excludes_the_feedback_line(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            qs = vq.parse_quiz(write(tmp, "q.md", FEEDBACK_QUIZ))
+        # If the blockquote were folded in, this would be "Short\n  > This is..."
+        # instead of the option's own five characters.
+        self.assertEqual(qs[0].options["A"], "Short")
+
+    def test_feedback_length_does_not_inflate_the_ratio(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            qs = vq.parse_quiz(write(tmp, "q.md", FEEDBACK_QUIZ))
+            key = vq.load_key(write(tmp, "k.md", FEEDBACK_KEY))
+        m = vq.measure(qs, key)
+        # The correct answer (A, "Short", 5 chars) is shorter than at least
+        # one distractor ("Also short"), so it must not register as longest,
+        # and the ratio must stay near 1x. A parser that glued in the ~230
+        # char feedback line would make A the longest by a huge margin and
+        # push mean_ratio well past MAX_LENGTH_RATIO.
+        self.assertEqual(m.longest_hits, 0)
+        self.assertLess(m.mean_ratio, 1.15)
 
 
 class TestMain(unittest.TestCase):

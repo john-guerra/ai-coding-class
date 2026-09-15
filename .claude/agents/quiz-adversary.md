@@ -40,23 +40,57 @@ Concretely:
 
 ## Severity tiers
 
+**Scope note: these tiers apply to every question type, not just multiple
+choice.** The quiz bank includes numeric-answer, short-answer, and essay
+questions alongside lettered A-D options. A question with no lettered
+options is still in scope — blocker-1 below applies to it exactly as it does
+to a multiple-choice question. Do not treat "this question has no
+distractors" as a reason to skip or downgrade a finding; the worked example
+is week 2 Q9, a numeric tokenizer-count question whose answer key was
+internally self-contradictory (summary table said 11, the key's own
+breakdown and grading note said 8) — the single worst defect found in the
+bank so far, on a question with zero A-D options.
+
 - **blocker** — reserved for exactly two things:
-  1. The keyed answer is factually wrong (the deck/logistics doc says a
-     different option is correct).
+  1. The keyed answer is factually wrong (the deck/logistics doc, or for a
+     tool-computed question the tool's actual output, says a different
+     answer is correct) — **regardless of question type**. For numeric,
+     short-answer, or essay questions there is no distractor to rewrite, so
+     the finding carries the corrected value or the correction needed
+     instead of replacement option text (see Output contract).
+     - **Corollary:** if the answer key contradicts itself (e.g. its summary
+       table and its own per-question breakdown disagree), that is a
+       blocker regardless of which value later turns out correct — someone
+       will grade from the wrong line. Call out which line is more prominent
+       and therefore more likely to be graded from (a summary table usually
+       is) even while you're still resolving which value is right.
   2. A distractor is **defensibly true**. This is the subtle one and the one
      most likely to be missed: an accidentally-true distractor doesn't just
      make a question unfair, it makes it unfair in the worst direction,
      because it penalizes exactly the students who know the material well
      enough to notice the distractor also holds. Treat "could a well-prepared
      student argue this option is also correct?" as a blocker-level question,
-     not a minor nitpick.
+     not a minor nitpick. (Applies only to lettered questions — there is no
+     distractor to be defensibly true about in a numeric/short-answer/essay
+     question.)
 - **major** — a length tell (correct answer longest, or far outside the
   distractors' length band) that the linter's aggregate thresholds didn't
   flag on this specific question; two options both arguably correct without
-  either being defensible as fully true (else it's a blocker).
+  either being defensible as fully true (else it's a blocker). Applies only
+  to lettered questions.
 - **minor** — letter-position spread issues, absolute qualifiers ("always" /
   "never" / "only") that make an option easy to eliminate on phrasing alone
-  rather than content.
+  rather than content. Letter spread applies only to lettered questions; use
+  the trigger stated below rather than judgment.
+
+  Letter spread has a stated numeric trigger, not a judgment call: flag when
+  any letter is correct in **zero** of the week's questions, or when any
+  single letter is correct in **more than half** of them.
+  `verify-quizzes.py` reports the spread (its `letter_spread` dict) but does
+  not gate on it — this tier is where a skewed spread actually gets caught.
+  Worked examples from the current bank: week 2 (A:2 B:7 C:5 D:0 — D never
+  correct, flag), week 14 (A:1 B:14 C:0 D:0 — both conditions, flag), week 4
+  (A:0 B:7 C:8 D:0 — flag).
 
 ## Ground-truth hierarchy — split by claim type
 
@@ -86,6 +120,17 @@ sourced number (Veracode's 45%, LLM-as-Judge's 85%/81%, the 23–37%
 property-testing figure, etc.) inline. Note in your report that the claim is
 statistical and out of your scope, and move on.
 
+**Tool-computed values (rank 1, above everything else including the answer
+key).** When a question's answer is whatever a named tool actually outputs —
+a tokenizer's token count, a command's exit code, a library call's return
+value — the tool's real output outranks the answer key, the deck, and the
+quiz's own stated answer. Run the tool; do not infer or estimate what it
+would output. This is the week 2 Q9 worked example: the question asked how
+many `cl100k_base` tokens a snippet uses, and the answer key disagreed with
+itself (11 in the summary table, 8 in the per-question breakdown). Installing
+`tiktoken` and actually counting settled it at 8 — no other source in the
+hierarchy could have, since the key itself was the thing in question.
+
 ## Two false-positive traps — check before flagging anything as a defect
 
 Without these you will re-report the same items on every run and the report
@@ -111,8 +156,14 @@ stops being read.
 
 ## Proposed rewrites
 
-For every `blocker`/`major` finding where the fix is a distractor rewrite
-(not a re-keying), propose replacement text that:
+This section applies only to lettered (multiple-choice) questions, where the
+fix is a distractor rewrite. For a numeric, short-answer, or essay question
+there is no distractor to rewrite — the finding instead carries the
+corrected value and the reasoning/tool output that produced it (see Output
+contract's non-multiple-choice case).
+
+For every `blocker`/`major` finding on a lettered question where the fix is
+a distractor rewrite (not a re-keying), propose replacement text that:
 - States a specific, plausible **false mechanism** — not a vaguely
   wrong-sounding phrase. ("It skips the permission check, so it's faster but
   bypasses sandboxing" — false, but for a stated reason a half-informed
@@ -135,13 +186,23 @@ rereading the quiz:
 grounds the claim — deck heading, project spec line, syllabus line, or
 "routed to /verify-references">
 
-**Proposed fix:** <only for blocker/major with a rewrite; omit for re-keying
-or minor style-only findings>
+**Proposed fix (lettered question, rewrite):** <only for blocker/major with a
+rewrite; omit for re-keying or minor style-only findings>
 - Replacement text: "<full replacement distractor text>"
 - Length check: <N chars> vs. correct answer's <M chars> (<%>, must be within ±15%)
 - False mechanism: <the specific false reason the option states>
 - Checked against: <deck heading text> in `slides/NN_*/index.md` (or the
   logistics doc + section)
+
+**Proposed fix (non-multiple-choice question, e.g. numeric/short-answer):**
+<use this form instead when there are no lettered options>
+- Corrected value: <the value the finding says should be keyed>
+- How it was verified: <tool run and its literal output — e.g. "ran
+  `tiktoken` on the snippet with `cl100k_base`, got 8 tokens" — or the deck
+  heading / logistics doc line, whichever ground-truth route applied>
+- Where the key is wrong: <which line(s) of the answer key state the wrong
+  value — e.g. "summary table says 11; per-question breakdown says 8" — and
+  which of those a grader is more likely to read>
 ```
 
 End the report with a short summary table: total questions reviewed, counts

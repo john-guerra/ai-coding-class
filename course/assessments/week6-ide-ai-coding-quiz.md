@@ -142,9 +142,9 @@ Your team starts a Next.js/TypeScript/Tailwind project and creates an `.antigrav
 Your `.antigravityrules` says "Always use `fetch` for HTTP requests." In chat, you write: "Use `axios` for this API call, referencing `@src/api/client.ts`." That file uses `axios` throughout. What will the AI most likely do?
 
 - A) Use fetch, because the rules file always overrides everything
-- B) Use axios, because your explicit instruction and the @ reference both point to axios, giving strong specific signals that override the general rules file convention
+- B) Use axios, since the @ reference silently rewrites the rules file
 - C) Refuse to generate code due to conflicting instructions
-- D) Randomly choose between fetch and axios
+- D) Randomly choose between fetch and axios whenever two signals conflict
 
 ---
 

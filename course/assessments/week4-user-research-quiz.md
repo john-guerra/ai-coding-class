@@ -62,10 +62,10 @@ You're interviewing a potential user about your app idea. According to The Mom T
 
 What happens when a Claude Web conversation exceeds the context window limit?
 
-- A) The context window expands automatically to accommodate longer conversations
-- B) Claude loses access to the oldest parts of the conversation first
-- C) Claude loses access to early context (FIFO) or summarizes older parts of the conversation
-- D) Claude begins to hallucinate details from earlier in the conversation
+- A) The context window expands automatically to accommodate longer conversations without any limit.
+- B) Claude compresses older messages into a short summary but still keeps every original detail.
+- C) Claude loses access to early context because the window drops the oldest turns first (FIFO).
+- D) Claude begins to hallucinate details from earlier in the conversation once the chat runs long.
 
 ---
 

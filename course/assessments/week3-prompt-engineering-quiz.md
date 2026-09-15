@@ -5,7 +5,7 @@
 | Setting | Value |
 |---------|-------|
 | **Quiz Type** | Graded Quiz |
-| **Points** | 15 points |
+| **Points** | 22 points |
 | **Time Limit** | 15 minutes |
 | **Allowed Attempts** | 1 |
 | **Shuffle Answers** | Yes |
@@ -23,7 +23,7 @@ This quiz assesses your understanding of prompt engineering concepts covered in 
 
 **Instructions:**
 - **Time Limit:** 15 minutes
-- **Questions:** 10 questions (15 points total)
+- **Questions:** 15 questions (22 points total)
 - **Attempts:** One attempt only
 
 **Topics Covered:**
@@ -55,10 +55,10 @@ This quiz assesses your understanding of prompt engineering concepts covered in 
 
 Which of the following is NOT one of the five key prompt components discussed in class?
 
-- A) Context
-- B) Temperature
-- C) Constraints
-- D) Examples
+- A) Background clue given
+- B) Temperature setting
+- C) Stated constraints
+- D) Worked example set
 
 ---
 
@@ -67,10 +67,10 @@ Which of the following is NOT one of the five key prompt components discussed in
 
 What is the primary purpose of a system prompt?
 
-- A) Ask a specific question
-- B) Provide few-shot examples
+- A) Ask one question, briefly overriding system rules this turn
+- B) Provide few-shot examples, since prompts cache for reuse
 - C) Set persistent personality and rules across a conversation
-- D) Increase context window size
+- D) Increase context window size, since prompts sit outside budget
 
 ---
 
@@ -79,10 +79,10 @@ What is the primary purpose of a system prompt?
 
 When is few-shot prompting most beneficial over zero-shot?
 
-- A) When you need faster responses
+- A) When you need fast replies, fewer tokens used
 - B) When you want consistent formatting across outputs
-- C) When the task needs no examples
-- D) To reduce token count
+- C) When the task needs no examples, format is inferred
+- D) To reduce token count, since short prompts sample faster
 
 ---
 
@@ -91,9 +91,9 @@ When is few-shot prompting most beneficial over zero-shot?
 
 Chain-of-thought prompting is most effective for which type of task?
 
-- A) Simple boilerplate generation
+- A) Boilerplate code, skipping reasoning steps
 - B) Translating text between languages
-- C) Formatting output as JSON
+- C) Formatting output as JSON, skips reasoning
 - D) Multi-step reasoning with complex logic
 
 ---
@@ -103,10 +103,10 @@ Chain-of-thought prompting is most effective for which type of task?
 
 What is the best strategy for maintaining quality in long conversations with an LLM?
 
-- A) Put important information in the middle of the prompt
-- B) Fill the entire context window with as much detail as possible
+- A) Put important information in the middle, since models weight the center of the window most
+- B) Fill the entire context window with as much detail, since more tokens raise accuracy
 - C) Put important information at the beginning and break large tasks into smaller conversations
-- D) Repeat every instruction verbatim throughout the conversation
+- D) Repeat every instruction verbatim, since repetition resets the model's attention span
 
 ---
 
@@ -119,10 +119,10 @@ What is the best strategy for maintaining quality in long conversations with an 
 
 You need to review a pull request for security vulnerabilities and want a thorough, systematic analysis with structured findings. Which prompting approach is best?
 
-- A) Zero-shot: "Review this code for security issues"
-- B) Few-shot with examples of past code reviews
+- A) Zero-shot: "Review this code for security issues", since one instruction covers every vulnerability class
+- B) Few-shot with examples of past code reviews, since prior examples guarantee the same bugs recur
 - C) Role (security expert) + chain-of-thought (systematic analysis) + structured output (JSON findings)
-- D) Role prompting alone as a security expert
+- D) Role prompting alone as a security expert, since the persona already implies a systematic method
 
 ---
 
@@ -131,9 +131,9 @@ You need to review a pull request for security vulnerabilities and want a thorou
 
 You ask Claude to build a React login form. The first output is missing input validation, loading states, and error handling. What is the best next step?
 
-- A) Start a new conversation from scratch
-- B) Increase the temperature setting
-- C) Accept the output and manually add the missing features
+- A) Start a new conversation from scratch, since prior context biases every reply
+- B) Increase the temperature setting, since more randomness fixes missing validation logic
+- C) Accept the output and manually patch the gaps yourself, since re-prompting rarely helps
 - D) Identify the specific gaps and refine the prompt with targeted constraints for each
 
 ---
@@ -145,8 +145,8 @@ Your team wants every AI-generated function to include JSDoc comments, use async
 
 - A) In each individual prompt every time you generate code
 - B) In a system prompt or .cursorrules configuration file
-- C) In the project README.md
-- D) Only in code review comments after generation
+- C) In the project README.md, read before replying
+- D) In code review, since that is the enforceable step
 
 ---
 
@@ -159,9 +159,9 @@ Your team wants every AI-generated function to include JSDoc comments, use async
 
 A developer writes the prompt `"Make a function that handles data"` and gets unhelpful output. Which prompt component is most critically lacking?
 
-- A) Examples
+- A) Task
 - B) Format
-- C) Task — "handles data" is too vague to act on
+- C) Examples
 - D) Constraints
 
 ---
@@ -171,14 +171,14 @@ A developer writes the prompt `"Make a function that handles data"` and gets unh
 
 You're building an automated pipeline that parses Claude's output programmatically. The data has deeply nested categories. What is the best format to request?
 
-- A) Markdown tables
-- B) Plain text with delimiters
-- C) JSON for parseable structure, with XML tags for nested prompt instructions
-- D) YAML only
+- A) JSON, with XML tags for nested prompt instructions
+- B) Plain text with delimiters, since separators parse faster
+- C) Markdown tables, since rows nest the same as JSON
+- D) YAML, since indentation validates faster than braces
 
 ---
 
-## Additional Question Pool (for randomization)
+## Additional Question Pool
 
 ### Additional Concept Questions
 
@@ -187,10 +187,10 @@ You're building an automated pipeline that parses Claude's output programmatical
 
 Why does knowing programming make you a better prompt engineer?
 
-- A) LLMs only accept code as input
+- A) LLMs accept code as input, so natural-language prompts are silently tokenized as syntax
 - B) You need to know what to ask for, recognize good vs bad output, and know when the AI is wrong
-- C) Prompt engineering requires understanding neural network architecture
-- D) Prompts need to be compiled before sending
+- C) Prompt engineering requires understanding neural network architecture and hand-tuned weights
+- D) Prompts need to be compiled before sending, since Claude accepts pre-tokenized machine code
 
 ---
 
@@ -199,10 +199,10 @@ Why does knowing programming make you a better prompt engineer?
 
 You want the AI to write thorough API documentation. Which role would produce the best results?
 
-- A) Senior engineer doing code review
-- B) Technical writer specializing in developer documentation
-- C) Project manager
-- D) QA engineer
+- A) Technical writer specializing in developer documentation
+- B) Senior engineer doing review, focused on clear explanations
+- C) Project manager, since PMs write the clearest specifications
+- D) QA engineer, since testers document more thoroughly
 
 ---
 
@@ -211,10 +211,10 @@ You want the AI to write thorough API documentation. Which role would produce th
 
 According to Claude best practices, why should you explain the "why" behind your request?
 
-- A) Longer prompts always produce better results
-- B) Claude refuses to respond without a stated reason
+- A) Longer prompts add detail Claude weighs more heavily in its response
+- B) Claude refuses to respond without a stated reason for the request
 - C) Providing purpose and context helps Claude generate more relevant output
-- D) It prevents hallucinations entirely
+- D) It increases the maximum number of tokens Claude can output in one turn
 
 ---
 
@@ -225,10 +225,10 @@ According to Claude best practices, why should you explain the "why" behind your
 
 A startup founder needs an investor demo tomorrow but has no code yet. What is the best approach using Claude?
 
-- A) Write a full production backend overnight
+- A) Write a full production backend overnight, since a real deploy beats any prototype
 - B) Use Artifacts to create an interactive prototype, iterating through conversation
-- C) Generate a PowerPoint presentation
-- D) Write detailed technical specifications
+- C) Generate a PowerPoint presentation, since slides demo interactivity better
+- D) Write detailed technical specifications, since investors read specs faster
 
 ---
 
@@ -237,10 +237,10 @@ A startup founder needs an investor demo tomorrow but has no code yet. What is t
 
 You're building a complex TypeScript validation library with Claude. The first output misses edge cases, has incorrect types, and lacks error messages. What is the correct interpretation and approach?
 
-- A) Start over with a different model
+- A) Start over with a different model, since mismatches compound each round
 - B) This is normal — expect 2-5 iterations and refine one area at a time
-- C) AI can't handle this level of complexity
-- D) Submit as-is and fix issues during code review
+- C) AI can't handle this level of complexity, types exceed context
+- D) Submit as-is and fix issues later, since reviewers catch type errors reliably
 
 ---
 
@@ -248,19 +248,14 @@ You're building a complex TypeScript validation library with Claude. The first o
 
 1. **Create New Quiz** in Canvas under "Quizzes"
 2. **Configure Settings** as shown in the Settings table above
-3. **Create Question Groups** for randomization:
-   - Group 1: Concept Questions (select 5 from Q1-Q5 + Q11-Q13)
-   - Group 2: Scenario Questions (select 3 from Q6-Q8 + Q14-Q15)
-   - Group 3: Applied Questions (Q9 + Q10 required)
-4. **Add Questions** using the content above
-5. **Set Correct Answers** (see answer key - instructor only)
-6. **Save and Preview** before publishing
+3. **Add Questions** using the content above
+4. **Set Correct Answers** (see answer key - instructor only)
+5. **Save and Preview** before publishing
 
 ## Anti-Cheating Measures Implemented
 
-1. **Time pressure** - 15 minutes for 10 questions limits research time
-2. **Question pools** - Random selection from larger pool
-3. **Answer shuffling** - Different order for each student
-4. **Scenario-based** - Requires understanding, not just recall
-5. **Single attempt** - No retakes
-6. **Locked questions** - Can't go back and change answers
+1. **Time pressure** - 15 minutes for 15 questions limits research time
+2. **Answer shuffling** - Different order for each student
+3. **Scenario-based** - Requires understanding, not just recall
+4. **Single attempt** - No retakes
+5. **Locked questions** - Can't go back and change answers

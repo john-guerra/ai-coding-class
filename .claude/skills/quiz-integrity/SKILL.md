@@ -89,9 +89,18 @@ quiz question as wrong:
 
 - **Deck renumbering.** `docs/planning/slides_ground_truth_review.md` reviewed
   "decks 01-08, 10-15" under a numbering scheme that predates the Fall 2026
-  renumber; decks are now 1:1 with week numbers. Its deck 13 = `slides/12_`,
-  deck 14 = `slides/13_`, deck 15 = `slides/14_`. The findings still hold —
-  shift the deck number by the offset before treating them as stale.
+  renumber; decks are now 1:1 with week numbers. Note there is **no old deck
+  09** — the old numbering skipped it, which is the entire reason the offset
+  exists. General rule: old deck **01-08** maps unchanged to
+  `slides/01_`-`slides/08_`; old deck **N ≥ 10** maps to `slides/(N-1)_` —
+  10→`slides/09_`, 11→`slides/10_`, 12→`slides/11_`, 13→`slides/12_`,
+  14→`slides/13_`, 15→`slides/14_`. The findings still hold — shift the deck
+  number by the offset before treating them as stale. **When looking up a
+  week in that doc, compute the old deck number first** (week N ≥ 9 → old
+  deck N+1) and search for that — searching by the current week number or
+  current path misses the row (e.g. the C.L.E.A.R. exception below lives
+  under the review's `12_Claude_Code_Extensibility` row, not anything
+  labeled "11").
 - **Three quiz topics are taught and tested but absent from `schedule.md` and
   `readings.md` on purpose-by-omission, not by quiz error** — they are already
   ranked as doc gaps in that same review: **C.L.E.A.R.** (W11 quiz, taught in

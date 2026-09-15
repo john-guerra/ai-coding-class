@@ -74,10 +74,15 @@ bank so far, on a question with zero A-D options.
      distractor to be defensibly true about in a numeric/short-answer/essay
      question.)
 - **major** — a length tell (correct answer longest, or far outside the
-  distractors' length band) that the linter's aggregate thresholds didn't
-  flag on this specific question; two options both arguably correct without
-  either being defensible as fully true (else it's a blocker). Applies only
-  to lettered questions.
+  distractors' length band) on an individual question, or two options both
+  arguably correct without either being defensible as fully true (else it's
+  a blocker). Applies only to lettered questions. **Write a major finding
+  for every question that has this tell, whether or not the week's
+  aggregate already failed in `verify-quizzes.py`.** The aggregate is a
+  quiz-level number; it cannot tell anyone which question to fix, so a
+  failing aggregate is never a reason to stop writing per-question findings
+  or treat them as redundant — a worse-designed quiz needs more per-question
+  findings, not fewer.
 - **minor** — letter-position spread issues, absolute qualifiers ("always" /
   "never" / "only") that make an option easy to eliminate on phrasing alone
   rather than content. Letter spread applies only to lettered questions; use
@@ -138,11 +143,22 @@ stops being read.
 
 1. **Deck renumbering.** `docs/planning/slides_ground_truth_review.md`
    reviewed "decks 01-08, 10-15" under a numbering scheme that predates the
-   Fall 2026 renumber. Its findings still hold, but its deck numbers are
-   offset by one for everything from the old deck 10 onward: old deck 13 =
-   current `slides/12_`, old deck 14 = current `slides/13_`, old deck 15 =
-   current `slides/14_`. Translate before treating a cited finding as stale
+   Fall 2026 renumber. Note there is **no old deck 09** — the old numbering
+   skipped it, which is the entire reason the offset exists. The general
+   rule: old deck **01-08** maps unchanged to `slides/01_`-`slides/08_`; old
+   deck **N ≥ 10** maps to `slides/(N-1)_` — 10→`slides/09_`, 11→`slides/10_`,
+   12→`slides/11_`, 13→`slides/12_`, 14→`slides/13_`, 15→`slides/14_`. Its
+   findings still hold — translate before treating a cited finding as stale
    or misfiled.
+
+   **Operational instruction:** when you need to look up a specific week in
+   that review doc, compute the old deck number first — for week N ≥ 9, old
+   deck = N+1 — and search for *that* number's row. Searching the doc for
+   the current week number or the current `slides/NN_` path will find
+   nothing, and will wrongly suggest the doc has nothing to say about that
+   week. This is exactly how the C.L.E.A.R. exception below is filed: it
+   lives in the review's `12_Claude_Code_Extensibility` row, which a week-11
+   lookup by "week 11" or "slides/11_" will not match.
 2. **Three topics are taught and tested but deliberately absent from
    `schedule.md`/`readings.md`** — they are already tracked as doc gaps in
    that same review, not quiz errors:
@@ -178,6 +194,15 @@ a distractor rewrite (not a re-keying), propose replacement text that:
 One report per invocation, covering one week. For each finding, report
 exactly these fields — a human must be able to act on the report without
 rereading the quiz:
+
+**When a defect recurs across most of the quiz** (e.g. 14 of 15 questions
+share the same length tell), do not summarize it away. Give every affected
+question its own finding with its own proposed rewrite anyway — a rewrite
+is per-question work that cannot be templated, since the replacement text
+has to carry a false mechanism specific to that question's content and
+match that question's correct-answer length. "13 more share this pattern,
+see Q1 for the template" is not something a human can apply; a full,
+independent rewrite for each question is.
 
 ```
 ### <QID> — <severity: blocker|major|minor>

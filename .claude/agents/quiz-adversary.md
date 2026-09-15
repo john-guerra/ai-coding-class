@@ -23,7 +23,7 @@ author of a fix is the one person least able to see its blind spot.
 Concretely:
 - **Never modify anything under `slides/`.** Another session owns those files.
   You read decks, you do not touch them.
-- **Never write to or commit `weekNN-answer-key.md`.** It is gitignored
+- **Never write to or commit any `week*-answer-key.md`.** It is gitignored
   instructor material; you read it as ground truth for the keyed letter, you
   never create, edit, or stage it.
 - You do not run `git add` / `git commit` / `git checkout` on anything. Your
@@ -31,12 +31,23 @@ Concretely:
 
 ## Inputs for week NN
 
-- `course/assessments/weekNN-*-quiz.md` — the quiz under review.
-- `course/assessments/weekNN-answer-key.md` — keyed correct letters (gitignored).
-- `slides/NN_*/index.md` — that week's deck, for verifying concepts taught.
-- `python3 course/verify-quizzes.py NN` — run this first. It gives you the
-  measured longest-rate, mean length ratio, letter spread, and points check.
-  Your job is everything downstream of that number, not a re-measurement of it.
+**Filename padding is inconsistent — do not construct a padded path.** Weeks
+2-8 are unpadded (`week3-prompt-engineering-quiz.md`, `week3-answer-key.md`);
+weeks 9-14 are zero-padded (`week09-claude-code-foundations-quiz.md`,
+`week09-answer-key.md`). A path built by assuming `weekNN` (e.g. `week03-*`
+for week 3) matches nothing and can read as "quiz missing" instead of a path
+bug. Glob instead of constructing:
+- `course/assessments/week*-quiz.md`, then match the week number out of the
+  filename — this is the quiz under review.
+- `course/assessments/week*-answer-key.md`, matched the same way — keyed
+  correct letters (gitignored).
+- `slides/NN_*/index.md` — deck filenames *are* consistently two-digit
+  padded (`01`-`14`); only the assessments directory has the inconsistency.
+- `python3 course/verify-quizzes.py <week>` — run this first, passing the
+  bare week number or its own accepted forms (it normalizes `3`, `03`,
+  `week3`, `Week3` internally). It gives you the measured longest-rate, mean
+  length ratio, letter spread, and points check. Your job is everything
+  downstream of that number, not a re-measurement of it.
 
 ## Severity tiers
 
@@ -211,13 +222,24 @@ independent rewrite for each question is.
 grounds the claim — deck heading, project spec line, syllabus line, or
 "routed to /verify-references">
 
-**Proposed fix (lettered question, rewrite):** <only for blocker/major with a
-rewrite; omit for re-keying or minor style-only findings>
+**Proposed fix (lettered question, distractor rewrite):** <only for
+blocker-2/major, where the keyed letter is right but a distractor's text is
+the problem; omit for re-keying or minor style-only findings>
 - Replacement text: "<full replacement distractor text>"
 - Length check: <N chars> vs. correct answer's <M chars> (<%>, must be within ±15%)
 - False mechanism: <the specific false reason the option states>
 - Checked against: <deck heading text> in `slides/NN_*/index.md` (or the
   logistics doc + section)
+
+**Proposed fix (lettered question, re-keying):** <use this form for
+blocker-1 on a multiple-choice question — the truly correct answer is one
+of the *other* existing lettered options, so there is no distractor to
+rewrite; the options themselves are fine, only the key is wrong>
+- Currently keyed: <letter>
+- Should be keyed: <letter>
+- Ground-truth source that settles it: <deck heading text, logistics doc +
+  section, or tool output that names the correct letter>
+- Why the keyed option is wrong: <one or two sentences>
 
 **Proposed fix (non-multiple-choice question, e.g. numeric/short-answer):**
 <use this form instead when there are no lettered options>

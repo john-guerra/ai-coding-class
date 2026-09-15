@@ -25,10 +25,20 @@ incident (see `COURSE_MEMORY.md` §7 for that), but the standard applied live.
 
 ## 1. Source First
 
-`course/assessments/weekNN-*-quiz.md` is the source of truth. Its
-`weekNN-answer-key.md` sibling is gitignored instructor material —
+`course/assessments/week*-quiz.md` is the source of truth. Its
+`week*-answer-key.md` sibling is gitignored instructor material —
 **never commit an answer key.** Canvas is downstream of both; it is never
 edited directly for content or points.
+
+**Filename padding is inconsistent — never construct a `weekNN` path.**
+Weeks 2-8 are unpadded (`week3-prompt-engineering-quiz.md`,
+`week3-answer-key.md`); weeks 9-14 are zero-padded
+(`week09-claude-code-foundations-quiz.md`, `week09-answer-key.md`). Glob
+`course/assessments/week*-quiz.md` (or `week*-answer-key.md`) and match the
+week number out of the result instead of building `week03-*` for week 3 —
+that pattern matches nothing and can read as "quiz missing" rather than a
+path bug. Deck filenames under `slides/` don't have this problem; they are
+consistently two-digit padded (`01`-`14`).
 
 The live worked example of getting this wrong: on 2026-09-14, Canvas was
 edited directly to bump two questions' point values (week09 Q15 "Extended
@@ -84,6 +94,17 @@ question can certify a wrong answer as correct.
 figure — routes to `/verify-references`. Do not re-argue the number inline;
 that skill owns URL and source-match verification.
 
+**Tool-computed values (rank 1, above the answer key itself).** When a
+question's answer is whatever a named tool actually outputs — a tokenizer's
+token count, a command's exit code, a library call's return value — run the
+tool and use its real output. It outranks the answer key, the deck, and the
+quiz's own stated answer, because none of those can be trusted to check
+themselves. Worked example: week 2 Q9 asked how many `cl100k_base` tokens a
+snippet uses, and the answer key disagreed with itself (11 in the summary
+table, 8 in the per-question breakdown). Only running `tiktoken` settled it
+at 8 — no other source in the hierarchy could have, since the key was the
+thing in question.
+
 **Two traps that produce false positives** — check these before flagging a
 quiz question as wrong:
 
@@ -130,13 +151,30 @@ python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
 1. Run the linter on the week you touched. Exit 0 = clean; exit 1 = a scanned
    quiz exceeds threshold (correct-is-longest > 40%, mean length ratio > 1.15)
    or has a header/points mismatch.
-2. Dispatch the `quiz-adversary` subagent to attempt the quiz using only the
-   tells (length, letter position, phrasing) — no course content. A quiz it
-   beats above chance has a defect the linter's thresholds didn't catch.
+2. Dispatch the `quiz-adversary` subagent (`.claude/agents/quiz-adversary.md`)
+   to review the quiz. It is content-aware, not a blind guesser: it reads
+   the quiz, the (gitignored) answer key, that week's deck, and the
+   logistics docs; runs `verify-quizzes.py` and, where a question's answer
+   is a tool's actual output, the tool itself; and reports blocker/major/minor
+   findings — including keyed answers that are factually wrong or a
+   distractor that is defensibly true, which the linter cannot see at all.
+   It is read-only and proposes rewrites for a human to apply; it never
+   edits the quiz, the key, or anything under `slides/`.
    *"I wrote these distractors carefully, a review is redundant" is
    self-certification — the author is the one person who cannot audit their
    own blind spot, which is exactly the Writer/Reviewer split this course
    teaches in Week 11.*
+
+   **Deferred, not built:** a blind-guess mode — attempting the quiz using
+   only tells (length, letter position, phrasing) with no course content —
+   would measure actual exploitability directly, which is strictly more
+   informative than the linter's length ratios for the letter-position and
+   phrasing tells the linter can't gate on. It is not implemented because it
+   would be scope creep on top of the content-aware review above, and for
+   the length tell specifically the linter already answers the question a
+   blind guesser would ask (e.g. a 93% correct-is-longest rate already tells
+   you longest-picking scores ~93%). Recorded here as a future enhancement,
+   not a defect.
 3. Apply fixes to the source file (§1, §2).
 4. Re-run the linter until it exits 0.
    *"I applied the fixes, it's obviously better now" is not verification —

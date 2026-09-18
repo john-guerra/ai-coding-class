@@ -159,10 +159,10 @@ Your team wants every AI-generated function to include JSDoc comments, use async
 
 A developer writes the prompt `"Make a function that handles data"` and gets unhelpful output. Which prompt component is most critically lacking?
 
-- A) Task
-- B) Format
-- C) Examples
-- D) Constraints
+- A) Task — "handles data" is too vague to say what the function should do
+- B) Format — the prompt never says how the output should be structured
+- C) Examples — no sample input and output are given for Claude to imitate
+- D) Constraints — no limits are set on language, size, or edge cases
 
 ---
 

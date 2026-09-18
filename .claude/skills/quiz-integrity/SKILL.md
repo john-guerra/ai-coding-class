@@ -111,6 +111,34 @@ student could believe). Also spread the correct letter across A/B/C/D;
 shuffling in Canvas does not fix a skewed source-file pattern, since students
 comparing notes see the underlying skew.
 
+### Meaning outranks parity — the Q9 rule
+
+**Length parity never justifies removing content that lets a student identify the answer.**
+If closing a band would strip the discriminating substance from an option, widen the other
+three instead, or accept the residual ratio and document it.
+
+Worked example, from a real pilot failure. Week 3 Q9 asks which prompt component is most
+critically lacking in `"Make a function that handles data"`. Its correct answer read
+`Task — "handles data" is too vague to act on` against three bare labels (Format, Examples,
+Constraints) — a 5.28x ratio, the worst in the bank. The clause was stripped to bare `Task`
+to close that band.
+
+That looked like the sanctioned "remove a bolted-on explanation" move. It was not. The
+clause carried the discrimination: "make a function" *is* an action, so without the
+explanation a student reasonably concludes the Task is present and the gap must be Format
+or Constraints. **The instructor piloted the quiz and answered it wrong.**
+
+The fix was to give all four options comparable explanatory weight rather than strip the
+one that had it — which restored the meaning and measured better than the stripped version
+(1.01x, correct answer no longer longest, all options within 15%).
+
+Before removing any clause from a correct answer, ask what a student loses. If the answer
+gets harder to identify for someone who *knows the material*, the clause was load-bearing,
+not decoration. A quiz that measures 1.00x and cannot be answered by someone who studied is
+worse than one that measures 1.5x and can.
+
+---
+
 ## 4. Ground Truth Hierarchy
 
 When checking whether a question's claim is actually correct, rank sources —

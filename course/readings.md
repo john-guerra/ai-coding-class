@@ -105,6 +105,7 @@ All URLs have been verified as of January 2026.
 
 | Resource | Description | URL |
 |----------|-------------|-----|
+| Managing Context Windows | How Claude's working memory works and how to manage it | https://platform.claude.com/docs/en/build-with-claude/context-windows |
 | Real World Prompting Course | Practical prompting patterns | https://github.com/anthropics/courses/tree/master/real_world_prompting |
 | Prompt Evaluations Course | Testing and evaluating prompts | https://github.com/anthropics/courses |
 
@@ -464,7 +465,7 @@ All URLs have been verified as of January 2026.
 | Week | Primary Focus | Key Readings |
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
-| 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs |
+| 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs, context windows |
 | 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
 | 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
 | 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |

@@ -173,3 +173,6 @@ slides/test-results/
 # Overflow-detection debug screenshots
 overflow-*.png
 env-var-slide-*.png
+
+# Python bytecode from course/verify-quizzes.py test runs
+course/__pycache__/

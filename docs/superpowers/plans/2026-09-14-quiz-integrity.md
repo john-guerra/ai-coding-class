@@ -17,7 +17,8 @@
 - **Never trim the correct answer.** Lengthen distractors. Trimming buys parity by giving up precision.
 - **Never touch Week 2.** Published, due Sep 15, six submissions in. Already at 0/14.
 - **Never modify anything under `slides/`.** Another session (`audit-slide-fragments`) owns those files. Read only.
-- **Ground truth order:** decks → `quiz-integrity` skill → `slides_ground_truth_review.md` → `schedule.md`/`readings.md` → `/verify-references` for statistics.
+- **Ground truth order (concepts):** decks → `quiz-integrity` skill → `slides_ground_truth_review.md` → `schedule.md`/`readings.md` → `/verify-references` for statistics.
+- **Ground truth order (logistics) — decks are NOT rank 1.** For project requirements, due dates, sprint counts, and coverage thresholds, `course/projects/*.md`, `course/schedule.md` and `course/syllabus.md` win over deck prose. Confirmed by the `audit-slide-fragments` session: commit `ba11e10` exists because decks were stale on exactly these — deck 01 claimed P1 needed 50%+ coverage and CI/CD, deck 07 said P3 requires 4 sprints, deck 14 had P3 due "End of Week 14". Decks lead on *what was taught*; they lag on *what is required*. Any question resting on a logistics claim must be checked against the course docs, not the slide.
 - **Deck numbering is 1:1 with weeks.** `slides/NN_*` = week NN. `slides_ground_truth_review.md` uses the old numbering; its deck 13 = `slides/12_`, deck 14 = `slides/13_`, deck 15 = `slides/14_`.
 - **Thresholds:** correct-is-longest ≤ 40%, mean length ratio ≤ 1.15, header points must equal the sum of question points.
 - **Python:** stdlib only, no new dependencies, `#!/usr/bin/env python3`, exit 0 pass / 1 fail.
@@ -298,7 +299,9 @@ This is the check that would have caught Weeks 9 and 10 both claiming 22 points 
 
 **Interfaces:**
 - Consumes: `parse_quiz` from Task 1.
-- Produces: `check_header_points(path, questions) -> tuple[int | None, int]` returning `(claimed, actual)`; `claimed` is `None` when the header declares no total.
+- Produces: `check_header_points(path) -> tuple[int | None, int]` returning `(claimed, actual)`; `claimed` is `None` when the header declares no total.
+
+**RULING (controller, pre-Task-3):** `actual` must be summed from **every** `#### Qn ... (N points)` heading in the file, independently of `parse_quiz`. `parse_quiz` drops questions with fewer than 3 lettered options, and `week2` Q9 is a numeric-answer question worth 2 points. Summing only parsed questions reports `week2` as `20 != 22` — a false failure on the one quiz that is the clean regression guard, and it would break Task 4's test. The header claims the whole quiz, so the check must count the whole quiz.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -311,17 +314,32 @@ MISMATCHED = QUIZ.replace("| **Points** | 3 points |", "| **Points** | 22 points
 class TestHeaderPoints(unittest.TestCase):
     def test_matching_header_returns_equal_values(self):
         with tempfile.TemporaryDirectory() as tmp:
-            p = write(tmp, "q.md", QUIZ)
-            claimed, actual = vq.check_header_points(p, vq.parse_quiz(p))
+            claimed, actual = vq.check_header_points(write(tmp, "q.md", QUIZ))
         self.assertEqual((claimed, actual), (3, 3))
 
     def test_detects_the_week9_week10_mismatch_shape(self):
         with tempfile.TemporaryDirectory() as tmp:
-            p = write(tmp, "q.md", MISMATCHED)
-            claimed, actual = vq.check_header_points(p, vq.parse_quiz(p))
+            claimed, actual = vq.check_header_points(write(tmp, "q.md", MISMATCHED))
         self.assertEqual(claimed, 22)
         self.assertEqual(actual, 3)
         self.assertNotEqual(claimed, actual)
+
+    def test_counts_questions_parse_quiz_drops(self):
+        # week2 Q9 is a numeric-answer question: points, but no A-D options.
+        # parse_quiz drops it; the header total must still include it.
+        numeric = QUIZ + '''
+---
+
+#### Q3: Numeric Thing (4 points)
+**Type:** Numeric Answer
+
+How many?
+'''
+        with tempfile.TemporaryDirectory() as tmp:
+            p = write(tmp, "q.md", numeric)
+            self.assertEqual(len(vq.parse_quiz(p)), 2)   # Q3 dropped: no options
+            claimed, actual = vq.check_header_points(p)
+        self.assertEqual(actual, 7)                      # 1 + 2 + 4, Q3 counted
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -334,16 +352,23 @@ Expected: FAIL — `AttributeError: module 'vq' has no attribute 'check_header_p
 Append to `course/verify-quizzes.py`:
 
 ```python
-def check_header_points(path: Path, questions: list) -> tuple:
-    m = re.search(r"\|\s*\*\*Points\*\*\s*\|\s*(\d+)\s*points?\s*\|", path.read_text())
+def check_header_points(path: Path) -> tuple:
+    """Compare the header's claimed total against every question heading.
+
+    Counts headings directly rather than parse_quiz output: numeric and essay
+    questions carry points but have no lettered options, so parse_quiz drops them.
+    """
+    text = path.read_text()
+    m = re.search(r"\|\s*\*\*Points\*\*\s*\|\s*(\d+)\s*points?\s*\|", text)
     claimed = int(m.group(1)) if m else None
-    return claimed, sum(q.points for q in questions)
+    headings = re.findall(r"^#### Q\d+:[^\n(]*\((\d+) points?\)", text, flags=re.M)
+    return claimed, sum(int(p) for p in headings)
 ```
 
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `python3 course/test_verify_quizzes.py`
-Expected: PASS, 6 tests
+Expected: PASS, 7 tests
 
 - [ ] **Step 5: Commit**
 
@@ -369,6 +394,14 @@ Append to `course/test_verify_quizzes.py`:
 
 ```python
 class TestMain(unittest.TestCase):
+    def test_missing_header_row_yields_none_claimed(self):
+        # main() branches on `claimed is None`; nothing else exercises that path.
+        with tempfile.TemporaryDirectory() as tmp:
+            headerless = QUIZ.replace("| **Points** | 3 points |", "")
+            claimed, actual = vq.check_header_points(write(tmp, "q.md", headerless))
+        self.assertIsNone(claimed)
+        self.assertEqual(actual, 3)
+
     def test_real_assessments_directory_is_scannable(self):
         # Week 2 was fixed in a85d8dc and must stay clean; it is the regression guard.
         quiz = vq.ASSESSMENTS / "week2-llm-fundamentals-quiz.md"
@@ -386,7 +419,19 @@ class TestMain(unittest.TestCase):
 Run: `python3 course/test_verify_quizzes.py`
 Expected: FAIL — `AttributeError: module 'vq' has no attribute 'ASSESSMENTS'` is already defined, so this fails only if the parser regex does not match the real file. Fix the regex until it passes; do not relax the assertion.
 
-- [ ] **Step 3: Write minimal implementation**
+- [ ] **Step 3a: Document the caller invariant carried from Task 2**
+
+`measure()` calls `max(others)` and divides by `len(others)`, which is safe only
+because `parse_quiz` filters to 3+ lettered options. That invariant is real but
+undocumented. Add exactly this comment immediately above the `others = [...]` line
+inside `measure()`, changing no logic:
+
+```python
+        # Safe because parse_quiz keeps only questions with 3+ lettered options,
+        # so `others` always has 2+ entries. Hand-built Questions may not.
+```
+
+- [ ] **Step 3b: Write minimal implementation**
 
 Append to `course/verify-quizzes.py`:
 
@@ -411,7 +456,7 @@ def main(argv: list) -> int:
             print(f"{week:<8} answer key missing — skipped")
             continue
         m = measure(questions, key)
-        claimed, actual = check_header_points(quiz, questions)
+        claimed, actual = check_header_points(quiz)
         pts_ok = claimed is None or claimed == actual
         bad = m.longest_rate > MAX_LONGEST_RATE or m.mean_ratio > MAX_LENGTH_RATIO or not pts_ok
         failed = failed or bad
@@ -431,7 +476,7 @@ if __name__ == "__main__":
 - [ ] **Step 4: Run tests and the real scan**
 
 Run: `python3 course/test_verify_quizzes.py`
-Expected: PASS, 7 tests
+Expected: PASS, 9 tests
 
 Run: `python3 course/verify-quizzes.py; echo "exit=$?"`
 Expected: the §1 table reproduced, `week2` passing, every other week marked `<-- FAIL`, `exit=1`
@@ -474,7 +519,7 @@ description: Use when creating, editing, or reviewing any quiz in course/assessm
 Body must contain, each as its own section:
 1. **Source first** — edit `course/assessments/` then push to both Canvas sections; never Canvas alone; cite the W9/W10 Q15 drift as the worked example of what goes wrong.
 2. **The tell and its fix direction** — lengthen distractors, never trim the correct answer, and why (trimming trades a fairness defect for a correctness one).
-3. **Ground truth hierarchy** — the five ranks from spec §3, both traps verbatim (deck renumbering table; the three non-errors: C.L.E.A.R. in W11, LLM-as-Judge and property/mutation testing in W10).
+3. **Ground truth hierarchy** — the five ranks from spec §3, both traps verbatim (deck renumbering table; the three non-errors: C.L.E.A.R. in W11, LLM-as-Judge and property/mutation testing in W10), **and the concepts-vs-logistics split**: decks are rank 1 for what was taught, but `course/projects/*.md`, `schedule.md` and `syllabus.md` are rank 1 for project requirements, due dates, sprint counts and coverage thresholds. Cite `ba11e10` as the worked example of decks lagging on logistics.
 4. **Budgets** — 15 q / 22 pts standard; 10 q / 14 pts for W5 and W6.
 5. **Workflow** — `python3 course/verify-quizzes.py <week>` → dispatch `quiz-adversary` → apply → re-run → push both sections.
 
@@ -526,6 +571,10 @@ Body specifies: input is a week number; read `course/assessments/weekNN-*-quiz.m
 - **minor** — letter spread, absolute qualifiers ("always"/"never"/"only")
 
 Every proposed distractor must: state a specific false mechanism, land within ±15% of the correct answer's length, and cite the slide heading it was checked against. Statistics route to `/verify-references` rather than being argued inline.
+
+**Logistics exception.** If a question turns on a project requirement, due date, sprint count, or coverage threshold, the agent must verify it against `course/projects/*.md`, `course/schedule.md` or `course/syllabus.md` — **not** the deck. Decks have been stale on exactly these claims (see `ba11e10`). Validating a logistics claim against a deck can certify a wrong answer as correct.
+
+All 14 decks are `##`-dominant for content slides, with `#` reserved for dividers and a residual handful of h1-titled slides (`# What We'll Cover Today`, `# Resources`, `# Looking Ahead`) present in nearly every deck. Decks 02 and 03 were the outliers until `50f179e` brought them into line. Read heading TEXT, never heading level.
 
 - [ ] **Step 2: Smoke-test against the already-fixed Week 2**
 
@@ -587,6 +636,65 @@ Note: a question `PUT` returns `position: null` and ignores a `position` argumen
 git add course/assessments/week3-prompt-engineering-quiz.md
 git commit -m "Remove the answer-length tell from the Week 3 quiz"
 ```
+
+---
+
+## Task 7b: Per-answer feedback in the source format
+
+**Files:**
+- Modify: `course/assessments/week3-prompt-engineering-quiz.md` (first quiz to carry the new field)
+- Modify: `.claude/skills/quiz-integrity/SKILL.md` (document the field and the push rule)
+- Modify: `course/verify-quizzes.py` + `course/test_verify_quizzes.py` (parse and ignore the new field without breaking)
+
+**Why this exists:** the Week 3 Canvas push cleared every per-answer feedback comment in
+both sections, because the push sent `answer_text` and `answer_weight` only. The root
+cause is not the push — it is that `course/assessments/*.md` has **no field for
+per-answer feedback**, so Canvas was the only place that content lived. A source-first
+pipeline cannot preserve content the source cannot represent. Left unfixed, this recurs
+on all nine remaining weeks.
+
+**Interfaces:**
+- Consumes: the existing option syntax `- A) text`.
+- Produces: an optional per-option feedback line the parser must tolerate, and a
+  documented rule that Canvas pushes always send `answer_comment`.
+
+- [ ] **Step 1: Choose a syntax that the existing parser already tolerates**
+
+`parse_quiz` matches options with `^-\s*([A-D])\)\s*(.+?)\s*$`. Any feedback syntax must
+not match that pattern, or feedback text will be measured as option text and corrupt
+every length ratio in the bank. Verify this before committing to a syntax.
+
+Recommended form, indented so it cannot match the option regex:
+
+```markdown
+- A) Background clue given
+  > Context is one of the five components. The odd one out is a sampling parameter.
+```
+
+- [ ] **Step 2: Add a regression test proving feedback is not measured as an option**
+
+The test must fail if the parser ever starts counting feedback lines. Build a fixture
+with one long feedback line under a short option and assert the measured option length is
+the option's, not the feedback's.
+
+- [ ] **Step 3: Backfill Week 3 only**
+
+Week 3 is the quiz whose feedback was lost, so it is the one that must carry the new field
+now. Do not backfill the other eleven quizzes in this task — their Canvas feedback is
+still intact, and rewriting them is its own piece of work.
+
+- [ ] **Step 4: Document the rule in the skill**
+
+Two additions to `SKILL.md`: the source syntax for per-option feedback, and a hard rule
+that any `canvas_update_quiz_question` call which sends `answers` must also send
+`answer_comment` for every option — because omitting it silently clears student-facing
+feedback. Cite the Week 3 loss as the worked example.
+
+- [ ] **Step 5: Verify and commit**
+
+`python3 course/verify-quizzes.py` must still report identical numbers for all twelve
+quizzes — the new field changes no measurement. Confirm that explicitly; a changed ratio
+means the parser is eating feedback text.
 
 ---
 

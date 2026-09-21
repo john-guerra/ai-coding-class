@@ -138,6 +138,9 @@ Two MCP servers are configured for this project in `.mcp.json` (repo root; they 
 - `canvas_list_group_categories` — list all group categories (group sets) in a course
 - `canvas_create_group` — create a group inside a group category (group set)
 - `canvas_update_group` — update an existing group (e.g. rename it)
+- `canvas_list_course_users` — look up enrolled users (and their Canvas user IDs) by name
+- `canvas_list_quiz_submissions` — read per-student moderation state (`extra_time`, `extra_attempts`)
+- `canvas_set_quiz_extension` — grant extra time/attempts on a quiz (the API behind *Moderate This Quiz*)
 
 **Quiz creation workflow:** Use `canvas-extras` (not `canvas-lms`) for creating quizzes and adding questions. The `canvas-extras` server provides the full quiz creation pipeline: `canvas_create_quiz` → `canvas_create_quiz_question` (repeat) → `canvas_list_quiz_questions` (verify). Note: `canvas_list_quiz_questions` paginates at 10 results by default.
 
@@ -149,6 +152,11 @@ Two MCP servers are configured for this project in `.mcp.json` (repo root; they 
   in `.mcp.json`, so the server stays reusable by any course. Add a key there to reach another
   course (e.g. `"spring": "246270"` for read-only lookups of the archived term).
 - **`canvas-lms`** already requires a numeric `course_id` on every tool — pass `270068` or `270077`.
+
+**Known `canvas-lms` gaps:** its `canvas_get_quiz` and `canvas_list_quizzes` are advertised in the
+tool schema but the server answers `Unknown tool` — use `canvas-extras` for all quiz reads.
+Accommodations note: `extra_time` is **additional minutes**, not a multiplier, and it must be set
+**per quiz per section** — there is no course-wide "double time" setting for classic quizzes.
 
 Most Canvas work for Fall 2026 must be done **twice**, once per section.
 

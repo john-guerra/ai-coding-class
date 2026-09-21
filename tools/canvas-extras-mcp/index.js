@@ -155,7 +155,7 @@ server.tool(
   },
   async ({ section, course_id }) => {
     course_id = resolveCourse({ section, course_id });
-    const result = await canvas("GET", `/courses/${course_id}/quizzes`);
+    const result = await canvas("GET", `/courses/${course_id}/quizzes?per_page=100`);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );
@@ -615,6 +615,101 @@ server.tool(
     const text = await res.text();
     if (!res.ok) throw new Error(`Canvas GraphQL ${res.status}: ${text}`);
     return { content: [{ type: "text", text: text }] };
+  }
+);
+
+// --- Tool: List Course Users ---
+server.tool(
+  "canvas_list_course_users",
+  "List users enrolled in a Canvas course, optionally filtered by search term or enrollment type",
+  {
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
+    search_term: z
+      .string()
+      .optional()
+      .describe("Partial name, email, or login ID to search for (Canvas requires 2+ characters)"),
+    enrollment_type: z
+      .enum(["student", "teacher", "ta", "observer", "designer"])
+      .optional()
+      .describe("Restrict to a single enrollment type"),
+  },
+  async ({ section, course_id, search_term, enrollment_type }) => {
+    course_id = resolveCourse({ section, course_id });
+    const params = new URLSearchParams({ per_page: "100" });
+    if (search_term) params.set("search_term", search_term);
+    if (enrollment_type) params.append("enrollment_type[]", enrollment_type);
+    const result = await canvas("GET", `/courses/${course_id}/users?${params}`);
+    // Trim to identity fields: callers need the user_id, not a full profile dump.
+    const users = result.map(({ id, name, sortable_name, login_id }) => ({
+      id,
+      name,
+      sortable_name,
+      login_id,
+    }));
+    return { content: [{ type: "text", text: JSON.stringify(users, null, 2) }] };
+  }
+);
+
+// --- Tool: List Quiz Submissions (reads Moderate This Quiz state) ---
+server.tool(
+  "canvas_list_quiz_submissions",
+  "List quiz submissions for a Canvas quiz, including per-student moderation settings (extra_time, extra_attempts, manually_unlocked)",
+  {
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
+    quiz_id: z.string().describe("Canvas quiz ID"),
+  },
+  async ({ section, course_id, quiz_id }) => {
+    course_id = resolveCourse({ section, course_id });
+    const result = await canvas(
+      "GET",
+      `/courses/${course_id}/quizzes/${quiz_id}/submissions?per_page=100`
+    );
+    const submissions = (result.quiz_submissions || []).map(
+      ({ id, user_id, workflow_state, attempt, extra_time, extra_attempts, manually_unlocked, time_limit }) => ({
+        id,
+        user_id,
+        workflow_state,
+        attempt,
+        extra_time,
+        extra_attempts,
+        manually_unlocked,
+        time_limit,
+      })
+    );
+    return { content: [{ type: "text", text: JSON.stringify(submissions, null, 2) }] };
+  }
+);
+
+// --- Tool: Set Quiz Extension (the API behind "Moderate This Quiz") ---
+server.tool(
+  "canvas_set_quiz_extension",
+  "Grant a student extra time or extra attempts on a Canvas quiz (equivalent to Moderate This Quiz). extra_time is ADDITIONAL minutes on top of the quiz time limit, not a multiplier.",
+  {
+    section: sectionSchema(),
+    course_id: courseIdSchema(),
+    quiz_id: z.string().describe("Canvas quiz ID"),
+    user_id: z.string().describe("Canvas user ID of the student"),
+    extra_time: z
+      .number()
+      .optional()
+      .describe("Additional minutes on top of the quiz time limit (e.g. 15 doubles a 15-minute quiz)"),
+    extra_attempts: z.number().optional().describe("Additional attempts beyond allowed_attempts"),
+    manually_unlocked: z.boolean().optional().describe("Unlock the quiz for this student regardless of lock dates"),
+  },
+  async ({ section, course_id, quiz_id, user_id, extra_time, extra_attempts, manually_unlocked }) => {
+    course_id = resolveCourse({ section, course_id });
+    const extension = { user_id };
+    if (extra_time != null) extension.extra_time = extra_time;
+    if (extra_attempts != null) extension.extra_attempts = extra_attempts;
+    if (manually_unlocked != null) extension.manually_unlocked = manually_unlocked;
+    const result = await canvas(
+      "POST",
+      `/courses/${course_id}/quizzes/${quiz_id}/extensions`,
+      { quiz_extensions: [extension] }
+    );
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 );
 

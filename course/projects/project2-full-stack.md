@@ -1,11 +1,11 @@
 # Project 2: Full-Stack Application
 
-**Weight:** 20% of final grade
+**Weight:** 18% of final grade
 **Due:** Week 9
 
 ## Objective
 
-Integrate multiple AI harnesses with professional engineering practices to build a complete full-stack application as a pair.
+Build a complete full-stack application as a pair, applying AI-assisted development in the IDE harness with professional engineering practices: TDD, CI/CD, and Agile sprints.
 
 ## Team Structure
 
@@ -27,8 +27,8 @@ Integrate multiple AI harnesses with professional engineering practices to build
 
 ### Technical Requirements
 
-**AI Harnesses:**
-- Use all 3 harnesses appropriately throughout development
+**AI Harness:**
+- Primary harness: the AI IDE (Antigravity, Weeks 6–8), guided by your shared rules file (HW3)
 
 **Tech Stack:**
 - Frontend: React/Next.js + TailwindCSS
@@ -37,21 +37,13 @@ Integrate multiple AI harnesses with professional engineering practices to build
 - Auth: JWT or OAuth
 
 **Test-Driven Development:**
-- 80%+ test coverage
+- TDD workflow (red-green-refactor): failing tests committed before implementation
 - Unit + Integration + E2E tests (Playwright/Cypress)
-
-**Evaluation Suite:**
-- Automated test runs
-- Code quality metrics
-- Security scanning
-- Performance benchmarks
-- Custom semantic evals
-- Eval dashboard
 
 **Advanced CI/CD:**
 - Multi-stage pipeline
 - Deploy previews for PRs
-- Coverage reporting (CodeCov)
+- Tests run on every PR
 - Security scanning in CI
 - Automated deployment
 - Environment management
@@ -87,19 +79,18 @@ Integrate multiple AI harnesses with professional engineering practices to build
 
 1. GitHub repository (with visible commit history from both partners)
 2. Deployed app (production URL)
-3. Eval dashboard (live or screenshots)
-4. Complete documentation package
-5. Demo video
-6. Individual reflections (one per partner, submitted separately)
+3. Complete documentation package
+4. Demo video
+5. Individual reflections (one per partner, submitted separately)
 
 ## Rubric (200 points)
 
 | Category | Points | Description |
 |----------|--------|-------------|
 | **Functionality** | 45 | Features complete, authentication working, API functional |
-| **Technical Excellence** | 60 | Code quality, architecture, test coverage (80%+) |
-| **AI Mastery** | 30 | Effective use of all 3 harnesses |
-| **CI/CD & DevOps** | 30 | Pipeline quality, deployment, monitoring |
+| **Technical Excellence** | 60 | Code quality, architecture, TDD workflow |
+| **AI Mastery** | 30 | Effective use of the IDE harness: shared rules file, context engineering, AI-assisted TDD |
+| **CI/CD & DevOps** | 30 | Pipeline quality, deployment |
 | **Agile Process & Pair Workflow** | 20 | Sprint docs, pair standups, PR reviews, contribution balance |
 | **Documentation** | 15 | README, API docs, reflections quality |
 
@@ -111,14 +102,14 @@ Integrate multiple AI harnesses with professional engineering practices to build
 
 ### Technical Excellence Breakdown (60 pts)
 - Code architecture: 20 pts
-- Test coverage (80%+): 20 pts
+- TDD workflow (tests before code; unit + integration + E2E): 20 pts
 - Database design: 10 pts
 - Security practices: 10 pts
 
 ### CI/CD Breakdown (30 pts)
 - Multi-stage pipeline: 10 pts
 - Deploy previews: 5 pts
-- Coverage reporting: 5 pts
+- Tests run in CI: 5 pts
 - Security scanning: 5 pts
 - Automated deployment: 5 pts
 

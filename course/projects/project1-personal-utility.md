@@ -1,6 +1,6 @@
 # Project 1: Personal Utility App (Claude Web Artifact)
 
-**Weight:** 15% of final grade
+**Weight:** 13% of final grade
 **Due:** Week 6
 
 ## Objective
@@ -19,6 +19,9 @@ Master the Claude Web harness by building a real solution to a validated problem
 - 5+ user stories with working CRUD operations
 - Data persistence (localStorage or browser storage)
 - Responsive design (mobile + desktop)
+
+### AI Feature Requirements
+<!-- TODO(John): define what counts as an "AI feature" in a P1 artifact, and how many rubric points it earns (see chat). -->
 
 ### Technical Requirements
 - **Claude Web artifact implementation** (React-based)

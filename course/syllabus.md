@@ -283,28 +283,27 @@ This course REQUIRES AI tool use. Students must document usage, understand all c
 
 ## Project 1: Personal Utility App — Claude Web Artifact (13%) — Due Week 6
 
-- 5+ user stories, Claude Web harness focus
-- 50%+ test coverage, basic CI/CD
-- Deployed application
+- 5+ user stories with CRUD, running in the browser
+- Built with the Claude Web harness as an artifact (no deployment required)
+- Includes AI features
 - 5-min video, 500-word reflection
 
 ## Project 2: Full-Stack Application (18%) — Due Week 9
 
-- Full-stack with auth, built as a pair, integrating multiple harnesses
-- 80%+ coverage, TDD, comprehensive evals
+- Full-stack (frontend + backend + database) with auth, built as a pair
+- TDD (unit + integration + E2E)
 - Advanced CI/CD with deploy previews
 - Public API (see the Public API guide handout)
 - 2+ Agile sprints
-- 10-min video, 1500-word blog
+- 10-min video, 300-word reflection per partner
 
 ## Project 3: Team Application (19%) — Due Finals Week (Dec 14–20, 2026)
 
-- Team of 2–3, production-grade, demonstrating Claude Code mastery
-- Agent architectures and custom extensibility (skills, hooks, MCP)
-- Enterprise CI/CD, monitoring
-- LLM-as-judge evals
-- 3+ sprints, security audit
-- 20-min presentation, blog
+- Team of 2, production-grade, demonstrating Claude Code mastery
+- Parallel agentic programming and custom extensibility (skills, hooks, MCP, agents)
+- CI/CD with AI PR review, security audit
+- 3+ sprints
+- 5–10 min video, live demo, blog
 
 # 7. The Three Harnesses
 

@@ -95,7 +95,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 - OWASP top 10 awareness documented in CLAUDE.md
 
 ### Team Process
-- 2 sprints documented (sprint planning + retrospective each)
+- 3+ sprints documented (sprint planning + retrospective each)
 - GitHub Issues with acceptance criteria as testable specifications
 - Branch-per-issue workflow with PR reviews
 - Async standups (minimum 3 per sprint per partner)
@@ -165,7 +165,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 
 | Criterion | Pts | Excellent | Good | Satisfactory | Needs Improvement |
 |-----------|-----|-----------|------|--------------|-------------------|
-| Sprint process | 8 | 2 sprints with planning + retrospectives, clear velocity | 2 sprints documented, some gaps | Minimal sprint docs | No sprint documentation |
+| Sprint process | 8 | 3+ sprints with planning + retrospectives, clear velocity | 3+ sprints documented, some gaps | Minimal sprint docs | No sprint documentation |
 | GitHub workflow | 8 | Branch-per-issue, PRs reviewed, AI disclosure, 5+ PRs/partner | Branch workflow, some reviews | Basic branching | No structured workflow |
 | Async standups | 4 | 3+ standups per sprint per partner | Some standups documented | Minimal communication trail | No standups |
 | Peer evaluation | 5 | Thoughtful evaluation completed | Completed but minimal | Late submission | Not completed |

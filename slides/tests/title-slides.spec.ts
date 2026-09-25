@@ -17,7 +17,7 @@ const LECTURE_FOLDERS = [
   "14_Production_Synthesis",
 ];
 
-const EXPECTED_NAME = "John Alexis Guerra Gomez";
+const EXPECTED_NAME = "John Alexis Guerra Gómez";
 
 for (const folder of LECTURE_FOLDERS) {
   test.describe(`${folder} title slide`, () => {

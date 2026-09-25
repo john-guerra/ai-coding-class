@@ -162,6 +162,19 @@ worked example of why: deck 01 claimed P1 needed 50%+ coverage and CI/CD, deck
 against the current specs. A question validated against a deck on a logistics
 question can certify a wrong answer as correct.
 
+**Product behavior (vendor docs outrank the deck).** A claim about how a tool
+*currently behaves* — what Claude.ai does at the context limit, whether Project
+files use context — goes stale as the product ships. Check it against the
+vendor's current docs (support.claude.com, platform.claude.com) before trusting
+the deck. Worked example, 2026-09-25: the Week 4 deck taught "Projects don't
+consume your per-conversation context window" and "oldest turns are dropped
+first (FIFO)". Anthropic's own RAG-for-Projects and usage-limits articles say
+Project files do load into context until the Project nears the limit, and that
+Claude.ai (code execution on) summarizes old turns rather than only dropping
+them. Q5's keyed answer was false as written. Fix the deck, the quiz, and the
+reading list together, and add the vendor page to the week's readings so the
+quiz never tests a claim students had no source for.
+
 **Cited statistics (rank 5).** Any claim resting on a statistic — Veracode's
 45%, LLM-as-Judge's 85% vs. 81% human agreement, the 23-37% property-testing
 figure — routes to `/verify-references`. Do not re-argue the number inline;

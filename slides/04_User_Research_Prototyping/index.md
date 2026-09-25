@@ -342,9 +342,9 @@ They render directly in the Claude Web interface -- no setup needed.
 
 The **context window** is Claude's working memory -- everything it can "see" at once.
 
-- Claude 4 Sonnet: **~200K tokens** (≈ 500 pages of text)
+- Most models: **200K tokens** (≈ 500 pages); Sonnet 5 and Opus 5.5: **1M**
 - Includes: system prompt + conversation history + uploaded files
-- Once the window fills, the oldest messages drop out
+- Once the window fills, the oldest messages get dropped or summarized
 
 **Think of it like a whiteboard:** large, but finite. When it's full, you have to erase something to write more.
 
@@ -359,9 +359,9 @@ Every message you send **and** every response Claude gives consumes tokens.
 ```
 
 - Context grows linearly with each turn
-- Oldest turns are dropped first (FIFO)
+- Oldest turns go first: dropped (FIFO) or condensed into a summary
 - Uploaded files consume tokens the entire conversation
-- Long conversations lose early context silently
+- Long conversations lose early detail, even when summarized
 
 **Practical tip:** Start a new conversation when you shift topics.
 
@@ -379,7 +379,7 @@ Every message you send **and** every response Claude gives consumes tokens.
 | **Custom Instructions** | Set project-specific guidelines ("Always use TypeScript", "Follow our API conventions") |
 | **RAG Auto-Activation** | Claude automatically searches uploaded files when relevant -- no manual prompting needed |
 
-Projects don't consume your per-conversation context window -- they act as an external memory layer.
+Project files load into each chat's context -- until the Project nears the limit, then Claude switches to retrieval (RAG) and loads only what's relevant.
 
 <!-- vertical -->
 
@@ -560,9 +560,15 @@ After building your prototype:
 **Claude Web & Artifacts:**
 - [Claude Artifacts Guide](https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code)
 
+<!-- vertical -->
+
+## Resources: Context & Design
+
 **Context Windows & Projects:**
 - [Context Windows](https://platform.claude.com/docs/en/build-with-claude/context-windows)
 - [What Are Projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
+- [Usage and Length Limits (auto-summarization)](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
+- [RAG for Projects](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects)
 - [Personalization Features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)
 
 **Design Thinking:**

@@ -121,7 +121,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 **Best for:** Architecture planning, learning, complex problem-solving, brainstorming
 
 **Skills Covered:**
-- Using Claude Projects for context management
+- Using Claude Projects for context management (Project files load into each chat's context until the Project nears the limit, then Claude switches to retrieval/RAG; long chats get their oldest turns dropped or summarized, not only FIFO — per Anthropic's Help Center, 2026-09-25)
 - Creating artifacts for prototyping
 - Conversational iteration
 - Architecture discussions
@@ -574,7 +574,7 @@ Connect at least one MCP server to your Claude Code workflow:
 
 2. **Tokens, Context Windows, Temperature**
    - What is a token?
-   - Token limits (Claude: 200K, GPT-4: 128K, etc.)
+   - Token limits (Claude.ai: 200K on most models, 1M on Sonnet 5 / Opus 5.5; check the vendor's current figures each term)
    - How temperature affects randomness
    - Top-p (nucleus) sampling
 
@@ -614,8 +614,9 @@ the week's first class**, so students arrive having done the reading:
 - **San Jose:** Wednesday 1:00 PM PT
 
 Each section's Canvas course carries its own due dates. Quizzes and reading discussions
-are kept **unpublished until the week they are needed** (Week 2 published; Week 3 onward
-released as the term progresses).
+are kept **unpublished until the week they are needed** (as of 2026-09-25: Weeks 2–4 quizzes
+and Weeks 2–5 reading discussions published in both sections; the rest released as the term
+progresses).
 
 **⚠️ Incident record (2026-09-09):** The Week 2 quiz shipped with the correct answer being
 the **longest option in 13 of 14 questions (93%, vs 25% by chance)** — correct answers
@@ -629,6 +630,22 @@ unambiguously true, while distractors get written quickly and stay short. Every 
 this way unless checked at the moment it is written — and every quiz written after this fix
 still had the defect, because the rules that would have prevented it sat in this
 1,600+ line reference file, not at hand when someone was writing a distractor.
+
+**Remediation status (2026-09-25):** `python3 course/verify-quizzes.py` passes Weeks 2, 3 and
+4. Week 4 was rewritten (correct answer longest in 0/15, 0.98x; letters A4/B4/C3/D4), reviewed
+by the `quiz-adversary` agent, and pushed to both sections. **Weeks 5–12 and 14 still fail**
+the length tell (70–100% correct-is-longest) and should be fixed in order before each goes live.
+
+Three lessons from the same session:
+- **Canvas drifts from the repo silently.** The Week 4 Q2 and Week 6 Q8 fixes (commit
+  `be46145`) had never been pushed; Week 9/10 Q15 were changed to 2 points directly in Canvas
+  while the source said 1. Compare source and Canvas per question before publishing a quiz.
+- **A direct question edit does not refresh the quiz total.** Week 10 (both sections) and
+  Week 9 (San Jose) still showed 21 points while their questions summed to 22; opening the
+  quiz and saving it recalculates the total.
+- **Product-behavior claims go stale.** Week 4's deck and quiz taught that Projects don't use
+  per-chat context and that old turns drop FIFO; Anthropic's current docs say otherwise. For
+  claims about how a tool behaves now, vendor docs outrank the deck.
 
 **Operational reference:** the `quiz-integrity` skill. Instructions live there because they
 must load when a quiz is being written, not when this file is being read.
@@ -649,12 +666,11 @@ must load when a quiz is being written, not when this file is being read.
 - Agile/Scrum practices
 - Security best practices
 
-**Format:**
-- 5-10 questions per quiz
-- 10 minutes to complete
-- Open 48 hours after lecture
-- Can take twice (higher score counts)
-- Mix of multiple choice, true/false, and short answer
+**Format (as configured in Canvas, Fall 2026):**
+- 15 questions / 22 points / 15 minutes (Weeks 5 and 6: 10 questions / 14 points / 10 minutes)
+- Due before the week's first class (see Timing above)
+- One attempt; one question at a time, no going back; answers shuffled
+- Multiple choice only, with per-option feedback
 
 **Scoring:**
 - All quizzes equally weighted

@@ -222,7 +222,7 @@ Your team wants to use LLM-as-Judge to automatically score the quality of Claude
 
 ---
 
-#### Q15: Hook Design (1 point)
+#### Q15: Hook Design (2 points)
 **Type:** Multiple Choice
 
 You want to ensure that every file Claude Code edits in your project is automatically formatted with Prettier. Which hook type and configuration would accomplish this?

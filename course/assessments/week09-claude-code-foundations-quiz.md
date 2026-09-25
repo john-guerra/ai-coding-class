@@ -223,7 +223,7 @@ You're starting a brand new project for P3. You've created the repo, initialized
 
 ---
 
-#### Q15: Extended Thinking (1 point)
+#### Q15: Extended Thinking (2 points)
 **Type:** Multiple Choice
 
 Claude Code supports extended thinking, where Claude takes more time to reason before responding. When does extended thinking help the most?

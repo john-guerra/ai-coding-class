@@ -43,10 +43,13 @@ consistently two-digit padded (`01`-`14`).
 The live worked example of getting this wrong: on 2026-09-14, Canvas was
 edited directly to bump two questions' point values (week09 Q15 "Extended
 Thinking" and week10 Q15 "Hook Design") from 1 point to 2. Both source files
-still say 1 point, so each header's claimed 22-point total no longer matches
-its own question sum (`verify-quizzes.py` reports `21!=22` for both weeks).
-Canvas now disagrees with the repo, and nothing in Canvas will tell you that —
-only the source file and the linter catch it. Fix the source first, re-verify,
+still said 1 point, so each header's claimed 22-point total no longer matched
+its own question sum (`verify-quizzes.py` reported `21!=22` for both weeks).
+Canvas disagreed with the repo for eleven days, and nothing in Canvas said so —
+only the source file and the linter caught it. (The source was brought back in
+line on 2026-09-25.) Worse, the direct question edit did not refresh the
+quiz-level total: three of the four quizzes still showed 21 points while their
+questions summed to 22, so read the per-question points, not the quiz header. Fix the source first, re-verify,
 then push to **both** Canvas sections (Oakland and San Jose have separate
 courses; a source fix pushed to only one still leaves the other silently
 wrong).

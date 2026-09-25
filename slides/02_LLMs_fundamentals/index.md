@@ -665,12 +665,12 @@ The "memory" is just including conversation history in the prompt!
 
 <!-- .slide: class="dense" -->
 
-How much can models "remember"? (Jan 2026)
+How much can models "remember"? (Claude: Sep 2026; others: Jan 2026)
 
 | Model | Context Window |
 | --- | --- |
 | GPT-5.2 | 400K tokens |
-| Claude Opus 4.5 | 200K tokens |
+| Claude Opus 5.5 / Sonnet 5 | 1M tokens (most other Claude models: 200K) |
 | Gemini 3 Pro | 1M tokens |
 
 **What fits in 200K tokens?**

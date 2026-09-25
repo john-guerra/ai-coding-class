@@ -67,11 +67,11 @@ Result: Specific, testable, documented
 
 > "The better you understand programming, the better you can prompt."
 
-- You need to know what to ask for
-- You need to recognize good vs. bad output
-- You need to know when AI is wrong
+- 🎯 You need to know what to ask for
+- 🔍 You need to recognize good vs. bad output
+- 🚨 You need to know when AI is wrong
 
-**This is why understanding fundamentals matters.**
+🧠 **This is why understanding fundamentals matters.**
 
 <!-- vertical -->
 
@@ -115,11 +115,11 @@ Not every prompt needs all five, but more context = better results.
 
 **Claude's "working memory"** — everything it can see at once.
 
-**200K tokens ≈ 150,000 words ≈ 1-2 books**
+**200K tokens ≈ 150,000 words ≈ 1-2 books** (most Claude models; Sonnet 5 / Opus 5.5: 1M)
 
 **Tips:**
 - Put important info at the **beginning**
-- Long conversations may "forget" early context
+- Long conversations may "forget" early context (oldest turns get dropped or summarized)
 - Break large tasks into smaller conversations
 
 <!-- vertical -->

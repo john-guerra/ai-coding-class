@@ -64,7 +64,7 @@ What happens when a Claude Web conversation exceeds the context window limit?
 
 - A) The context window expands automatically to accommodate longer conversations without any limit.
 - B) Claude moves older messages into your Project knowledge so they stay searchable in later turns
-- C) Claude loses access to early context because the window drops the oldest turns first (FIFO).
+- C) Claude loses early context: the oldest turns are dropped or condensed first, so details fade
 - D) Claude re-reads the full chat history from storage each turn, so no earlier turn is ever lost
 
 ---
@@ -98,7 +98,7 @@ Which user story follows the correct format?
 
 What is the primary benefit of using Claude Projects instead of uploading files in every conversation?
 
-- A) Projects provide persistent knowledge that doesn't consume per-conversation context
+- A) Project files are available in every chat in that Project, so you never re-upload them
 - B) Files in Projects are automatically converted to code that Claude can run in every chat
 - C) Projects let multiple users edit the same conversation simultaneously in real time
 - D) Projects encrypt your uploaded files for extra security beyond what regular chats get

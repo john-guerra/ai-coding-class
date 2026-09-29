@@ -91,8 +91,8 @@ This schedule could be adjusted during the semester depending on the student's p
 | 1 | Sep 9–11 | Foundations — classes begin Wed Sep 9 |
 | 2 | Sep 14–18 | LLM Fundamentals + Harness 1: Claude Web |
 | 3 | Sep 21–25 | Prompt Engineering |
-| 4 | Sep 28–Oct 2 | User Research & Prototyping — HW1 due |
-| 5 | Oct 5–9 | Claude Web Deep Dive — HW2 due |
+| 4 | Sep 28–Oct 2 | User Research & Prototyping |
+| 5 | Oct 5–9 | Claude Web Deep Dive — HW1 due (Mon Oct 5), HW2 due |
 | 6 | Oct 12–16 | IDE-Centric AI Coding — **Project 1 due**; no class Mon Oct 12 |
 | 7 | Oct 19–23 | Agile/Scrum + Pair Workflow |
 | 8 | Oct 26–30 | Advanced IDE AI Features — HW3 due |
@@ -323,7 +323,7 @@ This course REQUIRES AI tool use. Students must document usage, understand all c
 
 Five assignments scaffold toward project success. Each is worth 5% of the final grade.
 
-- **HW1 (5%, Week 4):** Prompt engineering battle with 3 challenges
+- **HW1 (5%, Week 5 — Mon Oct 5):** Prompt Pairs, Proven — bad/better prompt pairs with checklists written before running, repeated runs, and error analysis
 - **HW2 (5%, Week 5):** Mom Test interviews, user stories, PRD
 - **HW3 (5%, Week 8):** Context engineering — rules files and Scrum integration
 - **HW4 (5%, Week 10):** Claude Code workflow and TDD

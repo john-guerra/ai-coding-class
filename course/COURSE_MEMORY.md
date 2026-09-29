@@ -100,8 +100,8 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **1** | **Foundations** | • Course intro & portfolio planning<br>• Mom Test introduction<br>• Design Thinking basics<br>• **LLM Fundamentals (2 hours)**<br>&nbsp;&nbsp;- Transformers, tokens, context windows<br>&nbsp;&nbsp;- Hallucinations, temperature<br>&nbsp;&nbsp;- Model comparison (GPT/Claude/Gemini) | Weekly Quiz 1<br>Pre-class questions | **P1:** Ideation<br>Problem identification |
 | **2** | **Harness 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
 | **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
-| **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | **HW1 DUE:** Prompt Eng<br>Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
-| **5** | **Harness 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
+| **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
+| **5** | **Harness 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW1 DUE (Mon Oct 5):** Prompt Pairs<br>**HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
 | **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
 | **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair workflow (scrum for two, design thinking → backlog)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
 | **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
@@ -374,34 +374,21 @@ Students must submit a **single PDF/document** containing:
 
 ## 6. HOMEWORK ASSIGNMENTS (25% of Grade)
 
-### HW1: Prompt Engineering Battle (Week 4) - 5%
+### HW1: Prompt Pairs, Proven (Week 5 — due Mon Oct 5) - 5%
 
-**Objective:** Master effective prompting through iteration
+**Full spec:** `course/assignments/hw1-prompt-engineering.md` (redesigned Sep 29, 2026; replaces the "Prompt Engineering Battle")
 
-**Challenges:**
-1. **Easy:** Email validation function with regex
-2. **Medium:** React sortable/filterable data table with pagination
-3. **Hard:** Caching layer with TTL, LRU eviction, persistence
+**Objective:** Show, with evidence, that a prompt change actually helps on current models — test-first thinking that sets up HW4 (TDD) and the W10/W13 evals material.
 
-**For Each Challenge:**
-- Write initial prompt (v1)
-- Generate code and test
-- Iterate and improve prompt (v2, v3, etc.)
-- Document what made prompts better
-- Compare code quality across versions
+**Tool:** Claude web, regular chats (not incognito), memory paused, same model/plan/extended-thinking setting for all runs.
 
-**Deliverables:**
-- Prompt versions document (all iterations)
-- Generated code from each version
-- Test results for each version
-- 500-word reflection: "What makes a great prompt?"
-- Personal prompt template developed
+**Task:** 3 bad/better prompt pairs, one per task type (Generate / Extract / Critique), student-chosen, ideally from P1. Per pair: realistic bad prompt → 4–6 item pass/fail checklist written *before* running (≥ half test correctness/judgment; Critique uses planted defects) → better prompt + cited principle → prediction → 3 fresh runs each with shared links → per-item scores → error analysis → verdict (gap < 1 item = no clear difference).
 
-**Rubric (40 points):**
-- Prompt quality: 40%
-- Code quality: 30%
-- Iteration process: 20%
-- Reflection depth: 10%
+**Myth test:** in one pair, add one classic technique ("think step by step", "double-check", CRITICAL/MUST emphasis, persona) to the better prompt and run 3 more times; honest null results earn full credit.
+
+**Deliverables:** one PDF/Markdown doc — setup, 3 pairs, myth test, ~300-word reflection citing own numbers, personal prompt template.
+
+**Rubric (40 points):** pairs 3 × 10 (bad prompt 1, better + why 2, checklist 2, evidence 2, error analysis + verdict 3), myth test 4, reflection 3, template 3. TAs spot-check links for one random pair.
 
 ---
 
@@ -1502,8 +1489,7 @@ Track changes semester-to-semester:
 
 ### Key Dates (Fall 2026)
 - **Week 1:** Course start, LLM Fundamentals
-- **Week 4:** HW1 due (Prompt Engineering)
-- **Week 5:** HW2 due (Mom Test)
+- **Week 5:** HW1 due Mon Oct 5 (Prompt Pairs, Proven); HW2 due (Mom Test)
 - **Week 6:** Project 1 due, P2 pairs formed
 - **Week 8:** HW3 due (Context Engineering)
 - **Week 9:** Project 2 due, P3 team formation

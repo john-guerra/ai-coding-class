@@ -24,8 +24,8 @@
 | 1 | Sep 9–11 | Foundations | Classes begin Wed Sep 9 (Labor Day Mon Sep 7) |
 | 2 | Sep 14–18 | LLM Fundamentals + Harness 1 | |
 | 3 | Sep 21–25 | Prompt Engineering | |
-| 4 | Sep 28–Oct 2 | User Research & Prototyping | HW1 due |
-| 5 | Oct 5–9 | Claude Web Deep Dive | HW2 due |
+| 4 | Sep 28–Oct 2 | User Research & Prototyping | |
+| 5 | Oct 5–9 | Claude Web Deep Dive | HW1 due (Mon Oct 5), HW2 due |
 | 6 | Oct 12–16 | IDE-Centric AI Coding | **P1 due**; no class Mon Oct 12 (Indigenous Peoples' Day) |
 | 7 | Oct 19–23 | Agile/Scrum + Pair Workflow | |
 | 8 | Oct 26–30 | Advanced IDE AI Features | HW3 due |
@@ -46,8 +46,8 @@
 | **1**  | **Foundations**                   | Course intro & portfolio planning                                                                                                                                                         | Weekly Quiz 1, Pre-class questions                                   | **P1:** Ideation, Problem identification          |
 | **2**  | **LLM Fundamentals + Harness 1**  | **LLM Fundamentals**: Transformers, tokens, context windows, hallucinations, temperature, model comparison; Mom Test & Design Thinking intro; Claude Web & Projects                       | Weekly Quiz 2                                                        | **P1:** User research begins                      |
 | **3**  | **Prompt Engineering**            | Effective prompt structure, Few-shot learning, System vs user prompts, Iteration strategies                                                                                               | Weekly Quiz 3                                                        | **P1:** PRD & user stories, Architecture          |
-| **4**  | **User Research & Prototyping**   | Mom Test & Design Thinking workshop, Claude Web Artifacts for rapid prototyping, User story writing, PRD refinement                                                                       | **HW1 DUE:** Prompt Eng, Weekly Quiz 4                               | **P1:** User research complete, Prototyping       |
-| **5**  | **Claude Web Deep Dive**          | Building full projects with Artifacts, Mockup-to-prototype workflow, Artifact persistence & storage, AI-powered artifacts (`window.claude.complete()`), Debugging artifacts, P1 workshop   | **HW2 DUE:** Mom Test, Weekly Quiz 5                                 | **P1:** Sprint 1, Implementation begins           |
+| **4**  | **User Research & Prototyping**   | Mom Test & Design Thinking workshop, Claude Web Artifacts for rapid prototyping, User story writing, PRD refinement                                                                       | Weekly Quiz 4                                                        | **P1:** User research complete, Prototyping       |
+| **5**  | **Claude Web Deep Dive**          | Building full projects with Artifacts, Mockup-to-prototype workflow, Artifact persistence & storage, AI-powered artifacts (`window.claude.complete()`), Debugging artifacts, P1 workshop   | **HW1 DUE (Mon Oct 5):** Prompt Pairs, **HW2 DUE:** Mom Test, Weekly Quiz 5 | **P1:** Sprint 1, Implementation begins           |
 | **6**  | **IDE-Centric AI Coding**         | **PROJECT 1 DUE**, How IDE AI tools work (architecture pipeline, context collection, indexing), Code suggestions & tab completion, Inline edit (Cmd+K), Chat panel, Modes (Ask/Write/Agent/Plan), Rules files, @ context references, Tool comparison (Antigravity vs Copilot vs Cursor), **P2 pair formation, Canvas groups** | **PROJECT 1 DUE**, Weekly Quiz 6                                      | **P1:** Final, **P2:** Starts, Form pairs          |
 | **7**  | **Agile/Scrum + Pair Workflow**   | Agile/Scrum crash course (roles, sprint cycle, ceremonies), GitHub as scrumboard (Issues, Projects board, labels, milestones), PRD → sprint backlog, Branch-per-issue workflow, Pair workflow (scrum for two, design thinking → backlog), Partner code review, Async standups | Weekly Quiz 7                                                        | **P2:** Sprint 1                                  |
 | **8**  | **Advanced IDE AI Features**      | Agent memory & persistent context, MCP servers (connecting AI to external tools), Browser mode, Mockup-to-code, Debugging with AI, Shared rules files for pairs, P2 sprint workflow       | **HW3 DUE:** Context Eng (Rules+Scrum), Weekly Quiz 8                  | **P2:** Sprint 2                                  |
@@ -63,7 +63,7 @@
 
 | Week    | Event                                    |
 | ------- | ---------------------------------------- |
-| Week 4  | HW1 due (Prompt Engineering)             |
+| Week 5  | HW1 due Mon Oct 5 (Prompt Pairs, Proven) |
 | Week 5  | HW2 due (Mom Test)                       |
 | Week 6  | **Project 1 due**, P2 pairs formed       |
 | Week 8  | HW3 due (Context Engineering)            |

@@ -91,23 +91,34 @@ Not every prompt needs all five, but more context = better results.
 
 <!-- .slide: class="dense" -->
 
-## Claude 4 Best Practices
+## Best Practices for Current Models
 
-**What's different with Claude 4:**
-
-1. **Be explicit** — Claude follows instructions precisely
-   - Say exactly what you want (and don't want)
-   - Vague prompts get vague results
-
-2. **Add context** — Explain *why* you want something
+1. **Be clear and direct** — treat Claude as "a brilliant but new employee who lacks context"
+   - Say exactly what you want; vague prompts get vague results
+2. **Explain why** — the motivation behind an instruction helps Claude target the result
    - "This is for a banking app" changes the output
-   - Background improves relevance
+3. **Show examples** — "Include 3–5 examples for best results"
+4. **Say what to do**, not only what not to do
+   - "Write flowing prose paragraphs" beats "Don't use markdown"
 
-3. **Be vigilant with details** — Claude pays close attention
-   - Examples are taken literally
-   - Typos in examples may be replicated
+> Model-specific tips: "re-check it against your own evals before applying it to another."
 
-> "Claude 4 is more capable but requires more precision."
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## What Changed in Current Models
+
+| Technique | Then | Now |
+| --- | --- | --- |
+| Prefill the assistant turn | Common trick to force a format | **Not supported** from Claude 4.6 models on |
+| "Think step by step" | Standard advice | Model reasons on its own; "think thoroughly" often beats a hand-written plan |
+| "CRITICAL: You MUST…" | Fixed under-triggering | Over-triggers on Opus 4.5/4.6 — use normal language |
+| "Double-check your answer" | Catches errors | Still reliable in general, but **Opus 5 over-verifies** — remove it there |
+
+> Best practices are now **versioned per model**. Don't memorize them — measure them.
+
+<small>Source: [Anthropic — Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)</small>
 
 <!-- vertical -->
 
@@ -118,7 +129,7 @@ Not every prompt needs all five, but more context = better results.
 **200K tokens ≈ 150,000 words ≈ 1-2 books** (most Claude models; Sonnet 5 / Opus 5.5: 1M)
 
 **Tips:**
-- Put important info at the **beginning**
+- Put long documents **at the top**, your question **at the end** (Anthropic: up to 30% better on complex inputs)
 - Long conversations may "forget" early context (oldest turns get dropped or summarized)
 - Break large tasks into smaller conversations
 
@@ -189,7 +200,7 @@ Examples: Similar to shadcn/ui form patterns.
 
 ## Prompt Patterns
 
-Techniques that consistently improve results.
+Techniques that often improve results — test them on your model.
 
 <!-- vertical -->
 
@@ -214,33 +225,53 @@ Convert dates to ISO format:
 
 <!-- vertical -->
 
-## Chain-of-Thought
+<!-- .slide: class="dense" -->
 
-**Force the AI to think step-by-step:**
+## Chain-of-Thought: Then vs. Now
+
+<div class="columns">
+<div class="column">
+
+**Then (2023–24)**
+
+- "Think step by step" unlocked reasoning
+- You hand-wrote the steps:
 
 ```text
-Before writing code, analyze this problem:
-
-1. What are the inputs and outputs?
-2. What edge cases exist?
-3. What's the algorithm approach?
+1. Inputs and outputs?
+2. Edge cases?
+3. Algorithm approach?
 4. Now write the code.
 ```
 
-**Works especially well for:**
-- Complex logic
-- Math problems
-- Multi-step tasks
+</div>
+<div class="column">
+
+**Now (current models)**
+
+- The model **reasons on its own** (extended thinking)
+- "Think thoroughly" often beats a hand-written plan
+- Write explicit steps when you need a **specific process** or want to **inspect intermediate outputs**
+
+</div>
+</div>
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Role Prompting
+
+<div class="columns">
+<div class="column">
 
 **Give the AI a persona:**
 
 ```text
-You are a senior software engineer at a FAANG company
-doing a code review. Be critical and thorough.
+You are a senior software
+engineer at a FAANG company
+doing a code review. Be
+critical and thorough.
 
 Review this function for:
 - Performance issues
@@ -248,10 +279,18 @@ Review this function for:
 - Code style problems
 ```
 
+</div>
+<div class="column">
+
 **Effective roles:**
 - Senior engineer (quality focus)
 - Security expert (vulnerability focus)
 - Technical writer (documentation focus)
+
+</div>
+</div>
+
+> A role sets **focus and tone** — "even a single sentence makes a difference." Does it improve *correctness* for your task? Test it (HW1 myth test).
 
 <!-- vertical -->
 
@@ -275,7 +314,7 @@ Return your analysis as JSON:
 | --- | --- |
 | JSON | Parsing, APIs, structured data |
 | YAML | Config files, readable without closing tags |
-| XML | Nested data, Claude prefers this |
+| XML | Nested data; XML **tags** also structure your *prompts* |
 | Markdown | Documentation, readable output |
 
 <!-- vertical -->
@@ -289,7 +328,7 @@ Return your analysis as JSON:
 ```text
 [Role] You are a TypeScript expert focused on clean code.
 
-[Chain-of-thought] First, analyze what this function does.
+[Process] First, analyze what this function does.
 Then identify any bugs or improvements.
 Finally, provide the fixed version.
 
@@ -303,6 +342,17 @@ Input: function fetchUser(id){...}
 
 [Format] Return as JSON with fields: analysis, issues, fixed_code
 ```
+
+<!-- vertical -->
+
+## Measure, Don't Guess
+
+1. **Write the checklist first** — 4–6 pass/fail items, before you see any output
+2. **Run each prompt 3×** in fresh chats — outputs vary run to run
+3. **Score each item** — see *which* failures a change fixed
+4. **Small gaps are noise** — under 1 item across 3 runs = no clear difference
+
+> This is HW1 — and, at scale, how evals work (Weeks 10 & 13).
 
 ---
 
@@ -456,6 +506,7 @@ Time to practice!
 2. **Patterns:** Few-shot, chain-of-thought, role prompting, structured output
 3. **Iterate:** Expect 2-5 rounds for complex prompts
 4. **Verify:** AI output needs human validation
+5. **Measure:** Tips vary by model — test them against a checklist
 
 ---
 
@@ -466,7 +517,7 @@ Time to practice!
 - Claude Web Artifacts for rapid prototyping
 - User story writing & PRD refinement
 
-**HW1 Due Next Week:** Prompt Engineering Battle
+**HW1 due Mon Oct 5:** Prompt Pairs, Proven
 
 ---
 
@@ -477,7 +528,8 @@ Time to practice!
 
 **Prompt Engineering:**
 - [Prompt Engineering Overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview)
-- [Claude 4 Best Practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices)
+- [Prompting Best Practices (current models)](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
+- [Prompting Claude Opus 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)
 - [Anthropic Prompt Engineering Tutorial](https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial)
 
 ---

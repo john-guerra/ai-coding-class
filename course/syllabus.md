@@ -69,7 +69,7 @@ This class will serve as an introduction to vibe coding, covering key topics suc
 
 - Students will understand how Large Language Models work and their fundamental capabilities and limitations
 - Students will master three AI coding harnesses and know when to use each appropriately
-- Students will engineer sophisticated prompts using advanced techniques like chain-of-thought and meta-prompting
+- Students will design effective prompts for current LLMs and evaluate prompting techniques empirically against explicit success criteria
 - Students will implement comprehensive evaluation systems to systematically measure AI code quality
 - Students will practice Test-Driven Development integrated with CI/CD pipelines for AI-generated code
 - Students will apply Agile methodologies including Scrum ceremonies and Design Thinking in AI workflows

@@ -400,7 +400,7 @@ Understanding the "why" matters:
 
 5 assignments building toward projects:
 
-1. Prompt Engineering Battle (Week 4)
+1. Prompt Pairs, Proven (due Mon of Week 5)
 2. Mom Test Interviews + User Stories (Week 5)
 3. Context Engineering — Rules + Scrum (Week 8)
 4. Claude Code Workflow & TDD (Week 10)

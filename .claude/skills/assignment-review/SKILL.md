@@ -1,6 +1,6 @@
 ---
 name: assignment-review
-description: Use when creating, redesigning, or reviewing a homework, project spec, lab, or handout in course/assignments/, course/projects/, or course/handouts/ — runs two independent parallel reviews (feasibility with the tools students actually use, and pedagogy), verifies every factual claim against its primary source, and returns decisions to the instructor before anything is synced to Canvas, the syllabus, or the website. Use it even when the user just says "is this HW any good?", "check the P2 spec", or "can students actually do this?".
+description: Use when creating, redesigning, or reviewing a homework, project spec, lab, or handout in course/assignments/, course/projects/, or course/handouts/ — runs two independent parallel reviews (feasibility with the tools students actually use, and pedagogy), verifies every factual claim against its primary source, and returns decisions to the instructor before anything is synced to Canvas, the syllabus, or the website. Use it for substantive review, even when the user just asks "is this HW any good?" or "can students actually do this?", but not for quick edits such as dates, typos, or a single wording change.
 ---
 
 # Assignment Review
@@ -30,6 +30,21 @@ separate briefs, followed by a primary-source check, catch all three.
 
 ## Workflow
 
+### 0. Check Canvas state (always, read-only)
+
+Do this in every mode. It decides what you're allowed to change.
+
+- Use `canvas_list_assignments` for `270068` and `270077`. The listing is
+  too large to read in the conversation: the tool saves it to a file, and
+  its error message gives the path. Filter that file with `jq`, e.g.
+  `jq '.[] | select(.name|test("HW1")) | {id,name,due_at,published,has_submitted_submissions}'`.
+- **Submissions:** if the assignment has any, the CLAUDE.md safety rule
+  applies, and you must not modify it.
+- **Already published:** every fix is live for students. Say so in the
+  report.
+- **Release window:** if the release date leaves students only a few days,
+  raise that as a decision.
+
 ### 1. Gather context (optional, read-only; ask first)
 
 Ask the instructor whether to ground the review in the current project
@@ -47,9 +62,6 @@ knowledge before you start. Offer two options:
   Tell both reviewers the assignment is being judged on its own. Also note
   in the report that lecture and syllabus alignment was not checked.
 
-Checking Canvas state is not optional in either mode. Publishing and editing
-safety depend on it.
-
 If the instructor chooses grounded mode, find out what surrounds the
 assignment:
 
@@ -61,13 +73,6 @@ assignment:
 - **Course files.** `course/syllabus.md` for the learning outcomes that name
   this skill, and `course/schedule.md` for the due week and anything else due
   close by.
-- **Canvas state, in both sections.** Is it published? Does it have
-  submissions? What is the due date compared with *today*?
-  - Use `canvas_list_assignments` for `270068` and `270077`. The listing is
-    large, so filter the saved output with `jq`.
-  - If it has submissions, the CLAUDE.md safety rule applies: don't modify
-    it. If the release date leaves students only a few days, raise that as a
-    decision.
 
 ### 2. Launch two independent reviews in parallel
 
@@ -89,7 +94,10 @@ Reviewer reports, research summaries, and your own draft are all
 check it against the primary source yourself:
 
 - **For web docs,** `curl` the page to the scratchpad, strip the tags, and
-  `grep` for the exact phrase. Summarizing fetchers paraphrase, and a
+  `grep` for the exact phrase. Also grep the page's Markdown version, since
+  docs pages serve one. Before calling a quote "not found", check both: an
+  HTML-only grep once missed a real quote, and the note then claimed
+  it was absent. Summarizing fetchers paraphrase, and a
   paraphrase can drop "on Opus 5" or "for tool use".
 - **Quote section names and headings only after seeing them.** A plausible
   heading that doesn't exist is still an invented citation.
@@ -115,6 +123,10 @@ COURSE_MEMORY, or the website until the instructor approves. Those changes
 are what students see, and Canvas changes have to be made twice, once per
 section. After approval, the sync follows the "Course Content Sync" table in
 CLAUDE.md and the `sync-course` skill.
+
+**Canvas rubrics:** give each criterion a rating for every whole point, so
+TAs can record partial scores. Always pass `title` to `canvas_update_rubric`:
+without it, the tool renames the rubric after the course.
 
 **The Canvas text is for students.** When you convert a spec to Canvas HTML,
 strip repo-internal references such as the `*For full course details, see

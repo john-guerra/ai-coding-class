@@ -18,9 +18,9 @@ Anthropic's current guide, [Prompting best practices](https://platform.claude.co
 
 | Stable across current models | Model-dependent: test it yourself |
 |---|---|
-| Be clear and direct: treat Claude like "a brilliant but new employee who lacks context" | **"Think step by step."** The guide notes that a short instruction like "think thoroughly" often beats a hand-written step-by-step plan. On some models, "think carefully" can be dropped with no clear quality loss |
-| Explain *why* you want something, not just *what* | **"Double-check your answer."** The guide says self-checks catch errors reliably, but calls out Claude Opus 5 as an exception, because there they cause over-verification |
-| Give 3–5 examples of the output you want | **Aggressive emphasis** ("CRITICAL: You MUST…"). Anthropic observed that Claude Opus 4.5 and 4.6 over-follow it and advises dialing it back to "more normal prompting" |
+| Be clear and direct: treat Claude like "a brilliant but new employee who lacks context" | **"Think step by step."** The guide notes that a short instruction like "think thoroughly" often beats a hand-written step-by-step plan. For Claude Opus 5.5, it suggests removing "think carefully" instructions from chat system prompts, because the model decides for itself how much to think |
+| Explain *why* you want something, not just *what* | **"Double-check your answer."** The guide says asking Claude to verify its answer against test criteria catches errors reliably, but calls out Claude Opus 5 as an exception: there, such instructions can cause over-verification |
+| Give 3–5 examples of the output you want | **Aggressive emphasis** ("CRITICAL: You MUST…"). For tool and skill triggering, the guide notes Claude Opus 4.5 and 4.6 may now overtrigger on it and advises "more normal prompting" |
 | Say what to do, not only what not to do | **Persona prompts** ("You are a senior FAANG engineer…"). Useful for setting tone and focus; whether they improve *correctness* for your task is an open question |
 
 ### How this connects to Week 3
@@ -31,11 +31,11 @@ Breaking a task into explicit steps ("first list the requirements, then…") is 
 
 Your runs must be comparable and shareable:
 
-1. **Use regular chats, outside any Project.** Don't use incognito chats: they can't be shared, and they can't run code.
+1. **Use regular chats, outside any Project.** Don't use incognito chats: they aren't saved to your history and can't be reopened once closed, and in the new Claude experience they can't run code.
 2. **Isolate each run.** In **Settings**, pause memory, turn off chat search/reference, and clear any profile preferences or custom styles, so earlier chats don't leak into your runs. Turn them back on when you're done.
-3. **Hold the setup constant.** Record your **plan, model, and whether extended thinking is on**. Keep all three the same for every run.
+3. **Hold the setup constant.** Record your **plan, model, effort level, and thinking setting**. On the newest models thinking can't be turned off; record it as "always on". Keep all of these the same for every run.
 4. **Paste inputs into the prompt; don't attach files.** Shared links don't include attachments.
-5. **Pace yourself.** Usage limits reset every few hours and vary by plan, so spread your runs over at least two days.
+5. **Pace yourself.** Usage limits vary by plan (on Pro they reset every five hours, plus a weekly limit), so spread your runs over at least two days.
 
 ## Task
 
@@ -81,13 +81,15 @@ Pick **one** technique from the "test it yourself" column: "think step by step",
 2. Run that version 3 more times against the same checklist.
 3. Report whether the technique helped, hurt, or made no clear difference *on your model*.
 
+**Test the phrase, not a visible explanation.** Add the words themselves, e.g. "think step by step". Don't ask Claude to write out its reasoning in the answer: on Claude Opus 5.5, Anthropic notes such requests can be declined.
+
 **A negative result earns full credit.** What we grade is a fair setup and an honest conclusion.
 
 ## Deliverables
 
 Submit **one PDF or Markdown document** to Canvas containing:
 
-1. **Setup:** your plan, model, and extended-thinking setting.
+1. **Setup:** your plan, model, effort level, and thinking setting.
 2. **Three prompt pairs.** For each, include:
    - task description
    - bad prompt
@@ -105,7 +107,7 @@ Submit **one PDF or Markdown document** to Canvas containing:
    - **Cite at least two specific numbers or quotes from your own runs.**
 5. **Personal prompt template.** A reusable template you'd actually use for P1, with a one-line note on each section explaining why it's there.
 
-**Chat links:** use public share links. If your account can only share within an organization, share each chat with the instructor's email instead. As a last resort, include full-page screenshots.
+**Chat links:** use public share links. If your account can only share within an organization (Team or Enterprise plans), include full-page screenshots of each run instead.
 
 ## Rubric (40 points)
 
@@ -120,7 +122,7 @@ Submit **one PDF or Markdown document** to Canvas containing:
 - **Realistic bad prompt** (1): plausible, not a straw man
 - **Better prompt + why** (2): addresses the bad prompt's failures; names and links the principle
 - **Checklist quality** (2): 4–6 binary items, at least half test correctness or judgment, not rigged toward the better prompt
-- **Evidence** (2): 3 fresh runs per prompt, score and per-item tables, working links, constant setup
+- **Evidence** (2): 3 fresh runs per prompt, score and per-item tables, working links (or screenshots), constant setup
 - **Error analysis + verdict** (3): quoted failures with categories, a missed checklist item, and a verdict that matches the data and the prediction
 
 *Grading note:* TAs open the links for one randomly chosen pair. A missing or mismatched link forfeits that pair's evidence points.

@@ -111,10 +111,10 @@ Not every prompt needs all five, but more context = better results.
 
 | Technique | Then | Now |
 | --- | --- | --- |
-| Prefill the assistant turn | Common trick to force a format | **Not supported** from Claude 4.6 models on |
+| Prefill the assistant turn (API) | Common trick to force a format | **Not supported** from Claude 4.6 models on |
 | "Think step by step" | Standard advice | Model reasons on its own; "think thoroughly" often beats a hand-written plan |
-| "CRITICAL: You MUST…" | Fixed under-triggering | Over-triggers on Opus 4.5/4.6 — use normal language |
-| "Double-check your answer" | Catches errors | Still reliable in general, but **Opus 5 over-verifies** — remove it there |
+| "CRITICAL: You MUST…" | Fixed tool under-triggering | Opus 4.5/4.6 **may over-trigger** tools/skills — use normal language |
+| "Verify against [criteria]" | Catches errors | Still reliable in general, but on Opus 5 it **can cause over-verification** — remove it there |
 
 > Best practices are now **versioned per model**. Don't memorize them — measure them.
 
@@ -126,11 +126,11 @@ Not every prompt needs all five, but more context = better results.
 
 **Claude's "working memory"** — everything it can see at once.
 
-**200K tokens ≈ 150,000 words ≈ 1-2 books** (most Claude models; Sonnet 5 / Opus 5.5: 1M)
+**200K tokens ≈ 150,000 words ≈ 1-2 books** · current models: up to **1M** (Haiku 4.5: 200K); on claude.ai it depends on your plan
 
 **Tips:**
-- Put long documents **at the top**, your question **at the end** (Anthropic: up to 30% better on complex inputs)
-- Long conversations may "forget" early context (oldest turns get dropped or summarized)
+- Put long documents **at the top**, your question **at the end** (for 20k+-token inputs: up to 30% better in Anthropic's tests)
+- Long conversations may "forget" early context (earlier turns can get summarized)
 - Break large tasks into smaller conversations
 
 <!-- vertical -->
@@ -235,6 +235,7 @@ Convert dates to ISO format:
 **Then (2023–24)**
 
 - "Think step by step" unlocked reasoning
+- Best for complex logic, math, multi-step tasks
 - You hand-wrote the steps:
 
 ```text
@@ -249,7 +250,7 @@ Convert dates to ISO format:
 
 **Now (current models)**
 
-- The model **reasons on its own** (extended thinking)
+- The model **reasons on its own** (adaptive thinking)
 - "Think thoroughly" often beats a hand-written plan
 - Write explicit steps when you need a **specific process** or want to **inspect intermediate outputs**
 
@@ -290,7 +291,7 @@ Review this function for:
 </div>
 </div>
 
-> A role sets **focus and tone** — "even a single sentence makes a difference." Does it improve *correctness* for your task? Test it (HW1 myth test).
+> A role in the **system prompt** focuses behavior and tone — "even a single sentence makes a difference." Does it improve *correctness* for your task? Test it (HW1 myth test).
 
 <!-- vertical -->
 

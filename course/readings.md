@@ -91,7 +91,7 @@ All URLs have been verified as of January 2026.
 | Topic | Description | URL |
 |-------|-------------|-----|
 | Prompt Engineering Overview | Comprehensive guide to prompting techniques | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview |
-| Claude 4 Prompting Best Practices | Specific guidance for Claude 4.x models | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices |
+| Prompting Best Practices | Anthropic's living guide for current Claude models (what holds, what's model-specific) | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices |
 | Prompt Library | Example prompts for common tasks | https://docs.anthropic.com/en/resources/prompt-library/library |
 | System Prompts | Understanding Claude's system prompts | https://docs.anthropic.com/en/release-notes/system-prompts |
 
@@ -466,7 +466,7 @@ All URLs have been verified as of January 2026.
 | Week | Primary Focus | Key Readings |
 |------|---------------|--------------|
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
-| 3 | Prompt Engineering | Claude 4 best practices, prompt engineering docs, context windows |
+| 3 | Prompt Engineering | Prompting best practices (current models), prompt engineering docs, context windows |
 | 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
 | 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
 | 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |

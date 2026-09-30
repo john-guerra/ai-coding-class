@@ -198,7 +198,7 @@ Use `/sync-course` skill to verify all artifacts are in sync.
 - **Finals**: Finals Week — P3 Due (Dec 14–20, 2026)
 
 ### Homework Assignments (5 total, 5% each = 25%)
-- HW1 (W4): Prompt Engineering Battle
+- HW1 (W5, due Mon Oct 5): Prompt Pairs, Proven
 - HW2 (W5): Mom Test Interviews + User Stories
 - HW3 (W8): Context Engineering (Rules + Scrum)
 - HW4 (W10): Claude Code Workflow & TDD

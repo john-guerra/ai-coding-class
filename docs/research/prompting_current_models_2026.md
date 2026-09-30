@@ -37,12 +37,14 @@ list of techniques.
 
 | Technique | What the source says | Source |
 |---|---|---|
-| **Prefill** | "Starting with Claude 4.6 models and Claude Mythos Preview, prefilled responses … on the last assistant turn are no longer supported." | BP, "Migrating away from prefilled responses" |
+| **Thinking mode** | "On Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, and Claude Opus 5.5, thinking is always on and adaptive thinking is the only mode." Help center: "Thinking cannot be turned off in Claude when using Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1, or Claude Opus 5." | BP (Markdown version); support.claude.com |
+| **Long context** | For "large documents or data-rich inputs (20k+ tokens)": put documents at the top; "Queries at the end can improve response quality by up to 30 percent in tests". | BP, "Long context prompting" |
+| **Prefill (API)** | "Starting with Claude 4.6 models and Claude Mythos Preview, prefilled responses … on the last assistant turn are no longer supported." | BP, "Migrating away from prefilled responses" |
 | **"Think step by step"** | "A prompt like 'think thoroughly' often produces better reasoning than a hand-written step-by-step plan. Claude's reasoning frequently exceeds what a human would prescribe." Manual CoT is framed as "a fallback". | BP, "Leverage thinking & interleaved thinking capabilities" |
 | **"Think carefully" in chat** | "…if your system prompt contains instructions that tell Claude to think carefully before answering, consider removing them for Claude Opus 5.5. The model decides for itself how much to think, and effort is the main control." | O55 |
 | **Reasoning in the response** | "Remove instructions that stood in for thinking." Requests to reproduce the reasoning in the response "can be declined with the reasoning_extraction refusal category". | O55 |
 | **Self-check / "double-check"** | Generally, "This catches errors reliably, especially for coding and math. Claude Opus 5 is the exception…" There, verification instructions "can cause over-verification". | BP |
-| **CRITICAL / MUST emphasis** | Measured on Opus 4.5/4.6: "The fix is to dial back any aggressive language. Where you might have said 'CRITICAL: You MUST use this tool when...', you can use more normal prompting." | BP, "Tool usage" |
+| **CRITICAL / MUST emphasis** | Noted for Opus 4.5/4.6, about tool/skill triggering: "If your prompts were designed to reduce undertriggering on tools or skills, these models may now overtrigger. The fix is to dial back any aggressive language." | BP, "Tool usage" |
 
 ## Eval framing (overview + develop-tests)
 
@@ -53,17 +55,21 @@ scale of Claude web.
 
 ## Not verified / excluded
 
-- **"Adaptive thinking is the only mode on Opus 5.5".** An early research
-  summary claimed this, but that wording wasn't found on BP or O55 on
-  2026-09-29, so it was left out.
-- **Claims about the Claude.ai product,** such as incognito sharing, memory
-  settings, and which models each plan gets. These came from a subagent
-  reading support.claude.com. They are reflected in the HW1 setup section,
-  but the quotes weren't re-checked here.
+- **Claude.ai product details** come from support.claude.com, fetched on 2026-09-29 by an independent fact-check. They are reflected in the HW1 setup section:
+  - memory pause and chat-search toggles;
+  - attachments excluded from shared links;
+  - Team/Enterprise sharing limited to the organization;
+  - Pro limits reset every five hours, plus a weekly limit.
+
+  Not verified: whether incognito chats can be shared, and which model the free plan gets.
+- **Correction (2026-09-29).** An earlier version of this note said "adaptive thinking is the only mode" was *not found*. That was wrong: the phrase is in BP's Markdown version, and a grep of the HTML render missed it. It has moved to the table above.
 
 ## Lesson for future updates
 
 A summarizing fetch turned "on Opus 5" and "measured on Opus 4.5/4.6" into
 general rules, and those overstated rules reached a student-facing draft.
 Check quotes against the raw page (`curl` + `grep`) before they go into
-course materials. The `assignment-review` skill now requires this step.
+course materials. Also check the page's Markdown version (docs pages serve
+one): a grep of the HTML render can miss text, which is how this note once
+claimed a real quote was "not found". The `assignment-review` skill now
+requires both checks.

@@ -136,15 +136,15 @@ Your team starts a Next.js/TypeScript/Tailwind project and creates an `.antigrav
 
 ---
 
-#### Q8: Context Hierarchy (2 points)
+#### Q8: Scoped Instructions (2 points)
 **Type:** Multiple Choice
 
-Your `.antigravityrules` says "Always use `fetch` for HTTP requests." In chat, you write: "Use `axios` for this API call, referencing `@src/api/client.ts`." That file uses `axios` throughout. What will the AI most likely do?
+Your repo already has a repo-wide `.github/copilot-instructions.md`. Its TypeScript frontend and Python backend need different coding conventions in GitHub Copilot Chat in VS Code. Per the Copilot docs, what setup works?
 
-- A) Use fetch, because the rules file always overrides everything
-- B) Use axios, since the @ reference silently rewrites the rules file
-- C) Refuse to generate code due to conflicting instructions
-- D) Randomly choose between fetch and axios whenever two signals conflict
+- A) Keep both in copilot-instructions.md under headings, since Copilot applies each heading only to that language's files
+- B) Add NAME.instructions.md files with applyTo globs; a matching file then replaces the repo-wide instructions for it
+- C) Add NAME.instructions.md files with applyTo globs; Copilot uses a matching file together with the repo-wide one
+- D) Attach the conventions to each chat with @file, since instruction files are read only when attached to a chat
 
 ---
 

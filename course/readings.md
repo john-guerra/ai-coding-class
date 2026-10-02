@@ -166,6 +166,7 @@ All URLs have been verified as of January 2026.
 | Antigravity Docs (Getting Started) | Official setup and usage guide | https://antigravity.google/docs/get-started |
 | GitHub Copilot Guide | GitHub's AI coding assistant documentation | https://docs.github.com/copilot |
 | Cursor Documentation | Cursor IDE docs and features | https://docs.cursor.com |
+| Adding Repository Custom Instructions in Your IDE (Copilot) | Repo-wide and path-specific (`applyTo`) instruction files in VS Code and other IDEs, and how they combine | https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/configure-custom-instructions/add-repository-instructions-in-your-ide |
 
 ### 📖 Recommended
 

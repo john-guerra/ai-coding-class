@@ -19,7 +19,7 @@
 
 ## Quiz Instructions
 
-This quiz assesses your understanding of Claude Web Artifacts concepts covered in Week 5 lectures and readings.
+This quiz assesses your understanding of Claude Web Artifacts concepts from the Week 4–5 required readings (taken before the Week 5 lecture).
 
 **Instructions:**
 - **Time Limit:** 10 minutes
@@ -27,14 +27,13 @@ This quiz assesses your understanding of Claude Web Artifacts concepts covered i
 - **Attempts:** One attempt only
 
 **Topics Covered:**
-- Artifact storage (new vs. legacy artifacts after the Sept 16, 2026 redesign)
-- Artifact limitations (single-file architecture)
-- AI-powered artifacts (calling Claude from artifacts)
-- Sharing artifacts
-- Mockup-to-artifact workflow
-- Debugging artifacts with DevTools
+- Artifact storage: new vs. legacy artifacts, personal vs. shared, limits
+- From sketch to prototype (Design Thinking, Week 4)
+- AI-powered artifacts (calling Claude, who pays)
+- Sharing new artifacts
+- Starting, fixing, and checking an artifact
 - Claude Projects for persistent context
-- Iterative development loop
+- When to move from an artifact prototype to production
 
 **Academic Integrity:** This is an individual assessment. Do not use AI assistants to answer questions. Questions are designed to test your understanding, not your ability to look up answers.
 
@@ -42,67 +41,69 @@ This quiz assesses your understanding of Claude Web Artifacts concepts covered i
 
 ## Questions
 
+All questions are answerable from the Week 4–5 **required readings** and the Week 1–4 lectures — this quiz is taken before the Week 5 lecture.
+
 ### Section 1: Foundational Concepts (Q1-Q5, mix of 1-2 points)
 
 ---
 
-#### Q1: Planning for Persistence (1 point)
+#### Q1: Personal vs. Shared Storage (1 point)
 **Type:** Multiple Choice
 
-Per the lecture's "Implications for Project 1" slide, which situation must your P1 persistence code explicitly handle?
+Your P1 journal artifact will be shared with classmates. Each person's entries must stay visible only to that person. Which artifact storage fits?
 
-- A) Saved records coming back as XML, since artifact storage converts JSON objects to XML on save
-- B) Saved data being wiped at midnight, since artifact storage is cleared on a fixed daily schedule
-- C) The viewer's Claude password expiring, since saved data is encrypted with that user's password
-- D) The first run, when no saved data exists yet, so the app must start from a sensible default
+- A) Personal storage, since each person keeps their own private data in the same artifact
+- B) Shared storage, since only the artifact's builder can read the entries others type in
+- C) Shared storage, since each entry turns private once its author signs in to Claude
+- D) Neither, since artifacts can't keep separate data per user without adding a backend
 
 ---
 
 #### Q2: Storage in New Artifacts (1 point)
 **Type:** Multiple Choice
 
-Using your Northeastern Claude Enterprise account, you build a **new** artifact (made after Sept 16, 2026) that saves a habit log to artifact storage. When does that storage start working?
+Using your Northeastern Claude Enterprise account, you build a **new** habit-tracker artifact (made after Sept 16, 2026) and want each entry to include a photo. What does artifact storage do for you?
 
-- A) Only after you publish it, since the in-chat preview never saves data on any plan
-- B) Only after you share it with someone, since storage is created per shared viewer
-- C) Right away while you build it, since new artifacts don't need publishing to store data
-- D) Never inside Claude, since artifacts can't save data and P1 needs a backend database
+- A) It saves entries only after you publish, and photos are fine as long as each one is under 20 MB
+- B) It saves nothing until you share the artifact, since storage is set up per viewer when a link is made
+- C) It saves entries right away without publishing, but it holds text only, so the photos can't go there
+- D) It saves entries right away, and the photos fit too as long as the whole artifact stays under 20 MB
 
 ---
 
-#### Q3: Artifact Limitations (1 point)
+#### Q3: From Sketch to Prototype (1 point)
 **Type:** Multiple Choice
 
-Which of the following is a key limitation of Claude Artifacts that affects how you structure your Project 1?
+You've sketched your P1 habit tracker on paper. Following Week 4's Prototype and Test phases of Design Thinking, what should your first artifact be?
 
-- A) All code must live in one file, since an artifact can't import your other modules
-- B) Artifacts execute only Python in a server-side sandbox, so React code is rejected
-- C) Libraries must be installed with npm inside the artifact, since the sandbox runs Node
-- D) Each artifact is capped at 100 lines, so bigger apps must be split across chats
+- A) A polished app with every planned feature, since users only give useful feedback on finished products
+- B) A version you try only on yourself first, since real users can't judge something this unfinished
+- C) No artifact yet, since Design Thinking says to finish all testing on paper before you build anything
+- D) The simplest interactive version that tests your riskiest assumption, put in front of real users
 
 ---
 
 #### Q4: AI-Powered Artifacts (2 points)
 **Type:** Multiple Choice
 
-A student adds a "smart search" to their P1 artifact that calls Claude, then shares it with 30 classmates. What is true about those AI calls?
+Using your Northeastern Claude Enterprise account, you add a "smart search" that calls Claude to your P1 artifact, then share it with 30 classmates in the Northeastern organization. What is true about those AI calls?
 
-- A) The student must paste an API key into the code, and the sandbox hides it from viewers
+- A) You must paste an API key into the code, and the sandbox hides that key from all viewers
 - B) No API key is needed, and each classmate's usage counts against their own Claude plan
-- C) No API key is needed, but all 30 classmates' calls count against the author's own plan
+- C) No API key is needed, but all 30 classmates' calls count against your own plan as author
 - D) It can't be done, since the sandbox blocks every outbound call, including to Claude
 
 ---
 
-#### Q5: Mockup-to-Artifact Workflow (1 point)
+#### Q5: Starting an Artifact (1 point)
 **Type:** Multiple Choice
 
-What is the recommended first step when turning a design into a Claude Artifact?
+You have only a vague idea for a P1 study tracker. Based on the required readings, what is a good first message to Claude?
 
-- A) Hand-write the full HTML/CSS first and paste it in, since Claude can't build from images
-- B) Describe the whole app in one long prompt, since an image upload resets the artifact
-- C) Have Claude invent a design with no reference, since images bias it to copy the layout
-- D) Upload a sketch or mockup image, since Claude can see your design and build it as an artifact
+- A) Share the rough idea and ask Claude to interview you with questions until the plan is clear
+- B) Paste in HTML and CSS you wrote first, since Claude builds artifacts out of your own code
+- C) List every UI component up front, since Claude can't ask follow-up questions while building
+- D) Ask for the finished app in one prompt, since follow-up requests restart the artifact
 
 ---
 
@@ -110,15 +111,15 @@ What is the recommended first step when turning a design into a Claude Artifact?
 
 ---
 
-#### Q6: Debugging Artifacts (2 points)
+#### Q6: Fixing a Broken Artifact (2 points)
 **Type:** Multiple Choice
 
-Your artifact renders a blank screen with no visible error message. What is the **MOST** effective debugging strategy?
+Your artifact renders a blank screen and shows **no error message**. Based on the required readings, what should you do?
 
-- A) Open DevTools and read the Console, since a blank render means a runtime error before render, then describe expected vs actual to Claude
-- B) Delete the artifact and regenerate it from scratch, since a blank render means the file is corrupted and follow-up prompts can only patch visible errors
-- C) Switch the artifact type from React to plain HTML, since a blank screen means the sandbox found no React runtime, and HTML artifacts render without one
-- D) Switch to a larger Claude model and regenerate the whole file, since blank screens come from weaker code generation that a smaller model can't self-correct
+- A) Delete the artifact and regenerate it from scratch, since a blank render means the file is corrupted
+- B) Copy the artifact's code into a new chat and ask for a rebuild, since a fresh chat clears the broken state
+- C) Wait for the "Try fixing with Claude" button, since it appears whenever an artifact goes blank
+- D) Tell Claude in plain language what you expected and what you see instead, and let it fix it
 
 ---
 
@@ -127,10 +128,10 @@ Your artifact renders a blank screen with no visible error message. What is the 
 
 You're building your P1 artifact across multiple Claude conversations. What should you upload to your Claude Project's knowledge base to maintain consistent context?
 
-- A) Only your latest code file, since Claude infers requirements and conventions from it
+- A) Your latest code file alone, since Claude re-infers requirements and conventions from the code
 - B) The full Claude docs website, so Claude can look up artifact rules it doesn't know
-- C) Your PRD, user stories, architecture decisions, and mockups, since code alone hides the why
-- D) Your API keys and .env file, so the artifact can authenticate across conversations
+- C) Your PRD, user stories, tech-stack decisions, and Mom Test notes, since code alone hides the why
+- D) Your API keys and .env file, so every artifact built in the Project can authenticate across conversations
 
 ---
 
@@ -146,27 +147,27 @@ You share a **new** artifact's link with a friend who has no Claude account. Wha
 
 ---
 
-#### Q9: AI-Powered Artifact Best Practices (2 points)
+#### Q9: Beyond the Prototype (2 points)
 **Type:** Multiple Choice
 
-You're building an artifact that classifies user-entered text into categories using Claude. Users report the app feels slow and sometimes shows errors. Which combination of best practices would **MOST** improve the experience?
+Your P1 artifact works and classmates use it daily. You now want real user accounts, your own API key management, and a database behind it. Based on the required readings, what is the right next step?
 
-- A) Raise max_tokens to 4096 and retry each failed call 5 times in a loop, since longer outputs and retries mask the latency
-- B) Switch to a larger model and batch every input into one prompt, since bigger models return each token faster than small ones
-- C) Call Claude on every keystroke so results stay fresh, and suppress errors silently so users never see a failure message
-- D) Add loading states, cache results for repeated inputs, and fall back gracefully, since calls take time and can fail
+- A) Keep growing the artifact itself, since Enterprise sharing turns it into a production app for any number of users
+- B) Add a server inside the artifact, since new artifacts can run backend code once artifact storage is turned on
+- C) Export the artifact and deploy it unchanged, since artifacts already ship with production-grade API key management built in
+- D) Treat the artifact as the prototype and rebuild with real infrastructure, since artifacts are best for testing and demos
 
 ---
 
-#### Q10: Iterative Development Loop (1 point)
+#### Q10: Checking Before You Share (1 point)
 **Type:** Multiple Choice
 
-What is the key insight about the artifact development workflow emphasized in the lecture?
+Before sharing your P1 artifact with classmates, what do the required readings recommend you do?
 
-- A) Speed comes from writing perfect prompts that generate correct code on the first try
-- B) Plan every detail up front, since an artifact can't be changed once built
-- C) Speed comes from fast iteration — plan, mockup, upload, build, test, iterate
-- D) Finish each artifact in one detailed prompt, since follow-ups lose context
+- A) Try to break it with rushed-user input, such as a decimal, an empty field, or a very long answer
+- B) Publish it first, since bugs only show up once an artifact has been shared with other people
+- C) Ask Claude whether it works, since Claude runs the edge-case inputs itself before rendering
+- D) Let classmates find the bugs, since the first version Claude builds is locked as final once others see it
 
 ---
 

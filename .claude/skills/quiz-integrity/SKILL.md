@@ -1,6 +1,6 @@
 ---
 name: quiz-integrity
-description: Use when creating, editing, or reviewing any quiz in course/assessments/ — enforces distractor length parity, answer-key ground truth, and source-first Canvas sync
+description: Use when creating, editing, reviewing, or publishing any quiz in course/assessments/ — including checking a quiz against the week's readings or lecture, its pedagogy, answer keys, distractor fairness, or syncing it to Canvas
 ---
 
 # Quiz Integrity
@@ -20,7 +20,9 @@ incident (see `COURSE_MEMORY.md` §7 for that), but the standard applied live.
 
 - Writing a new question or quiz in `course/assessments/`
 - Editing an existing quiz's questions, options, or points
-- Reviewing a quiz before it is pushed to Canvas
+- Reviewing a quiz before it is pushed to Canvas or published
+- Checking whether a quiz matches the week's readings, or is fair to students
+  taking it before the lecture
 - Auditing the bank on demand (`python3 course/verify-quizzes.py`)
 
 ## 1. Source First
@@ -172,6 +174,16 @@ them. Q5's keyed answer was false as written. Fix the deck, the quiz, and the
 reading list together, and add the vendor page to the week's readings so the
 quiz never tests a claim students had no source for.
 
+**Product behavior drifts, so make it re-checkable.** Every question whose
+key rests on how a product behaves gets a row in its answer key's
+`## Volatile Claims (re-verify before reuse)` table: `| Qn | source URL |
+verbatim quote |`. `python3 course/verify-quiz-sources.py <week>` fetches each
+source and fails on any quote no longer on the page. Run it before every Canvas
+push and before reusing a quiz in a new term. A `CHANGED` row means the key may
+be stale; re-check that question against the page rather than assuming it is
+still right. Week 5 (2026-10-02) is the first quiz with this table: its storage,
+sharing and plan-usage keys come from a product redesign that was two weeks old.
+
 **Cited statistics (rank 5).** Any claim resting on a statistic — Veracode's
 45%, LLM-as-Judge's 85% vs. 81% human agreement, the 23-37% property-testing
 figure — routes to `/verify-references`. Do not re-argue the number inline;
@@ -235,8 +247,31 @@ python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
    quiz exceeds threshold (correct-is-longest > 40%, mean length ratio > 1.15),
    has a header/points mismatch, or leaks answers (feedback or a correct-answer
    marker in the public source — §2).
-2. Dispatch the `quiz-adversary` subagent (`.claude/agents/quiz-adversary.md`)
-   to review the quiz. It is content-aware, not a blind guesser: it reads
+2. Dispatch **two independent reviewers in parallel**, in one message, as
+   background agents. Don't give either one the other's findings or your own
+   opinion of the quiz: their value comes from not being anchored.
+   - **`quiz-pedagogy`** (`.claude/agents/quiz-pedagogy.md`) checks whether
+     each question is answerable from what students can access when they take
+     the quiz. Most weekly quizzes are **pre-class**, so that means the
+     required readings, not that week's deck. It also checks what each question
+     tests (recall or application) and which readings and topics go untested.
+     It quotes the readings from the fetched page.
+     *Why it exists:* on 2026-10-02, `quiz-adversary` cleared the Week 5 quiz
+     twice ("every question tests something on a deck slide"). That quiz was
+     due before the Week 5 lecture, and several questions could only be
+     answered from that lecture's slides. A correctness reviewer reads the deck
+     as ground truth, so it can't see this.
+   - **`quiz-adversary`** (`.claude/agents/quiz-adversary.md`) is described below.
+
+   Then, before applying anything, check every reading quote and URL the
+   reviewers cite against the primary page yourself. Reviewer reports are
+   secondhand: grep the fetched HTML **and** the Markdown version before you
+   accept or reject a quote. Sort the findings: apply fixes that are wrong or
+   blocked, apply high-impact fixes within scope, and list judgment calls (for
+   example, making a quiz post-class, or adding a reading) for the
+   instructor. Don't decide those yourself.
+
+   The `quiz-adversary` subagent reviews the quiz. It is content-aware, not a blind guesser: it reads
    the quiz, the (gitignored) answer key, that week's deck, and the
    logistics docs; runs `verify-quizzes.py` and, where a question's answer
    is a tool's actual output, the tool itself; and reports blocker/major/minor
@@ -265,4 +300,5 @@ python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
    lengthening three distractors can still leave the correct answer longest;
    the ratio is arithmetic, not a judgment call. Exit 0 is the claim;
    anything else is an assertion.*
-5. Push to **both** Canvas sections — never one.
+5. Run `python3 course/verify-quiz-sources.py <week>`; it must exit 0.
+6. Push to **both** Canvas sections — never one.

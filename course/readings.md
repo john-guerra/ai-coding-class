@@ -120,9 +120,9 @@ All URLs have been verified as of January 2026.
 |----------|-------------|-----|
 | What Are Artifacts? | Current artifacts (post-Sept 16, 2026 redesign): legacy vs. new, storage, AI calls, connectors | https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them |
 | Share Artifacts | Sharing new (private-by-default) vs. legacy (published) artifacts | https://support.claude.com/en/articles/9547008-share-artifacts |
-| Claude Artifacts Guide | Creating & iterating AI apps without code | https://academy.claude.com/tutorials/use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
-| Prototype AI-Powered Apps | Building AI-powered artifacts by asking Claude to use Claude (no API keys) | https://academy.claude.com/tutorials/prototype-ai-powered-apps-with-claude-artifacts |
-| Claude-Powered Artifacts Announcement | Official announcement of AI features in artifacts (Jul 2025; predates the Sept 2026 redesign) | https://claude.com/blog/claude-powered-artifacts |
+| Claude Artifacts Guide | Creating & iterating AI apps without code. ⚠️ Its "Publish" section describes legacy (pre-Sept 16, 2026) sharing; for new artifacts, see Share Artifacts | https://academy.claude.com/tutorials/use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
+| Prototype AI-Powered Apps | Building AI-powered artifacts by asking Claude to use Claude (no API keys). ⚠️ Its sharing/publish steps describe legacy (pre-Sept 16, 2026) artifacts; for new artifacts, see Share Artifacts | https://academy.claude.com/tutorials/prototype-ai-powered-apps-with-claude-artifacts |
+| Claude-Powered Artifacts Announcement | Official announcement of AI features in artifacts (Jul 2025). ⚠️ Its "Current limitations" list is out of date: artifacts now have persistent storage (see What Are Artifacts?) | https://claude.com/blog/claude-powered-artifacts |
 
 > **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
 

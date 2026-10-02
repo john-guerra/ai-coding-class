@@ -56,33 +56,30 @@ wrong).
 
 ## 2. Per-Answer Feedback
 
-Every option can carry the rationale a student sees after answering it, as an
-indented blockquote directly under the option it explains:
+**The repo is public (`github.com/john-guerra/ai-coding-class`). Per-answer
+feedback names the right answer, so it lives only in the gitignored
+`week*-answer-key.md` — never in `week*-quiz.md`.** In the key, put it under a
+`## Per-Answer Feedback` section: one `### Qn` heading per question, each
+option as `- **A)** text`, then its feedback on an indented `> ` line.
 
-```markdown
-- A) Background clue given
-  > "Background clue given" restates Context, one of the five components
-  > under Anatomy of a Good Prompt — it's not the odd one out, it belongs
-  > on the list.
-```
+Worked example of getting this wrong: weeks 3, 4 and 6 carried feedback as
+`  > ` blockquotes under each option in the public quiz file, and on
+2026-10-02 the Week 5 rewrite followed that pattern and was pushed four days
+before the quiz was due. Every correct answer was readable on GitHub. The
+feedback was moved into the keys and stripped from all four sources the same
+day, but it stays in git history. `verify-quizzes.py` now fails any quiz
+whose source has an indented `> ` line or a `**Correct:` marker
+(`find_answer_leaks`, tested by `TestAnswerLeaks`), so exit 0 also means no
+answers leak from the source.
 
-**Why indented and blockquoted, specifically:** `verify-quizzes.py`'s
-`parse_quiz` matches options with `^-\s*([A-D])\)\s*(.+?)\s*$` — a line that
-must *start* with `-`. A feedback line indented two spaces and led with `>`
-can never match that anchor, so it is structurally invisible to the option
-parser — not "usually skipped," but incapable of matching regardless of
-content. Never write feedback as an unindented `- ` line, and never put it on
-the same line as the option text; either would risk the parser measuring
-feedback prose as if it were the option, corrupting every length ratio in the
-bank (see §3 below). This is proven by a regression test
-(`TestPerAnswerFeedbackIsInert` in `course/test_verify_quizzes.py`), not just
-by inspection — it constructs a deliberately-broken parser variant that folds
-the blockquote into the option text and confirms the test fails against it.
+**Commit messages are public too.** `be46145` says which letter Week 6 Q8 was
+re-keyed to and why. Describe quiz fixes by defect type ("re-keyed a question
+the deck contradicted") and keep the letters and answer content in the
+gitignored key.
 
-Only `course/assessments/week3-prompt-engineering-quiz.md` carries this field
-so far (backfilled after the loss below). The other eleven quizzes still rely
-solely on Canvas for feedback text — treat that as a known gap, not a
-model to copy from, until they are backfilled too.
+(The option parser in `verify-quizzes.py` still ignores `  > ` lines —
+`TestPerAnswerFeedbackIsInert` — so a stray one won't corrupt length ratios.
+That only shows the line is harmless to the linter; it can still leak answers.)
 
 **Hard rule: never push `answers` to `canvas_update_quiz_question` without
 `answer_comment` for every option.** On 2026-09-14, a Canvas push for Week 3
@@ -91,8 +88,8 @@ cleared every per-answer feedback comment in both sections — the push itself
 wasn't reverted or reviewed for this side effect because Canvas gave no
 warning that omitting `answer_comment` deletes existing feedback rather than
 leaving it alone. The comment field is not additive: whatever the call
-doesn't send, Canvas erases. If a question's source has no `> ` feedback
-lines yet (any of the other eleven quizzes), the fix is to read the current
+doesn't send, Canvas erases. If a week's answer key has no Per-Answer Feedback
+section yet, the fix is to read the current
 comments back from Canvas first and round-trip them in the same call — not to
 send `answers` alone and assume the rest is untouched.
 
@@ -235,8 +232,9 @@ python3 course/verify-quizzes.py <week>     # e.g. 9, or week09
 ```
 
 1. Run the linter on the week you touched. Exit 0 = clean; exit 1 = a scanned
-   quiz exceeds threshold (correct-is-longest > 40%, mean length ratio > 1.15)
-   or has a header/points mismatch.
+   quiz exceeds threshold (correct-is-longest > 40%, mean length ratio > 1.15),
+   has a header/points mismatch, or leaks answers (feedback or a correct-answer
+   marker in the public source — §2).
 2. Dispatch the `quiz-adversary` subagent (`.claude/agents/quiz-adversary.md`)
    to review the quiz. It is content-aware, not a blind guesser: it reads
    the quiz, the (gitignored) answer key, that week's deck, and the

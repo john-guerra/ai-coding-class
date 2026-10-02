@@ -93,6 +93,17 @@ def check_header_points(path: Path) -> tuple:
     return claimed, sum(int(p) for p in headings)
 
 
+# The repo is public, so anything in a quiz source that names the right answer
+# publishes the key: per-answer feedback blockquotes, or a "Correct:" marker.
+LEAK_PATTERNS = re.compile(r"^\s+>\s|^\*\*Correct(?: answer)?:", re.M | re.I)
+
+
+def find_answer_leaks(path: Path) -> list:
+    """Line numbers in a quiz source that would reveal answers if pushed."""
+    lines = path.read_text().splitlines()
+    return [i for i, line in enumerate(lines, 1) if LEAK_PATTERNS.search(line)]
+
+
 def week_of(path: Path) -> str:
     return re.match(r"(week\d+)", path.name).group(1)
 
@@ -117,8 +128,9 @@ def main(argv: list) -> int:
             continue
         m = measure(questions, key)
         claimed, actual = check_header_points(quiz)
+        leaks = find_answer_leaks(quiz)
         pts_ok = claimed is None or claimed == actual
-        bad = m.longest_rate > MAX_LONGEST_RATE or m.mean_ratio > MAX_LENGTH_RATIO or not pts_ok
+        bad = m.longest_rate > MAX_LONGEST_RATE or m.mean_ratio > MAX_LENGTH_RATIO or not pts_ok or bool(leaks)
         failed = failed or bad
         pts = f"{actual}" if pts_ok else f"{actual}!={claimed}"
         print(
@@ -126,6 +138,9 @@ def main(argv: list) -> int:
             f" {m.mean_ratio:>7.2f}x {pts:>9}  {m.letter_spread}"
             f"{'  <-- FAIL' if bad else ''}"
         )
+        if leaks:
+            print(f"         answers leak (public repo) at lines {leaks[:5]}"
+                  f"{'…' if len(leaks) > 5 else ''} — move to {week}-answer-key.md")
     return 1 if failed else 0
 
 

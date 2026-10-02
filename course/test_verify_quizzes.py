@@ -224,6 +224,33 @@ class TestPerAnswerFeedbackIsInert(unittest.TestCase):
         self.assertLess(m.mean_ratio, 1.15)
 
 
+class TestAnswerLeaks(unittest.TestCase):
+    """The repo is public: per-answer feedback names the right answer, so a
+    quiz source carrying it publishes the key (Week 5, 2026-10-02). Feedback
+    belongs in the gitignored answer key; the linter must fail a quiz that
+    has it."""
+
+    def test_feedback_lines_are_reported_as_leaks(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            leaks = vq.find_answer_leaks(write(tmp, "q.md", FEEDBACK_QUIZ))
+        self.assertGreater(len(leaks), 0)
+
+    def test_correct_marker_is_reported_as_a_leak(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            marked = QUIZ.replace("What is the thing?", "What is the thing?\n\n**Correct: B)**")
+            leaks = vq.find_answer_leaks(write(tmp, "q.md", marked))
+        self.assertEqual(len(leaks), 1)
+
+    def test_clean_quiz_has_no_leaks(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(vq.find_answer_leaks(write(tmp, "q.md", QUIZ)), [])
+
+    def test_real_quizzes_have_no_leaks(self):
+        for quiz in sorted(vq.ASSESSMENTS.glob("week*-quiz.md")):
+            with self.subTest(quiz=quiz.name):
+                self.assertEqual(vq.find_answer_leaks(quiz), [])
+
+
 class TestMain(unittest.TestCase):
     def test_missing_header_row_yields_none_claimed(self):
         # Verifies check_header_points' claimed=None path, which main() branches
@@ -257,6 +284,11 @@ class TestMainExitCodes(unittest.TestCase):
     def tearDown(self):
         vq.ASSESSMENTS = self._saved
         self._tmp.cleanup()
+
+    def test_returns_one_when_a_quiz_leaks_answers(self):
+        (vq.ASSESSMENTS / "week99-fixture-quiz.md").write_text(
+            CLEAN_QUIZ.replace("- A)", "  > leaked rationale\n- A)", 1))
+        self.assertEqual(vq.main([]), 1)
 
     def test_returns_zero_when_every_quiz_passes(self):
         self.assertEqual(vq.main([]), 0)

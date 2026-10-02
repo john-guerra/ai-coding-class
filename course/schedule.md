@@ -29,7 +29,7 @@
 | 6 | Oct 12–16 | IDE-Centric AI Coding | **P1 due**; no class Mon Oct 12 (Indigenous Peoples' Day) |
 | 7 | Oct 19–23 | Agile/Scrum + Pair Workflow | |
 | 8 | Oct 26–30 | Advanced IDE AI Features | HW3 due |
-| 9 | Nov 2–6 | Claude Code Foundations | **P2 due**; P3 teams form |
+| 9 | Nov 2–6 | Claude Code Foundations | **P2 due**; P3 pairs form |
 | 10 | Nov 9–13 | Claude Code Workflows & Dev Practices | HW4 due; no class Wed Nov 11 (Veterans Day) |
 | 11 | Nov 16–20 | Claude Code Extensibility | |
 | 12 | Nov 23–24 | Agent Architectures & SDK | HW5 due; **Fall Break Nov 25–29** (resume Nov 30) — short week ⚠️ |
@@ -51,7 +51,7 @@
 | **6**  | **IDE-Centric AI Coding**         | **PROJECT 1 DUE**, How IDE AI tools work (architecture pipeline, context collection, indexing), Code suggestions & tab completion, Inline edit (Cmd+K), Chat panel, Modes (Ask/Write/Agent/Plan), Rules files, @ context references, Tool comparison (Antigravity vs Copilot vs Cursor), **P2 pair formation, Canvas groups** | **PROJECT 1 DUE**, Weekly Quiz 6                                      | **P1:** Final, **P2:** Starts, Form pairs          |
 | **7**  | **Agile/Scrum + Pair Workflow**   | Agile/Scrum crash course (roles, sprint cycle, ceremonies), GitHub as scrumboard (Issues, Projects board, labels, milestones), PRD → sprint backlog, Branch-per-issue workflow, Pair workflow (scrum for two, design thinking → backlog), Partner code review, Async standups | Weekly Quiz 7                                                        | **P2:** Sprint 1                                  |
 | **8**  | **Advanced IDE AI Features**      | Agent memory & persistent context, MCP servers (connecting AI to external tools), Browser mode, Mockup-to-code, Debugging with AI, Shared rules files for pairs, P2 sprint workflow       | **HW3 DUE:** Context Eng (Rules+Scrum), Weekly Quiz 8                  | **P2:** Sprint 2                                  |
-| **9**  | **Claude Code Foundations**       | **PROJECT 2 DUE**, How Claude Code works (agentic loop, built-in tools), Installation & setup, CLAUDE.md deep dive (@imports, hierarchy, auto-memory), Tool use system & permissions, Context management (/clear, /compact, checkpoints, --continue), Thinking & planning modes, **P3 team formation** | **PROJECT 2 DUE**, Weekly Quiz 9                                     | **P2:** Final, **P3:** Team formation & Start     |
+| **9**  | **Claude Code Foundations**       | **PROJECT 2 DUE**, How Claude Code works (agentic loop, built-in tools), Installation & setup, CLAUDE.md deep dive (@imports, hierarchy, auto-memory), Tool use system & permissions, Context management (/clear, /compact, checkpoints, --continue), Thinking & planning modes, **P3 pair formation** | **PROJECT 2 DUE**, Weekly Quiz 9                                     | **P2:** Final, **P3:** Pair formation & Start     |
 | **10** | **Claude Code Workflows & Dev Practices** | Spec-driven development (interview → SPEC.md → plan, spec-first/anchored/as-source, Spec Kit), Explore → Plan → Implement → Commit workflow, TDD with Claude Code (red-green-refactor with AI), Git & GitHub integration (commits, PRs through CC), CI/CD via Claude Code & GitHub Actions, Visual debugging (screenshots, Chrome extension), Non-interactive mode & scripting (`claude -p`, JSON output, fan-out), LLM-as-Judge evaluation (pointwise/pairwise, judge bias, human-label validation), property-based & mutation testing (fast-check, Stryker) | **HW4 DUE:** CC Workflow & TDD, Weekly Quiz 10        | **P3:** Sprint 1                                  |
 | **11** | **Claude Code Extensibility**     | Skills & custom commands (.claude/skills/), Hooks (PreToolUse, PostToolUse, Stop), MCP servers (connecting databases, Figma, Playwright), Custom sub-agents (.claude/agents/), Plugins & plugin marketplace, Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 11        | **P3:** Sprint 2                                  |
 | **12** | **Agent Architectures & SDK** | Agent fundamentals (agent vs workflow, augmented LLM), Anthropic's 6 agent patterns (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer, autonomous), Claude Agent SDK (Python/TypeScript, query(), hooks, sessions), Multi-agent coordination, Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Custom Skill + MCP, Weekly Quiz 12             | **P3:** Sprint 3                                  |
@@ -67,7 +67,7 @@
 | Week 5  | HW2 due (Mom Test)                       |
 | Week 6  | **Project 1 due**, P2 pairs formed       |
 | Week 8  | HW3 due (Context Engineering)            |
-| Week 9  | **Project 2 due**, P3 team formation     |
+| Week 9  | **Project 2 due**, P3 pair formation     |
 | Week 10 | HW4 due (Claude Code Workflow & TDD)     |
 | Week 12 | HW5 due (Custom Skill + MCP Integration) |
 | Finals (Dec 14–20) | **Project 3 due**             |

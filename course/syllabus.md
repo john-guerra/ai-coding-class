@@ -96,7 +96,7 @@ This schedule could be adjusted during the semester depending on the student's p
 | 6 | Oct 12–16 | IDE-Centric AI Coding — **Project 1 due**; no class Mon Oct 12 |
 | 7 | Oct 19–23 | Agile/Scrum + Pair Workflow |
 | 8 | Oct 26–30 | Advanced IDE AI Features — HW3 due |
-| 9 | Nov 2–6 | Claude Code Foundations — **Project 2 due**; Project 3 teams form |
+| 9 | Nov 2–6 | Claude Code Foundations — **Project 2 due**; Project 3 pairs form |
 | 10 | Nov 9–13 | Claude Code Workflows & Dev Practices — HW4 due; no class Wed Nov 11 |
 | 11 | Nov 16–20 | Claude Code Extensibility |
 | 12 | Nov 23–24 | Agent Architectures & SDK — HW5 due; Fall Break Nov 25–29 |
@@ -111,7 +111,7 @@ Week 12 is shortened by Fall Break (Nov 25–29): only Monday and Tuesday are cl
 **Participation (15%):** 7% pre-class questions + 8% lottery points\
 **Weekly Quizzes (10%):** Concept quizzes on Canvas (2 lowest dropped)\
 **Homeworks (25%):** 5 assignments (5% each) building toward projects\
-**Projects (50%):** Project 1 (13%), Project 2 (18%), Project 3 (19%)
+**Projects (50%):** Project 1 (13%, individual), Project 2 (18%, pairs), Project 3 (19%, pairs)
 
 ## Considerations
 
@@ -283,6 +283,7 @@ This course REQUIRES AI tool use. Students must document usage, understand all c
 
 ## Project 1: Personal Utility App — Claude Web Artifact (13%) — Due Week 6
 
+- Individual project
 - 5+ user stories with CRUD, running in the browser
 - Built with the Claude Web harness as an artifact (no deployment required)
 - Includes AI features
@@ -297,9 +298,9 @@ This course REQUIRES AI tool use. Students must document usage, understand all c
 - 2+ Agile sprints
 - 10-min video, 300-word reflection per partner
 
-## Project 3: Team Application (19%) — Due Finals Week (Dec 14–20, 2026)
+## Project 3: Production App with Claude Code Mastery (19%) — Due Finals Week (Dec 14–20, 2026)
 
-- Team of 2, production-grade, demonstrating Claude Code mastery
+- Built as a pair (2 students), production-grade, demonstrating Claude Code mastery
 - Parallel agentic programming and custom extensibility (skills, hooks, MCP, agents)
 - CI/CD with AI PR review, security audit
 - 3+ sprints

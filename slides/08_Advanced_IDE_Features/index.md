@@ -340,7 +340,7 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 - **Claude Code** -- The third AI harness: autonomous agents in your terminal
 - **Agentic coding** -- Multi-file edits, automated refactoring
 - **CLAUDE.md deep dive** -- Persistent context for CLI-based AI
-- **P3 team formation** -- Form your P3 teams in Week 9
+- **P3 pair formation** -- Form your P3 pairs in Week 9
 
 **HW3 (Context Engineering) is due this week.** Your rules file and Scrum board should be in great shape by now.
 

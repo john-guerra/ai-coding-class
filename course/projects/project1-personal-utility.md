@@ -2,6 +2,7 @@
 
 **Weight:** 13% of final grade
 **Due:** Week 6
+**Team size:** Individual (1 student). P2 and P3 are pair projects.
 
 ## Objective
 

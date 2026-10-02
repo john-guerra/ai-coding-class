@@ -61,7 +61,7 @@ revealOptions:
 ## This Week: The Transition
 
 - **P2 is due** -- your pair project wraps up
-- **P3 team formation** -- form your pairs this week
+- **P3 pair formation** -- form your pairs this week
 - **New tool, new mental model** -- Claude Code is fundamentally different from IDE chat
 
 P2 taught you pair workflow and IDE AI. P3 will push you into team-scale development with agentic tools.
@@ -877,7 +877,7 @@ This is the workflow you'll use daily in P3.
 
 **Weekly Quiz 10** -- Claude Code Foundations concepts
 
-**P3 Team Formation:**
+**P3 Pair Formation:**
 - Form your pairs
 - Create your P3 GitHub repo
 - Run `/init` and commit your initial CLAUDE.md

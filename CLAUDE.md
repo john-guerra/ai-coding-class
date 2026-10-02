@@ -189,7 +189,7 @@ Use `/sync-course` skill to verify all artifacts are in sync.
 > **Fall 2026 renumber:** The Spring 2026 15-week schedule (with a Spring Break week) was mapped onto the Fall 2026 calendar as **14 teaching weeks + Finals** (no full-week break). Old weeks 10–15 shifted down to 9–14; Finals replaces the old Week 16. Course code changed **CS 7180 → CS 6983**. Two sections: Oakland/Online (Tu/Fri) and San Jose (Wed).
 
 ### W9–Finals Structure (Claude Code block)
-- **W9**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking) — **P2 due, P3 team formation**
+- **W9**: Claude Code Foundations (agentic loop, CLAUDE.md, tools, context, thinking) — **P2 due, P3 pair formation**
 - **W10**: Claude Code Workflows & Dev Practices (Explore→Plan→Implement→Commit, TDD, CI/CD, GitHub)
 - **W11**: Claude Code Extensibility (skills, hooks, MCP, sub-agents, plugins, parallel sessions)
 - **W12**: Agent Architectures & SDK (6 patterns, SDK, multi-agent coordination)

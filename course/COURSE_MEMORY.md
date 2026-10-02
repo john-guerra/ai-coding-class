@@ -50,7 +50,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **Participation** | 15% | 7% pre-class questions + 8% lottery points |
 | **Weekly Quizzes** | 10% | Concept quizzes on Canvas (2 lowest dropped) |
 | **Homeworks** | 25% | 5 scaffolding assignments (5% each) |
-| **Projects** | 50% | P1: 13%, P2: 18%, P3: 19% |
+| **Projects** | 50% | P1: 13% (individual), P2: 18% (pairs), P3: 19% (pairs) |
 | **TOTAL** | 100% | |
 
 ### Participation Details (15%)
@@ -105,7 +105,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
 | **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair workflow (scrum for two, design thinking → backlog)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
 | **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
-| **9** | **Claude Code Foundations** | • **PROJECT 2 DUE**<br>• How Claude Code works (agentic loop, built-in tools: Read, Edit, Bash, Glob, Grep, WebFetch)<br>• Installation & setup (CLI, VS Code, Desktop)<br>• CLAUDE.md deep dive (@imports, hierarchy, auto-memory, `/init`)<br>• Tool use system & permission model (allowlists, sandboxing)<br>• Context management (`/clear`, `/compact`, checkpoints, `--continue`, `--resume`)<br>• Thinking & planning modes (Plan mode, `Ctrl+G`, extended thinking)<br>• **P3 team formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 9 | **P2:** Final<br>**P3:** Team formation & Start |
+| **9** | **Claude Code Foundations** | • **PROJECT 2 DUE**<br>• How Claude Code works (agentic loop, built-in tools: Read, Edit, Bash, Glob, Grep, WebFetch)<br>• Installation & setup (CLI, VS Code, Desktop)<br>• CLAUDE.md deep dive (@imports, hierarchy, auto-memory, `/init`)<br>• Tool use system & permission model (allowlists, sandboxing)<br>• Context management (`/clear`, `/compact`, checkpoints, `--continue`, `--resume`)<br>• Thinking & planning modes (Plan mode, `Ctrl+G`, extended thinking)<br>• **P3 pair formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 9 | **P2:** Final<br>**P3:** Pair formation & Start |
 | **10** | **Claude Code Workflows & Dev Practices** | • **Spec-driven development** (interview → SPEC.md → plan; spec-first/anchored/as-source; Spec Kit)<br>• Explore → Plan → Implement → Commit workflow<br>• TDD with Claude Code (write failing tests → AI implements → refactor)<br>• Git & GitHub integration (commits, branches, PRs through CC)<br>• CI/CD via Claude Code & GitHub Actions (`claude -p` for PR review)<br>• Visual debugging (screenshots, Chrome extension)<br>• Non-interactive mode & scripting (`claude -p`, JSON output, fan-out patterns) | **HW4 DUE:** CC Workflow & TDD<br>Weekly Quiz 10 | **P3:** Sprint 1 |
 | **11** | **Claude Code Extensibility** | • Skills & custom commands (`.claude/skills/`, slash commands)<br>• Hooks (PreToolUse, PostToolUse, Stop — deterministic vs advisory)<br>• MCP servers (Model Context Protocol, `claude mcp add`, databases, Figma, Playwright)<br>• Custom sub-agents (`.claude/agents/`, isolated context, specialized reviewers)<br>• Plugins & plugin marketplace<br>• Parallel sessions & agent teams (writer/reviewer pattern) | Weekly Quiz 11 | **P3:** Sprint 2 |
 | **12** | **Agent Architectures & SDK** | • Agent fundamentals (agent vs workflow, augmented LLM)<br>• Anthropic's 6 agent patterns:<br>&nbsp;&nbsp;- Prompt Chaining, Routing, Parallelization<br>&nbsp;&nbsp;- Orchestrator-Workers, Evaluator-Optimizer, Autonomous<br>• Claude Agent SDK (Python/TypeScript, `query()`, hooks, sessions)<br>• Multi-agent coordination & message passing<br>• Real-world agent examples (parallel Claudes building a C compiler) | **HW5 DUE:** Skill + MCP<br>Weekly Quiz 12 | **P3:** Sprint 3 |
@@ -194,6 +194,8 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 ### Project 1: Personal Utility App — Claude Web Artifact (13%) - Due Week 6
 
 **Objective:** Master the Claude Web harness by building a real solution as an artifact
+
+**Team Structure:** Individual project (1 student). P2 and P3 are pair projects.
 
 **Requirements:**
 - **Approval:**
@@ -320,6 +322,8 @@ Students must submit a **single PDF/document** containing:
 ### Project 3: Production Application with Claude Code Mastery (19%) - Due Finals Week (Dec 14–20, 2026)
 
 **Objective:** Build production-grade deployed application demonstrating mastery of Claude Code extensibility (W10-W14)
+
+**Team Structure:** Pair project (2 students), pairs form in Week 9. Individual grades adjusted by peer evaluations (±10%).
 
 **Requirements:**
 - **Functional:**
@@ -1137,7 +1141,7 @@ By course end, students will have:
 **Red Flags Addressed:**
 - Week 5-6: Spread TDD + CI/CD across two weeks
 - Week 9-11: Progressive Claude Code deep-dive (foundations → workflows → extensibility)
-- Week 9: P3 team formation aligned with Claude Code intro
+- Week 9: P3 pair formation aligned with Claude Code intro
 - Throughout: Weekly quizzes for spaced repetition
 
 ---
@@ -1492,7 +1496,7 @@ Track changes semester-to-semester:
 - **Week 5:** HW1 due Mon Oct 5 (Prompt Pairs, Proven); HW2 due (Mom Test)
 - **Week 6:** Project 1 due, P2 pairs formed
 - **Week 8:** HW3 due (Context Engineering)
-- **Week 9:** Project 2 due, P3 team formation
+- **Week 9:** Project 2 due, P3 pair formation
 - **Week 10:** HW4 due (Claude Code Workflow & TDD)
 - **Week 12:** HW5 due (Custom Skill + MCP Integration)
 - **Finals Week (Dec 14–20):** Project 3 due

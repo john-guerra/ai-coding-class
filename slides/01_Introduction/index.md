@@ -418,9 +418,9 @@ Understanding the "why" matters:
 
 You will build **3 portfolio-worthy applications**:
 
-1. **Personal Utility App** (Week 6)
-2. **Full-Stack Application** (Week 9)
-3. **Team Application** (Finals Week)
+1. **Personal Utility App** (Week 6, individual)
+2. **Full-Stack Application** (Week 9, pairs)
+3. **Production App** (Finals Week, pairs)
 
 <!-- vertical -->
 
@@ -428,6 +428,7 @@ You will build **3 portfolio-worthy applications**:
 
 **Due Week 6 • 13%**
 
+- Individual project
 - Solve a real problem (validated!)
 - 5+ user stories with CRUD (browser)
 - ONE primary harness (Web)
@@ -444,15 +445,15 @@ You will build **3 portfolio-worthy applications**:
 - User authentication
 - TDD
 - 2+ Agile sprints
-- Team of 2
+- Pair project (2 students)
 
 <!-- vertical -->
 
-## Project 3: Team Application
+## Project 3: Production App
 
 **Due Finals Week • 19%**
 
-- Team of 2
+- Pair project (2 students)
 - Parallel agentic programming
 - CI/CD
 - Security audit

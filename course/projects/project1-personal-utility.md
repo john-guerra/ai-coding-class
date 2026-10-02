@@ -18,7 +18,7 @@ Master the Claude Web harness by building a real solution to a validated problem
 ### Functional Requirements
 - Solves a validated real problem (Mom Test interviews)
 - 5+ user stories with working CRUD operations
-- Data persistence (localStorage or browser storage)
+- Data persistence using artifact storage (included in Northeastern's Claude Enterprise plan; don't rely on `localStorage`, which Anthropic doesn't document for artifacts)
 - Responsive design (mobile + desktop)
 
 ### AI Feature Requirements

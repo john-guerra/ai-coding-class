@@ -118,9 +118,11 @@ All URLs have been verified as of January 2026.
 **Claude Web & Artifacts**
 | Resource | Description | URL |
 |----------|-------------|-----|
-| Claude Artifacts Guide | Creating & iterating AI apps without code | https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
-| Prototype AI-Powered Apps | Building AI-powered artifacts with `window.claude.complete()` | https://support.claude.com/en/articles/11649438-prototype-ai-powered-apps-with-claude-artifacts |
-| Claude-Powered Artifacts Announcement | Official announcement of AI features in artifacts | https://www.anthropic.com/news/claude-powered-artifacts |
+| What Are Artifacts? | Current artifacts (post-Sept 16, 2026 redesign): legacy vs. new, storage, AI calls, connectors | https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them |
+| Share Artifacts | Sharing new (private-by-default) vs. legacy (published) artifacts | https://support.claude.com/en/articles/9547008-share-artifacts |
+| Claude Artifacts Guide | Creating & iterating AI apps without code | https://academy.claude.com/tutorials/use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code |
+| Prototype AI-Powered Apps | Building AI-powered artifacts by asking Claude to use Claude (no API keys) | https://academy.claude.com/tutorials/prototype-ai-powered-apps-with-claude-artifacts |
+| Claude-Powered Artifacts Announcement | Official announcement of AI features in artifacts (Jul 2025; predates the Sept 2026 redesign) | https://claude.com/blog/claude-powered-artifacts |
 
 > **Why Artifacts?** Artifacts let you create interactive apps, visualizations, and documents directly in Claude Web—essential for rapid prototyping before moving to code editors.
 

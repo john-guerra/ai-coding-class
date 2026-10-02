@@ -106,6 +106,23 @@ Last week: quick prototypes and explorations
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
+## Artifacts Changed on Sept 16, 2026
+
+Artifacts made in a chat before that date are now **legacy** — they still work, but you can't make new ones. Tutorials and blog posts from before then often describe legacy behavior.
+
+| | Legacy (before Sept 16) | New artifacts |
+| --- | --- | --- |
+| Storage | Only after publishing | Works without publishing |
+| Sharing | "Publish" — public link | "Share" — starts private |
+| Calling Claude | Off-switch in Settings → Capabilities | Asks permission on first use |
+| Viewers | No account needed | Everyone needs a Claude account |
+
+<small>Source: [What are artifacts](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) · [Publish and share artifacts](https://support.claude.com/en/articles/9547008-share-artifacts)</small>
+
+<!-- vertical -->
+
 ## Project Structure in Claude Web
 
 **Think of your project as a conversation arc:**
@@ -201,40 +218,38 @@ Each iteration builds on the last artifact.
 
 <!-- vertical -->
 
-## The Sandbox Constraint
+## Browser Storage: Don't Bet on It
 
-**Important:** Artifacts run in a sandboxed iframe
+**Artifacts run in a sandboxed iframe.**
 
-Standard browser storage APIs are **blocked**:
+- Legacy artifacts blocked `localStorage`, `sessionStorage`, `indexedDB`, and cookies
+- Anthropic's current docs **don't say either way** for new artifacts
+- John's class demo: `localStorage` worked 🤷🏽‍♂️, but nothing promises it will keep working, and it lives only in one browser
 
-- ~~`localStorage`~~ -- Blocked
-- ~~`sessionStorage`~~ -- Blocked
-- ~~`indexedDB`~~ -- Blocked
-- ~~`cookies`~~ -- Blocked
-
-So how do you persist data?
+**The documented path is artifact storage** — next slide.
 
 <!-- vertical -->
 
-## John: LocalStorage worked for me
+## Artifact Storage
 
-When creating the demo for class, Claude was able to use localStorage to persist data across sessions. 🤷🏽‍♂️
+Artifacts have their own built-in storage:
+
+- **20 MB per artifact, text only** — no images, files, or binary data
+- **Personal** (each user keeps private data) or **shared** (everyone sees the same data)
+- **Pro, Max, Team, or Enterprise** plans only
+- Ask Claude to add persistence — it writes the storage code for you
+
+<small>Source: [What are artifacts → Store data in an artifact](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)</small>
 
 <!-- vertical -->
 
-## Artifact-Specific Storage
+## Storage: New vs. Legacy Artifacts
 
-Claude Artifacts have their own persistence mechanism:
+- New artifacts store data **without publishing**
+- Legacy artifacts store data only after publishing, and **unpublishing deletes it**
+- Either way, offer JSON export/import as a backup
 
-- **Up to 20MB** of storage (Pro/Max/Team/Enterprise)
-- Data persists across sessions for **published artifacts only**
-- Ask Claude to add persistence — it generates the storage code for you
-
-**Important caveat:**
-
-- Storage **only works on published artifacts** — not during development previews
-- Always test persistence after publishing
-- Consider JSON export/import as a fallback strategy
+<small>Source: [What are artifacts → Store data in an artifact](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)</small>
 
 <!-- vertical -->
 
@@ -256,7 +271,7 @@ Claude Artifacts have their own persistence mechanism:
 
 ## Implications for Project 1
 
-Your P1 must have a **data persistence** requirement:
+Your P1 must have a **data persistence** requirement — use artifact storage (your Northeastern Claude Enterprise account includes it):
 
 - Plan your data model early
 - Test persistence across sessions
@@ -272,12 +287,12 @@ Your P1 must have a **data persistence** requirement:
 **Key constraints to know for Project 1:**
 
 - **Single file only** — All code lives in one file (components, styles, logic)
-- **No external API calls** — Can't `fetch()` arbitrary URLs (CORS blocked in sandbox)
-- **Limited libraries** — Only pre-bundled: React, Recharts, shadcn/ui, Tailwind, lucide-react, plus anything on cdnjs.cloudflare.com
-- **Storage requires publishing** — Persistent data only works on published artifacts
+- **No arbitrary external calls** — Can't `fetch()` any URL you like (the sandbox blocks it)
+- **Limited libraries** — Common ones (React, Tailwind, Recharts…) work; ask Claude before assuming others
+- **Storage is small and paid-plan only** — 20 MB, text only, Pro and above
 - **No backend** — No server-side code, databases, or authentication
 
-**Exception:** AI-powered artifacts can call Claude's API (see next section)
+**Exceptions:** artifacts can call Claude (next section) and connected apps like Slack or Asana (Pro and above)
 
 ---
 
@@ -293,23 +308,14 @@ Your P1 must have a **data persistence** requirement:
 
 Your artifact can **call Claude** directly:
 
-- No API keys needed — the sandbox intercepts the request
-- Uses your existing Claude plan limits
-- Enable in **Settings → Feature Preview → AI-powered artifacts**
+- **No API keys** — and no cost to you as the author
+- Usage counts against **each user's own plan limits**, not yours
+- New artifacts **ask the user's permission** the first time they call Claude
+- How to add it: **ask Claude to use Claude** — it writes the call for you
 
-```javascript
-const URL = "https://api.anthropic.com/v1/messages";
-const res = await fetch(URL, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 1024,
-    messages: [{ role: "user", content: prompt }]
-  })
-});
-const { content } = await res.json(); // content[0].text
-```
+> *"Add a smart search box: send the user's query and my item list to Claude, and show the matching items."*
+
+<small>The wiring Claude generates is an internal detail and has changed over time. Don't hand-copy a fetch URL or API helper from an old tutorial. Source: [What are artifacts → Artifacts that use Claude](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)</small>
 
 <!-- vertical -->
 
@@ -334,18 +340,17 @@ const { content } = await res.json(); // content[0].text
 async function aiSearch(query, items) {
   const prompt = `Given these items: ${JSON.stringify(items)}
     Find relevant to: "${query}". Return JSON indices.`;
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1024,
-      messages: [{ role: "user", content: prompt }]
-    })
-  });
-  return JSON.parse((await res.json()).content[0].text);
+  // askClaude() = the call Claude generates for your artifact
+  const text = await askClaude(prompt);
+  try {
+    return JSON.parse(text);          // e.g. [0, 3, 7]
+  } catch {
+    return keywordFallback(query, items);  // graceful fallback
+  }
 }
 ```
+
+> Your part is the **prompt design** and **parsing the reply**. Claude writes the call itself.
 
 <!-- vertical -->
 
@@ -355,7 +360,7 @@ async function aiSearch(query, items) {
 - **Handle loading states** -- API calls take time
 - **Cache results** -- Don't re-call for the same input
 - **Graceful fallback** -- What if the call fails?
-- **Rate awareness** -- Calls count against your plan
+- **Rate awareness** -- Calls count against each user's plan limits
 
 ---
 
@@ -445,8 +450,8 @@ Copy the error message and paste it to Claude:
 
 1. **Claude Projects** give your artifacts persistent context
 2. **Vision input** lets you go from sketch to prototype fast
-3. **Artifact storage** replaces standard `localStorage` (which is blocked)
-4. **AI-powered artifacts** let you call Claude from inside your app — no API keys needed
+3. **Artifact storage** is the documented way to persist data: 20 MB, text only, Pro and above, no publishing needed for new artifacts
+4. **AI-powered artifacts** let you call Claude from inside your app — no API keys, and each user's usage counts against their own plan
 5. **Iterative debugging** -- describe the problem, let Claude fix it
 
 <!-- vertical -->
@@ -493,9 +498,11 @@ Speed comes from **fast iteration**, not getting it right the first time.
 
 | Resource | URL |
 | ---------- | ----- |
-| Prototype AI-Powered Apps | [support.claude.com](https://support.claude.com/en/articles/11649438-prototype-ai-powered-apps-with-claude-artifacts) |
-| Claude-Powered Artifacts Announcement | [anthropic.com](https://www.anthropic.com/news/claude-powered-artifacts) |
-| Claude Artifacts Guide | [support.claude.com](https://support.claude.com/en/articles/11649427-use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code) |
+| What Are Artifacts? (current, post-Sept 16) | [support.claude.com](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) |
+| Publish and Share Artifacts | [support.claude.com](https://support.claude.com/en/articles/9547008-share-artifacts) |
+| Prototype AI-Powered Apps | [academy.claude.com](https://academy.claude.com/tutorials/prototype-ai-powered-apps-with-claude-artifacts) |
+| Claude-Powered Artifacts Announcement | [claude.com](https://claude.com/blog/claude-powered-artifacts) |
+| Claude Artifacts Guide | [academy.claude.com](https://academy.claude.com/tutorials/use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code) |
 
 <!-- vertical -->
 

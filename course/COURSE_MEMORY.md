@@ -629,7 +629,7 @@ the length tell (70–100% correct-is-longest) and should be fixed in order befo
 
 Three lessons from the same session:
 - **Canvas drifts from the repo silently.** The Week 4 Q2 and Week 6 Q8 fixes (commit
-  `be46145`) had never been pushed; Week 9/10 Q15 were changed to 2 points directly in Canvas
+  `089a86a`) had never been pushed; Week 9/10 Q15 were changed to 2 points directly in Canvas
   while the source said 1. Compare source and Canvas per question before publishing a quiz.
 - **A direct question edit does not refresh the quiz total.** Week 10 (both sections) and
   Week 9 (San Jose) still showed 21 points while their questions summed to 22; opening the

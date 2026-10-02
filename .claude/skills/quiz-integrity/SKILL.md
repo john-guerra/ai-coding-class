@@ -74,10 +74,13 @@ whose source has an indented `> ` line or a `**Correct:` marker
 (`find_answer_leaks`, tested by `TestAnswerLeaks`), so exit 0 also means no
 answers leak from the source.
 
-**Commit messages are public too.** `be46145` says which letter Week 6 Q8 was
-re-keyed to and why. Describe quiz fixes by defect type ("re-keyed a question
-the deck contradicted") and keep the letters and answer content in the
-gitignored key.
+**Commit messages are public too.** The Sept 15 fix to Week 6 Q8 (now
+`089a86a`) originally named the letter it was re-keyed to, and why. Its message
+was redacted on 2026-10-02 by rewriting history from Sept 15 onward, along with
+the feedback lines in the quiz files. Rewriting public history is costly: every
+hash changes, every clone has to reset, and forks and GitHub's caches keep the
+old commits. Describe quiz fixes by defect type ("re-keyed a question the deck
+contradicted") and keep the letters and answer content in the gitignored key.
 
 (The option parser in `verify-quizzes.py` still ignores `  > ` lines —
 `TestPerAnswerFeedbackIsInert` — so a stray one won't corrupt length ratios.

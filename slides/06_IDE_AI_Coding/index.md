@@ -92,6 +92,8 @@ Each harness builds on the last -- you don't stop using Claude Web when you star
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## How Context Changes Between Harnesses
 
 ![Context Pipelines: Claude Web vs IDE AI](images/context-comparison.svg) <!-- .element: style="max-height: 450px;" -->
@@ -146,7 +148,7 @@ You review, accept, or reject
 
 ## Life of a Completion
 
-![Life of a Completion](images/life-of-a-completion.png) <!-- .element: style="max-height: 400px;" -->
+![Life of a Completion](images/life-of-a-completion.png) <!-- .element: style="max-height: 360px;" -->
 
 Open tabs + editor data + vector DB → **prompt library** → **contextual filter** → LLM → completions shown to user
 
@@ -169,6 +171,8 @@ Open tabs + editor data + vector DB → **prompt library** → **contextual filt
 Different tools use different mixes of these strategies.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Fill-in-the-Middle (FIM)
 
@@ -195,8 +199,6 @@ Result: **~10% relative improvement** in suggestion acceptance rate.
 
 ## Indexing & Embeddings
 
-<!-- .slide: class="dense" -->
-
 **How the AI "knows" your whole project:**
 
 1. **On project open** -- Tool scans your codebase
@@ -206,6 +208,10 @@ Result: **~10% relative improvement** in suggestion acceptance rate.
 5. **Queries on demand** -- When you ask a question or trigger a suggestion, the tool searches this index for relevant context
 
 This is why first-open of a large project takes a moment -- the tool is building its mental map.
+
+<!-- vertical -->
+
+## Embeddings: 2025 Update
 
 > **2025 update:** GitHub's new embedding model delivers **37.6% better retrieval**, **8× smaller index**, and **2× throughput** — using Matryoshka Representation Learning for multi-granularity code embeddings.
 
@@ -223,9 +229,7 @@ The model receives a **prompt** assembled from:
 - Your explicit references (@ mentions)
 - Recent conversation history (in chat mode)
 
-**Total context is limited** -- typically 32K-200K tokens depending on the tool and model.
-
-Understanding this is the key to getting better results.
+**Total context is limited** -- typically 32K-200K tokens depending on the tool and model. Understanding this is the key to getting better results.
 
 ---
 
@@ -414,8 +418,6 @@ Same concept, different file names. The content is similar across all tools.
 
 <!-- vertical -->
 
-<!-- .slide: class="dense" -->
-
 ## What to Include
 
 **A good rules file covers:**
@@ -423,6 +425,10 @@ Same concept, different file names. The content is similar across all tools.
 - **Tech stack** -- "This project uses Next.js 14, TypeScript, Tailwind"
 - **Patterns** -- "Use server components by default, client components only when needed"
 - **Naming** -- "Use camelCase for variables, PascalCase for components"
+<!-- vertical -->
+
+## What to Include (cont.)
+
 - **Testing** -- "Write tests with Vitest, use Testing Library for components"
 - **Architecture** -- "API routes go in `/app/api/`, shared utilities in `/lib/`"
 - **Don'ts** -- "Never use `any` type. Never import from `@internal`."
@@ -551,6 +557,8 @@ All three are capable. We use **Antigravity** in this course, but the concepts t
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## P2 is a Pair Project
 
 **Starting this week, form pairs for Project 2.**
@@ -575,6 +583,10 @@ All three are capable. We use **Antigravity** in this course, but the concepts t
 - **Async standups** -- Daily/regular check-ins on progress and blockers
 - **PR-based code review** -- Every PR reviewed by your partner before merge
 - **Sprint review** -- Demo what you built, reflect on what to improve
+
+<!-- vertical -->
+
+## Scrum for Two: Who Sets Priorities?
 
 Both partners take turns driving priorities. Your **design thinking** and **mom test** skills from Weeks 2-4 feed directly into backlog prioritization -- real user feedback shapes what you build next.
 
@@ -605,6 +617,10 @@ Both partners take turns driving priorities. Your **design thinking** and **mom 
 ---
 
 # Looking Ahead
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Next Week: Agile/Scrum + Pair Workflow
 

@@ -106,7 +106,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 1. GitHub repository with full `.claude/` configuration (skills, hooks, agents, MCP)
 2. Deployed application (Vercel production URL)
 3. CI/CD pipeline (GitHub Actions, all stages passing)
-4. Technical blog post (team effort, published on Medium, dev.to, or similar)
+4. Technical blog post (pair effort, published on Medium, dev.to, or similar)
 5. Video demonstration (5-10 minutes, showcasing app + Claude Code workflow)
 6. Individual reflections (one per partner, 500 words)
 9. Showcase submission via Google Form (project name, URLs, thumbnail, video, blog)

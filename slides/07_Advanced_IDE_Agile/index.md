@@ -88,7 +88,7 @@ Agile gives you the _structure_, your partner gives you _accountability_, and AI
 - Agile gives you **short feedback loops** to course-correct
 - Perfect fit: sprints align with project milestones in this course
 
-**P2 requires 2+ documented sprints. P3 requires 3+.**
+**P2 requires 2+ documented sprints. P3 requires 2+.**
 
 <!-- vertical -->
 

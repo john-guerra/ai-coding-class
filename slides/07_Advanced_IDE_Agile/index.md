@@ -47,6 +47,8 @@ revealOptions:
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Recap: Week 6 Foundations
 
 **Last week you learned:**
@@ -161,6 +163,8 @@ For P2: Document your planning and retro in your README or project wiki. Partner
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## GitHub Projects = Sprint Board
 
 **GitHub Projects (Board view) gives you a Kanban board:**
@@ -177,14 +181,20 @@ For P2: Document your planning and retro in your README or project wiki. Partner
 
 <!-- vertical -->
 
-## Labels & Milestones for Sprint Tracking
+## Labels for Sprint Tracking
 
 **Labels** categorize work:
+
 - `feature` / `bug` / `chore` / `docs`
 - `priority: high` / `priority: low`
 - `sprint-1` / `sprint-2`
 
+<!-- vertical -->
+
+## Milestones for Sprint Tracking
+
 **Milestones** group issues into time-boxed sprints:
+
 - Create a milestone for each sprint with a due date
 - Assign issues to milestones during sprint planning
 - Track progress via the milestone's completion percentage
@@ -235,7 +245,12 @@ GitHub Issues:
 
 <!-- vertical -->
 
+<!-- .slide: class="dense" -->
+
 ## Sprint Planning: Picking Issues
+
+<div class="columns">
+<div class="column">
 
 **In sprint planning, you and your partner:**
 
@@ -245,12 +260,18 @@ GitHub Issues:
 4. **Assign each issue to one partner** -- clear ownership
 5. Assign them to the sprint milestone
 
+</div>
+<div class="column">
+
 **For Sprint 1 of P2**, aim for:
 
 - Core data model and API setup
 - 1-2 key features (login, main CRUD operation)
 - Basic test suite setup
 - Shared rules file established
+
+</div>
+</div>
 
 ---
 
@@ -259,6 +280,8 @@ GitHub Issues:
 > Professional workflow with AI assistance
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Branch-per-Issue Workflow
 
@@ -283,6 +306,8 @@ git push -u origin feature/42-add-login-page
 - `chore/63-update-dependencies`
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## PRs and AI-Assisted Review
 
@@ -322,7 +347,9 @@ git push -u origin feature/42-add-login-page
 | **Code Review** | Every PR reviewed by your partner | Pre-review via AI, human catches intent |
 | **Standups** | Async check-ins on progress & blockers | Summarize changes, draft standup notes |
 
-**When to pair vs. split work:**
+<!-- vertical -->
+
+## When to Pair vs. Split Work
 
 - **Pair (synchronous):** Complex features, architecture decisions, debugging hard issues
 - **Split (async):** Independent features with clear interfaces, tests, documentation
@@ -330,6 +357,8 @@ git push -u origin feature/42-add-login-page
 Your **design thinking** and **mom test** skills feed the backlog -- user feedback drives sprint priorities.
 
 <!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Splitting Work Without Conflicts
 
@@ -413,6 +442,10 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 ---
 
 # Looking Ahead
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
 
 ## Next Week: Advanced IDE AI Features
 

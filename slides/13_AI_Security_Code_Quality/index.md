@@ -690,7 +690,7 @@ Design a 5-task eval suite for one feature in your P3:
 
 **Weekly Quiz 14** -- Security, evals, and ethics
 
-**P3 Sprint 4** -- continue your team project
+**P3 Sprint 4** -- continue your pair project
 
 **Recommended:**
 - Run `npm audit` and `gitleaks detect` on your P3 repo

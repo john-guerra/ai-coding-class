@@ -64,7 +64,7 @@ revealOptions:
 - **P3 pair formation** -- form your pairs this week
 - **New tool, new mental model** -- Claude Code is fundamentally different from IDE chat
 
-P2 taught you pair workflow and IDE AI. P3 will push you into team-scale development with agentic tools.
+P2 taught you pair workflow and IDE AI. P3 will push you into production-scale development with agentic tools.
 
 ---
 

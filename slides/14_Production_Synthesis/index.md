@@ -945,12 +945,12 @@ P1: Individual Mastery
   Solo project, Claude Web artifact, AI features
   "Can I build something useful with AI?"
 
-P2: Team Development
+P2: Pair Development
   Pair project, IDE AI, Agile/Scrum, code review
   "Can I build with a partner and maintain quality?"
 
 P3: Production Responsibility
-  Team project, Claude Code, agents, CI/CD, deployment
+  Pair project, Claude Code, agents, CI/CD, deployment
   "Can I ship a production-quality application?"
 ```
 

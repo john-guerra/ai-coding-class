@@ -323,7 +323,7 @@ Students must submit a **single PDF/document** containing:
 
 **Objective:** Build production-grade deployed application demonstrating mastery of Claude Code extensibility (W10-W14)
 
-**Team Structure:** Pair project (2 students), pairs form in Week 9. Individual grades adjusted by peer evaluations (±10%).
+**Team Structure:** Pair project (2 students), pairs form in Week 9. Individual grades may be adjusted up to ±10% based on contribution balance. If commit history or PR reviews show significantly unbalanced work, the less-contributing partner's grade may be reduced.
 
 **Requirements:**
 - **Functional:**
@@ -347,10 +347,10 @@ Students must submit a **single PDF/document** containing:
   - **CI/CD (W14):** GitHub Actions — lint, typecheck, tests, E2E, security, AI review, preview, prod deploy
   - **Security (W13):** 4+ gates from 8-gate pipeline, OWASP in CLAUDE.md
 
-- **Team Process:**
-  - 3+ sprints documented (planning + retrospective each)
+- **Pair Process:**
+  - 2+ sprints documented (planning + retrospective each)
   - Branch-per-issue workflow, async standups (3+/sprint/partner)
-  - C.L.E.A.R. framework in PR reviews, peer evaluations
+  - C.L.E.A.R. framework in PR reviews
 
 **Deliverables:**
 1. GitHub repository with full `.claude/` configuration
@@ -367,12 +367,12 @@ Students must submit a **single PDF/document** containing:
 - Claude Code Mastery: 55 pts (skills, hooks, MCP, agents, CLAUDE.md, worktrees, C.L.E.A.R.)
 - Testing & TDD: 30 pts
 - CI/CD & Production: 35 pts
-- Team Process: 25 pts
+- Pair Process: 25 pts
 - Documentation & Demo: 15 pts
 
 **Bonus:** Property-based testing (+3), mutation testing (+3), Agent SDK feature (+4)
 
-**Note:** Individual grades adjusted by peer evaluations (±10%)
+**Note:** Individual grades may be adjusted up to ±10% based on contribution balance. If commit history or PR reviews show significantly unbalanced work, the less-contributing partner's grade may be reduced.
 
 ---
 
@@ -1236,7 +1236,7 @@ By course end, students will have:
 **Response:** Help scope down, identify MVP, create phases, adjust timeline if needed
 
 **Issue:** "Team conflict"
-**Response:** Mediate discussion, refer to team contract, adjust roles if necessary, peer eval consequences
+**Response:** Mediate discussion, refer to team contract, adjust roles if necessary, contribution-balance grade adjustment (±10%)
 
 **Issue:** "Struggling with quiz concepts"
 **Response:** Review session, additional resources, office hours, concept explanations

@@ -1105,7 +1105,7 @@ Build a set of **30-50 human-labeled examples**. Run your judge on the same set.
 
 **Weekly Quiz 11** -- Claude Code Workflows concepts
 
-**P3 Sprint 1** -- continue your team sprint
+**P3 Sprint 1** -- continue your pair sprint
 
 ---
 

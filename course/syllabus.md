@@ -303,7 +303,7 @@ This course REQUIRES AI tool use. Students must document usage, understand all c
 - Built as a pair (2 students), production-grade, demonstrating Claude Code mastery
 - Parallel agentic programming and custom extensibility (skills, hooks, MCP, agents)
 - CI/CD with AI PR review, security audit
-- 3+ sprints
+- 2+ sprints
 - 5–10 min video, live demo, blog
 
 # 7. The Three Harnesses

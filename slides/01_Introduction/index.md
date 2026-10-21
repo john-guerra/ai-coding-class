@@ -457,7 +457,7 @@ You will build **3 portfolio-worthy applications**:
 - Parallel agentic programming
 - CI/CD
 - Security audit
-- 3+ sprints
+- 2+ sprints
 
 ---
 

@@ -540,7 +540,7 @@ Build an agent that classifies input as "bug report," "feature request," or "que
 
 **Weekly Quiz 13** -- Agent Architectures & SDK concepts
 
-**P3 Sprint 3** -- continue your team project
+**P3 Sprint 3** -- continue your pair project
 
 **Recommended:**
 - Try at least one Agent SDK pattern from the lab

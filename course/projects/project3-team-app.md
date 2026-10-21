@@ -94,13 +94,12 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 - Security acceptance criteria in Definition of Done
 - OWASP top 10 awareness documented in CLAUDE.md
 
-### Team Process
-- 3+ sprints documented (sprint planning + retrospective each)
+### Pair Process
+- 2+ sprints documented (sprint planning + retrospective each)
 - GitHub Issues with acceptance criteria as testable specifications
 - Branch-per-issue workflow with PR reviews
 - Async standups (minimum 3 per sprint per partner)
 - C.L.E.A.R. framework applied in PR reviews
-- Peer evaluations
 
 ### Deliverables
 
@@ -122,7 +121,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 | **Claude Code Mastery** | 55 | Skills, hooks, MCP, agents, CLAUDE.md/memory, worktrees, C.L.E.A.R. |
 | **Testing & TDD** | 30 | TDD workflow, coverage, test pyramid |
 | **CI/CD & Production** | 35 | Pipeline stages, AI review, Vercel deploy, security gates |
-| **Team Process** | 25 | Sprints, PRs, C.L.E.A.R. reviews, async standups, peer evals |
+| **Pair Process** | 25 | Sprints, PRs, C.L.E.A.R. reviews, async standups |
 | **Documentation & Demo** | 15 | README, blog post, video demo, reflections |
 
 ### Application Quality Breakdown (40 pts)
@@ -161,14 +160,13 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 | AI PR review in CI | 10 | claude-code-action with structured output, actionable feedback | AI review configured, basic output | Partially configured | No AI review |
 | Security gates (4+) | 10 | 4+ gates (secrets, deps, SAST, criteria), OWASP in CLAUDE.md | 3 gates implemented | 2 gates | Fewer than 2 |
 
-### Team Process Breakdown (25 pts)
+### Pair Process Breakdown (25 pts)
 
 | Criterion | Pts | Excellent | Good | Satisfactory | Needs Improvement |
 |-----------|-----|-----------|------|--------------|-------------------|
-| Sprint process | 8 | 3+ sprints with planning + retrospectives, clear velocity | 3+ sprints documented, some gaps | Minimal sprint docs | No sprint documentation |
+| Sprint process | 10 | 2+ sprints with planning + retrospectives, clear velocity | 2+ sprints documented, some gaps | Minimal sprint docs | No sprint documentation |
 | GitHub workflow | 8 | Branch-per-issue, PRs reviewed, AI disclosure, 5+ PRs/partner | Branch workflow, some reviews | Basic branching | No structured workflow |
-| Async standups | 4 | 3+ standups per sprint per partner | Some standups documented | Minimal communication trail | No standups |
-| Peer evaluation | 5 | Thoughtful evaluation completed | Completed but minimal | Late submission | Not completed |
+| Async standups | 7 | 3+ standups per sprint per partner | Some standups documented | Minimal communication trail | No standups |
 
 ### Documentation & Demo Breakdown (15 pts)
 
@@ -179,7 +177,7 @@ _Writer/Reviewer Pattern + C.L.E.A.R. (W12):_
 | Video demo (5-10 min) | 6 | Polished video showing app + Claude Code workflow, clear narration, covers architecture and key decisions | Video present, covers main points | Video present but minimal | Missing |
 | Individual reflections | 3 | 500 words/partner, specific Claude Code insights, honest assessment | Meets word count, some reflection | Shallow or short | Missing |
 
-**Note:** Individual grades adjusted by peer evaluations (±10%)
+**Note:** Individual grades may be adjusted up to ±10% based on contribution balance. If commit history or PR reviews show significantly unbalanced work, the less-contributing partner's grade may be reduced.
 
 ### Bonus Opportunities (up to 10 extra points)
 - Property-based testing with fast-check (+3)

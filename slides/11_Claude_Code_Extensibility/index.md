@@ -874,7 +874,7 @@ After 15 minutes: review, resolve conflicts, merge.
 
 **Weekly Quiz 12** -- Claude Code Extensibility concepts
 
-**P3 Sprint 2** -- continue sprint work with your team
+**P3 Sprint 2** -- continue sprint work with your partner
 
 ---
 

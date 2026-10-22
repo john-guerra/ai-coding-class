@@ -163,9 +163,9 @@ All URLs have been verified as of January 2026.
 **IDE AI Tools**
 | Resource | Description | URL |
 |----------|-------------|-----|
-| Antigravity Docs (Getting Started) | Official setup and usage guide | https://antigravity.google/docs/get-started |
-| GitHub Copilot Guide | GitHub's AI coding assistant documentation | https://docs.github.com/copilot |
-| Cursor Documentation | Cursor IDE docs and features | https://docs.cursor.com |
+| Antigravity Docs: Rules | How rules files are discovered, scoped by directory, and combined into the prompt (`AGENTS.md`, `.agents/rules/`) | https://antigravity.google/docs/rules/ |
+| Using Plan Mode (GitHub Copilot) | How plan mode researches a task and drafts a plan you approve before any code changes | https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/use-copilot-agents/use-plan-mode |
+| Workspace Context (VS Code) | How the agent finds code: semantic search (`#codebase`) over a workspace index, text search, and grep | https://code.visualstudio.com/docs/agents/reference/workspace-context |
 | Adding Repository Custom Instructions in Your IDE (Copilot) | Repo-wide and path-specific (`applyTo`) instruction files in VS Code and other IDEs, and how they combine | https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/configure-custom-instructions/add-repository-instructions-in-your-ide |
 
 ### 📖 Recommended
@@ -174,6 +174,7 @@ All URLs have been verified as of January 2026.
 |----------|-------------|-----|
 | How GitHub Copilot Understands Your Code (GitHub Blog) | How Copilot uses context and retrieval to improve suggestions | https://github.blog/ai-and-ml/github-copilot/how-github-copilot-is-getting-better-at-understanding-your-code/ |
 | cursor.directory | Community-maintained rules files for various tech stacks | https://cursor.directory/ |
+| Cursor Docs: Rules | Cursor's project rules (`.cursor/rules`) and `AGENTS.md` | https://cursor.com/docs/context/rules |
 | OpenSSF Guide for AI Code Assistants | Security-focused best practices for AI coding tools | https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions |
 
 ---
@@ -185,9 +186,10 @@ All URLs have been verified as of January 2026.
 **Agile/Scrum**
 | Resource | Description | URL |
 |----------|-------------|-----|
-| The Scrum Guide (official) | Definitive guide to Scrum framework | https://scrumguides.org/ |
-| GitHub Projects Documentation | Setting up and using project boards | https://docs.github.com/en/issues/planning-and-tracking-with-projects |
-| GitHub Issues Documentation | Creating and managing issues | https://docs.github.com/en/issues |
+| The Scrum Guide (official) | Definitive guide to Scrum framework | https://scrumguides.org/scrum-guide.html |
+| Best Practices for Projects (GitHub) | Breaking down large issues, assigning owners, and keeping a project board current | https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects |
+| About Milestones (GitHub) | Grouping issues and PRs under a due date and tracking completion | https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones |
+| Linking a Pull Request to an Issue (GitHub) | Closing keywords (`Closes #N`) that link a PR and auto-close its issue | https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue |
 
 **Required Book**
 | Book | Author | Focus |
@@ -471,8 +473,8 @@ All URLs have been verified as of January 2026.
 | 2 | LLM Fundamentals | 3Blue1Brown videos, Jay Alammar guides |
 | 3 | Prompt Engineering | Prompting best practices (current models), prompt engineering docs, context windows |
 | 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
-| 6 | IDE-Centric AI Coding | Antigravity, Copilot, Cursor docs, OpenSSF guide |
-| 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects/Issues, Scrum book, pair workflow |
+| 6 | IDE-Centric AI Coding | Antigravity rules, Copilot plan mode + repo instructions, VS Code workspace context |
+| 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects best practices, milestones, PR linking, Scrum book |
 | 8 | Advanced IDE AI Features | MCP Specification, debugging guides, Antigravity advanced docs |
 | 9 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
 | 10 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), spec-driven development (best-practices, harness design, Böckeler), TDD frameworks, GitHub Actions, CI/CD |

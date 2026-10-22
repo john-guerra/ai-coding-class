@@ -19,7 +19,7 @@
 
 ## Quiz Instructions
 
-This quiz assesses your understanding of IDE AI coding concepts covered in Week 6 lectures and readings.
+This pre-class quiz assesses your understanding of IDE AI coding concepts from this week's required readings and Weeks 2–5.
 
 **Instructions:**
 - **Time Limit:** 10 minutes
@@ -28,14 +28,13 @@ This quiz assesses your understanding of IDE AI coding concepts covered in Week 
 
 **Topics Covered:**
 - IDE AI architecture pipeline (context collection, LLM inference)
-- Context collection strategies (cursor, open tabs, imports, embeddings)
+- Context collection strategies (cursor, open tabs, imports, semantic index)
 - Tab completion best practices
 - Interaction modes (suggestions, inline edit, chat, agent)
-- Autonomy modes (Ask, Write, Plan, Agent)
+- Plan mode vs. other autonomy modes
 - Agent mode risks and scope management
-- Rules files (.antigravityrules, .cursorrules)
-- Context hierarchy and priority
-- @ context references (@file, @codebase, @web, @git)
+- Rules files and scoped instruction files
+- @ context references
 - Transferable concepts across IDE AI tools
 
 **Academic Integrity:** This is an individual assessment. Do not use AI assistants to answer questions. Questions are designed to test your understanding, not your ability to look up answers.
@@ -53,21 +52,21 @@ This quiz assesses your understanding of IDE AI coding concepts covered in Week 
 
 In the IDE AI architecture pipeline, what happens immediately **AFTER** the editor extension collects context from your project?
 
-- A) The context is saved to a local database for future sessions
+- A) The context is written to a local database so later sessions can reuse it without calling the LLM
 - B) The assembled context is sent to an LLM, which returns a suggestion, edit, or chat response
-- C) The editor displays a diff for you to review before any AI processing
-- D) The extension fine-tunes the model on your codebase
+- C) The editor shows you a diff of the collected context to approve before any of it reaches the model
+- D) The extension fine-tunes a local copy of the model on the collected files, then uses that copy
 
 ---
 
-#### Q2: Context Collection — Embeddings (1 point)
+#### Q2: Context Collection — Semantic Index (1 point)
 **Type:** Multiple Choice
 
 Which context collection strategy allows the IDE AI tool to answer questions about files you have **never opened**, by finding semantically related code across your entire project?
 
-- A) Cursor context (lines around your cursor)
-- B) Open tabs (files currently visible in the editor)
-- C) Import graph (files connected by imports)
+- A) Cursor context (the lines just above and below your cursor)
+- B) Open tabs (the files currently open in your editor's tabs)
+- C) Import graph (files linked to the current one by imports)
 - D) Embeddings index (vector representations of code chunks)
 
 ---
@@ -77,10 +76,10 @@ Which context collection strategy allows the IDE AI tool to answer questions abo
 
 Which practice will **MOST** improve the quality of AI autocomplete suggestions?
 
-- A) Type as fast as possible so the AI sees more keystrokes
-- B) Write a descriptive function signature and a comment explaining intent before letting the AI complete the body
-- C) Accept every suggestion fully, then edit afterward
-- D) Close all other files to reduce distractions
+- A) Write a descriptive function signature and a comment explaining intent before letting the AI complete the body
+- B) Type quickly without pausing, since the model weights each prediction by how many recent keystrokes it has seen
+- C) Accept every suggestion in full and fix it afterward, since each acceptance retrains the model on your style
+- D) Leave no code below the cursor, since the model predicts best when it sees only the prefix and not a suffix
 
 ---
 
@@ -89,22 +88,22 @@ Which practice will **MOST** improve the quality of AI autocomplete suggestions?
 
 You have a working function but want to add null-input error handling to just that function. Which interaction mode is the best fit?
 
-- A) Suggestions (just type and wait for autocomplete)
-- B) Inline Edit — select the function, press Cmd+K, describe "add error handling for null input"
-- C) Chat Panel — ask "Can you add null checks?"
-- D) Agent Mode — let the AI plan and execute changes
+- A) Suggestions — put the cursor in the function body and keep typing until autocomplete adds the checks
+- B) Chat Panel — open the sidebar and ask "add error handling for null input" with the file attached
+- C) Inline Edit — select the function, press Cmd+K, describe "add error handling for null input"
+- D) Agent Mode — ask it to "add error handling for null input" and let it plan and apply the edits
 
 ---
 
-#### Q5: Four Autonomy Modes (1 point)
+#### Q5: Plan Mode (1 point)
 **Type:** Multiple Choice
 
-In which autonomy mode does the AI create a step-by-step outline of proposed changes and wait for your approval before modifying any files?
+You want the AI to research a database migration and lay out the steps it would take, with **no files changed** until you approve those steps. Which mode fits, and why?
 
-- A) Ask Mode
-- B) Write Mode
-- C) Agent Mode
-- D) Plan Mode
+- A) Plan mode — it researches with read-only tools and drafts a plan, then waits for your approval
+- B) Ask mode — it answers questions about the code, then applies the migration once you reply "go"
+- C) Agent mode — it plans and executes in one pass, and you review the full diff once it finishes
+- D) Write mode — it edits the files directly, then lists the steps it took so you can undo any you dislike
 
 ---
 
@@ -117,22 +116,22 @@ In which autonomy mode does the AI create a step-by-step outline of proposed cha
 
 You ask Agent mode to "refactor the authentication module to use JWT tokens." The AI modifies 12 files, installs two new npm packages, and updates environment variables. Three unrelated features break. What is the most likely root cause and best preventive practice?
 
-- A) The AI hallucinated the JWT implementation; use a lower temperature setting
-- B) Agent mode's changes cascaded across the project in ways hard to review; scope Agent tasks narrowly and review the plan before execution
-- C) The AI doesn't understand JWT; provide documentation in the chat
-- D) The new packages are incompatible; always lock package versions
+- A) The model sampled too randomly and hallucinated parts of the JWT flow; lower the temperature setting in the IDE before re-running the task
+- B) The model lacked JWT knowledge and guessed at the library's API; paste the JWT library docs into chat so it stops guessing on the next run
+- C) Agent mode's changes cascaded across the project in ways hard to review; scope Agent tasks narrowly and review the plan before execution
+- D) The new packages overwrote shared builds in node_modules, breaking other features; run a clean npm ci after every Agent run to restore them
 
 ---
 
 #### Q7: Rules Files — Deep Dive (2 points)
 **Type:** Multiple Choice
 
-Your team starts a Next.js/TypeScript/Tailwind project and creates an `.antigravityrules` file. Which **BEST** represents what should go in it, and why?
+Your team starts a Next.js/TypeScript/Tailwind project and creates the project's rules file for its IDE AI assistant. Which **BEST** represents what should go in it, and why?
 
-- A) A complete tutorial on Next.js, TypeScript, and Tailwind so the AI can learn these technologies
-- B) Tech stack, naming conventions, architectural patterns, testing requirements, and explicit "don'ts" — kept concise because it is injected into every prompt
-- C) Only the project name and a link to the README
-- D) A copy of your ESLint and Prettier config files
+- A) Just the project name and a README link — the AI follows the link on each request, so the README stays the single source of truth for all conventions
+- B) Full tutorials on Next.js, TypeScript, and Tailwind so the AI learns the stack — length doesn't matter, since the file is read only once when the project opens
+- C) A copy of your ESLint and Prettier configs — the AI parses them as its rules, and those configs already define every convention your team needs to follow
+- D) Tech stack, naming conventions, architectural patterns, testing requirements, and explicit "don'ts" — kept concise because it is injected into every prompt
 
 ---
 
@@ -153,22 +152,22 @@ Your repo already has a repo-wide `.github/copilot-instructions.md`. Its TypeScr
 
 You're debugging an auth bug that spans multiple files but you don't know which ones. Which `@` reference is the best **FIRST** step?
 
-- A) @file src/auth/login.ts — start with the login file
-- B) @codebase how is JWT authentication handled? — search the entire project semantically
-- C) @web JWT authentication best practices
-- D) @git recent changes to auth
+- A) @codebase how is JWT authentication handled? — search the entire project semantically
+- B) @file src/auth/login.ts — load the login file, where the app's auth requests enter
+- C) @web JWT authentication best practices — compare your code with known-good JWT patterns
+- D) @git recent changes to auth — @git indexes every file's contents, so it finds all auth code
 
 ---
 
 #### Q10: Transferable Concepts (2 points)
 **Type:** Multiple Choice
 
-A developer using Cursor with `.cursorrules` and Cmd+K switches to a job using GitHub Copilot. What must they **COMPLETELY** relearn vs. what transfers?
+A developer using Cursor with a project rules file and Cmd+K switches to a job using GitHub Copilot. What must they **COMPLETELY** relearn vs. what transfers?
 
-- A) They must relearn everything — each tool is fundamentally different
-- B) Core concepts (context hierarchy, rules files, interaction modes, autonomy levels) all transfer; they only need new keybindings and the Copilot-specific rules file location (.github/copilot-instructions.md)
-- C) Only tab completion transfers; inline editing and chat differ completely
-- D) Different AI models mean no prompting strategies will work
+- A) Almost everything — each tool trains its own model on its own rules format, so context strategies, rules files, interaction modes, and autonomy levels don't carry over between editors
+- B) Core concepts (context hierarchy, rules files, interaction modes, autonomy levels) transfer; mostly they need new keybindings, @-reference names, and the rules file location (.github/copilot-instructions.md)
+- C) Only tab completion transfers, since it is built into VS Code itself; inline edit, chat, agent mode, and rules files are proprietary to each vendor and have to be relearned from scratch
+- D) Prompting habits don't transfer: Copilot runs different models, and context written for one model's tokenizer degrades on another's, so they must relearn how to write signatures and comments
 
 ---
 

@@ -19,7 +19,7 @@
 
 ## Quiz Instructions
 
-This quiz assesses your understanding of Agile/Scrum methodology and pair workflows covered in Week 7 lectures and readings.
+This pre-class quiz assesses your understanding of Agile/Scrum methodology and pair workflows from this week's required readings (the Scrum Guide and GitHub's Projects and Issues docs) and the P2 material from Week 6.
 
 **Instructions:**
 - **Time Limit:** 15 minutes
@@ -27,20 +27,20 @@ This quiz assesses your understanding of Agile/Scrum methodology and pair workfl
 - **Attempts:** One attempt only
 
 **Topics Covered:**
-- Scrum roles (Product Owner, Scrum Master, Dev Team)
-- Sprint cycle and ceremonies (Planning, Standup, Review, Retro)
+- Scrum roles (Product Owner, Scrum Master, Developers)
+- Sprint cycle and events (Planning, Daily Scrum, Review, Retrospective)
 - Breaking PRDs into GitHub Issues
-- Issue sizing (1-4 hour rule)
+- Issue sizing (small, independently reviewable issues)
 - GitHub Projects board (Backlog, Todo, In Progress, In Review, Done)
 - Branch naming conventions
 - PR best practices (small PRs, issue linking)
-- Pair workflow (scrum for two, design thinking → backlog)
+- Pair workflow (scrum for two, user feedback → backlog)
 - When to pair vs. split work
 - Avoiding merge conflicts
-- Code review checklist
-- Async standups (Yesterday/Today/Blockers)
+- Code review
+- Async standups (an actionable plan toward the sprint goal)
 - Sprint planning and issue assignment
-- Milestones and labels
+- Milestones
 
 **Academic Integrity:** This is an individual assessment. Do not use AI assistants to answer questions. Questions are designed to test your understanding, not your ability to look up answers.
 
@@ -57,17 +57,17 @@ This quiz assesses your understanding of Agile/Scrum methodology and pair workfl
 
 In your P2 pair, one partner takes the Product Owner role for Sprint 1. What is the Product Owner's primary responsibility?
 
-- A) Writing the majority of the code for the sprint
-- B) Deciding what to build and prioritizing the backlog
-- C) Running the daily standups and removing blockers
-- D) Reviewing and merging all pull requests
+- A) Writing the majority of the code for the sprint's issues
+- B) Running the daily standups and removing team blockers
+- C) Deciding what to build and prioritizing the backlog
+- D) Reviewing and merging every pull request before release
 
 ---
 
 #### Q2: Sprint Cycle (1 point)
 **Type:** Multiple Choice
 
-What is the key insight of the sprint cycle in Scrum?
+Which statement best captures how a Scrum sprint is meant to work?
 
 - A) The team commits to a small, achievable set of work each sprint
 - B) The team should complete as many features as possible, even if some are partially done
@@ -91,12 +91,12 @@ Your P2 team just finished Sprint 1. You demo your working features to each othe
 #### Q4: Breaking PRD into Issues (2 points)
 **Type:** Multiple Choice
 
-Your PRD contains the user story: "As a user, I want to log in with email so that my data is saved across sessions." You need to break this into GitHub Issues. Which breakdown follows the course's recommended approach?
+Your PRD contains the user story: "As a user, I want to log in with email so that my data is saved across sessions." You need to break it into GitHub Issues for sprint planning. Which breakdown is best?
 
-- A) One issue: "#1 Implement login feature (feature)"
-- B) Five issues: "#1 Set up auth library (chore), #2 Create login page UI (feature), #3 Implement email/password endpoint (feature), #4 Add session persistence (feature), #5 Write login flow tests (chore)"
-- C) Two issues: "#1 Backend login (feature), #2 Frontend login (feature)"
-- D) Ten issues, one for each file that needs to be created or modified
+- A) One issue: "#1 Implement login feature (feature)" — a single issue keeps the story's acceptance criteria, UI, endpoint, and tests together so one partner owns it end to end
+- B) Two issues: "#1 Backend login: endpoint, sessions, and auth library (feature), #2 Frontend login: page UI and flow tests (feature)" — split at the API boundary so each partner owns one whole layer
+- C) Ten issues, one per file to be created or modified (e.g. "#1 LoginPage.tsx", "#2 auth.ts", "#3 session.ts"), so GitHub can auto-close each issue when a commit touches its file
+- D) Five issues: "#1 Set up auth library (chore), #2 Create login page UI (feature), #3 Implement email/password endpoint (feature), #4 Add session persistence (feature), #5 Write login flow tests (chore)"
 
 ---
 
@@ -105,10 +105,10 @@ Your PRD contains the user story: "As a user, I want to log in with email so tha
 
 During sprint planning for P2, your partner creates an issue titled "Build entire dashboard with charts, filters, search, and data export." What is the problem with this issue?
 
-- A) The issue title is too long
-- B) The issue is too large — it should be broken into smaller issues, each completable in 1-4 hours
-- C) Dashboard features should not be tracked as issues
-- D) The issue needs to be assigned to both partners
+- A) It lacks a sprint-1 label, so GitHub won't show it on the Projects board until a sprint label is added
+- B) Dashboard work belongs in the PRD, not in issues — issues should only track bugs found after a feature ships
+- C) It's too large — break it into smaller issues that can each be finished and reviewed on its own, ideally in a day or less
+- D) It must be assigned to both partners, since a feature this visible to users needs shared ownership and a joint review
 
 ---
 
@@ -121,22 +121,22 @@ During sprint planning for P2, your partner creates an issue titled "Build entir
 
 You're setting up your P2 GitHub Projects board. Your partner asks why you need columns beyond just "To Do" and "Done." What is the best explanation for using the full board layout (Backlog, Todo, In Progress, In Review, Done)?
 
-- A) More columns look more professional for grading
-- B) Each column represents a distinct workflow state, making it visible where work is stuck — especially useful for catching items waiting on code review
-- C) GitHub requires at least 5 columns to enable automation
-- D) The extra columns are only needed for teams of 4 or more
+- A) More columns make the board look more professional to graders, and the P2 Agile Process rubric awards points for each board column you use
+- B) GitHub Projects requires at least five columns before its built-in workflows, like auto-moving closed issues to Done, can be enabled
+- C) The extra columns only pay off for teams of four or more; in a pair, both partners already know each other's status, so To Do and Done suffice
+- D) Each column represents a distinct workflow state, making it visible where work is stuck — especially useful for catching items waiting on code review
 
 ---
 
 #### Q7: Branch Naming Convention (1 point)
 **Type:** Multiple Choice
 
-You're assigned issue #57 titled "Fix null avatar crash on profile page." Which branch name follows the course's naming convention?
+Your team names branches `type/issue#-short-description`, where type is `feature`, `fix`, or `chore`. You're assigned issue #57, "Fix null avatar crash on profile page." Which branch name follows the convention?
 
 - A) fix/57-null-avatar-crash
 - B) bugfix-null-avatar
 - C) john/profile-page-fix
-- D) feature/57-fix-null-avatar-crash
+- D) fix/null-avatar-crash-57
 
 ---
 
@@ -145,10 +145,10 @@ You're assigned issue #57 titled "Fix null avatar crash on profile page." Which 
 
 Your partner opens a PR with the description: "Made some changes to the auth system. LGTM?" The PR modifies 15 files across authentication, database, and the UI. What are the two biggest problems with this PR?
 
-- A) The PR is too large (spans multiple unrelated areas) and doesn't link to an issue with "Closes #N"
-- B) The PR title needs to be longer and more descriptive
-- C) The partner should have used AI to review the code before opening the PR
-- D) The PR should have been created from the main branch
+- A) The title needs to be longer, and the PR should target a release branch, not main, so it can't merge early
+- B) The PR is too large (spans multiple unrelated areas) and doesn't link to an issue with "Closes #N"
+- C) It touches auth, so it needs an instructor's review, and auth PRs must be squashed to one commit first
+- D) It was opened from a feature branch instead of main, and its commits don't @-mention the reviewing partner
 
 ---
 
@@ -157,10 +157,10 @@ Your partner opens a PR with the description: "Made some changes to the auth sys
 
 You and your P2 partner are starting Sprint 2. You have user feedback from mom test interviews suggesting users struggle with the onboarding flow. How should you incorporate this into your sprint planning?
 
-- A) Ignore user feedback and continue building features from your original PRD
-- B) Create GitHub Issues from the feedback, prioritize them in your sprint backlog, and assign ownership of each issue to one partner
-- C) Both partners should work on the same onboarding fix simultaneously to finish faster
-- D) File a single large issue called "Fix onboarding" and figure out the details as you code
+- A) Finish the original PRD first, since changing scope mid-project breaks the sprint commitment; log the feedback for after launch
+- B) Pull the onboarding fix in and have both partners code it at the same time on one shared branch so it ships before the sprint review
+- C) Create GitHub Issues from the feedback, prioritize them in your sprint backlog, and assign ownership of each issue to one partner
+- D) File one large "Fix onboarding" issue so the user's problem stays intact, then split it into tasks as you discover them while coding
 
 ---
 
@@ -169,10 +169,10 @@ You and your P2 partner are starting Sprint 2. You have user feedback from mom t
 
 You and your P2 partner have four tasks remaining in Sprint 2: (1) Design the database schema for a new feature, (2) Write unit tests for the login flow, (3) Debug a complex race condition in the API, (4) Add JSDoc comments to existing components. Which tasks should you pair on and which should you split?
 
-- A) Pair on all four — pairing is always better
-- B) Pair on the database schema design and the race condition debugging; split the tests and JSDoc comments
-- C) Split all four — splitting is faster for everything
-- D) Pair on tests and JSDoc; split the schema and race condition
+- A) Pair on the database schema design and the race condition debugging; split the tests and JSDoc comments
+- B) Pair on all four — Scrum expects a pair to work every sprint backlog issue together, so splitting breaks the process
+- C) Split all four — each partner's AI assistant acts as the second pair of eyes, so synchronous pairing adds little here
+- D) Pair on the tests and JSDoc so both partners learn the code; split the schema design and the race-condition debugging
 
 ---
 
@@ -185,34 +185,34 @@ You and your P2 partner have four tasks remaining in Sprint 2: (1) Design the da
 
 What is the most important practice for avoiding merge conflicts when two partners are working simultaneously?
 
-- A) Both partners should work on the main branch to stay in sync
-- B) Assign issues so partners never work on the same file, use feature branches, and merge frequently
-- C) One partner should finish all their work before the other starts
-- D) Use a real-time collaboration editor like Google Docs for code
+- A) Both partners commit directly to main and pull every few minutes, so neither copy can drift out of sync
+- B) One partner finishes all of their sprint issues before the other starts, so only one person has open changes
+- C) Turn on GitHub auto-merge for every PR, since it resolves conflicting lines by keeping the newer commit
+- D) Assign issues so partners never work on the same file, use feature branches, and merge frequently
 
 ---
 
 #### Q12: Code Review — What to Look For (1 point)
 **Type:** Multiple Choice
 
-Your partner submits a PR for a new user profile page. Which of the following should you check during your code review?
+Your partner submits a PR for a new user profile page. Which best describes what your code review should cover?
 
-- A) Only whether the code compiles and runs without errors
-- B) Whether it matches the issue's acceptance criteria, follows the rules file conventions, includes tests, and has no dead code
-- C) Only the visual appearance of the UI in the browser
-- D) Whether the AI generated the code correctly
+- A) Whether CI passes — a green build already proves the PR meets the acceptance criteria, so reading the diff is optional
+- B) Whether the UI looks right in the browser, since the profile page is visual and PR screenshots can stand in for reading the code
+- C) Whether it matches the issue's acceptance criteria, follows the rules file conventions, includes tests, and has no dead code
+- D) Whether the author's AI chat log is attached, since for AI-generated code reviewers grade the prompts rather than the diff
 
 ---
 
 #### Q13: Async Standups (2 points)
 **Type:** Multiple Choice
 
-Your P2 partner posts this async standup: "Working on stuff today. Should be done soon." What is wrong with this standup, and what format should they follow?
+Your P2 partner posts this async standup: "Working on stuff today. Should be done soon." What is wrong with it?
 
-- A) Nothing wrong — standups should be brief
-- B) It's too vague — standups should follow the Yesterday/Today/Blockers format with specific issue numbers
-- C) It should be longer — at least a full paragraph describing each task
-- D) Standups should only be done in person, not async
+- A) It's too vague — it gives you no actionable plan; name the issues being worked on, progress toward the sprint goal, and any blockers
+- B) Nothing — async standups exist to signal you're active, so any short check-in satisfies the P2 requirement
+- C) It's too short — a standup should be a full paragraph narrating each task so your partner can replay your day
+- D) It shouldn't be async — standups only count toward P2 when held live on a call, so text-only updates don't qualify
 
 ---
 
@@ -221,22 +221,22 @@ Your P2 partner posts this async standup: "Working on stuff today. Should be don
 
 You're starting Sprint 1 of P2. During sprint planning, your partner wants to assign every issue to both of you "so we both know what's happening." What is the problem with this approach, and what should you do instead?
 
-- A) There's no problem — shared ownership ensures accountability
+- A) No problem — co-assigning every issue gives shared ownership, and GitHub notifies both assignees so neither partner misses an update
 - B) Each issue should be assigned to one partner for clear ownership; use standups and the project board to keep both partners aware
-- C) Only the Product Owner should be assigned issues
-- D) Issues don't need assignees — just track them on the board
+- C) Only the Product Owner should hold assignees, since they prioritize the backlog; the Scrum Master reviews the PRs instead
+- D) Issues don't need assignees — the Projects board's In Progress column records who is working on each card automatically
 
 ---
 
-#### Q15: Milestones and Labels (1 point)
+#### Q15: Milestones (1 point)
 **Type:** Multiple Choice
 
 What is the purpose of creating GitHub Milestones for each sprint in your P2 project?
 
-- A) Milestones automatically deploy code when all issues are closed
-- B) Milestones group issues into time-boxed sprints with due dates, letting you track completion percentage
-- C) Milestones are required for GitHub to display the Projects board
-- D) Milestones prevent partners from editing each other's issues
+- A) Milestones auto-deploy the code once every issue in them is closed, so each sprint ships to production on its due date
+- B) GitHub only lets you create a Projects board once the repo has milestones, since the board's columns come from them
+- C) Milestones lock each sprint's issues so a partner can't edit or reassign the other's until the due date passes
+- D) Milestones group issues into time-boxed sprints with due dates, letting you track completion percentage
 
 ---
 

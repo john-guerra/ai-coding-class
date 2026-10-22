@@ -101,8 +101,8 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 | **2** | **Harness 1** | • Claude Web & Projects<br>• Artifacts & conversational coding<br>• Architecture planning with AI<br>• Requirements gathering workshop<br>• User story writing | Weekly Quiz 2 | **P1:** User research<br>PRD & user stories |
 | **3** | **Prompt Engineering** | • Effective prompt structure<br>• Few-shot learning<br>• System vs user prompts<br>• Iteration strategies<br>• Hands-on workshop | Weekly Quiz 3 | **P1:** Architecture<br>Begin prototyping |
 | **4** | **User Research & Prototyping** | • Mom Test & Design Thinking workshop<br>• Claude Web Artifacts for rapid prototyping<br>• User story writing<br>• PRD refinement | Weekly Quiz 4 | **P1:** User research complete<br>Prototyping |
-| **5** | **Harness 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic .antigravityrules<br>• **TDD Introduction** | **HW1 DUE (Mon Oct 5):** Prompt Pairs<br>**HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
-| **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (.antigravityrules, .cursorrules, etc.)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
+| **5** | **Harness 2 (Part 1)** | • Antigravity installation & setup<br>• Tab autocomplete<br>• Inline chat (Cmd+K)<br>• @ context references<br>• Basic AGENTS.md rules file<br>• **TDD Introduction** | **HW1 DUE (Mon Oct 5):** Prompt Pairs<br>**HW2 DUE:** Mom Test<br>Weekly Quiz 5 | **P1:** Sprint 1<br>Implementation begins |
+| **6** | **IDE-Centric AI Coding** | • **PROJECT 1 DUE**<br>• How IDE AI tools work (architecture pipeline, context collection, indexing)<br>• Code suggestions & tab completion<br>• Inline edit (Cmd+K) & chat panel<br>• Modes: Ask / Write / Agent / Plan<br>• Rules files (AGENTS.md, CLAUDE.md, tool-specific rules)<br>• @ context references<br>• Tool comparison (Antigravity vs Copilot vs Cursor)<br>• **P2 pair formation, Canvas groups** | **PROJECT 1 DUE** 🎯<br>Weekly Quiz 6 | **P1:** Final<br>**P2:** Starts, Form pairs |
 | **7** | **Agile/Scrum + Pair Workflow** | • Agile/Scrum crash course (roles, sprint cycle, ceremonies)<br>• GitHub as scrumboard (Issues, Projects board, labels, milestones)<br>• PRD → sprint backlog (revisiting Weeks 3-4)<br>• Branch-per-issue workflow & code review<br>• Pair workflow (scrum for two, design thinking → backlog)<br>• Partner code review workflow<br>• Async standups for pairs | Weekly Quiz 7 | **P2:** Sprint 1 |
 | **8** | **Advanced IDE AI Features** | • Agent memory & persistent context<br>• MCP servers (connecting AI to external tools)<br>• Browser mode<br>• Mockup-to-code<br>• Debugging with AI<br>• Shared rules files for pairs<br>• P2 sprint workflow | **HW3 DUE:** Context<br>Weekly Quiz 8 | **P2:** Sprint 2 |
 | **9** | **Claude Code Foundations** | • **PROJECT 2 DUE**<br>• How Claude Code works (agentic loop, built-in tools: Read, Edit, Bash, Glob, Grep, WebFetch)<br>• Installation & setup (CLI, VS Code, Desktop)<br>• CLAUDE.md deep dive (@imports, hierarchy, auto-memory, `/init`)<br>• Tool use system & permission model (allowlists, sandboxing)<br>• Context management (`/clear`, `/compact`, checkpoints, `--continue`, `--resume`)<br>• Thinking & planning modes (Plan mode, `Ctrl+G`, extended thinking)<br>• **P3 pair formation** | **PROJECT 2 DUE** 🎯<br>Weekly Quiz 9 | **P2:** Final<br>**P3:** Pair formation & Start |
@@ -146,7 +146,7 @@ Train master's level CS students to become Silicon Valley-ready software enginee
 - Tab autocomplete & partial accept
 - Inline edit (Cmd+K) & chat panel
 - Modes: Ask / Write / Agent / Plan
-- Rules files (.antigravityrules, .cursorrules, copilot-instructions.md)
+- Rules files (AGENTS.md, CLAUDE.md, .cursor/rules, copilot-instructions.md)
 - @ context references (@file, @folder, @docs, @codebase, @web)
 - Context hierarchy (rules > refs > file > tabs > index)
 - Agent memory & persistent project knowledge
@@ -452,7 +452,7 @@ Students must submit a **single PDF/document** containing:
 
 **Deliverables:**
 - GitHub repository link (with Project board, milestones, issues, rules file)
-- Rules file (`.antigravityrules` or equivalent, well-commented)
+- Rules file (`AGENTS.md`; older names still accepted; well-commented)
 - Before/after comparison (screenshots or code snippets)
 - Reflection document (1-2 pages)
 

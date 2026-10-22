@@ -33,7 +33,7 @@ Create a professional Agile workflow using GitHub Issues and Projects:
 
 ### 2. Create Rules / Instructions Files (35%)
 
-Create a comprehensive `.antigravityrules` (or `CLAUDE.md` / `.cursorrules`) file for your P2 project that includes:
+Create a comprehensive `AGENTS.md` file for your P2 project (older names such as `.antigravityrules`, `CLAUDE.md` or `.cursorrules` are still accepted) that includes:
 
 **Project Context:**
 - Tech stack and versions
@@ -85,7 +85,7 @@ Demonstrate that your rules file makes a measurable difference:
 Submit to Canvas:
 
 1. **GitHub repository link** — With Project board, milestones, issues, and rules file visible
-2. **Rules file** (`.antigravityrules` or equivalent) — In the project root, well-commented
+2. **Rules file** (`AGENTS.md`; older names still accepted) — In the project root, well-commented
 3. **Before/after comparison** — Screenshots or code snippets showing the same feature implemented with and without rules
 4. **Reflection document** (1-2 pages) — What you learned about context engineering for your own project
 

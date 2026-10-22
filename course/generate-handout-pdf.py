@@ -7,7 +7,7 @@ Usage:
     python course/generate-handout-pdf.py course/handouts/public-api-guide.md
 
 Options:
-    --subtitle "Custom Subtitle"   (default: "CS 7180 - Course Handout")
+    --subtitle "Custom Subtitle"   (default: "CS 6983 - Course Handout")
     --footer "Custom Footer"       (default: derived from document title)
     --output path/to/output.pdf    (default: same directory as input, .pdf extension)
 
@@ -240,7 +240,8 @@ def process_inline_formatting(text: str) -> str:
     text = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<i>\1</i>', text)
     # Inline code: `text` -> <font name="Courier">text</font>
     text = re.sub(r'`([^`]+)`', r'<font name="Courier" size="8">\1</font>', text)
-    # Links: [text](url) -> text
+    # Links: [text](url) -> clickable text (relative links have no target in a PDF, so keep just the text)
+    text = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'<link href="\2" color="#1F5FAD">\1</link>', text)
     text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)
     return text
 
@@ -331,9 +332,14 @@ def parse_markdown(md_content: str, styles, subtitle: str) -> list:
         # Bullet points
         if line.strip().startswith('- '):
             bullet_text = line.strip()[2:]
+            # Task-list items ("- [ ] ...") print an empty "[ ]" box instead of a bullet
+            marker = "\u2022"
+            if bullet_text.startswith('[ ] '):
+                bullet_text = bullet_text[4:]
+                marker = '<font name="Courier">[ ]</font>'
             bullet_text = process_inline_formatting(bullet_text)
             flowables.append(
-                Paragraph(f"\u2022 {bullet_text}", styles['BulletText'])
+                Paragraph(f"{marker} {bullet_text}", styles['BulletText'])
             )
             i += 1
             continue
@@ -416,8 +422,8 @@ def main():
         help='Path to the markdown file'
     )
     parser.add_argument(
-        '--subtitle', default='CS 7180 \u2014 Course Handout',
-        help='Subtitle shown below the document title (default: "CS 7180 - Course Handout")'
+        '--subtitle', default='CS 6983 \u2014 Course Handout',
+        help='Subtitle shown below the document title (default: "CS 6983 - Course Handout")'
     )
     parser.add_argument(
         '--footer', default=None,
@@ -444,10 +450,10 @@ def main():
         with open(md_path, 'r', encoding='utf-8') as f:
             for line in f:
                 if line.startswith('# '):
-                    footer_text = f"CS 7180: {line[2:].strip()}"
+                    footer_text = f"CS 6983: {line[2:].strip()}"
                     break
         if footer_text is None:
-            footer_text = "CS 7180: Course Handout"
+            footer_text = "CS 6983: Course Handout"
 
     print(f"Generating handout PDF from {md_path}...")
     generate_pdf(md_path, output_path, args.subtitle, footer_text)

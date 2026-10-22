@@ -51,7 +51,7 @@ Build a complete full-stack application as a pair, applying AI-assisted developm
 ### Pair Requirements
 
 - **Shared GitHub repo** with both partners having push access
-- **Shared rules file** (`.antigravityrules` or equivalent) maintained by both partners
+- **Shared rules file** (`AGENTS.md`; older names such as `.antigravityrules` are still accepted) maintained by both partners
 - **Branch-per-issue workflow** -- PRs reviewed by partner before merge
 - **Minimum 5 PR reviews per partner** (visible in GitHub)
 - Both partners must have **substantial commit history** (no single-partner projects)

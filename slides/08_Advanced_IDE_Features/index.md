@@ -488,7 +488,7 @@ The checklists get you started. The [P2 spec](https://github.com/john-guerra/ai-
 | **Features** | Auth (JWT or OAuth) · 3+ features · real-time updates or complex state · a public API |
 | **Testing** | Unit + integration + E2E, failing tests committed first |
 | **CI/CD** | Multi-stage pipeline · deploy previews · security scanning · automated deploy |
-| **Process** | 2+ sprints · planning + retros · 3+ standups per partner per sprint · 5+ PR reviews per partner · estimates |
+| **Process** | 2+ sprints, each a milestone with 5+ issues · planning + retros · 3+ standups per partner per sprint · 5+ PR reviews per partner · estimates |
 | **Docs** | README · OpenAPI docs · architecture + DB-schema diagrams · setup guide · 10-min demo video · contribution log · 300-word reflection each |
 
 ---

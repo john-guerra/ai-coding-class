@@ -181,8 +181,6 @@ Tokens up top for machines, prose below for judgment.
 3. **Prompt for implementation** -- "Build this UI using React and Tailwind CSS, following `DESIGN.md`"
 4. **Iterate** -- "Make the header sticky" / "Add responsive breakpoints"
 
-**AI image understanding** varies by tool. Claude and GPT-4o are strongest at interpreting designs.
-
 ---
 
 <!-- .slide: class="dense" -->

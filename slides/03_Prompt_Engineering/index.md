@@ -161,15 +161,24 @@ Examples: Similar to shadcn/ui form patterns.
 
 ## System vs User Prompts
 
+<div class="columns">
+<div class="column">
+
 **System prompt:**
 - Sets the AI's "personality" and rules
 - Persistent across the conversation
-- Used for `.cursorrules`, `.antigravityrules`
+- Used for `AGENTS.md`, `CLAUDE.md`
+
+</div>
+<div class="column">
 
 **User prompt:**
 - Your specific request
 - Changes each interaction
 - References the system context
+
+</div>
+</div>
 
 ```text
 [System] You are a TypeScript expert who writes clean code...

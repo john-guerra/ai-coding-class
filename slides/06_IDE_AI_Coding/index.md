@@ -166,7 +166,7 @@ Open tabs + editor data + vector DB → **prompt library** → **contextual filt
 | **Open tabs** | Files you have open | Related components |
 | **Import graph** | Files connected by imports | Dependencies of current file |
 | **Embeddings index** | Semantic search across project | "Find similar functions" |
-| **Rules files** | Your explicit instructions | `.antigravityrules`, `.cursorrules` |
+| **Rules files** | Your explicit instructions | `AGENTS.md`, `.cursor/rules/` |
 
 Different tools use different mixes of these strategies.
 
@@ -339,7 +339,7 @@ The chat panel sees your current file and can reference others with @ mentions.
 | **Agent** | High | Plans and executes multi-step tasks | Approve or stop the plan |
 | **Plan** | Guided | Creates a step-by-step plan first | Review plan before execution |
 
-**Antigravity** exposes these as Ask, Write, and Agent. **Cursor** calls them similarly.
+Each tool names and groups these differently -- **Copilot** offers ask, agent, and plan modes. Check your tool's docs.
 
 <!-- vertical -->
 
@@ -408,13 +408,13 @@ It answers: "How do we do things around here?"
 
 | Tool | File Name | Scope |
 | --- | --- | --- |
-| **Antigravity** | `.antigravityrules` | Project root |
-| **GitHub Copilot** | `.github/copilot-instructions.md` | Repository |
-| **Cursor** | `.cursorrules` | Project root |
+| **Antigravity** | `AGENTS.md`, `GEMINI.md`, `.agents/rules/` | Workspace + subdirectories |
+| **GitHub Copilot** | `.github/copilot-instructions.md`, `AGENTS.md` | Repository |
+| **Cursor** | `.cursor/rules/`, `AGENTS.md` | Project + subdirectories |
 | **Claude Code** | `CLAUDE.md` | Project root + subdirectories |
-| **Windsurf** | `.windsurfrules` | Project root |
+| **Windsurf** | `.devin/rules/`, `AGENTS.md` | Workspace + subdirectories |
 
-Same concept, different file names. The content is similar across all tools.
+Same concept, different file names -- but **`AGENTS.md` works in all the IDE tools above**. Use it as your shared rules file.
 
 <!-- vertical -->
 
@@ -454,11 +454,11 @@ Most IDE AI tools support **@ mentions** to pull specific context into the conve
 | `@file` | Includes a specific file | `@src/auth/login.ts` |
 | `@folder` | Includes files in a directory | `@src/components/` |
 | `@docs` | Searches official documentation | `@docs Next.js routing` |
-| `@codebase` | Searches your project index | `@codebase how is auth handled?` |
+| `#codebase` | Semantic search over your project | `#codebase how is auth handled?` |
 | `@web` | Searches the internet | `@web React 19 new features` |
 | `@git` | References git history | `@git recent changes to auth` |
 
-Not all tools support all references. Check your tool's docs.
+Not all tools support all references, and some use `#` instead of `@`. Check your tool's docs.
 
 <!-- vertical -->
 
@@ -541,8 +541,8 @@ This is why rules files and @ mentions are so powerful -- you control what the A
 
 | Feature | **Antigravity** | **GitHub Copilot** | **Cursor** |
 | --- | --- | --- | --- |
-| **Rules File** | `.antigravityrules` | `.github/copilot-instructions.md` | `.cursorrules` |
-| **@ References** | @file, @folder, @docs, @codebase, @web | @file, @workspace | @file, @folder, @docs, @codebase, @web, @git |
+| **Rules File** | `AGENTS.md` / `.agents/rules/` | `.github/copilot-instructions.md` / `AGENTS.md` | `.cursor/rules/` / `AGENTS.md` |
+| **Context References** | @file, @folder, @docs, @web | #codebase, files via Add Context | @file, @folder, @docs, @web, @git |
 | **Project Indexing** | Yes | Yes (workspace) | Yes |
 | **Price** | ~$20/mo | $10/mo (individual) | $20/mo (Pro) |
 | **Unique Strength** | Google ecosystem, Gemini integration | GitHub integration, broad adoption | Multi-model support, Composer UX |
@@ -566,7 +566,7 @@ All three are capable. We use **Antigravity** in this course, but the concepts t
 - **Find a partner** -- someone with complementary skills or interests
 - **Create a Canvas group** by end of Week 6 (one submission per pair)
 - **Set up a shared GitHub repo** -- both partners need push access
-- **Start your shared rules file** -- `.antigravityrules` with conventions you both agree on
+- **Start your shared rules file** -- `AGENTS.md` with conventions you both agree on
 
 **Why pairs?** Professional developers rarely work alone. Collaborating with a partner while using AI is a skill worth practicing.
 

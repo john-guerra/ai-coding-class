@@ -98,11 +98,18 @@ It doesn't remember:
 
 | Tool | Memory File | What to Include |
 | --- | --- | --- |
-| **Antigravity** | `.antigravityrules` | Project patterns, conventions, do's/don'ts |
+| **Antigravity** | `AGENTS.md` / `.agents/rules/` | Project patterns, conventions, do's/don'ts |
 | **Claude Code** | `CLAUDE.md` | Build commands, architecture, project context |
-| **Cursor** | `.cursorrules` | Same as above |
+| **Cursor** | `.cursor/rules/` / `AGENTS.md` | Same as above |
 
-**What makes a good memory file:**
+`AGENTS.md` is read by Antigravity, Cursor, Copilot, and Claude Code -- one file your whole pair's toolchain shares.
+
+<!-- vertical -->
+
+<!-- .slide: class="dense" -->
+
+## What Makes a Good Memory File
+
 
 - **Tech stack and versions** -- "Next.js 14, TypeScript 5, Tailwind"
 - **Architecture decisions** -- "Server components by default, client only for interactivity"
@@ -197,7 +204,7 @@ Useful for: "Does this match the Figma design?", "Why is the layout broken on mo
 
 1. **Design first** (Weeks 6-7) -- Use Claude Web Artifacts to create a quick mockup
 2. **Export/screenshot** the mockup
-3. **Feed to IDE AI** -- "Implement this design as a React component following @.antigravityrules"
+3. **Feed to IDE AI** -- "Implement this design as a React component following @AGENTS.md"
 4. **Iterate in code** -- Refine with inline edit and chat
 
 This bridges the gap between prototyping (Claude Web) and implementation (IDE AI).
@@ -265,7 +272,7 @@ Use the AI as your rubber duck:
 
 ## Evolving Rules as a Pair
 
-**Your `.antigravityrules` is the single source of truth** -- both partners contribute and maintain it.
+**Your `AGENTS.md` is the single source of truth** -- both partners contribute and maintain it.
 
 Example sections for a pair project:
 
@@ -292,7 +299,7 @@ Example sections for a pair project:
 
 - **Before starting P2:** Agree on initial rules together during sprint planning
 - **During development:** Update rules when you discover new patterns or pain points
-- **In code review:** Reference the rules file -- "This doesn't match our convention in `.antigravityrules` line 12"
+- **In code review:** Reference the rules file -- "This doesn't match our convention in `AGENTS.md` line 12"
 
 **Tip:** Commit rules file changes in their own PR so both partners can review and approve convention changes.
 
@@ -321,7 +328,7 @@ Every step is supported by the tools you've learned across Weeks 6-8.
 
 # What to Remember
 
-1. **Memory files are your most valuable context** -- invest time in `.antigravityrules` / `CLAUDE.md`.
+1. **Memory files are your most valuable context** -- invest time in `AGENTS.md` / `CLAUDE.md`.
 2. **MCP connects your AI to real data** -- databases, APIs, docs, and more.
 3. **Browser mode lets AI see your running app** -- powerful for UI debugging and validation.
 4. **Mockup-to-code bridges design and implementation** -- from Figma/sketch to working components.

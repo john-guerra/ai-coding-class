@@ -586,7 +586,7 @@ king - man + woman ≈ queen
 
 - "Find functions similar to this one"
 - "Search for authentication logic"
-- @codebase in Cursor uses this!
+- Semantic search (`#codebase` in VS Code Copilot) uses this!
 
 <!-- vertical -->
 
@@ -722,15 +722,15 @@ How much can models "remember"? (Claude: Sep 2026; others: Jan 2026)
 
 <!-- vertical -->
 
-## Under the Hood: Cursor
+## Under the Hood: An IDE Assistant (simplified)
 
 ```text
 [System Prompt]
 You are a helpful coding assistant...
-Here are the user's preferences from .cursorrules:
-{contents of .cursorrules}
+Here are the project's rules from AGENTS.md:
+{contents of AGENTS.md}
 
-[Context from @codebase or @file]
+[Context from #codebase search or @file]
 {relevant code snippets retrieved via RAG}
 
 [Current File]
@@ -744,14 +744,14 @@ Here are the user's preferences from .cursorrules:
 
 <!-- vertical -->
 
-## .cursorrules & Context
+## Rules Files & Context
 
-- `.cursorrules` = always-included instructions
-- `@file` = explicitly include specific files
-- `@codebase` = RAG search over your code
+- `AGENTS.md` = always-included instructions (Copilot, Cursor, Antigravity read it)
+- `@file` / `#file` = explicitly include specific files
+- `#codebase` = semantic (RAG) search over your code
 - These work by adding text to the prompt!
 
-**Example .cursorrules:**
+**Example AGENTS.md:**
 
 ```text
 Use TypeScript with strict mode
@@ -773,7 +773,7 @@ Write tests for new functions
 
 - Keep context focused and relevant
 - Use specific file references when possible
-- Update .cursorrules as patterns emerge
+- Update AGENTS.md as patterns emerge
 
 <!-- vertical -->
 
@@ -880,7 +880,7 @@ Write tests for new functions
 | --- | --- |
 | Everything is text | Prompt engineering (Week 3) |
 | Context matters | Context engineering (Week 9) |
-| RAG basics | .cursorrules, @codebase (Week 5-6) |
+| RAG basics | AGENTS.md, #codebase (Week 5-6) |
 | Hallucinations | Evaluation systems (Week 9-10) |
 | Testing as verification | TDD with AI (Week 5-6) |
 | Lazy teenager model | Why evals matter (Week 9) |

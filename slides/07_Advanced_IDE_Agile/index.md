@@ -169,13 +169,13 @@ For P2: Document your planning and retro in your README or project wiki. Partner
 
 **GitHub Projects (Board view) gives you a Kanban board:**
 
-| Backlog | Sprint Todo | In Progress | In Review | Done |
+| Backlog | Todo | In Progress | In Review | Done |
 | --- | --- | --- | --- | --- |
 | Future work | This sprint's work | Actively coding | PR open | Merged & deployed |
 
 **Setup:**
 1. Create a Project in your repo (Board layout)
-2. Add columns: Backlog, Todo, In Progress, Review, Done
+2. Add columns: Backlog, Todo, In Progress, In Review, Done
 3. Drag issues between columns as work progresses
 4. Filter by sprint milestone to see current sprint only
 
@@ -241,7 +241,7 @@ GitHub Issues:
   #5  Write login flow tests (chore)
 ```
 
-**Rule of thumb:** Each issue should be completable in 1-4 hours. If it's bigger, break it down further.
+**Rule of thumb:** 1-4 hours per issue; break bigger ones down. <small>(Scrum Guide: "one day or less.")</small>
 
 <!-- vertical -->
 
@@ -323,7 +323,7 @@ git push -u origin feature/42-add-login-page
 ```text
 "Review this diff for bugs, security issues, and style violations.
  Our project uses TypeScript, React, and follows the patterns in
- @.antigravityrules"
+ @AGENTS.md"
 ```
 
 ---
@@ -386,6 +386,8 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 🎯 Today: Finish auth endpoint, write tests for login flow
 🚧 Blockers: Waiting on partner's DB schema PR (#40) to merge
 ```
+
+Yesterday/Today/Blockers is one common format. What matters (Scrum Guide): progress toward the sprint goal and an actionable plan.
 
 **For P2:** At least 3 standups per sprint from each partner. These can be async messages.
 
@@ -451,7 +453,7 @@ Post in your shared channel (Slack DM, GitHub Discussion, or project wiki):
 
 **Week 8 -- Power features for your P2 sprint**
 
-- **Agent memory** -- Persistent project knowledge via `.antigravityrules` / `CLAUDE.md`
+- **Agent memory** -- Persistent project knowledge via `AGENTS.md` / `CLAUDE.md`
 - **MCP servers** -- Connecting your AI to external tools and data
 - **Browser mode & mockup-to-code** -- AI that sees your running app
 - **Debugging with AI** -- Error analysis, stack trace reading, rubber duck debugging

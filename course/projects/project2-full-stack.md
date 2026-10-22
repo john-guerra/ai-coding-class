@@ -51,13 +51,13 @@ Build a complete full-stack application as a pair, applying AI-assisted developm
 ### Pair Requirements
 
 - **Shared GitHub repo** with both partners having push access
-- **Shared rules file** (`.antigravityrules` or equivalent) maintained by both partners
+- **Shared rules file** (`AGENTS.md`; older names such as `.antigravityrules` are still accepted) maintained by both partners
 - **Branch-per-issue workflow** -- PRs reviewed by partner before merge
 - **Minimum 5 PR reviews per partner** (visible in GitHub)
 - Both partners must have **substantial commit history** (no single-partner projects)
 
 ### Agile Process
-- 2+ documented sprints
+- 2+ documented sprints, each tracked as a GitHub milestone (Sprint 1, Sprint 2, ...) with 5+ issues assigned to it
 - Sprint planning done jointly (both partners)
 - Partner standups (at least 3 per sprint from each partner)
 - Sprint retrospectives including partner feedback
@@ -114,7 +114,7 @@ Build a complete full-stack application as a pair, applying AI-assisted developm
 - Automated deployment: 5 pts
 
 ### Agile Process & Pair Workflow Breakdown (20 pts)
-- Sprint planning & retros: 5 pts
+- Sprint planning & retros (milestones with 5+ issues each): 5 pts
 - Partner standups (3+ per sprint each): 5 pts
 - PR reviews (5+ per partner): 4 pts
 - Contribution balance (both partners with substantial commits): 4 pts

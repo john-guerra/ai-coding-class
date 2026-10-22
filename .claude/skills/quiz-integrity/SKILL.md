@@ -51,7 +51,11 @@ Canvas disagreed with the repo for eleven days, and nothing in Canvas said so â€
 only the source file and the linter caught it. (The source was brought back in
 line on 2026-09-25.) Worse, the direct question edit did not refresh the
 quiz-level total: three of the four quizzes still showed 21 points while their
-questions summed to 22, so read the per-question points, not the quiz header. Fix the source first, re-verify,
+questions summed to 22, so read the per-question points, not the quiz header.
+A no-op `canvas_update_quiz` (resend the quiz's own title) makes Canvas recount
+the total; on 2026-10-22 that fixed all three, and the gradebook assignment
+followed. After any question-level push, re-list the quiz and check
+`points_possible`. Fix the source first, re-verify,
 then push to **both** Canvas sections (Oakland and San Jose have separate
 courses; a source fix pushed to only one still leaves the other silently
 wrong).

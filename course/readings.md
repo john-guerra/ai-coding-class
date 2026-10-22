@@ -207,6 +207,12 @@ All URLs have been verified as of January 2026.
 
 ## Week 8: Advanced IDE AI Features
 
+### 📋 Handout
+
+| Resource | Description | URL |
+|----------|-------------|-----|
+| Building P2 from Zero — Checklist | Step-by-step setup for your P2 repo (PDF: https://github.com/john-guerra/ai-coding-class/blob/main/course/handouts/p2-from-zero-checklist.pdf) | https://github.com/john-guerra/ai-coding-class/blob/main/course/handouts/p2-from-zero-checklist.md |
+
 ### 📚 Required
 
 | Resource | Description | URL |
@@ -476,7 +482,7 @@ All URLs have been verified as of January 2026.
 | 4-5 | Claude Web & Artifacts | Artifacts guide, context windows, Projects, Mom Test |
 | 6 | IDE-Centric AI Coding | Antigravity rules, Copilot plan mode + repo instructions, VS Code workspace context |
 | 7 | Agile/Scrum + Pair Workflow | Scrum Guide, GitHub Projects best practices, milestones, PR linking, Scrum book |
-| 8 | Advanced IDE AI Features | MCP intro + architecture, Antigravity browser docs, debugging guides |
+| 8 | Advanced IDE AI Features | P2 from Zero handout, MCP intro + architecture, Antigravity browser docs, debugging guides |
 | 9 | Claude Code Foundations | Claude Code docs, Skilljar (Intro, Setup, Context), CLAUDE.md, context management |
 | 10 | Claude Code Workflows & Dev Practices | Skilljar (Custom Commands, GitHub), spec-driven development (best-practices, harness design, Böckeler), TDD frameworks, GitHub Actions, CI/CD |
 | 11 | Claude Code Extensibility | Skilljar (MCP, Hooks, SDK), Skills, Hooks, MCP, Sub-agents |

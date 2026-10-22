@@ -247,11 +247,16 @@
 /* Two-column layout */
 .columns {
   display: flex;
-  gap: 2em;
+  gap: 1em;
 }
 
 .columns .column {
   flex: 1;
+}
+
+/* Half-width columns wrap hard; shrink slightly (keeps .small columns at 0.7em) */
+.reveal .columns .column:not(.small) {
+  font-size: 0.9em;
 }
 
 .columns .column:first-child {

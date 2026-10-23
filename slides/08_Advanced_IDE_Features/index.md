@@ -443,9 +443,7 @@ Use the AI as your rubber duck:
 - [ ] One health-check URL that proves the app _and_ the database are up
 - [ ] README: live URL, run locally, deploy steps
 
-Deploy the empty starter on day one -- [vis-paper-planner](https://vis-paper-planner.vercel.app) did -- so deploying is never the risky last step.
-
-**See it:** [deploy notes](https://github.com/john-guerra/vis-paper-planner/blob/step-7-deploy/docs/deploy.md)
+Deploy the empty starter on day one ([vis-paper-planner](https://vis-paper-planner.vercel.app) did). **See it:** [deploy notes](https://github.com/john-guerra/vis-paper-planner/blob/step-7-deploy/docs/deploy.md)
 
 <!-- vertical -->
 

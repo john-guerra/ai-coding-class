@@ -124,7 +124,7 @@ p2-your-app/
 - [ ] Every user story has acceptance criteria you could write a test for
 - [ ] Stack picked from the P2 list: React/Next.js + Tailwind, Express or Next.js API routes, PostgreSQL or MongoDB, JWT or OAuth
 
-**See it:** [PRD](https://github.com/john-guerra/vis-paper-planner/blob/main/project_memory/PRD.md) · [Mom Test summary](https://github.com/john-guerra/vis-paper-planner/blob/main/project_memory/mom_test_summary.md)
+**See it:** [PRD](https://github.com/john-guerra/vis-paper-planner/blob/step-1-plan/docs/prd.md) · [Mom Test summary](https://github.com/john-guerra/vis-paper-planner/blob/step-1-plan/docs/research/mom-test-summary.md) · [idea snapshot](https://github.com/john-guerra/vis-paper-planner/tree/step-0-idea)
 
 ---
 
@@ -140,7 +140,7 @@ p2-your-app/
 
 Format: [Google Labs DESIGN.md spec](https://github.com/google-labs-code/design.md) (alpha, open source). It loads like any context file, so keep it short.
 
-**See it:** [mockup](https://github.com/john-guerra/vis-paper-planner/blob/main/project_memory/mockup.png)
+**See it:** [DESIGN.md](https://github.com/john-guerra/vis-paper-planner/blob/step-2-design/DESIGN.md) · [mockup](https://github.com/john-guerra/vis-paper-planner/blob/step-2-design/docs/design/mockup.png)
 
 <!-- vertical -->
 
@@ -196,7 +196,7 @@ Tokens up top for machines, prose below for judgment.
 
 `AGENTS.md` counts as your shared rules file for HW3 and P2.
 
-**See it:** [AGENTS.md](https://github.com/john-guerra/vis-paper-planner/blob/main/AGENTS.md) <small>(good content; today you'd drop its symlink and frontmatter)</small>
+**See it:** [AGENTS.md](https://github.com/john-guerra/vis-paper-planner/blob/step-3-rules/AGENTS.md) <small>(one shared file; <code>CLAUDE.md</code> just imports it)</small>
 
 <!-- vertical -->
 
@@ -287,7 +287,7 @@ Think of it as onboarding docs that your AI reads before every interaction.
 - [ ] PR template: `Closes #N`, how it was tested, partner-review checkbox
 - [ ] Per issue: branch → implement in Agent mode → self-review with AI → PR → partner review → merge → Done
 
-**See it:** [Sprint 1 milestone and issues](https://github.com/john-guerra/vis-paper-planner/milestones)
+**See it:** [Sprint 1 milestone and issues](https://github.com/john-guerra/vis-paper-planner/milestone/1) · [sprint docs](https://github.com/john-guerra/vis-paper-planner/tree/step-4-board/docs/sprints/sprint-1)
 
 ---
 
@@ -304,7 +304,7 @@ Think of it as onboarding docs that your AI reads before every interaction.
 
 Set this up **before** the first feature: a red CI run on day one is cheap; on day ten it is a week of debugging.
 
-**See it:** [pre-commit hook](https://github.com/john-guerra/vis-paper-planner/blob/main/.husky/pre-commit)
+**See it:** [CI workflow](https://github.com/john-guerra/vis-paper-planner/blob/step-5-ci/.github/workflows/ci.yml) · [pre-commit hook](https://github.com/john-guerra/vis-paper-planner/blob/step-5-ci/.husky/pre-commit)
 
 ---
 
@@ -321,6 +321,8 @@ Set this up **before** the first feature: a red CI run on day one is cheap; on d
 - [ ] The page checked against the mockup in browser mode
 
 Two tools help most here: **MCP** to read the real schema, and **browser mode** to see the real page.
+
+**See it:** [test-first commits](https://github.com/john-guerra/vis-paper-planner/compare/step-5-ci...step-6-slice)
 
 <!-- vertical -->
 
@@ -442,6 +444,8 @@ Use the AI as your rubber duck:
 - [ ] README: live URL, run locally, deploy steps
 
 Deploy the empty starter on day one -- [vis-paper-planner](https://vis-paper-planner.vercel.app) did -- so deploying is never the risky last step.
+
+**See it:** [deploy notes](https://github.com/john-guerra/vis-paper-planner/blob/step-7-deploy/docs/deploy.md)
 
 <!-- vertical -->
 
